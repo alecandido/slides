@@ -6,9 +6,12 @@ Use this script to build the presentation release:
 - release into `my-reveal/build`
 """
 import logging
+import logging.config
 
 
 def main():
+    logging.config.fileConfig("logging.conf")
+
     logger = logging.getLogger("make.build")
 
 

@@ -11,9 +11,12 @@ For a live update run:
 
 """
 import logging
+import logging.config
 
 
 def main():
+    logging.config.fileConfig("logging.conf")
+
     logger = logging.getLogger("make.preview")
 
 

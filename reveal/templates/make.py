@@ -10,9 +10,12 @@ import pathlib
 import shutil
 import json
 import logging
+import logging.config
 
 
 def main():
+    logging.config.fileConfig("logging.conf")
+
     logger = logging.getLogger("make")
 
     here = pathlib.Path(__file__).resolve().parent
@@ -22,7 +25,13 @@ def main():
     # make a copy
     # -----------
 
-    shutil.copytree(here / "reveal.js", my_reveal, dirs_exist_ok=True)
+    shutil.rmtree(my_reveal, ignore_errors=True)
+    shutil.copytree(
+        here / "reveal.js",
+        my_reveal,
+        dirs_exist_ok=True,
+        ignore=shutil.ignore_patterns(".git", ".github"),
+    )
 
     # update package.json
     # -------------------

@@ -36,7 +36,7 @@ def main():
     # ------------------------------------------
 
     here = pathlib.Path(__file__).resolve().parent
-    shutil.rmtree(here / "my-reveal")
+    shutil.rmtree(here / "my-reveal", ignore_errors=True)
 
     os.system("git submodule update")
     make.main()
