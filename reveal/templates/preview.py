@@ -10,3 +10,12 @@ For a live update run:
     watch -n1 make preview
 
 """
+import logging
+
+
+def main():
+    logger = logging.getLogger("make.preview")
+
+
+if __name__ == "__main__":
+    main()
