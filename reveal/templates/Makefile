@@ -19,7 +19,7 @@ BUILD_OUT := $(wildcard my-reveal/build/*)
 
 all: preview
 
-.PHONY: all framework preview build inflate
+.PHONY: all framework view preview build inflate
 
 # checkout custom framework
 # =========================
@@ -28,6 +28,11 @@ framework: | $(REVEAL) $(STRUCTURES) $(REVEAL) $(MISC)
 	git submodule update
 	python3 make.py
 
+# show the current presentation
+# =============================
+
+view:
+	$(BROWSER) my-reveal/index.html
 
 # build a presentation preview
 # ============================
