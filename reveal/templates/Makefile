@@ -48,13 +48,12 @@ preview: $(PREVIEW_OUT)
 # build a presentation release
 # ============================
 
-$(BUILD_OUT): $(SLIDES_SRC)
-	python3 make-scripts/build.py
+#$(BUILD_OUT): $(SLIDES_SRC)
+	#python3 make-scripts/build.py
 
 build: $(BUILD_OUT)
+	python3 make-scripts/build.py
 	@echo "Build finished!"
-	#tar gzip my-reveal/build-tmp in my-reveal/build
-	#delete my-reveal/build-tmp
 
 
 # inflate back a presentation
