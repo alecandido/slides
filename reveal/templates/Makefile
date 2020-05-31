@@ -63,3 +63,13 @@ build: $(BUILD_OUT)
 
 inflate:
 	python3 make-scripts/inflate.py
+
+# src checkpoint
+# ==============
+
+checkpoint:
+	tar cvzf checkpoint.tar.gz my-reveal/src
+
+restore:
+	tar xvzf checkpoint.tar.gz my-reveal/src
+	rm -f checkpoint.tar.gz
