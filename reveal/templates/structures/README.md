@@ -8,5 +8,7 @@ The main goals are:
     instead is built by jinja
 
 ## Organization
-Each folder will contain the structure template with jinja syntax and a
-configuration file in yaml to be read with variables configuration
+Each folder will contain:
+- `template.html`: the structure template with jinja syntax
+- `structure.yaml`: a configuration file to be read with variables configuration
+    and further data used in template compile process
