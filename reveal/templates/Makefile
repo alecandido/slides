@@ -32,13 +32,13 @@ framework: | $(REVEAL) $(STRUCTURES) $(REVEAL) $(MISC)
 # =============================
 
 view:
-	$(BROWSER) my-reveal/index.html
+	#$(BROWSER) my-reveal/index.html
+	python3 make-scripts/view.py
 
 # build a presentation preview
 # ============================
 
 $(PREVIEW_OUT): $(SLIDES_SRC)
-	@echo ciao
 	python3 make-scripts/preview.py
 
 preview: $(PREVIEW_OUT)
@@ -58,8 +58,8 @@ build: $(BUILD_OUT)
 
 
 # inflate back a presentation
+# ===========================
 # erasing the current environment
-# ===============================
 
 inflate:
 	python3 make-scripts/inflate.py

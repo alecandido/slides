@@ -6,4 +6,4 @@ title = "test"
 name = "split-html-only"
 
 [theme]
-name = ""
+name = "black.css"

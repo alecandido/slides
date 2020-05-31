@@ -2,6 +2,7 @@
 #
 # make management
 click
+httpwatcher
 # configs
 toml
 # templates

@@ -64,8 +64,6 @@ def main(here, root):
     with open(presentation_toml) as f:
         configs = toml.load(f)
 
-    __import__("pprint").pprint(configs)
-
     shutil.copy2(presentation_toml, my_reveal)
 
     # add structures
@@ -105,11 +103,63 @@ def main(here, root):
     # add themes
     # ----------
 
-    # MISSING
+    themes = root / "themes"
+    reveal_themes = my_reveal / "dist/theme"
+
+    # TODO replaceable_themes should not be hardcoded
+    replaceable_themes = [
+        "beige",
+        "black",
+        "blood",
+        "league",
+        "moon",
+        "night",
+        "serif",
+        "simple",
+        "sky",
+        "solarized",
+        "white",
+    ]
+
+    for theme in reveal_themes.glob("*.css"):
+        dst = themes / theme.name
+        if not dst.is_file() or (
+            theme.stem in replaceable_themes
+            or click.confirm(
+                f"Do you want to replace theme '{theme.name}'?", default=False
+            )
+        ):
+            shutil.move(theme, dst)
+
+    shutil.copytree(reveal_themes / "fonts", reveal_themes / ".." / "fonts")
+    shutil.rmtree(reveal_themes, ignore_errors=True)
+
+    shutil.copy2(themes / configs["theme"]["name"], my_reveal / "dist" / "theme.css")
+
+    # clean up
+    # --------
+    # remove unneeded files from original repo
+
+    # TODO unneeded_dirs and unneeded_files should not be hardcoded
+    unneeded_dirs = ["css", "examples", "js", "test"]
+    unneeded_files = [
+        "CONTRIBUTING.md",
+        "demo.html",
+        "index.html",
+        "LICENSE",
+        "package-lock.json",
+        "README.md",
+    ]
+
+    for d in unneeded_dirs:
+        shutil.rmtree(my_reveal / d, ignore_errors=True)
+    for f in unneeded_files:
+        (my_reveal / f).unlink(missing_ok=True)
 
 
 if __name__ == "__main__":
     here = pathlib.Path(__file__).resolve().parent
     root = here / ".."
 
+    print()
     main(here, root)

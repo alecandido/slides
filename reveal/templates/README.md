@@ -30,3 +30,6 @@ Use the build script, it will provide a folder containing:
 - the `main.css` bundle generated someway (`sass`)
 - a tar gzipped archive, made with all the source used to produce that
     presentation (contained in the `src` folder of the framework)
+
+### Live preview
+Run `watch -n1 make`, currently the only thing that is built is the `html`.
