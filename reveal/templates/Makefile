@@ -32,14 +32,14 @@ framework: | $(REVEAL) $(STRUCTURES) $(REVEAL) $(MISC)
 # =============================
 
 view:
-	#$(BROWSER) my-reveal/index.html
-	python3 make-scripts/view.py
+	$(BROWSER) my-reveal/index.html
 
 # build a presentation preview
 # ============================
 
 $(PREVIEW_OUT): $(SLIDES_SRC)
 	python3 make-scripts/preview.py
+	nohup python3 make-scripts/view.py > /dev/null 2>&1 &
 
 preview: $(PREVIEW_OUT)
 	@echo "Preview updated!"

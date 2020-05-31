@@ -22,7 +22,8 @@ def main(here):
 
     slides_dir = here / "src" / "slides"
     slides = []
-    for slide_path in slides_dir.glob("*"):
+    slides_paths = sorted(list(slides_dir.glob("*")))
+    for slide_path in slides_paths:
         with open(slide_path) as f:
             metadata, content = frontmatter.parse(f.read())
 
