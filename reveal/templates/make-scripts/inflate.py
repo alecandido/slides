@@ -14,8 +14,8 @@ import click
 import make
 
 
-def main():
-    logging.config.fileConfig("logging.conf")
+def main(here, root):
+    logging.config.fileConfig(here / "logging.conf")
 
     logger = logging.getLogger("make.inflate")
     # logger.setLevel(100)
@@ -35,8 +35,7 @@ def main():
     # checkout a brand new instance of my-reveal
     # ------------------------------------------
 
-    here = pathlib.Path(__file__).resolve().parent
-    shutil.rmtree(here / "my-reveal", ignore_errors=True)
+    shutil.rmtree(root / "my-reveal", ignore_errors=True)
 
     os.system("git submodule update")
     make.main()
@@ -48,4 +47,7 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    here = pathlib.Path(__file__).resolve().parent
+    root = here / ".."
+
+    main(here, root)

@@ -1,0 +1,4 @@
+# file to be used by `pip install -r`
+#
+# additional requirements for this layout
+python-frontmatter

@@ -12,22 +12,23 @@ import json
 import logging
 import logging.config
 
+import toml
 
-def main():
-    logging.config.fileConfig("logging.conf")
+
+def main(here, root):
+    logging.config.fileConfig(here / "logging.conf")
 
     logger = logging.getLogger("make")
 
-    here = pathlib.Path(__file__).resolve().parent
-    misc = here / "misc"
-    my_reveal = here / "my-reveal"
+    misc = root / "misc"
+    my_reveal = root / "my-reveal"
 
     # make a copy
     # -----------
 
     shutil.rmtree(my_reveal, ignore_errors=True)
     shutil.copytree(
-        here / "reveal.js",
+        root / "reveal.js",
         my_reveal,
         dirs_exist_ok=True,
         ignore=shutil.ignore_patterns(".git", ".github"),
@@ -52,6 +53,18 @@ def main():
     with open(package_json, "w") as f:
         json.dump(package_json_content, f, indent=2)
 
+    # load and add configs
+    # --------------------
+
+    presentation_toml = "presentation.toml"
+
+    with open(presentation_toml) as f:
+        configs = toml.load(f)
+
+    __import__("pprint").pprint(configs)
+
+    shutil.copy2(presentation_toml, my_reveal)
+
     # add structures
     # --------------
 
@@ -69,4 +82,7 @@ def main():
 
 
 if __name__ == "__main__":
-    main()
+    here = pathlib.Path(__file__).resolve().parent
+    root = here / ".."
+
+    main(here, root)

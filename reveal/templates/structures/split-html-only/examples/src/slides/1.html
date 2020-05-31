@@ -1,0 +1,58 @@
+---
+example: example
+---
+
+<section data-state="section3">
+  <h2 style="margin-bottom: -0.2em">Monte Carlo upgrade <p>Move 22</p></h2> <!-- or upgraded -->
+  <p>To <i>maximize the acceptance</i> the move is done minimizing the
+    "distance" between the initial and final configuration.</p>
+  <img width="600" style="border: 0; box-shadow:none; background: rgba(0, 0, 0, 0);"
+   alt="" align="middle" data-src="assets/section3/move22.svg" >
+  <p>A <em>gauge transformation</em> is done before to put the central
+    link to $\mathbb{1}$.</p>
+  <p><i>Note:</i> In order to be invertible a further <i>randomization</i> is performed.</p>
+  <aside class="notes">
+    Dato che non c'è un modo chiaro in cui identificare i gradi di libertà
+    con le classi di gauge la mossa inversa deve riportare nella stessa
+    configurazione le variabili di link.<br>
+    Dato che scegliamo di metterne una a 1 e ci resta fino in fondo senza
+    randomizzazione finale non ci sarebbe l'inversa.
+    <br><br>
+    Ovviamente la nuova acceptance tiene di conto il contributo del nuovo
+    termine di azione.
+  </aside>
+</section>
+<section data-state="section3">
+  <h2 style="margin-bottom: -0.2em">Monte Carlo upgrade <p>Test</p></h2>
+  <div class="box">
+    <p style="flex-basis: 50%">We did a huge amount of <em>tests</em> to check that
+      the algorithm were <i>consistent</i>.
+      <br> <br>
+      Such tests were needed because we <i>missed</i> the results of
+      <em>another implementation</em> of the model to compare with.</p>
+    <div style="flex-basis: 60%">
+      <img width="500" style="border: 0; margin: 0; box-shadow:none; background: rgba(0, 0, 0, 0);"
+       alt="" align="middle" data-src="assets/section3/hb_metr4__.png" >
+      <p style="text-align: center">&darr;</p>
+      <img width="500" style="border: 0; margin: 10 0 0 0; box-shadow:none; background: rgba(0, 0, 0, 0);"
+       alt="" align="middle" data-src="assets/section3/22symm1__.png" >
+    </div>
+  </div>
+  <aside class="notes">
+  </aside>
+</section>
+<section data-state="section3">
+  <h2 style="margin-bottom: -0.2em">Monte Carlo upgrade <p>Test</p></h2>
+  <p>Some of the tests we made are:</p>
+  <ul style="margin: 0 0 0 2em">
+    <li>check that topological charge is $0$ on average;</li>
+    <li>check that observables are independent of non-physical simulation
+      parameters <i style="font-size: 0.7em">(such as move weights, that
+      do not enter in the detailed balance)</i>;</li>
+    <li>check that is symmetric under parity and time-reversal;</li>
+    <li>check the gauge-invariance of Wilson loops
+      <i style="font-size: 0.7em">(plaquettes and torelons)</i>.</li>
+  </ul>
+  <aside class="notes">
+  </aside>
+</section>

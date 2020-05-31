@@ -7,9 +7,11 @@ developed version.
 ## How to use
 download updated version of *reveal.js* and build the framework with my
 customization
-```
+```shell
+pip install -r requirements.txt
+
 git submodule init
-git submodule update
+
 python3 make.py
 ```
 

@@ -2,9 +2,9 @@
 
 SHELL=/bin/bash
 
-REVEAL := $(wildcard reveal.js/*) 
-STRUCTURES := $(wildcard structures/*) 
-THEMES := $(wildcard themes/*) 
+REVEAL := $(wildcard reveal.js/*)
+STRUCTURES := $(wildcard structures/*)
+THEMES := $(wildcard themes/*)
 MISC := $(wildcard misc/*)
 
 SLIDES_SRC := $(wildcard my-reveal/src/*)
@@ -26,7 +26,7 @@ all: preview
 
 framework: | $(REVEAL) $(STRUCTURES) $(REVEAL) $(MISC)
 	git submodule update
-	python3 make.py
+	python3 make-scripts/make.py
 
 # show the current presentation
 # =============================
@@ -38,8 +38,8 @@ view:
 # ============================
 
 $(PREVIEW_OUT): $(SLIDES_SRC)
-	@echo ciao	
-	python3 preview.py
+	@echo ciao
+	python3 make-scripts/preview.py
 
 preview: $(PREVIEW_OUT)
 	@echo "Preview updated!"
@@ -49,7 +49,7 @@ preview: $(PREVIEW_OUT)
 # ============================
 
 $(BUILD_OUT): $(SLIDES_SRC)
-	python3 build.py
+	python3 make-scripts/build.py
 
 build: $(BUILD_OUT)
 	@echo "Build finished!"
@@ -62,4 +62,4 @@ build: $(BUILD_OUT)
 # ===============================
 
 inflate:
-	python3 inflate.py
+	python3 make-scripts/inflate.py
