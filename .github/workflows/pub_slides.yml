@@ -22,7 +22,7 @@ jobs:
       - name: Collect slides 📦
         run: |
           mkdir archive/gh-pages
-          cp -L archive/* archive/gh-pages
+          cp -rL archive/* archive/gh-pages
       - name: Build 🔨
         run: |
           # not used currently
