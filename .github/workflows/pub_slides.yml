@@ -21,8 +21,9 @@ jobs:
           submodules: "true"
       - name: Collect slides 📦
         run: |
+          shopt -s extglob
           mkdir archive/gh-pages
-          cp -rL archive/* archive/gh-pages
+          cp -rL archive/!(gh-pages) archive/gh-pages
       - name: Build 🔨
         run: |
           # not used currently
