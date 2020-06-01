@@ -63,10 +63,14 @@ def main(here, root):
     # html
     shutil.copy2(my_reveal / "index.html", build / "index.html")
 
+    # assets
+    shutil.copytree(my_reveal / "assets", build / "assets")
+
     # make a compressed copy of the full dir
     # ======================================
     subprocess.check_call(
-        ["tar", "cvzf", build / "my-reveal.tar.gz", my_reveal.resolve()]
+        ["tar", "cvzf", build / "my-reveal.tar.gz", my_reveal.relative_to(root)],
+        cwd=root,
     )
 
 

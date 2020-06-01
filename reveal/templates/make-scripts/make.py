@@ -98,7 +98,11 @@ def main(here, root):
     # TODO hardcoded files tree, this should depend on the structure chosen
     slides = my_reveal / "src" / "slides"
     slides.mkdir(parents=True, exist_ok=True)
-    (slides / "1.html").touch(exist_ok=True)
+    (slides / "0.html").touch(exist_ok=True)
+
+    # Add room for assets
+
+    (my_reveal / "assets").mkdir(parents=True, exist_ok=True)
 
     # add themes
     # ----------

@@ -67,8 +67,8 @@ inflate:
 # ==============
 
 checkpoint:
-	tar cvzf checkpoint.tar.gz my-reveal/src
+	tar cvzf checkpoint.tar.gz my-reveal/src my-reveal/assets
 
 restore:
-	tar xvzf checkpoint.tar.gz my-reveal/src
+	tar xvzf checkpoint.tar.gz
 	rm -f checkpoint.tar.gz
