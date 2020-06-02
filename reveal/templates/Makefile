@@ -72,3 +72,11 @@ checkpoint:
 restore:
 	tar xvzf checkpoint.tar.gz
 	rm -f checkpoint.tar.gz
+
+update: 
+	tar cvzf checkpoint.tar.gz my-reveal/src my-reveal/assets
+	git submodule update
+	python3 make-scripts/make.py
+	tar xvzf checkpoint.tar.gz
+	rm -f checkpoint.tar.gz
+	python3 my-reveal/build_template.py

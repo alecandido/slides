@@ -139,6 +139,7 @@ def main(here, root):
     shutil.rmtree(reveal_themes, ignore_errors=True)
 
     shutil.copy2(themes / configs["theme"]["name"], my_reveal / "dist" / "theme.css")
+    shutil.copy2(themes / "reveal.css", my_reveal / "dist" / "reveal.css")
 
     # clean up
     # --------
