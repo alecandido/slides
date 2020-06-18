@@ -111,7 +111,8 @@ def main(here, root):
     reveal_themes = my_reveal / "dist/theme"
 
     # TODO replaceable_themes should not be hardcoded
-    replaceable_themes = [
+    replaceable_themes = []
+    not_replaceable_themes = [
         "beige",
         "black",
         "blood",
@@ -129,8 +130,11 @@ def main(here, root):
         dst = themes / theme.name
         if not dst.is_file() or (
             theme.stem in replaceable_themes
-            or click.confirm(
-                f"Do you want to replace theme '{theme.name}'?", default=False
+            or (
+                theme.stem not in not_replaceable_themes
+                and click.confirm(
+                    f"Do you want to replace theme '{theme.name}'?", default=False
+                )
             )
         ):
             shutil.move(theme, dst)

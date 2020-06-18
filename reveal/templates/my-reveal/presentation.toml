@@ -1,10 +1,10 @@
 # use this file to choose structure, theme, and some other common configs
 
-title = "yadism-nnpdf-publication"
+title = "qm-exam-practice"
 
 [structure]
 name = "split-html-only"
 
 [theme]
 #name = "serif.css"
-name = "test.css"
+name = "white.css"
