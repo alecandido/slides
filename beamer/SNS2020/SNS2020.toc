@@ -1,5 +1,0 @@
-\beamer@sectionintoc {1}{Parton model}{3}{0}{1}
-\beamer@sectionintoc {2}{PDF @ NLO: factorization scheme}{5}{0}{2}
-\beamer@sectionintoc {3}{An intrinsic positive scheme}{7}{0}{3}
-\beamer@sectionintoc {4}{Coefficient functions NLO behaviour}{9}{0}{4}
-\beamer@sectionintoc {5}{Is $\msbar $ negative?}{13}{0}{5}

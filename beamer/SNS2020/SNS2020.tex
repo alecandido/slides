@@ -29,20 +29,20 @@
 }
 %\institute{N3PDF}
 \titlegraphic{
-%		\raisebox{5pt}[0pt][0pt]{\includegraphics[height=0.8cm]{../_logos/nnpdf_logo.pdf}}\hspace*{10pt}	
-		\hfill
-		\raisebox{5pt}[0pt][0pt]{\includegraphics[height=0.8cm]{../_logos/n3pdf_logo.pdf}}\hspace*{10pt}
-		\includegraphics[height=1.1cm]{../_logos/erc_logo.png}
-		
-		\vfill\vspace*{170pt}
-		\includegraphics[height=1cm]{../_logos/unimi_logo.png}\hfill
-		\includegraphics[height=1cm]{../_logos/infn_logo.png}\\
-		\vspace*{5pt}
-		{\fontsize{3pt}{3.5pt}\selectfont
-			 \begin{center}
-			 	This project has received funding from the European Union's Horizon 2020 research and innovation programme under grant agreement No 740006\quad \includegraphics[height=5pt]{../_logos/eu-flag.jpg}
-		 \end{center}}
-	}
+%        \raisebox{5pt}[0pt][0pt]{\includegraphics[height=0.8cm]{../_logos/nnpdf_logo.pdf}}\hspace*{10pt}
+        \hfill
+        \raisebox{5pt}[0pt][0pt]{\includegraphics[height=0.8cm]{../_logos/n3pdf_logo.pdf}}\hspace*{10pt}
+        \includegraphics[height=1.1cm]{../_logos/erc_logo.png}
+
+        \vfill\vspace*{170pt}
+        \includegraphics[height=1cm]{../_logos/unimi_logo.png}\hfill
+        \includegraphics[height=1cm]{../_logos/infn_logo.png}\\
+        \vspace*{5pt}
+        {\fontsize{3pt}{3.5pt}\selectfont
+             \begin{center}
+                 This project has received funding from the European Union's Horizon 2020 research and innovation programme under grant agreement No 740006\quad \includegraphics[height=5pt]{../_logos/eu-flag.jpg}
+         \end{center}}
+}
 
 \begin{document}
 
@@ -55,7 +55,52 @@
 
 \section{Parton model}
 \begin{frame}{Introduction}
-    Light Intro: Description of the parton model
+    \begin{columns}
+        \begin{column}{0.7\textwidth}
+            The \textit{parton model} consist in a model of the proton
+            structure as a bunch of free components, collectively called
+            \textit{partons}:
+
+            \begin{itemize}
+                \item in principle any elementary particle
+                \item in practice mostly \textbf{quarks} and \textbf{gluons}
+            \end{itemize}
+
+            This assumption of course relies on the asymptotic freedom of
+            strong interaction\footnotemark.
+        \end{column}
+        \begin{column}{0.3\textwidth}
+            \begin{figure}
+                \centering
+                \includegraphics[height=150pt]{pictures/partons}
+            \end{figure}
+        \end{column}
+    \end{columns}
+    \footnotetext{e.g. it would be completely unphysical for an atom.}
+
+\end{frame}
+
+
+\begin{frame}{LO PDF definition}
+    \begin{columns}
+        \begin{column}{0.55\textwidth}
+            Since they are free the main property of each parton is the
+            fraction of the total momentum it carries.\newline
+
+            The probability distribution of finding a parton $p$ with momentum
+            fraction $x$ it's encoded in its \textit{Parton Density Function}\footnotemark,
+            $f_p(x)$.
+        \end{column}
+        \begin{column}{0.45\textwidth}
+            Plot LO PDFs 
+            %\begin{figure}
+                %\centering
+                %\includegraphics[height=150pt]{pictures/lo_pdfs}
+            %\end{figure}
+        \end{column}
+    \end{columns}
+    \footnotetext{In general PDFs also depend on the energy scale $Q^2$,
+    but at LO they scale (see \textit{Björken scaling}).}
 \end{frame}
 
 \section{PDF @ NLO: factorization scheme}
@@ -96,7 +141,7 @@
 
 
 \begin{frame}[standout]
-	Thanks for your attention
+    Thanks for your attention
 \end{frame}
 
 
