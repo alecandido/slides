@@ -124,7 +124,7 @@
         \item \textbf{soft}, due to emission of an extra soft particle
         \item \textbf{collinear}, due to 
     \end{itemize}
-    The first two kind are known to cancel in sufficiently inclusive
+    The first two kinds are known to cancel in sufficiently inclusive
     observables\footnote{e.g.: the KLN theorem is one of the results that guarantee
     this cancellation.}.
 \end{frame}
@@ -148,29 +148,49 @@
 \end{frame}
     
 \begin{frame}{Factorization Scheme}
+    \vspace*{15pt}
     The way to deal with these divergences is offered by the previous
     interpretation: we can hide them in a non-perturbative object, the PDF.
     \begin{align*}
-        \hat{F}_{2,0}(x,Q^2) &= e_q^2 x \left[ \delta(1-x) +
-        \frac{\alpha_s}{2\pi}\left(P(x) \log(\frac{Q^2}{\kappa^2}) +
-        C(x)\right) + \dots \right]\\
         F_2(x,Q^2) &= \sum_{q,\bar{q}} q_0 \otimes \hat{F}_{2,0} (x, Q^2) =
         \sum_{q,\bar{q}} \int\limits_x^1 \frac{\dd\xi}{\xi} q_0(\xi)
         \hat{F}_{2,0}\left(\frac{x}{\xi},Q^2\right)\\
         &= \sum_{q,\bar{q}} q \otimes \hat{F}_2 (x, Q^2)\\
+    \end{align*}
+    \vspace*{-15pt}
+
+    Example: DIS scheme for DIS @ NLO
+    \begin{align*}
+        \hat{F}_{2,0}(x,Q^2) &= e_q^2 x \left[ \delta(1-x) +
+        \frac{\alpha_s}{2\pi}\left(P(x) \log(\frac{Q^2}{\kappa^2}) +
+        C(x)\right) + \dots \right]\\
         q(x, \mu^2_F) &= q_0(x) + \frac{\alpha_s}{2\pi} \int\limits_x^1
         \frac{\dd \xi}{\xi} q_0(\xi) \left\{ P\left(\frac{x}{\xi}\right)
         \log(\frac{\mu^2_F}{\kappa^2}) + C\left(\frac{x}{\xi}\right)\right\} +
         \dots
     \end{align*}
-
-    This will result in the effective \textit{subtraction} of the collinear
-    divergence, the definition of a "renormalized" PDF and the appearance of a
-    new unphysical energy scale: $\mu_F$, the factorization scale (which is on
-    the same ground of $\mu_R$).
 \end{frame}
 
 \begin{frame}{Factorization Scheme}
+    This will result:
+    \begin{itemize}
+        \item in the effective \textit{subtraction} of the collinear divergence
+            in the partonic cross section
+        \item the definition of a "renormalized" PDF
+        \item the appearance of a new unphysical energy scale: $\mu_F$, the
+            \textit{factorization scale} (which is on the same ground of $\mu_R$).
+    \end{itemize}
+
+    There is an \textbf{arbitrariness} on defining the finite part of the
+    subtraction, in the very same way of the renormalization scheme. 
+
+    However, since the subtraction is related to a redefinition of the PDFs,
+    once that a scheme has been \textbf{chosen} (fixing a finite subtraction)
+    it should be kept for all the processes, because the \textbf{PDFs are
+    always the same}.
+\end{frame}
+
+\begin{frame}{Factorization Scheme (CS counterterm)}
     The formula for a cross section in a generic factorization scheme can be
     written as an additional counterterm contribution $\dd\sigma^C_a$, in this
     case coming from the PDF redefinition:
