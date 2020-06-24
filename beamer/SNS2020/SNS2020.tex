@@ -32,7 +32,7 @@
 %        \raisebox{5pt}[0pt][0pt]{\includegraphics[height=0.8cm]{../_logos/nnpdf_logo.pdf}}\hspace*{10pt}
         \hfill
         \raisebox{5pt}[0pt][0pt]{\includegraphics[height=0.8cm]{../_logos/n3pdf_logo.pdf}}\hspace*{10pt}
-        \includegraphics[height=1.1cm]{../_logos/erc_logo.png}
+        \includegraphics[height=1.3cm]{../_logos/erc_logo1.png}
 
         \vfill\vspace*{170pt}
         \includegraphics[height=1cm]{../_logos/unimi_logo.png}\hfill
@@ -66,8 +66,12 @@
                 \item in practice mostly \textbf{quarks} and \textbf{gluons}
             \end{itemize}
 
-            This assumption of course relies on the asymptotic freedom of
-            strong interaction\footnotemark.
+            \vspace*{15pt}
+            It has been historically formulated as a model before the theory of
+            quarks, just assuming \textbf{point-like constituents} for the
+            proton, now it has a special role as a model because some of its
+            properties\footnotemark can be deduced from field theory and
+            Standard Model.
         \end{column}
         \begin{column}{0.3\textwidth}
             \begin{figure}
@@ -76,8 +80,9 @@
             \end{figure}
         \end{column}
     \end{columns}
-    \footnotetext{e.g. it would be completely unphysical for an atom.}
 
+    \footnotetext{The actual structure of the proton has a non-perturbative
+    origin, so it cannot be completely understood by perturbative QFT} 
 \end{frame}
 
 
@@ -93,21 +98,97 @@
         \end{column}
         \begin{column}{0.45\textwidth}
             Plot LO PDFs 
+
             %\begin{figure}
                 %\centering
                 %\includegraphics[height=150pt]{pictures/lo_pdfs}
             %\end{figure}
         \end{column}
     \end{columns}
-    \footnotetext{In general PDFs also depend on the energy scale $Q^2$,
-    but at LO they scale (see \textit{Björken scaling}).}
+    \footnotetext{In general PDFs also depend on the energy scale $Q^2$, but at
+    LO they scale (see \textit{Björken scaling}). This statement can be
+    explained by perturbative QCD and systematically improve, including the
+    dependency through $\alpha_s$.}
 \end{frame}
 
 \section{PDF @ NLO: factorization scheme}
-\begin{frame}{Introduction}
-    A step further: NLO -> collinear divergences -> coefficient functions ambiguity (collinear subtraction) -> factorization scheme (as PDF definition)
+\begin{frame}{NLO divergences}
+    As well known at NLO divergences start to appear, both in virtual and real contributions. 
+    \begin{figure}
+        \centering
+        \includegraphics[width=.8\textwidth]{pictures/nlo-real}
+    \end{figure}
+    There are 3 kinds of divergences:
+    \begin{itemize}
+        \item \textbf{virtual}, due to loop integrals
+        \item \textbf{soft}, due to emission of an extra soft particle
+        \item \textbf{collinear}, due to 
+    \end{itemize}
+    The first two kind are known to cancel in sufficiently inclusive
+    observables\footnote{e.g.: the KLN theorem is one of the results that guarantee
+    this cancellation.}.
+\end{frame}
 
-    Catani-Seymour formula for factorization @ NLo
+\begin{frame}{NLO collinear divergences}
+    On the other hand collinear divergences have \textit{a different origin}
+    that can be related to the asymptotic freedom of strong interactions:
+    
+    \begin{center}
+        \textit{The collinear limit corresponds to a long range (soft) part of
+        the strong interaction, which is not calculable in perturbation
+        theory.}
+    \end{center}
+
+    These divergences must be treated in a different way, defining a suitable
+    \textbf{factorization scheme}.\newline
+
+    Notice that collinear divergences are also responsible for the appearance
+    of the characteristic $\alpha_s \log(Q^2)$, that will introduce the PDF
+    dependency on $Q^2$.
+\end{frame}
+    
+\begin{frame}{Factorization Scheme}
+    The way to deal with these divergences is offered by the previous
+    interpretation: we can hide them in a non-perturbative object, the PDF.
+    \begin{align*}
+        \hat{F}_{2,0}(x,Q^2) &= e_q^2 x \left[ \delta(1-x) +
+        \frac{\alpha_s}{2\pi}\left(P(x) \log(\frac{Q^2}{\kappa^2}) +
+        C(x)\right) + \dots \right]\\
+        F_2(x,Q^2) &= \sum_{q,\bar{q}} q_0 \otimes \hat{F}_{2,0} (x, Q^2) =
+        \sum_{q,\bar{q}} \int\limits_x^1 \frac{\dd\xi}{\xi} q_0(\xi)
+        \hat{F}_{2,0}\left(\frac{x}{\xi},Q^2\right)\\
+        &= \sum_{q,\bar{q}} q \otimes \hat{F}_2 (x, Q^2)\\
+        q(x, \mu^2_F) &= q_0(x) + \frac{\alpha_s}{2\pi} \int\limits_x^1
+        \frac{\dd \xi}{\xi} q_0(\xi) \left\{ P\left(\frac{x}{\xi}\right)
+        \log(\frac{\mu^2_F}{\kappa^2}) + C\left(\frac{x}{\xi}\right)\right\} +
+        \dots
+    \end{align*}
+
+    This will result in the effective \textit{subtraction} of the collinear
+    divergence, the definition of a "renormalized" PDF and the appearance of a
+    new unphysical energy scale: $\mu_F$, the factorization scale (which is on
+    the same ground of $\mu_R$).
+\end{frame}
+
+\begin{frame}{Factorization Scheme}
+    The formula for a cross section in a generic factorization scheme can be
+    written as an additional counterterm contribution $\dd\sigma^C_a$, in this
+    case coming from the PDF redefinition:
+    \begin{align*}
+        \sigma_a^{NLO}(p; \mu_F^2) &= \int\limits_{m+1} \dd\sigma^R_a(p) +
+        \int\limits_{m} \dd\sigma^V_a(p) + \int\limits_{m} \dd\sigma^C_a(p;
+        \mu_F^2)\\
+        \dd\sigma^C_a(p;\mu_F^2) &= - \frac{\alpha_s}{2\pi}
+        \frac{1}{\Gamma(1-\epsilon)} \sum_b \int\limits_0^1 \dd z \left[ -
+        \frac{1}{\epsilon} \left(\frac{4\pi\mu^2}{\mu_F^2}\right)^\epsilon
+        P^{ab}(z) + K^{ab}(z) \right] \dd \sigma_b^B(zp) 
+    \end{align*}
+    in dimensional regularization\footnote{The counterterm is such that
+    $K^{ab}=0$ for $\msbar$ factorization scheme}.
+
+    This will be useful in what follows, because it is exactly by choosing a
+    specific factorization scheme (i.e. a specific $K^{ab}$ matrix) that we can
+    analyze the property of the frequent $\msbar$ choice.
 \end{frame}
 
 \section{An intrinsic positive scheme}
@@ -137,6 +218,11 @@
 
 \begin{frame}{Introduction}
     Argument from MPOS -> MSbar
+\end{frame}
+
+\section{Why positivity?}
+\begin{frame}{My opinion?}
+    Reduce PDF variance limiting the hypothesis space. 
 \end{frame}
 
 

@@ -1,0 +1,31 @@
+---
+documentclass: standalone
+classoption:
+  - preview
+  - border=20pt
+title: "SNS2020: questions while preparing"
+numbersections: true
+header-includes: |
+   \usepackage{amsmath,amssymb,bbm,dsfont}
+   \usepackage{physics}
+   \usepackage{lipsum}
+   \newcommand{\bps}{\bra{\psi}}
+---
+
+# Neutrino $\to$ neutrino scattering
+
+Why the Pink book is citing the scattering of:
+
+- charged lepton $\to$ charged lepton
+- neutrino $\to$ charged lepton
+
+but not the scattering of neutrino $\to$ neutrino? It should be different from
+the previous ones, since it should be mediated by the only $Z$ boson and not
+the photon.
+
+Is it because of experimental reasons (really hard to detect) or there is a
+theoretical explanation?
+
+(Actually it is also not telling anything about charged $\to$ to neutrino,
+maybe because it is really the same lepton tensor as the opposite, but maybe
+because neutrinos in the final state are hard to detect)
