@@ -21,6 +21,11 @@
 \newcommand{\themename}{\textbf{\textsc{metropolis}}\xspace}
 
 \DeclareMathOperator{\msbar}{\overline{MS}}
+\DeclareMathOperator{\dis}{DIS}
+\DeclareMathOperator{\phys}{PHYS}
+\DeclareMathOperator{\pos}{POS}
+\DeclareMathOperator{\dpos}{DPOS}
+\DeclareMathOperator{\mpos}{MPOS}
 
 \title{Can $\msbar$ PDF be negative?}
 %\subtitle{make PDFs positive and everyone happy}
@@ -152,10 +157,10 @@
     The way to deal with these divergences is offered by the previous
     interpretation: we can hide them in a non-perturbative object, the PDF.
     \begin{align*}
-        F_2(x,Q^2) &= \sum_{q,\bar{q}} q_0 \otimes \hat{F}_{2,0} (x, Q^2) =
-        \sum_{q,\bar{q}} \int\limits_x^1 \frac{\dd\xi}{\xi} q_0(\xi)
+        F_2(x,Q^2) &= x\sum_{q,\bar{q}} q_0 \otimes \hat{F}_{2,0} (x, Q^2) =
+        x \sum_{q,\bar{q}} \int\limits_x^1 \frac{\dd\xi}{\xi} q_0(\xi)
         \hat{F}_{2,0}\left(\frac{x}{\xi},Q^2\right)\\
-        &= \sum_{q,\bar{q}} q \otimes \hat{F}_2 (x, Q^2)\\
+        &= x \sum_{q,\bar{q}} q \otimes \hat{F}_2 (x, Q^2)\\
     \end{align*}
     \vspace*{-15pt}
 
@@ -212,10 +217,49 @@
 \end{frame}
 
 \section{An intrinsic positive scheme}
-\begin{frame}{Introduction}
-    DIS scheme and similar.
+\begin{frame}{Is there a positive scheme?}
+    At LO PDFs are positive by construction, since they are defined as
+    probability distributions, but this is not true at NLO, since we redefined
+    the PDF with the subtraction from the factorization scheme.\newline
 
-    Defined on physical observables.
+    So the question:
+
+    \begin{center}
+        \textit{Does it exist at all a factorization scheme in which PDF are\\ still positive also @ NLO?}
+    \end{center}
+
+    And the answer can be ready given: \textbf{Yes}.\newline 
+
+    It results that there is not a single positive scheme, but there is a special class of them.
+\end{frame}
+
+\begin{frame}{A physical scheme}
+    A special class of factorization scheme is the one in which the PDFs are
+    directly defined on \textbf{physical observables}, subtracting \textit{all
+    of the finite} contribution. 
+
+    Like in the DIS scheme we can choose two physical processes for defining the quark and gluon PDF:
+    \begin{description}
+        \item[quark] we can choose a hypothetical $\bar{q} p \to \gamma^* + X$
+        (Drell-Yan with a pure antiquark beam), or a DIS structure function; 
+        \item[gluon] either a hypothetical $g p \to H + X$ (gluon fusion with a
+        pure gluon beam), or a photon-gluon fusion;
+    \end{description}
+\end{frame}
+
+\begin{frame}{The $\phys$ scheme}
+    We can choose one of these schemes and call it $\phys$, for example:
+    \begin{align*}
+        \frac{1}{x}\bar{\sigma}(x,Q^2) &= f^{\,\phys}(x,Q^2)\\ 
+        \bar{\sigma}(x,Q^2) &= \begin{pmatrix} 
+        \sigma(x,Q^2)[\bar{q} p \to \gamma^* + X]\\
+        \sigma(x,Q^2)[g p \to H + X]
+        \end{pmatrix}
+    \end{align*}
+
+    As one can deduce from the first equation this scheme is positive by
+    construction, since the PDF is proportional to a physical cross-section,
+    whose positivity is guaranteed.
 \end{frame}
 
 \section{Coefficient functions NLO behaviour}
@@ -232,10 +276,6 @@
 \end{frame}
 
 \section{Is $\msbar$ negative?}
-\begin{frame}{N-space positivity $\neq$ x-space positivity}
-    The easy way in \textit{N-space} and Why we need an argument in \textit{x-space}
-\end{frame}
-
 \begin{frame}{Introduction}
     Argument from MPOS -> MSbar
 \end{frame}
@@ -248,6 +288,20 @@
 
 \begin{frame}[standout]
     Thanks for your attention
+\end{frame}
+
+\appendix
+
+\begin{frame}{N-space positivity $\neq$ x-space positivity}
+    The easy way in \textit{N-space} and Why we need an argument in \textit{x-space}
+\end{frame}
+
+\begin{frame}{NLL calculation}
+    The calculation in $x \to 1$ limit, better not to include in the main body (eq. 50-53)
+\end{frame}
+
+\begin{frame}{Heavy quarks}
+    Spend some words on heavy quarks' schemes and how the proof extend.
 \end{frame}
 
 
