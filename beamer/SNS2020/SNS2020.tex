@@ -2,7 +2,7 @@
 
 \usetheme[{titleformat plain}=smallcaps,
           titleformat title=smallcaps,
-          titleformat subtitle=smallcaps,
+          titleformat subtitle=regular,
           titleformat section=smallcaps,
           titleformat frame=smallcaps,
           numbering=fraction
@@ -35,7 +35,7 @@
 \DeclareMathOperator{\mpos}{MPOS}
 
 \title{Can $\msbar$ PDF be negative?}
-%\subtitle{make PDFs positive and everyone happy}
+%\subtitle{arXiv:2006.07377}
 \date{February, 2020}
 \author{Alessandro Candido
 }
@@ -364,7 +364,7 @@
       K_{qg}^{\dpos}(x) \,\\
       &  K_{qg}^{\dpos}(x)=\delta_{qg}^{\msbar}-\delta_{qg}^{\dpos}=  P_{qg}(x)\left[\log(\frac{1-x}{x}) - 1\right]
     \end{align*}
-    
+
     \begin{block}{Quark channel}
     The same procedure can be applied for the \Pq channel, but it results that
     in this case the mismatch is just an \textit{under-subtraction} (see
@@ -374,11 +374,11 @@
     \end{block}
 \end{frame}
 
-\begin{frame}{Incoming gluon and Hadronic kinematics}
+\begin{frame}{Incoming gluon and Hadronic processes}
     \vspace*{8pt}
     There are still two elements of matrix missing $K_{qg}^{\dpos}(x)$ and
     $K_{gg}^{\dpos}(x)$, so we need a process with an incoming gluon at LO.
-    
+
     \vspace*{8pt}
     Moreover there is another consideration that should be taken into account:
     the factorization scheme is linked to collinear structure, that is
@@ -394,21 +394,51 @@
     \end{figure}
 \end{frame}
 
-\begin{frame}{}
-    Definition of hadronic cross section
+\begin{frame}{Hadronic kinematics}
+    \vspace*{5pt}
+    The equivalent the decomposition of hadronic cross sections in partonic and
+    PDFs is:
     \begin{equation*}
         \frac{1}{x} \sigma(x,Q^2)= \hat \sigma_0 \left[  {\cal L}_{ii}
         +\frac{\alpha_s}{2\pi}\left( {{C^i}_q}^{(1)} \otimes {\cal L}_{iq} +
-        {{C^i}_g}^{(1)} \otimes {\cal L}_{ig}\right) \right],\label{eq:hadfact}
+        {{C^i}_g}^{(1)} \otimes {\cal L}_{ig}\right) \right]
     \end{equation*}
-    and the parton luminosity is 
+    where the parton luminosity is defined as:
     \begin{equation*}\label{eq:lumi}
-        {\cal L}_{ij}= f_i\otimes f_j\,.
+        {\cal L}_{ij}= f_i\otimes f_j
     \end{equation*}
 
-    Eq.29
+    \vspace*{10pt}
+    As we already stated the only difference is just in the incoming
+    kinematics, everything specific to the process is not involved in PDFs
+    factorization.
 
-    Eq.32
+    The quantitative statement is that the only new thing is just the different
+    energy available for transverse momentum:
+    \begin{equation*}\label{eq:ktmaxh}
+        \mu_h^2=  |k_T^{\rm max,\, had}|^2=\frac{(s-Q^2)^2}{4s}=\frac{Q^2(1-x)^2}{4x}
+    \end{equation*}
+    where $x=\frac{M_H^2}{s}$ and $ Q^2 = M_H^2 $.
+\end{frame}
+
+
+\begin{frame}{Hadronic $K$ matrix}
+    It is possible to see that:
+    \begin{itemize}
+        \item in this case as well there is nothing to be done in the \textbf{diagonal} channel
+        \item the \textbf{off-diagonal} matrix element it is similar to the
+            DIS, but with a further contribution coming from the second
+            incoming particle
+    \end{itemize}
+    \begin{align*}
+        {{C^g{}_g}^{(1)}}^{\pos}(x)  &=  {{C^g{}_g}^{(1)}}^{\msbar}(x)\\
+        {{C^g{}_q}^{(1)}}^{\pos} (x) &=  {{C^q{}_g}^{(1)}}^{\msbar} (x) - K_{gq}^{\pos} (x)\\
+        K_{gq}^{\pos} (x) &=  P_{gq}(x)\left[\ln\left(\frac{(1-x)^2}{x}\right)
+        - 1\right]
+    \end{align*}
+
+    And similarly for an incoming quark with the same kind of kinematics, that
+    can be deduced from an analogous Drell-Yan process.
 \end{frame}
 
 \begin{frame}{Gluon fusion coefficients}
@@ -469,15 +499,24 @@
 \end{frame}
 
 \begin{frame}{So why?}
-    However,  from  the  point  of  view  of  PDFs  determination,knowing that
-    PDFs must be positive in a given factorization scheme does provide a
-    useful constraint,  in  that  it  excludes  a  region  which  does  not
-    have  to  be  explored,  though  this restriction is not necessarily the
-    most stringent one. It is natural to ask whether the positivity requirement
-    could be more restrictive in some factorization schemes than others, but
-    it is unclear  whether  and  how  this  question  could  be  answered.
+    \vspace*{10pt}
+    It is a useful physical constraint on the PDFs, so it will add
+    \textbf{more theoretical knowledge} in the fit.
 
-    Reduce PDF variance limiting the hypothesis space.
+    In practice it cuts out a region of the hypothesis space that should not be
+    explore by the fitting algorithm, so
+
+    \begin{center}
+        \textit{The main result should be reducing the variance of the fitted PDFs.}
+    \end{center}
+
+    \vspace*{25pt}
+    \metroset{block=fill}
+    \begin{block}{Further scheme optimization}
+        It is natural to ask whether the positivity requirement could be more
+        restrictive in some factorization schemes than others, but it is
+        unclear  whether  and  how  this  question  could  be  answered.
+    \end{block}
 \end{frame}
 
 \begin{frame}[standout]
@@ -522,7 +561,7 @@ POS scheme:
 Hence, subtraction in the
 DPOS scheme amounts to under-subtraction, and if adopted for DIS
 coefficient function it leads to a DIS coefficient function
-${C^{(1)}_{g}}^{\rm POS}(x)$ which is actually more positive than that
+${C^{(1)}_{g}}^{\pos}(x)$ which is actually more positive than that
 in the DPOS scheme. This is seen in Fig.~ (right), where
 ${C^{(1)}_{g}}(x)$ is shown in the $\msbar$, DPOS and POS schemes.
 \end{frame}
