@@ -1,17 +1,24 @@
 \documentclass[9pt]{beamer}
 
-\usetheme{metropolis}
+\usetheme[{titleformat plain}=smallcaps,
+          titleformat title=smallcaps,
+          titleformat subtitle=smallcaps,
+          titleformat section=smallcaps,
+          titleformat frame=smallcaps,
+          numbering=fraction
+          ]{metropolis}
 \usepackage{appendixnumberbeamer}
 
 \usepackage{booktabs}
 \usepackage[scale=2]{ccicons}
 
-
 \usepackage{tikz}
 \usetikzlibrary{shapes,arrows}
 \usepackage{amsmath, bm}
-\usepackage{physics}
+\usepackage{physics,hepnames}
 \usepackage{mathtools}
+
+\usepackage{subfig}
 
 \usepackage{pgfplots}
 \usepgfplotslibrary{dateplot}
@@ -87,7 +94,7 @@
     \end{columns}
 
     \footnotetext{The actual structure of the proton has a non-perturbative
-    origin, so it cannot be completely understood by perturbative QFT} 
+    origin, so it cannot be completely understood by perturbative QFT}
 \end{frame}
 
 
@@ -102,7 +109,7 @@
             $f_p(x)$.
         \end{column}
         \begin{column}{0.45\textwidth}
-            Plot LO PDFs 
+            Plot LO PDFs
 
             %\begin{figure}
                 %\centering
@@ -118,7 +125,7 @@
 
 \section{PDF @ NLO: factorization scheme}
 \begin{frame}{NLO divergences}
-    As well known at NLO divergences start to appear, both in virtual and real contributions. 
+    As well known at NLO divergences start to appear, both in virtual and real contributions.
     \begin{figure}
         \centering
         \includegraphics[width=.8\textwidth]{pictures/nlo-real}
@@ -127,7 +134,7 @@
     \begin{itemize}
         \item \textbf{virtual}, due to loop integrals
         \item \textbf{soft}, due to emission of an extra soft particle
-        \item \textbf{collinear}, due to 
+        \item \textbf{collinear}, due to
     \end{itemize}
     The first two kinds are known to cancel in sufficiently inclusive
     observables\footnote{e.g.: the KLN theorem is one of the results that guarantee
@@ -137,7 +144,7 @@
 \begin{frame}{NLO collinear divergences}
     On the other hand collinear divergences have \textit{a different origin}
     that can be related to the asymptotic freedom of strong interactions:
-    
+
     \begin{center}
         \textit{The collinear limit corresponds to a long range (soft) part of
         the strong interaction, which is not calculable in perturbation
@@ -151,7 +158,7 @@
     of the characteristic $\alpha_s \log(Q^2)$, that will introduce the PDF
     dependency on $Q^2$.
 \end{frame}
-    
+
 \begin{frame}{Factorization Scheme}
     \vspace*{15pt}
     The way to deal with these divergences is offered by the previous
@@ -187,7 +194,7 @@
     \end{itemize}
 
     There is an \textbf{arbitrariness} on defining the finite part of the
-    subtraction, in the very same way of the renormalization scheme. 
+    subtraction, in the very same way of the renormalization scheme.
 
     However, since the subtraction is related to a redefinition of the PDFs,
     once that a scheme has been \textbf{chosen} (fixing a finite subtraction)
@@ -206,7 +213,7 @@
         \dd\sigma^C_a(p;\mu_F^2) &= - \frac{\alpha_s}{2\pi}
         \frac{1}{\Gamma(1-\epsilon)} \sum_b \int\limits_0^1 \dd z \left[ -
         \frac{1}{\epsilon} \left(\frac{4\pi\mu^2}{\mu_F^2}\right)^\epsilon
-        P^{ab}(z) + K^{ab}(z) \right] \dd \sigma_b^B(zp) 
+        P^{ab}(z) + K^{ab}(z) \right] \dd \sigma_b^B(zp)
     \end{align*}
     in dimensional regularization\footnote{The counterterm is such that
     $K^{ab}=0$ for $\msbar$ factorization scheme}.
@@ -219,8 +226,9 @@
 \section{An intrinsic positive scheme}
 \begin{frame}{Is there a positive scheme?}
     At LO PDFs are positive by construction, since they are defined as
-    probability distributions, but this is not true at NLO, since we redefined
-    the PDF with the subtraction from the factorization scheme.\newline
+    probability distributions, but this is \textbf{not true at NLO}, since we
+    \textbf{redefined the PDF} with the \textit{subtraction from the
+    factorization scheme}.\newline
 
     So the question:
 
@@ -228,20 +236,21 @@
         \textit{Does it exist at all a factorization scheme in which PDF are\\ still positive also @ NLO?}
     \end{center}
 
-    And the answer can be ready given: \textbf{Yes}.\newline 
+    And the answer can be ready given: \textbf{Yes}.\newline
 
-    It results that there is not a single positive scheme, but there is a special class of them.
+    It results that there is not a single positive scheme, and there is a
+    particularly simple class of them.
 \end{frame}
 
 \begin{frame}{A physical scheme}
     A special class of factorization scheme is the one in which the PDFs are
     directly defined on \textbf{physical observables}, subtracting \textit{all
-    of the finite} contribution. 
+    of the finite} contribution.
 
     Like in the DIS scheme we can choose two physical processes for defining the quark and gluon PDF:
     \begin{description}
         \item[quark] we can choose a hypothetical $\bar{q} p \to \gamma^* + X$
-        (Drell-Yan with a pure antiquark beam), or a DIS structure function; 
+        (Drell-Yan with a pure antiquark beam), or a DIS structure function;
         \item[gluon] either a hypothetical $g p \to H + X$ (gluon fusion with a
         pure gluon beam), or a photon-gluon fusion;
     \end{description}
@@ -250,8 +259,8 @@
 \begin{frame}{The $\phys$ scheme}
     We can choose one of these schemes and call it $\phys$, for example:
     \begin{align*}
-        \frac{1}{x}\bar{\sigma}(x,Q^2) &= f^{\,\phys}(x,Q^2)\\ 
-        \bar{\sigma}(x,Q^2) &= \begin{pmatrix} 
+        \frac{1}{x}\bar{\sigma}(x,Q^2) &= f^{\,\phys}(x,Q^2)\\
+        \bar{\sigma}(x,Q^2) &= \begin{pmatrix}
         \sigma(x,Q^2)[\bar{q} p \to \gamma^* + X]\\
         \sigma(x,Q^2)[g p \to H + X]
         \end{pmatrix}
@@ -264,27 +273,212 @@
 
 \section{Coefficient functions NLO behaviour}
 \begin{frame}{Universality of collinear structure}
-    We can play this game because we know in advance that the relevant structure (the one related to the collinear subtraction) is universal.
+    In $\msbar$ the subtracted cross section can be negative: negative finite
+    parts are factored away from the regularized cross sections, into the PDFs,
+    that can become negative as well.
+
+    On the other hand, the residue of the collinear pole is universal—it is
+    given by process-independent splitting functions $P_{ab}$.
+    %If all contributions which are factored away from the partonic cross
+    %section and into the PDF remain positive, then the latter also stays
+    %positive.
+    \begin{figure}
+        \begin{tabular}{cc}
+          \includegraphics[width=0.3\textwidth]{pictures/feynd/Pqq} &   \includegraphics[width=0.3\textwidth]{pictures/feynd/Pqq} \\
+          \includegraphics[width=0.3\textwidth]{pictures/feynd/Pqq} &   \includegraphics[width=0.3\textwidth]{pictures/feynd/Pqq} \\
+        \end{tabular}
+    %\caption{caption}
+    \end{figure}
+
+    For this reason we can go on with the analysis of some particular process
+    to catch the universal behavior involved in the factorization scheme.
 \end{frame}
 
-\begin{frame}{Scheme change matrix}
-    How we switch scheme and $K$ properties
+\begin{frame}{DIS coefficient functions}
+    The DIS structure function, written in terms of the PDFs and the coefficient functions is:
+    \begin{equation*}
+        \frac{1}{x} F_2(x,Q^2)= e_q^2 \left[q
+        +\frac{\alpha_s}{2\pi}\left( C^{(1)}_q \otimes q+ C^{(1)}_g \otimes
+        g\right)\right](Q^2)\,,
+    \end{equation*}
+
+    \vspace*{15pt}
+    \begin{block}{Gluon coefficient}
+        The following is the $d$-dimensional, unsubtracted, gluon coefficient function:
+        \begin{equation*}
+            \label{eq:cgeps}
+            C^{(1)}_{g}(x,Q^2,\epsilon) = \frac{ \Gamma(-\epsilon)
+            \left(\frac{\mu_D^2}{\pi\mu^2}\right)^{-\epsilon} \left[8P_{qg}(x)-16 T_R \epsilon (3
+            -\epsilon(2 -\epsilon) )  \right]  }{16\pi (2 - 2\epsilon) \Gamma (3 - 2 \epsilon)}\,,
+        \end{equation*}
+        where
+        \begin{equation*}
+            \label{eq:mud}
+            \mu_D^2\equiv|k_T^{\text{max,\,DIS}}|^2=\frac{s}{4}=\frac{Q^2(1-x)}{4x},
+        \end{equation*}
+    \end{block}
 \end{frame}
 
-\begin{frame}{A bunch of nontrivial positivity schemes}
-    POS, MPOS, DPOS
+\begin{frame}{DIS: gluon channel}
+    The original $d$-dimensional expression is positive by construction, since
+    it is a \textbf{cross-section}, but the $\msbar$ prescription leads to an
+    over-subtraction in the gluon channel.
+
+    \begin{figure}
+      \includegraphics[width=0.85\textwidth]{pictures/dis}
+    \end{figure}
 \end{frame}
+
+\begin{frame}{DIS: gluon channel}
+    We can make it positive again analyzing the source of over-subtraction.
+
+    \begin{align*}\label{eq:cgren}
+        {C^{(1)}_{g}}^{\msbar}(x) &= \lim_{\epsilon\to
+        0^-}\left[C_{g}^{(1)}(x,Q^2,\epsilon) - \left(\frac{Q^2}{4\pi
+        \mu^2}\right)^{-\epsilon} \left(-\frac 1
+        {\epsilon}+\gamma_E\right) P_{qg}(x)\right]\\
+        {C^{(1)}_{g}}^{\dpos}(x) &= \lim_{\epsilon\to0^-}
+        \left[{C^{(1)}_{g}}(x,Q^2,\epsilon) -
+        \frac{1}{\alert{1-\epsilon}}\left(\frac{\alert{\mu_D^2}}{\pi\mu^2}\right)^{-\epsilon}
+        \left(-\frac 1 {\epsilon}+\gamma_E\right) P_{qg}(x)\right]\\
+        &= 3\left[ T_R- P_{qg}(x)\right]
+    \end{align*}
+    The changes applied have an intrinsic physical meaning:
+    \begin{itemize}
+        \item the $\dpos$ scheme is subtracting at correct energy scale (maximal transverse momentum, not virtuality)
+        \item d-dimensional gluon polarizations' average is taken into account
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{DIS: ${\tiny \dpos}$ $K$ matrix}
+    Applying the definitions of $\msbar$ and $\dpos$ subtraction it is possible
+    to define a \textit{change of scheme} matrix $K$:
+
+    \begin{equation*}\label{eq:renorm}
+        {C^{(1)}_{g}}^{\rm i}(x) = \lim_{\epsilon\to0^-} {C^{(1)}_{g}}(x,Q^2,\epsilon)
+        -\delta_{qg}^i(x,Q^2,\epsilon)\,;\qquad i=\msbar,\> {\tiny\dpos}
+    \end{equation*}
+    and so:
+    \begin{align*}\label{eq:count}
+      &   {C^{(1)}_{g}}^{\dpos}(x) =  {C^{(1)}_{g}}^{\msbar}(x) -
+      K_{qg}^{\dpos}(x) \,\\
+      &  K_{qg}^{\dpos}(x)=\delta_{qg}^{\msbar}-\delta_{qg}^{\dpos}=  P_{qg}(x)\left[\log(\frac{1-x}{x}) - 1\right]
+    \end{align*}
+    
+    \begin{block}{Quark channel}
+    The same procedure can be applied for the \Pq channel, but it results that
+    in this case the mismatch is just an \textit{under-subtraction} (see
+    previous plot).
+
+    So for the sake of positivity it is fine to choose $K_{qq}^{\dpos}(x) = 0$.
+    \end{block}
+\end{frame}
+
+\begin{frame}{Incoming gluon and Hadronic kinematics}
+    \vspace*{8pt}
+    There are still two elements of matrix missing $K_{qg}^{\dpos}(x)$ and
+    $K_{gg}^{\dpos}(x)$, so we need a process with an incoming gluon at LO.
+    
+    \vspace*{8pt}
+    Moreover there is another consideration that should be taken into account:
+    the factorization scheme is linked to collinear structure, that is
+    universal \textit{w.r.t. the hard process}, but is affected by the \textbf{incoming
+    kinematics}.
+
+    A process the exhibit both of these features is Higgs production via gluon
+    fusion $gg\to h + X$ in HEFT\footnote{Also the Drell-Yan process has been
+    analyzed in the paper, to isolate the contribution of the different kinematics.}:
+
+    \begin{figure}
+      \includegraphics[width=0.45\textwidth]{pictures/feynd/ggh}
+    \end{figure}
+\end{frame}
+
+\begin{frame}{}
+    Definition of hadronic cross section
+    \begin{equation*}
+        \frac{1}{x} \sigma(x,Q^2)= \hat \sigma_0 \left[  {\cal L}_{ii}
+        +\frac{\alpha_s}{2\pi}\left( {{C^i}_q}^{(1)} \otimes {\cal L}_{iq} +
+        {{C^i}_g}^{(1)} \otimes {\cal L}_{ig}\right) \right],\label{eq:hadfact}
+    \end{equation*}
+    and the parton luminosity is 
+    \begin{equation*}\label{eq:lumi}
+        {\cal L}_{ij}= f_i\otimes f_j\,.
+    \end{equation*}
+
+    Eq.29
+
+    Eq.32
+\end{frame}
+
+\begin{frame}{Gluon fusion coefficients}
+    Since the $\pos$ scheme results to make the DIS cross-sections even more
+    positive (non minimal subtraction) it is a good candidate for a positivity
+    scheme\footnote{While the one with the DIS kinematics it's not enough to
+    make positive hadronic coefficient functions.}.
+    \begin{figure}
+      \includegraphics[width=0.85\textwidth]{pictures/higgs}
+    \end{figure}
+\end{frame}
+
 
 \section{Is $\msbar$ negative?}
 \begin{frame}{Introduction}
-    Argument from MPOS -> MSbar
+    Having  concluded  that  we  can  take  the  POS  scheme  as  representative
+    of  a  wide  class  ofpositive factorization schemes, we now discuss its
+    relation to theMS scheme, and what ittells us about positivity ofMS
+    PDFs.Inverting the scheme change fromMS to POS perturbatively (see Eq. (72)) we
+    obtainfMS(Q2) =[I−αs2πKPOS⊗]fPOS(Q2).(79)It is then clear that if the POS PDFs
+    are positive,  then so are theMS ones,  because thematrixKPOSvanishes on the
+    diagonal, and it has negative matrix elements off the diagonal,so−KPOSin  Eq.
+    (79)  is  positive.   The  perturbative  inversion  is  justified  due  to  the
+    factthat  the  non-vanishing  off-diagonal  matrix  elements  of  theKmatrix
+    are  actually  power-suppressed (i.e. next-to-eikonal) in thex→1 limit.This
+    can  be  seen  more  formally  by  considering  the  exact  Mellin-space
+    inverse  of  thescheme change matrix, Eq.
+    (72):[I+αs2πKPOS(N)]−1=11−(αs2π)2Kqg(N)Kgq(N)[I−αs2πKPOS(N)],(80)whereKPOSij(N)
+    denote (by slight abuse of notation) the Mellin transforms of the
+    matrixelementsKPOSijof the matrixKPOS.  It is easy to check that the
+    factorKqg(N)Kgq(N) is amonotonically decreasing function ofNalong the
+    realNaxis, and in particular it vanishesas1N2asN→ ∞, hence the prefactor which
+    relates the exact and perturbative inversions,Eqs. (79-80), is actually bounded
+    in the regionN 2 in which theMS coefficient functions,and thus the matrix
+    elements ofK, turn negative (see Figs. 2-3).We conclude that the light quark
+    and gluonMS PDFs are in fact positive at NLO.
 \end{frame}
 
-\section{Why positivity?}
-\begin{frame}{My opinion?}
-    Reduce PDF variance limiting the hypothesis space. 
+\section{Conclusion}
+\begin{frame}{Is it enough?}
+    No it's \textbf{not enough}, \textbf{nor needed}.
+
+    \metroset{block=fill}
+    \begin{block}{Sufficient}
+    It should be noticed that PDF positivity it's still not enough to guarantee
+    observables positivity, since the coefficient functions are not bounded to
+    be positive in x space in 4 dimensions.
+    \end{block}
+
+    \begin{block}{Necessary}
+    It's also not necessary, because negative PDF folded with suitable
+    coefficient functions can still lead to positive observables.
+    \end{block}
+
+    From a practical point of view the positivity of observables is a
+    requirement (a \textit{constraint}) that should be still implemented
+    separately in a PDF fit.
 \end{frame}
 
+\begin{frame}{So why?}
+    However,  from  the  point  of  view  of  PDFs  determination,knowing that
+    PDFs must be positive in a given factorization scheme does provide a
+    useful constraint,  in  that  it  excludes  a  region  which  does  not
+    have  to  be  explored,  though  this restriction is not necessarily the
+    most stringent one. It is natural to ask whether the positivity requirement
+    could be more restrictive in some factorization schemes than others, but
+    it is unclear  whether  and  how  this  question  could  be  answered.
+
+    Reduce PDF variance limiting the hypothesis space.
+\end{frame}
 
 \begin{frame}[standout]
     Thanks for your attention
@@ -292,16 +486,178 @@
 
 \appendix
 
+\begin{frame}{Overall structure of the argument}
+    \begin{enumerate}
+        \item $\msbar$ partonic cross-sections are not positive, we found why
+            not a define a factorization scheme that prevent it
+        \item enforce momentum sum rules by slightly modifying the former,
+            without affecting positivity
+        \item considering the scheme change we prove that positivity of PDFs in
+            this last scheme prove positivity of PDFs in $\msbar$
+    \end{enumerate}
+\end{frame}
+
+\begin{frame}{Positive coefficient functions}
+    A subtlety is related to the fact that generally partonic cross sections
+    are the sum of an ordinary functionof the scaling variable, and a
+    distribution localized at the kinematic threshold of the scaling variable.
+    Here,by “negative cross section” we mean that the function (i.e.,
+    non-distributional part of the cross section) isnegative.  For positivity
+    to hold,  the distributional part must also be positive in the sense that
+    it gives apositive result when integrated over a positive test function.
+    As we shall see below, this condition turns outto be automatically
+    satisfied inMS and related schemes
+\end{frame}
+
+\begin{frame}{$\pos$ scheme}
+POS scheme:
+\begin{align*}
+ {{C^q{}_q}^{(1)}}^{\pos}(x) &=  {{C^q{}_q}^{(1)}}^{\msbar}(x) \,, \\
+ {{C^q{}_g}^{(1)}}^{\pos} (x) &=  {{C^q{}_g}^{(1)}}^{\msbar} (x) - K_{qg}^{\pos} (x) \,,\\
+  K_{qg}^{\pos} (x) &=  P_{qg}(x)\left[\log(\frac{(1-x)^2}{x}) - 1\right] \,.
+ {{C^g{}_g}^{(1)}}^{\pos}(x)  &=  {{C^g{}_g}^{(1)}}^{\msbar}(x) \,, \\
+ {{C^g{}_q}^{(1)}}^{\pos} (x) &=  {{C^q{}_g}^{(1)}}^{\msbar} (x) - K_{gq}^{\pos} (x) \,,\\
+  K_{gq}^{\pos} (x) &=  P_{gq}(x)\left[\log(\frac{(1-x)^2}{x})- 1\right]
+\end{align*}
+Hence, subtraction in the
+DPOS scheme amounts to under-subtraction, and if adopted for DIS
+coefficient function it leads to a DIS coefficient function
+${C^{(1)}_{g}}^{\rm POS}(x)$ which is actually more positive than that
+in the DPOS scheme. This is seen in Fig.~ (right), where
+${C^{(1)}_{g}}(x)$ is shown in the $\msbar$, DPOS and POS schemes.
+\end{frame}
+
 \begin{frame}{N-space positivity $\neq$ x-space positivity}
     The easy way in \textit{N-space} and Why we need an argument in \textit{x-space}
+\end{frame}
+
+\begin{frame}{Non-singlet}
+    \begin{description}
+        \item[academic] it can be that no positive non-singlet combination
+            exists, since it is the subtraction of quarks distributions for two
+            different flavors;
+        \item[isolated] the same we used the non-singlet to set up the argument
+            since the singlet is slightly more complicated, indeed the gluon
+            couples to all the flavors in the same way, so any correction
+            coming from the gluon-quark mixing in change of scheme is
+            annihilated by the non-singlet combination;
+    \end{description}
 \end{frame}
 
 \begin{frame}{NLL calculation}
     The calculation in $x \to 1$ limit, better not to include in the main body (eq. 50-53)
 \end{frame}
 
+\begin{frame}{Momentum Sum Rules}
+    Inspection of Eq. immediately shows a possible issue
+    with the POS scheme. Indeed, as well known, momentum conservation
+    implies the pair of relations between the second Mellin moments of splitting
+    functions $\gamma_{qq}(2)+\gamma_{gq}(2)=0$ and
+     $2n_f\gamma_{qg}(2)+\gamma_{gg}(2)=0$. This relation is verified in the
+    $\msbar$ scheme:  in order for it to remain true  in any scheme obtained
+    from $\msbar$, the scheme change matrix must satisfy
+    \begin{equation}\label{eq:momcons}
+      K_{qq}+K_{gq}=2n_fK_{qg}+K_{gg}\Big|_{N=2}=0 \,,
+    \end{equation}
+    where by $K_{ij}\Big|_{N=2}$ we denote the second Mellin moment of the
+    scheme change matrix elements. This relation is not satisfied by the matrix defined in
+    Eqs.
+
+    It might therefore be worth considering a variant of the POS scheme,
+    in which momentum conservation is enforced by adding to the diagonal
+    elements of the scheme change matrix a contribution which enforces
+    momentum conservation. This can be done e.g.\ by adding a soft
+    function, which vanishes both as $x\to1$ and $x \to0$. We choose
+    \begin{equation}\label{eq:fmom}
+      f^{\text{MOM}}(x)= 60 x^2(1-x)^2\,,
+    \end{equation}
+    which has the property that its second Mellin moment equals one:
+    $f^{\text{MOM}}(N=2)=1$. We then define a MPOS scheme as that which is obtained
+    from $\msbar$ through a scheme change matrix $K^{\mpos}$ whose
+    matrix elements satisfy
+    \begin{align}
+      \label{eq:mposqq}
+      K^{\mpos}_{qq}(x)&= - f^{\text{MOM}}(x) K^{pos}_{gq}\Big|_{N=2} \,,\\
+      \label{eq:mposqg}
+      K^{\mpos}_{qg}(x)&= K^{pos}_{qg}(x) \,,\\
+      \label{eq:mposgq}
+      K^{\mpos}_{gq}(x)&= K^{pos}_{gq}(x) \,,\\
+      \label{eq:mposgg}
+      K^{\mpos}_{gg}(x)&= -2n_f f^{\text{MOM}}(x) K^{pos}_{qg}\Big|_{N=2} \,.
+    \end{align}
+    The MPOS scheme then automatically satisfies momentum
+    conservation. Coefficient functions in the MPOS scheme are shown in
+    Figs.~. It is clear that coefficient
+    functions, and thus PDFs, remain
+    positive in the MPOS scheme: indeed, the off-diagonal coefficient
+    functions are unchanged, while the diagonal NLO contributions are
+    modified by a small correction which is offset by the large positive
+    LO contribution, and in fact in the hadronic case leaves the NLO
+    correction positive for all $x$. Hence the MPOS and POS schemes have the same
+    positivity properties. We will thus not discuss the MPOS scheme
+    any further and restrict the discussion for simplicity to the POS
+    scheme.
+\end{frame}
+
 \begin{frame}{Heavy quarks}
-    Spend some words on heavy quarks' schemes and how the proof extend.
+    Heavy quarks require a separate discussion,  because their factorization
+    scheme can bedefined in a variety of ways (see e.g. [19]).  Specifically,
+    heavy quarks can be treated in amassive scheme,  in which collinear
+    singularities associated to them are regulated by theirmass, so they decouple
+    from perturbative evolution. In this scheme no collinear subtraction
+    isperformed for massive quarks, so their PDF is given by the unsubtracted Eq.
+    (2) and thus itremains a positive (and scale-independent) probability
+    distribution to all perturbative orders.Note that nothing prevents this heavy
+    quark PDF from having an “intrinsic” component, ofnon-perturbative origin:
+    however, in this factorization scheme, the heavy quark PDFs willbe
+    scale-independent, and thus positive at all scales.
+
+    However, it is also possible to treat the heavy quark in a massless scheme,
+    in which theheavy quark is treated like other massless quarks, namely the
+    collinear singularity regulatedby its mass is subtracted according to Eqs.
+    (9,20), but withμ2now replaced by the heavyquark mass.  Calculations performed
+    in this scheme, with heavy quark mass effects neglected,are accurate for scales
+    much larger than the quark mass.  ForQ2m2hthis scheme reducesto the standardMS
+    and the previous arguments apply.  However, the massless scheme is inprinciple
+    formally defined for all scales, including at the heavy quark mass. This is
+    sometimesdone by using the massless scheme for all flavors, but discontinuously
+    changing the number offlavors at a matching scale chosen equal to (or of order
+    of) the heavy quark mass (zero-massvariable-flavor number scheme,  ZM-VFNS
+    [20]).  Below the matching scale the ZM-VFNSscheme  coincides  with  the
+    massive  scheme  (with non-evolving  heavy  quark  PDF),  and  atthe matching
+    scale the heavy quark PDF changes discontinuously:  the matching condition20 is
+    the scheme transformation from the massive to the masslessMS (computed up to
+    NNLOin  Ref.  [21]).   At  this  scale,  the  scheme  change  matrix  from  the
+    (positive) massive  flavorto massless scheme is a function of the heavy quark
+    massmh, rapidly varying with scaleqwhenQ∼mhand unrelated to the scheme change
+    fromMS to POS. Hence, the previousarguments do not apply and no conclusions can
+    be drawn on on the positivity of the heavy-quark PDF in the massless scheme
+    from its positivity in the massive scheme.  Indeed,  forrealistic quark and
+    gluons and in the absence of intrinsic component theMS massless-schemecharm PDF
+    turns out to be negative for somexvalues when the scale is set equal to
+    thecharm mass
+\end{frame}
+
+\begin{frame}{Positive to all orders}
+    All the discussion so far has been pursued at NLO.  However, the main
+    structure of theargument remains true to all perturbative orders.  In
+    particular, it is true to all orders thatthe diagonal splitting functions
+    are negative at largex:  in fact, at largexto all perturbativeorders they
+    behave as1(1−x)+[14].  At higher perturbative orders, coefficient functions
+    willcontain higher order powers of ln(1−x), leading to the familiar rise in
+    the partonic crosssection  which  is  predicted  to  all  orders  by
+    threshold  resummation  [11, 12].   Off-diagonalchannels,  where  negative
+    contributions  asx→1  may  and  indeed  are  expected  to  arise,remain
+    power  suppressed  in  this  limit.   It  follows  that  the  off-diagonal
+    structure  Eq.  (71)of the matrix relating a positive scheme toMS will hold
+    true to all orders.  The positivityargument of Sect. 3.2.2 is a direct
+    consequence of this structure, and it will thus also holdto all orders.
+\end{frame}
+
+\begin{frame}{more motivations}
+    \begin{itemize}
+        \item pdf should produce positive results also in regions where experimental data are not well known, witho
+    \end{itemize}
 \end{frame}
 
 
