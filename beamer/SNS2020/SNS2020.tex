@@ -453,28 +453,89 @@
 
 
 \section{Is $\msbar$ negative?}
-\begin{frame}{Introduction}
-    Having  concluded  that  we  can  take  the  POS  scheme  as  representative
-    of  a  wide  class  ofpositive factorization schemes, we now discuss its
-    relation to theMS scheme, and what ittells us about positivity ofMS
-    PDFs.Inverting the scheme change fromMS to POS perturbatively (see Eq. (72)) we
-    obtainfMS(Q2) =[I−αs2πKPOS⊗]fPOS(Q2).(79)It is then clear that if the POS PDFs
-    are positive,  then so are theMS ones,  because thematrixKPOSvanishes on the
-    diagonal, and it has negative matrix elements off the diagonal,so−KPOSin  Eq.
-    (79)  is  positive.   The  perturbative  inversion  is  justified  due  to  the
-    factthat  the  non-vanishing  off-diagonal  matrix  elements  of  theKmatrix
-    are  actually  power-suppressed (i.e. next-to-eikonal) in thex→1 limit.This
-    can  be  seen  more  formally  by  considering  the  exact  Mellin-space
-    inverse  of  thescheme change matrix, Eq.
-    (72):[I+αs2πKPOS(N)]−1=11−(αs2π)2Kqg(N)Kgq(N)[I−αs2πKPOS(N)],(80)whereKPOSij(N)
-    denote (by slight abuse of notation) the Mellin transforms of the
-    matrixelementsKPOSijof the matrixKPOS.  It is easy to check that the
-    factorKqg(N)Kgq(N) is amonotonically decreasing function ofNalong the
-    realNaxis, and in particular it vanishesas1N2asN→ ∞, hence the prefactor which
-    relates the exact and perturbative inversions,Eqs. (79-80), is actually bounded
-    in the regionN 2 in which theMS coefficient functions,and thus the matrix
-    elements ofK, turn negative (see Figs. 2-3).We conclude that the light quark
-    and gluonMS PDFs are in fact positive at NLO.
+\begin{frame}{Positivity with a single PDF}
+    First of all we can consider the case of a \textbf{non-singlet} PDF:
+    \begin{equation*}
+        q^{\text{NS}}(x, Q^2) = q_i(x, Q^2) - q_j(x, Q^2) \qquad i \neq j
+    \end{equation*}
+    
+    This is \textit{academic} because we are going to \textbf{assume it
+    positive in a physical scheme}, but being a \textit{difference} it can also
+    not exist such a positive non-singlet.
+
+    \vspace*{15pt}
+    Master formula for this part of the argument is:
+    \begin{equation*}
+        \left[{q^{\text{NS}}}\right]^{\text{DIS}}(x,Q^2)=
+        \left[1+\frac{\alpha_s}{2\pi} {\Delta^{(1)}_q}^{\msbar}
+        +\frac{\alpha_s}{2\pi}  {\bar
+        C^{(1)}_q(x)}^{\msbar}\otimes\right]\left[{q^{\text{NS}}}\right]^{\msbar}(Q^2)
+    \end{equation*}
+    Coming from the definition of $\left[{q^{\text{NS}}}\right]^{\text{DIS}}$
+    as proportional to the physical structure function, and of course of
+    $\msbar$ scheme.
+\end{frame}
+
+\begin{frame}{Positivity with a single PDF: $\iff C_q(x)^{\msbar} > 0$}
+    \begin{block}{Necessity}
+        In the equation before the left hand side is known to be positive,
+        being physical, but assuming a generic positive $\msbar$ PDF without
+        any other restriction means to require the coefficient function to be
+        positive.the coefficient function to be positive.the coefficient
+        function to be positive.
+    \end{block}
+    \begin{block}{Sufficiency}
+        Applying a \textbf{perturbative inversion} one can find that the
+        converse is also true, since the physical (here $\text{DIS}$) PDF is
+        positive by construction, and that perturbatively the coefficient
+        cannot become negative.
+
+        This is true with a single \textit{caveat}: in the region $1 \to x$ the
+        quantity $\alpha_s\log(1-x)$ \textbf{is not small}, so the fixed order
+        inversion is not reliable.\\
+        One can recover in this case the inverted formula to $\text{LL}(1-x)$,
+        showing that the coefficient won't become negative also in this limit.
+    \end{block}
+\end{frame}
+
+\begin{frame}{The singlet-gluon system}
+\end{frame}
+
+\begin{frame}{To a positive $\msbar$}
+    Having proved $\mpos$ to be a positive scheme it is rather trivial to show
+    the positivity of $\msbar$, because we know the explicit transformation
+    between the two schemes:
+    \begin{align*}
+    \hspace*{-12pt}\left[\mathbb{I}
+    +\frac{\alpha_s}{2\pi} {C^{(1)}}^{\msbar}\right]&=\left[\mathbb{I}
+      +\frac{\alpha_s}{2\pi} {C^{(1)}}^{\pos}\right]\otimes\left[\mathbb{I}
+      +\frac{\alpha_s}{2\pi} {C^{(1)}}^{\pos}\otimes\right]^{-1}\left[\mathbb{I}
+      +\frac{\alpha_s}{2\pi}  \left({C^{(1)}}^{\pos} +K^{\pos}\right)\right]\\  
+    &=\left[\mathbb{I}
+      +\frac{\alpha_s}{2\pi} {C^{(1)}}^{\pos}
+      \right]\left[\mathbb{I}
+      + \otimes \frac{\alpha_s}{2\pi}  K^{\pos}\right]
+    \end{align*}
+    and so:
+    \begin{equation*}
+     f^{\,\pos}(Q^2)=\left[\mathbb{I}
+      +\frac{\alpha_s}{2\pi}  K^{\pos}\otimes\right] f^{\,\msbar}(Q^2)\,,
+    \end{equation*}
+    which inverse can be obtained perturbatively, taking separately into
+    account the $x \to 1$ limit in a similar way of what has been done above.
+\end{frame}
+
+\begin{frame}{To a positive $\msbar$}
+    The explicit expression of the change of scheme matrix $K$ is:
+    \begin{equation*}
+        K^{\pos}=\left[\ln\left(\frac{(1-x)^2}{x}\right) - 1\right]
+        \left(\begin{array}{cc} 0 & P_{qg}(x) \\
+        P_{gq}(x) & 0\end{array}\right).
+    \end{equation*}
+    and its shape in $N$-space can be plotted:
+    \begin{figure}
+      \includegraphics[width=0.85\textwidth]{pictures/kmatrix-offdiagonal-9}
+    \end{figure}
 \end{frame}
 
 \section{Conclusion}
