@@ -499,6 +499,41 @@
 \end{frame}
 
 \begin{frame}{The singlet-gluon system}
+    In the general (and relevant) case, we should consider the coupled system
+    made by singlet and gluon PDFs, for which hadronic cross sections can be
+    written as:
+    \begin{equation*}
+        \frac{1}{x} \sigma(x,Q^2)= \hat \Sigma_0\otimes \left[1
+        +\frac{\alpha_s}{2\pi}  C^{(1)} \otimes \right] f(Q^2) \,.
+    \end{equation*}
+    where:
+    \begin{align*}
+        \sigma(x,Q^2)=\left(\begin{array}{c} \sigma^{q}(x,Q^2)\\ \sigma^{g} (x,Q^2)\end{array}\right) \qquad&
+        \hat \Sigma_0(x,Q^2)=\left(\begin{array}{cc} \hat \sigma_0^{q} q (x,Q^2) &
+                  0 \\0 & \sigma_0^{g} g (x,Q^2) \end{array}\right)\\
+          f(x,Q^2)&=\left(\begin{array}{c} q(x,Q^2) \\ g(x,Q^2) \end{array}\right)
+    \end{align*}
+    so $\sigma$ represents a couple of processes (e.g.: Drell-Yan and Higgs
+    production via gluon fusion), and the coefficient function is a two-by-two
+    matrix.
+\end{frame}
+
+\begin{frame}{The singlet-gluon system: recycling}
+    Even if the system it's a little bit less trivial than the previous one the
+    argument runs the very same way: the only update it should be taken care of
+    is the appearance of off-diagonal terms.
+
+    Provided that the $\pos$ scheme has been defined choosing a prescription
+    that takes explicitly care of the off-diagonal bit they are suitable not to
+    spoil the argument\footnote{In particular: \textit{positive} and
+    \textit{negligible in the large $x$} range, with respect to the diagonal
+    ones.}.
+
+    \vspace*{15pt}
+    Also the argument based on the \textit{physical} scheme it's the same, but
+    to apply it one should consider a pair of processes (actual or
+    \textit{artificial}) linear in the PDFs, in order to be able to state that
+    the physical one is positive since defined on a physical observable.
 \end{frame}
 
 \begin{frame}{To a positive $\msbar$}
@@ -506,15 +541,15 @@
     the positivity of $\msbar$, because we know the explicit transformation
     between the two schemes:
     \begin{align*}
-    \hspace*{-12pt}\left[\mathbb{I}
-    +\frac{\alpha_s}{2\pi} {C^{(1)}}^{\msbar}\right]&=\left[\mathbb{I}
-      +\frac{\alpha_s}{2\pi} {C^{(1)}}^{\pos}\right]\otimes\left[\mathbb{I}
-      +\frac{\alpha_s}{2\pi} {C^{(1)}}^{\pos}\otimes\right]^{-1}\left[\mathbb{I}
-      +\frac{\alpha_s}{2\pi}  \left({C^{(1)}}^{\pos} +K^{\pos}\right)\right]\\  
-    &=\left[\mathbb{I}
-      +\frac{\alpha_s}{2\pi} {C^{(1)}}^{\pos}
-      \right]\left[\mathbb{I}
-      + \otimes \frac{\alpha_s}{2\pi}  K^{\pos}\right]
+        \hspace*{-12pt}\left[\mathbb{I}
+        +\frac{\alpha_s}{2\pi} {C^{(1)}}^{\msbar}\right]&=\left[\mathbb{I}
+          +\frac{\alpha_s}{2\pi} {C^{(1)}}^{\pos}\right]\otimes\left[\mathbb{I}
+          +\frac{\alpha_s}{2\pi} {C^{(1)}}^{\pos}\otimes\right]^{-1}\left[\mathbb{I}
+          +\frac{\alpha_s}{2\pi}  \left({C^{(1)}}^{\pos} +K^{\pos}\right)\right]\\  
+        &=\left[\mathbb{I}
+          +\frac{\alpha_s}{2\pi} {C^{(1)}}^{\pos}
+          \right]\left[\mathbb{I}
+          + \otimes \frac{\alpha_s}{2\pi}  K^{\pos}\right]
     \end{align*}
     and so:
     \begin{equation*}
