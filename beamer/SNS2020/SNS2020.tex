@@ -15,6 +15,7 @@
 \usepackage{tikz}
 \usetikzlibrary{shapes,arrows}
 \usepackage{amsmath, bm}
+\usepackage{siunitx}
 \usepackage{physics,hepnames}
 \usepackage{mathtools}
 
@@ -100,7 +101,7 @@
 
 \begin{frame}{LO PDF definition}
     \begin{columns}
-        \begin{column}{0.55\textwidth}
+        \begin{column}{0.5\textwidth}
             Since they are free the main property of each parton is the
             fraction of the total momentum it carries.\newline
 
@@ -108,11 +109,14 @@
             fraction $x$ it's encoded in its \textit{Parton Density Function}\footnotemark,
             $f_p(x)$.
         \end{column}
-        \begin{column}{0.45\textwidth}
+        \begin{column}{0.5\textwidth}
             \begin{figure}
                 \centering
-                \includegraphics[width=\textwidth]{pictures/lo_pdfs}
+                \includegraphics[width=0.95\textwidth]{pictures/lo_pdfs}
+                \caption{Quarks' PDFs at $Q^2 = \SI{90}{GeV^2}$ (the gluon
+                has been omitted)}
             \end{figure}
+            \vspace*{-20pt}
         \end{column}
     \end{columns}
     \footnotetext{In general PDFs also depend on the energy scale $Q^2$, but at
@@ -132,7 +136,7 @@
     \begin{itemize}
         \item \textbf{virtual}, due to loop integrals
         \item \textbf{soft}, due to emission of an extra soft particle
-        \item \textbf{collinear}, due to
+        \item \textbf{collinear}, due to the emission of an extra collinear particle
     \end{itemize}
     The first two kinds are known to cancel in sufficiently inclusive
     observables\footnote{e.g.: the KLN theorem is one of the results that guarantee
@@ -234,7 +238,7 @@
         \textit{Does it exist at all a factorization scheme in which PDF are\\ still positive also @ NLO?}
     \end{center}
 
-    And the answer can be ready given: \textbf{Yes}.\newline
+    And the answer can be immediately given: \textbf{Yes}.\newline
 
     It results that there is not a single positive scheme, and there is a
     particularly simple class of them.
@@ -479,9 +483,11 @@
         In the equation before the left hand side is known to be positive,
         being physical, but assuming a generic positive $\msbar$ PDF without
         any other restriction means to require the coefficient function to be
-        positive.the coefficient function to be positive.the coefficient
-        function to be positive.
+        positive\footnote{Almost like in a variational argument one assumes the
+        coefficient of the variation to be zero, since the variation can be
+        whatever.}.
     \end{block}
+    \vspace*{10pt}
     \begin{block}{Sufficiency}
         Applying a \textbf{perturbative inversion} one can find that the
         converse is also true, since the physical (here $\text{DIS}$) PDF is
@@ -494,6 +500,7 @@
         One can recover in this case the inverted formula to $\text{LL}(1-x)$,
         showing that the coefficient won't become negative also in this limit.
     \end{block}
+    \vspace*{10pt}
 \end{frame}
 
 \begin{frame}{The singlet-gluon system}
@@ -518,8 +525,8 @@
 
 \begin{frame}{The singlet-gluon system: recycling}
     Even if the system it's a little bit less trivial than the previous one the
-    argument runs the very same way: the only update it should be taken care of
-    is the appearance of off-diagonal terms.
+    argument runs the very same way: \textbf{the only update} it should be
+    taken care of is the appearance of \textbf{off-diagonal terms}.
 
     Provided that the $\pos$ scheme has been defined choosing a prescription
     that takes explicitly care of the off-diagonal bit they are suitable not to
@@ -527,7 +534,7 @@
     \textit{negligible in the large $x$} range, with respect to the diagonal
     ones.}.
 
-    \vspace*{15pt}
+    \vspace*{13pt}
     Also the argument based on the \textit{physical} scheme it's the same, but
     to apply it one should consider a pair of processes (actual or
     \textit{artificial}) linear in the PDFs, in order to be able to state that
