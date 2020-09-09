@@ -21,6 +21,13 @@
 \usepackage{physics,hepnames}
 \usepackage{mathtools}
 \usepackage{enumitem}
+\setenumerate[1]{%
+      label=\protect\usebeamerfont{enumerate item}%
+      \protect\usebeamercolor[fg]{enumerate item}%
+      \insertenumlabel.}
+\setitemize{label=\usebeamerfont*{itemize item}%
+    \usebeamercolor[fg]{itemize item}
+      \usebeamertemplate{itemize item}}
 
 \usepackage{subfig}
 
@@ -50,7 +57,7 @@
         \raisebox{5pt}[0pt][0pt]{\includegraphics[height=0.8cm]{../_logos/n3pdf_logo.pdf}}\hspace*{10pt}
         \includegraphics[height=1.3cm]{../_logos/erc_logo1.png}
 
-        \vfill\vspace*{190pt}
+        \vfill\vspace*{230pt}
         \includegraphics[height=1cm]{../_logos/unimi_logo.png}\hfill
         \includegraphics[height=1cm]{../_logos/infn_logo.png}\\
         \vspace*{5pt}
@@ -64,89 +71,84 @@
 
 \maketitle
 
-\section{PDF @ NLO: factorization scheme}
 \begin{frame}{NLO divergences}
-    As well known at NLO divergences start to appear, both in virtual and real contributions.
-    \begin{figure}
-        \centering
-        \includegraphics[width=.8\textwidth]{pictures/nlo-real}
-    \end{figure}
-    There are 3 kinds of divergences:
-    \begin{itemize}
-        \item \textbf{virtual}, due to loop integrals
-        \item \textbf{soft}, due to emission of an extra soft particle
-        \item \textbf{collinear}, due to the emission of an extra collinear particle
-    \end{itemize}
-    The first two kinds are known to cancel in sufficiently inclusive
-    observables\footnote{e.g.: the KLN theorem is one of the results that guarantee
-    this cancellation.}.
-\end{frame}
+    \begin{columns}
+        \begin{column}{0.4\textwidth}
+            As well known at NLO divergences start to appear, both in \textbf{virtual}
+            and real contributions (\textbf{soft} and \textbf{collinear}).
+        \end{column}
 
-\begin{frame}{NLO collinear divergences}
-    On the other hand collinear divergences have \textit{a different origin}
-    that can be related to the asymptotic freedom of strong interactions:
+        \begin{column}{0.55\textwidth}
+            \begin{figure}
+                \centering
+                \includegraphics[width=\textwidth]{pictures/nlo-real}
+            \end{figure}
+        \end{column}
+    \end{columns}
+
+    \vspace*{10pt}
+
+    \begin{block}{Collinear divergences}
+    \vspace*{1pt}
+    Collinear divergences have \textit{a different origin} that can be
+    related to the asymptotic freedom of strong interactions:
+    \end{block}
 
     \begin{center}
-        \textit{The collinear limit corresponds to a long range (soft) part of
-        the strong interaction, which is not calculable in perturbation
-        theory.}
+        \textit{The collinear limit corresponds to a long range (soft)
+        part of the strong interaction, which is not calculable in
+        perturbation theory.}
     \end{center}
 
-    These divergences must be treated in a different way, defining a suitable
-    \textbf{factorization scheme}.\newline
+    \begin{columns}
+        \begin{column}{0.4\textwidth}
+            So they must be treated in a different way, defining a suitable
+            \textbf{factorization scheme},\newline
+            i.e. we can hide collinear divergences in a non-perturbative
+            object, the PDF.
 
-    Notice that collinear divergences are also responsible for the appearance
-    of the characteristic $\alpha_s \log(Q^2)$, that will introduce the PDF
-    dependency on $Q^2$.
+        \end{column}
+
+        \begin{column}{0.55\textwidth}
+            \begin{align*}
+                F_2(x,Q^2) &= x\sum_{q,\bar{q}} q_0 \otimes \hat{F}_{2,0} (x, Q^2) =
+                x \sum_{q,\bar{q}} \int\limits_x^1 \frac{\dd\xi}{\xi} q_0(\xi)
+                \hat{F}_{2,0}\left(\frac{x}{\xi},Q^2\right)\\
+                &= x \sum_{q,\bar{q}} q \otimes \hat{F}_2 (x, Q^2)\\
+            \end{align*}
+        \end{column}
+    \end{columns}
+
+    \textbf{Example:} DIS scheme for DIS @ NLO
 \end{frame}
 
 \begin{frame}{Factorization Scheme}
+    \begin{columns}
+        \begin{column}{0.6\textwidth}
+            Effects of the factorization scheme:
+            \begin{enumerate}
+                \item the effective \textit{subtraction} of the collinear divergence
+                    in the partonic cross section
+                \item the definition of a "renormalized" PDF
+                \item the appearance of a new unphysical energy scale: $\mu_F$, the
+                    \textit{factorization scale} (which is on the same ground of $\mu_R$).
+            \end{enumerate}
+        \end{column}
+
+        \begin{column}{0.4\textwidth}
+            There is an \textbf{arbitrariness} on defining the finite part of
+            the subtraction (as for renormalization).
+        \end{column}
+    \end{columns}
+
     \vspace*{15pt}
-    The way to deal with these divergences is offered by the previous
-    interpretation: we can hide them in a non-perturbative object, the PDF.
-    \begin{align*}
-        F_2(x,Q^2) &= x\sum_{q,\bar{q}} q_0 \otimes \hat{F}_{2,0} (x, Q^2) =
-        x \sum_{q,\bar{q}} \int\limits_x^1 \frac{\dd\xi}{\xi} q_0(\xi)
-        \hat{F}_{2,0}\left(\frac{x}{\xi},Q^2\right)\\
-        &= x \sum_{q,\bar{q}} q \otimes \hat{F}_2 (x, Q^2)\\
-    \end{align*}
-    \vspace*{-15pt}
 
-    Example: DIS scheme for DIS @ NLO
-    \begin{align*}
-        \hat{F}_{2,0}(x,Q^2) &= e_q^2 x \left[ \delta(1-x) +
-        \frac{\alpha_s}{2\pi}\left(P(x) \log(\frac{Q^2}{\kappa^2}) +
-        C(x)\right) + \dots \right]\\
-        q(x, \mu^2_F) &= q_0(x) + \frac{\alpha_s}{2\pi} \int\limits_x^1
-        \frac{\dd \xi}{\xi} q_0(\xi) \left\{ P\left(\frac{x}{\xi}\right)
-        \log(\frac{\mu^2_F}{\kappa^2}) + C\left(\frac{x}{\xi}\right)\right\} +
-        \dots
-    \end{align*}
-\end{frame}
-
-\begin{frame}{Factorization Scheme}
-    This will result:
-    \begin{itemize}
-        \item in the effective \textit{subtraction} of the collinear divergence
-            in the partonic cross section
-        \item the definition of a "renormalized" PDF
-        \item the appearance of a new unphysical energy scale: $\mu_F$, the
-            \textit{factorization scale} (which is on the same ground of $\mu_R$).
-    \end{itemize}
-
-    There is an \textbf{arbitrariness} on defining the finite part of the
-    subtraction, in the very same way of the renormalization scheme.
-
-    However, since the subtraction is related to a redefinition of the PDFs,
-    once that a scheme has been \textbf{chosen} (fixing a finite subtraction)
-    it should be kept for all the processes, because the \textbf{PDFs are
-    always the same}.
-\end{frame}
-
-\begin{frame}{Factorization Scheme (CS counterterm)}
+    \begin{block}{Counterterm}
+    \vspace*{1pt}
     The formula for a cross section in a generic factorization scheme can be
     written as an additional counterterm contribution $\dd\sigma^C_a$, in this
     case coming from the PDF redefinition:
+    \end{block}
     \begin{align*}
         \sigma_a^{NLO}(p; \mu_F^2) &= \int\limits_{m+1} \dd\sigma^R_a(p) +
         \int\limits_{m} \dd\sigma^V_a(p) + \int\limits_{m} \dd\sigma^C_a(p;
@@ -158,10 +160,6 @@
     \end{align*}
     in dimensional regularization\footnote{The counterterm is such that
     $K^{ab}=0$ for $\msbar$ factorization scheme}.
-
-    This will be useful in what follows, because it is exactly by choosing a
-    specific factorization scheme (i.e. a specific $K^{ab}$ matrix) that we can
-    analyze the property of the frequent $\msbar$ choice.
 \end{frame}
 
 \begin{frame}{Is there a positive scheme?}
@@ -338,14 +336,15 @@
     factorization.}
 
     \vspace*{15pt}
-    \textbf{\large $\pos$ for both}
-    
-    We changed to $\pos$ applying the same energy correction $\mu_h^2$ in all
-    the channels (instead of $\mu_D^2$).
+    \begin{block}{$\pos$ for both}
+    \vspace*{1pt}
+        We changed to $\pos$ applying the same energy correction $\mu_h^2$ in all
+        the channels (instead of $\mu_D^2$).
 
-    Since the $\pos$ scheme results to make the DIS cross-sections even more
-    positive (non minimal subtraction) it is a good candidate for a positivity
-    scheme.
+        Since the $\pos$ scheme results to make the DIS cross-sections even more
+        positive (non minimal subtraction) it is a good candidate for a positivity
+        scheme.
+    \end{block}
 \end{frame}
 
 
@@ -370,7 +369,7 @@
     \vspace*{14pt}
 
     \begin{columns}
-        \begin{column}{0.5\textwidth}
+        \begin{column}{0.45\textwidth}
             \textbf{Necessity}
             \newline
 
@@ -379,7 +378,7 @@
             restriction yields the coefficient function to be
             positive\footnotemark.
         \end{column}
-        \begin{column}{0.5\textwidth}
+        \begin{column}{0.45\textwidth}
             \textbf{Sufficiency}
             \newline
 
@@ -418,7 +417,8 @@
     pair of processes.
 
     \vspace*{15pt}
-    \textbf{\large To a positive $\msbar$}
+    \begin{block}{To a positive $\msbar$}
+    \vspace*{1pt}
 
     With $\pos > 0$ he prove of $\msbar > 0$ is straightforward, since the
     explicit transformation between the two schemes is known:
@@ -436,6 +436,7 @@
     \end{equation*}
     which \textbf{inverse} can be obtained \textbf{perturbatively} (with the
     same caveat for the $x \to 1$ \textbf{limit}).
+    \end{block}
 \end{frame}
 
 \begin{frame}{Conclusions}
