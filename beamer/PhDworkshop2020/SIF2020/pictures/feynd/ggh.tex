@@ -1,0 +1,13 @@
+%Compile with 'latexmk -pdflatex=lualatex ...'
+\documentclass[10pt,border=5pt]{standalone}
+
+\usepackage{tikz-feynman}
+\usepackage[italic]{hepnames} % italic?!
+
+\begin{document}
+    \feynmandiagram [horizontal=v1 to g1] {
+        g1 [particle=$\Ph$] -- [scalar] v1 [empty dot] -- [gluon] g2 [particle=$\Pg$],
+        v1 -- [gluon] g3 [particle=$\Pg$],
+        g2 -- [opacity=0.0] g3
+    };
+\end{document}
