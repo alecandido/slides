@@ -71,6 +71,61 @@
 
 \maketitle
 
+\begin{frame}{LO PDFs}
+    \vspace*{10pt}
+    \begin{columns}
+        \begin{column}{0.7\textwidth}
+            The \textit{parton model} consist in a model of the proton
+            structure as a bunch of free components, collectively called
+            \textit{partons}:
+
+            \begin{itemize}
+                \item in principle any elementary particle
+                \item in practice mostly \textbf{quarks} and \textbf{gluons}
+            \end{itemize}
+
+            %\vspace*{15pt}
+            %It has been historically formulated as a model before the theory of
+            %quarks, just assuming \textbf{point-like constituents} for the
+            %proton, now it has a special role as a model because some of its
+            %properties\footnotemark can be deduced from field theory and
+            %Standard Model.
+        \end{column}
+        \begin{column}{0.2\textwidth}
+            \begin{figure}
+                \centering
+                \includegraphics[height=100pt]{pictures/partons}
+            \end{figure}
+        \end{column}
+    \end{columns}
+
+    %\footnotetext{The actual structure of the proton has a non-perturbative
+    %origin, so it cannot be completely understood by perturbative QFT}
+
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \vspace*{-20pt}
+            \begin{figure}
+                \centering
+                \includegraphics[width=0.85\textwidth]{pictures/lo_pdfs}
+                \vspace*{-15pt}
+                \caption{Quarks' PDFs at $Q^2 = \SI{90}{GeV^2}$ (the gluon
+                has been omitted)}
+            \end{figure}
+        \end{column} 
+        \begin{column}{0.5\textwidth}
+            Since they are free the main property of each parton is the
+            \textbf{fraction of the total momentum} it carries (given
+            \textit{Björken scaling}, and that they are
+            \textit{collinear}).\newline
+
+            The probability density of finding a parton $p$ with momentum
+            fraction $x$ it's encoded in its \textit{Parton Distribution Function},
+            $f_p(x)$.
+        \end{column}
+    \end{columns} 
+\end{frame}
+
 \begin{frame}{NLO divergences}
     \begin{columns}
         \begin{column}{0.4\textwidth}
@@ -164,7 +219,9 @@
 
 \begin{frame}{Is there a positive scheme?}
     \begin{columns}
-        \begin{column}{0.55\textwidth}
+        \begin{column}{0.00\textwidth}
+        \end{column}
+        \begin{column}{0.4\textwidth}
             At LO PDFs are positive by construction, but this is \textbf{not
             true at NLO}, since we \textbf{redefined the PDF} with the
             \textit{subtraction from the factorization scheme}.
@@ -176,7 +233,10 @@
             subtracting \textit{all of the finite} contribution.
         \end{column}
 
-        \begin{column}{0.45\textwidth}
+        \begin{column}{0.05\textwidth}
+        \end{column}
+
+        \begin{column}{0.5\textwidth}
             Like in the well-known DIS scheme we can choose two physical
             processes for defining the quark and gluon PDF:
             \begin{description}[style=unboxed]
@@ -185,6 +245,8 @@
                 \item[gluon] either a hypothetical $g p \to H + X$ (pure gluon
                     beam), or a photon-gluon fusion;
             \end{description}
+        \end{column}
+        \begin{column}{0.00\textwidth}
         \end{column}
     \end{columns}
 
@@ -303,11 +365,11 @@
 
                 \item the factorization scheme is linked to collinear
                     structure, that is universal \textit{w.r.t. the hard
-                    process}, but is affected by the \textbf{incoming
-                kinematics}.
+                    process}, but is affected by the \alert{incoming
+                    kinematics}.
             \end{itemize}
 
-            \vspace*{8pt}
+            \vspace*{13pt}
             A suitable process for both is $gg\to h + X$ in HEFT:
             \begin{figure}
               \includegraphics[width=0.55\textwidth]{pictures/feynd/ggh}
@@ -348,73 +410,25 @@
 \end{frame}
 
 
-\begin{frame}{Is $\msbar$ negative? (non-singlet)}
-    First of all we can consider the case of a \textbf{non-singlet} PDF:
-    $q^{\text{NS}}(x, Q^2) = q_i(x, Q^2) - q_j(x, Q^2)$
-    \footnote{This is \textit{academic} because we are going to \textbf{assume
-    it positive in a physical scheme}, but being a \textit{difference} it may
-    also not exist such a positive non-singlet.}.
+\begin{frame}{Is $\msbar$ negative?}
+    There are two scenarios we should account for: (\textbf{non-singlet}) $\to$
+    scalar (i.e. diagonal), (\textbf{singlet}, \textbf{gluon}) -> matrix
+    \footnote{The latter being just a technical complication, and substantially
+    it is the same of the former.}.
 
     \vspace*{10pt}
     Master formula for this part of the argument is:
     \begin{equation*}
-        \left[{q^{\text{NS}}}\right]^{\text{DIS}}(x,Q^2)=
-        \left[1+\frac{\alpha_s}{2\pi} {\Delta^{(1)}_q}^{\msbar}
+        q^{\text{DIS}}(x,Q^2)=
+        \left[1+\frac{\alpha_s}{2\pi} {\Delta^{(1)}_q}^{\pos}
         +\frac{\alpha_s}{2\pi}  {\bar
-        C^{(1)}_q(x)}^{\msbar}\otimes\right]\left[{q^{\text{NS}}}\right]^{\msbar}(Q^2)
+        C^{(1)}_q(x)}^{\pos}\otimes\right]q^{\pos}(Q^2)
     \end{equation*}
-
-    \vspace*{20pt}
-    \textbf{\large Positivity with a single PDF $\iff C_q(x)^{\msbar} > 0$}
-    \vspace*{14pt}
-
-    \begin{columns}
-        \begin{column}{0.45\textwidth}
-            \textbf{Necessity}
-            \newline
-
-            Since DIS PDFs are known to be positive, being physical, but
-            assuming a generic positive $\msbar$ PDF without any other
-            restriction yields the coefficient function to be
-            positive\footnotemark.
-        \end{column}
-        \begin{column}{0.45\textwidth}
-            \textbf{Sufficiency}
-            \newline
-
-            Applying a \textbf{perturbative inversion} to the master formula,
-            since physical (here $\text{DIS}$) PDF is
-            positive and perturbatively the coefficient
-            cannot become negative\footnotemark.\\
-        \end{column}
-    \end{columns}
-    \footnotetext[6]{Like in a variational argument one assumes the
-    coefficient of the variation to be zero, since the variation can be
-    whatever.}
-    \footnotetext{There is a single \textit{caveat}: in the region $x \to 1$ it's not perturbative,
-    so in this case the inverted formula to $\text{LL}(1-x)$.}
-\end{frame}
-
-\begin{frame}{Is $\msbar$ negative? (singlet-gluon system)}
-    Instead singlet and gluon are coupled
-    \begin{equation*}
-        \frac{1}{x} \sigma(x,Q^2)= \hat \Sigma_0\otimes \left[1
-        +\frac{\alpha_s}{2\pi}  C^{(1)} \otimes \right] f(Q^2) \,.
-    \end{equation*}
-    where:
-    \begin{equation*}
-        \sigma(x,Q^2)=\left(\begin{array}{c} \sigma^{q}(x,Q^2)\\ \sigma^{g} (x,Q^2)\end{array}\right) \qquad
-        \hat \Sigma_0(x,Q^2)=\left(\begin{array}{cc} \hat \sigma_0^{q} q (x,Q^2) &
-                  0 \\0 & \sigma_0^{g} g (x,Q^2) \end{array}\right) \qquad
-          f(x,Q^2)=\left(\begin{array}{c} q(x,Q^2) \\ g(x,Q^2) \end{array}\right)
-    \end{equation*}
-    so $\sigma$ represents a couple of processes, and the coefficient function
-    is a two-by-two matrix.
-
-    The only new ingredients are \textbf{off-diagonal terms}, but $\pos$ has
-    been defined taking explicitly care of them.
-    So the argument it's pretty the same, but to apply it one should consider a
-    pair of processes.
+    and the argument itself consist in the proof of the arrows PDF $> 0$ $\iff
+    C_q(x)^{\pos} > 0$: \textit{necessity} given by \textbf{varying $\pos$
+    PDF} \footnote{Like in a variational argument, we can take a basis of
+    delta-like or in any case restricted support functions.}, and
+    \textit{sufficiency} by \textbf{perturbative inversion}.
 
     \vspace*{15pt}
     \begin{block}{To a positive $\msbar$}
