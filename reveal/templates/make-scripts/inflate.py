@@ -1,7 +1,7 @@
 # -*- coding: utf-8 -*-
 """
 Use this script to restore a presentation environment from a tarball, it will
-destroy the current `my-reveal` environment
+destroy the current `_sandbox` environment
 """
 import os
 import pathlib
@@ -25,17 +25,17 @@ def main(here, root):
     # ---------------------
 
     if not click.confirm(
-        "Are you sure to delete the current 'my-reveal' environment?", default=False
+        "Are you sure to delete the current '_sandbox' environment?", default=False
     ):
         print("Nothing done.")
         quit()
 
-    logger.info("Authorized to replace 'my-reveal' environment.")
+    logger.info("Authorized to replace '_sandbox' environment.")
 
-    # checkout a brand new instance of my-reveal
+    # checkout a brand new instance of _sandbox
     # ------------------------------------------
 
-    shutil.rmtree(root / "my-reveal", ignore_errors=True)
+    shutil.rmtree(root / "_sandbox", ignore_errors=True)
 
     os.system("git submodule update")
     make.main()

@@ -17,8 +17,8 @@ import logging.config
 
 
 def main(here, root):
-    my_reveal = root / "my-reveal"
-    sys.path.append(str(my_reveal))
+    sandbox = root / "_sandbox"
+    sys.path.append(str(sandbox))
     import build_template
 
     # start logging
@@ -29,7 +29,7 @@ def main(here, root):
 
     # build index.html
     # ================
-    build_template.main(my_reveal)
+    build_template.main(sandbox)
 
 
 if __name__ == "__main__":

@@ -7,11 +7,11 @@ STRUCTURES := $(wildcard structures/*)
 THEMES := $(wildcard themes/*)
 MISC := $(wildcard misc/*)
 
-SLIDES_SRC := $(wildcard my-reveal/src/*)
+SLIDES_SRC := $(wildcard _sandbox/src/*)
 
-#PREVIEW_OUT := $(wildcard my-reveal/build/*)
-PREVIEW_OUT := my-reveal/index.html
-BUILD_OUT := $(wildcard my-reveal/build/*)
+#PREVIEW_OUT := $(wildcard _sandbox/build/*)
+PREVIEW_OUT := _sandbox/index.html
+BUILD_OUT := $(wildcard _sandbox/build/*)
 
 # ~~~~~~~
 # TARGETS
@@ -32,7 +32,7 @@ framework: | $(REVEAL) $(STRUCTURES) $(REVEAL) $(MISC)
 # =============================
 
 view:
-	$(BROWSER) my-reveal/index.html
+	$(BROWSER) _sandbox/index.html
 
 # build a presentation preview
 # ============================
@@ -67,16 +67,16 @@ inflate:
 # ==============
 
 checkpoint:
-	tar cvzf checkpoint.tar.gz my-reveal/src my-reveal/assets
+	tar cvzf checkpoint.tar.gz _sandbox/src _sandbox/assets
 
 restore:
 	tar xvzf checkpoint.tar.gz
 	rm -f checkpoint.tar.gz
 
 update: 
-	tar cvzf checkpoint.tar.gz my-reveal/src my-reveal/assets
+	tar cvzf checkpoint.tar.gz _sandbox/src _sandbox/assets
 	git submodule update
 	python3 make-scripts/make.py
 	tar xvzf checkpoint.tar.gz
 	rm -f checkpoint.tar.gz
-	python3 my-reveal/build_template.py
+	python3 _sandbox/build_template.py

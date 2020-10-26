@@ -7,3 +7,7 @@ httpwatcher
 toml
 # templates
 jinja2
+#
+# layout specific
+# ---------------
+-r structures/split-html-only/requirements.txt

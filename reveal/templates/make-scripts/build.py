@@ -2,8 +2,8 @@
 """
 Use this script to build the presentation release:
 
-- source into `my-reveal/src`
-- release into `my-reveal/build`
+- source into `_sandbox/src`
+- release into `_sandbox/build`
 """
 import sys
 import pathlib
@@ -24,8 +24,8 @@ def main(here, root):
 
     # load configs
     # ============
-    my_reveal = root / "my-reveal"
-    presentation_toml = my_reveal / "presentation.toml"
+    sandbox = root / "_sandbox"
+    presentation_toml = sandbox / "presentation.toml"
 
     with open(presentation_toml) as f:
         configs = toml.load(f)
@@ -42,7 +42,7 @@ def main(here, root):
     # run the build
     # =============
 
-    subprocess.check_call([sys.executable, (my_reveal / "build_template.py").resolve()])
+    subprocess.check_call([sys.executable, (sandbox / "build_template.py").resolve()])
 
     # collect all relevant files
     # ==========================
@@ -51,25 +51,25 @@ def main(here, root):
 
     # css
     for css in ["reveal", "reset", "theme"]:
-        shutil.copy2(my_reveal / "dist" / f"{css}.css", dist / f"{css}.css")
+        shutil.copy2(sandbox / "dist" / f"{css}.css", dist / f"{css}.css")
 
     # assets
-    shutil.copytree(my_reveal / "dist" / "fonts", dist / "fonts")
+    shutil.copytree(sandbox / "dist" / "fonts", dist / "fonts")
 
     # js
-    shutil.copy2(my_reveal / "dist" / "reveal.js", dist / "reveal.js")
-    shutil.copytree(my_reveal / "plugin", build / "plugin")
+    shutil.copy2(sandbox / "dist" / "reveal.js", dist / "reveal.js")
+    shutil.copytree(sandbox / "plugin", build / "plugin")
 
     # html
-    shutil.copy2(my_reveal / "index.html", build / "index.html")
+    shutil.copy2(sandbox / "index.html", build / "index.html")
 
     # assets
-    shutil.copytree(my_reveal / "assets", build / "assets")
+    shutil.copytree(sandbox / "assets", build / "assets")
 
     # make a compressed copy of the full dir
     # ======================================
     subprocess.check_call(
-        ["tar", "cvzf", build / "my-reveal.tar.gz", my_reveal.relative_to(root)],
+        ["tar", "cvzf", build / "_sandbox.tar.gz", sandbox.relative_to(root)],
         cwd=root,
     )
 

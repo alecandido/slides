@@ -35,14 +35,14 @@ def main(here, root):
     # ----------------
     # and keep watching
 
-    my_reveal = root / "my-reveal"
+    sandbox = root / "_sandbox"
 
     def custom_callback():
         print("Web server reloading!")
 
     server = HttpWatcherServer(
-        my_reveal,  # serve files from the folder /path/to/html
-        # watch_paths=[my_reveal / "index.html"],  # watch these paths for changes
+        sandbox,  # serve files from the folder /path/to/html
+        # watch_paths=[sandbox / "index.html"],  # watch these paths for changes
         on_reload=custom_callback,  # optionally specify a custom callback to be called just before the server reloads
         host="127.0.0.1",  # bind to host 127.0.0.1
         port=1234,  # bind to port 1234

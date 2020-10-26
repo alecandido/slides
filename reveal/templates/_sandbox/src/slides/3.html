@@ -1,0 +1,23 @@
+<h2>What's new</h2>
+<p style="font-size: 0.65em">
+  The idea of <code>DISaaS</code> instead is to package the software itself in an image.
+  <ul style="font-size: 0.65em; width: 25em">
+    <li>Provide compiled software working <em>out of the box</em></li>
+      <ul style="font-size: 0.75em; width: 25em">
+        <li>This will make easier to use legacy physics software, usually
+          <em>compiled</em> and sometimes <em>dependent on old software</em></li>
+        <li>It will also make still useful to write compiled software when
+          needed, since <em>portability</em> is guaranteed by the container
+          infrastructure</li>
+      </ul>
+    <li>Exploit <em>multi-stage build</em>: build dependencies are not
+      packaged, making the image lighter</li>
+    <li>Use in <em>CI workflows</em></li>
+  </ul>
+</p>
+
+<p style="font-size: 0.65em">
+  <strong>E.g.:</strong> packaging <code>APFEL</code> in a container will make
+  it easier to benchmark <code>yadism</code> on multiple systems and in
+  workflows.
+</p>

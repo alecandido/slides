@@ -24,15 +24,15 @@ def main(here, root):
     logger = logging.getLogger("make")
 
     misc = root / "misc"
-    my_reveal = root / "my-reveal"
+    sandbox = root / "_sandbox"
 
     # make a copy
     # -----------
 
-    shutil.rmtree(my_reveal, ignore_errors=True)
+    shutil.rmtree(sandbox, ignore_errors=True)
     shutil.copytree(
         root / "reveal.js",
-        my_reveal,
+        sandbox,
         dirs_exist_ok=True,
         ignore=shutil.ignore_patterns(".git", ".github"),
     )
@@ -40,7 +40,7 @@ def main(here, root):
     # update package.json
     # -------------------
 
-    package_json = my_reveal / "package.json"
+    package_json = sandbox / "package.json"
     with open(package_json) as f:
         package_json_content = json.load(f)
 
@@ -64,7 +64,7 @@ def main(here, root):
     with open(presentation_toml) as f:
         configs = toml.load(f)
 
-    shutil.copy2(presentation_toml, my_reveal)
+    shutil.copy2(presentation_toml, sandbox)
 
     # add structures
     # --------------
@@ -92,23 +92,23 @@ def main(here, root):
 
     # TODO manage configs
 
-    shutil.copy2(build_script, my_reveal)
-    shutil.copy2(template, my_reveal)
+    shutil.copy2(build_script, sandbox)
+    shutil.copy2(template, sandbox)
 
     # TODO hardcoded files tree, this should depend on the structure chosen
-    slides = my_reveal / "src" / "slides"
+    slides = sandbox / "src" / "slides"
     slides.mkdir(parents=True, exist_ok=True)
     (slides / "0.html").touch(exist_ok=True)
 
     # Add room for assets
 
-    (my_reveal / "assets").mkdir(parents=True, exist_ok=True)
+    (sandbox / "assets").mkdir(parents=True, exist_ok=True)
 
     # add themes
     # ----------
 
     themes = root / "themes"
-    reveal_themes = my_reveal / "dist/theme"
+    reveal_themes = sandbox / "dist/theme"
 
     # TODO replaceable_themes should not be hardcoded
     replaceable_themes = []
@@ -142,8 +142,8 @@ def main(here, root):
     shutil.copytree(reveal_themes / "fonts", reveal_themes / ".." / "fonts")
     shutil.rmtree(reveal_themes, ignore_errors=True)
 
-    shutil.copy2(themes / configs["theme"]["name"], my_reveal / "dist" / "theme.css")
-    shutil.copy2(themes / "reveal.css", my_reveal / "dist" / "reveal.css")
+    shutil.copy2(themes / configs["theme"]["name"], sandbox / "dist" / "theme.css")
+    shutil.copy2(themes / "reveal.css", sandbox / "dist" / "reveal.css")
 
     # clean up
     # --------
@@ -161,9 +161,9 @@ def main(here, root):
     ]
 
     for d in unneeded_dirs:
-        shutil.rmtree(my_reveal / d, ignore_errors=True)
+        shutil.rmtree(sandbox / d, ignore_errors=True)
     for f in unneeded_files:
-        (my_reveal / f).unlink(missing_ok=True)
+        (sandbox / f).unlink(missing_ok=True)
 
 
 if __name__ == "__main__":
