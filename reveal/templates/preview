@@ -1,4 +1,0 @@
-#!/bin/sh
-
-watch -n1 make
-killall python3
