@@ -1,0 +1,2 @@
+# Ignore jupyter notebook in language count
+*.ipynb linguist-generated
