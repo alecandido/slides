@@ -1,0 +1,5 @@
+build
+.presentation
+
+# reveal.js
+.reveal_dist
