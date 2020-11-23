@@ -3,7 +3,7 @@ name: publish slides
 on:
   push:
     branches:
-      - master
+      - main
 
 jobs:
   deploy-ghpages:
@@ -26,7 +26,7 @@ jobs:
           cp -rL archive/!(gh-pages) archive/gh-pages
       - name: Build 🔨
         run: |
-          # not used currently
+          find . | grep ".zip" | tr "\n" "\0" | xargs -0 rm
           # maybe useful in future for publishing pdf files
       - name: Deploy 🚀
         uses: JamesIves/github-pages-deploy-action@releases/v3
