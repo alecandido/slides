@@ -1,17 +1,61 @@
-<link rel="stylesheet" href="https://gitcdn.link/repo/highlightjs/highlight.js/master/src/styles/nord.css" id="highlight-theme">
+<link
+  rel="stylesheet"
+  href="https://gitcdn.link/repo/highlightjs/highlight.js/master/src/styles/nord.css"
+  id="highlight-theme"
+/>
 
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="viewport" content="width=device-width, initial-scale=1" />
 <!--<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bulma@0.9.1/css/bulma.min.css">-->
 <style type="text/css" media="screen">
-   .slide {
-     background-color: hsla(180, 30%, 80%, 0.1);
-   }
-  //.progress,.progress:not(:last-child) {
-  //  margin: 0;
-  //}
-   p {
-       font-size: 0.8em;
-       text-align: left;
-   }
-</style>
+  .slide {
+    background-color: hsla(180, 30%, 90%, 0.1);
+  }
 
+  .yellow {
+    --rgb: 242, 179, 1;
+  }
+  .green {
+    --rgb: 119, 169, 74;
+  }
+  .blue {
+    --rgb: 8, 173, 195;
+  }
+  .red {
+    --rgb: 223, 88, 76;
+  }
+
+  .txtclr {
+    color: rgb(var(--rgb));
+  }
+  .hlight {
+    background-color: rgba(var(--rgb), 0.2);
+    border-radius: 0.9em;
+    padding: 0 0.3em;
+  }
+
+  :root {
+    --scale: 0.8;
+  }
+
+  .reveal.slide .slides > section:not([data-transition]).past {
+    transform: translate(-150%, 0) scale(var(--scale));
+  }
+
+  .reveal.slide .slides section.stack.present {
+    transform: scale(var(--scale));
+  }
+
+  .reveal.slide .slides > section:not([data-transition]).future {
+    transform: translate(150%, 0) scale(var(--scale));
+  }
+
+  p,
+  li,
+  dd {
+    font-size: 0.8em;
+    text-align: left;
+  }
+  ::marker {
+    font-size: 0.8em;
+  }
+</style>
