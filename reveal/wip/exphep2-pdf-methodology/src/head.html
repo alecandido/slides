@@ -11,6 +11,28 @@
     background-color: hsla(180, 30%, 90%, 0.1);
   }
 
+  .yellow {
+    --rgb: 242, 179, 1;
+  }
+  .green {
+    --rgb: 119, 169, 74;
+  }
+  .blue {
+    --rgb: 8, 173, 195;
+  }
+  .red {
+    --rgb: 223, 88, 76;
+  }
+
+  .txtclr {
+    color: rgb(var(--rgb));
+  }
+  .hlight {
+    background-color: rgba(var(--rgb), 0.2);
+    border-radius: 0.9em;
+    padding: 0 0.3em;
+  }
+
   :root {
     --scale: 0.8;
   }
