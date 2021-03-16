@@ -6,7 +6,7 @@ name = "md_split"
 ciao = "come"
 
 [theme]
-name = "white"
+name = "whiteboard"
 
 [reveal]
 dist_dir = ".reveal_dist"
