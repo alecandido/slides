@@ -8,7 +8,7 @@ force_html: true
       display: flex;
       flex-direction: column;
       justify-content: center;
-      height: 60vh;
+      height: 50vh;
     "
   >
     <div
@@ -16,29 +16,15 @@ force_html: true
         background-image: url('assets/cover.png');
         background-repeat: no-repeat;
         background-size: contain;
-        background-position: center;
+        background-position-x: center;
         height: 90%;
-        filter: blur(4px);
-        opacity: 0.5;
+        filter: blur(1px);
+        opacity: 0.3;
       "
     ></div>
   </div>
 
-  <div
-    style="
-      display: flex;
-      flex-direction: column;
-      height: 50vh;
-      position: absolute;
-      top: 70%;
-      left: 50%;
-      transform: translate(-50%, -50%);
-      z-index: 2;
-      width: 80%;
-      padding: 20px;
-      text-align: center;
-    "
-  >
+  <div style="position: absolute; top: 0; z-index: 2; text-align: center">
     <div>
       <h1>Hamiltonian Monte Carlo</h1>
       <p style="text-align: center">March 2021</p>
