@@ -1,0 +1,13 @@
+title = "master-thesis"
+framework = "reveal"
+
+[template]
+name = "vanilla"
+ciao = "come"
+
+[theme]
+name = "thesis"
+
+[reveal]
+dist_dir = ".reveal_dist"
+plugins = [ "math", "markdown", "highlight", "search", "zoom-js", "notes",]
