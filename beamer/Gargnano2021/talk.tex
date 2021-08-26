@@ -150,7 +150,7 @@
 \end{frame}
 
 \begin{frame}{Scale Variations}
-    Scale variations are implemented in \texttt{yadism} as completely
+    Scale variations are implemented in \texttt{yadism} (\textbf{scheme C}) as completely
     factorized w.r.t. coefficients functions (instead of inlined).
 
     The actual ingredients needed to combine them are:
@@ -167,7 +167,7 @@
             \hline
             $P^{(n-1)}$ &  \cellcolor{green!25}\checkmark & \cellcolor{green!25}\checkmark & \cellcolor{yellow!25}\checkmark\\
             $\beta^{n-2}$ &  & \cellcolor{green!25}\checkmark & \cellcolor{green!25}\checkmark\\
-            rules & \cellcolor{green!25}\checkmark & \cellcolor{green!25}\checkmark & \cellcolor{green!25}\checkmark\\
+            rules & \cellcolor{green!25}\checkmark & \cellcolor{green!25}\checkmark & \cellcolor{yellow!25}\checkmark\\
             \hline
             \texttt{yadism} & \cellcolor{green!25}\checkmark & \cellcolor{green!25}\checkmark & \cellcolor{yellow!25}
         \end{tabular}
@@ -179,6 +179,12 @@
 
     This means they have to be computed analytically, and this requires some
     manual work.
+
+    \metroset{block=fill}
+
+    \begin{block}{\texttt{eko}}
+        \textbf{scheme A} \checkmark is implemented, while \textbf{scheme B} \ding{55} is work-in-progress.
+    \end{block}
 \end{frame}
 
 \begin{frame}{Matching Conditions}
@@ -227,13 +233,14 @@ definition\footnote{simplified version, full truth in \alert{\href{https://eko.r
     \begin{table}[h!]
         \centering
         \begin{tabular}{c c c c c c c c c c c c c} 
-             & nsv & ns+ & ns- & ps & qg & gq & gg & hq & hg & qh & gh & hh \\
+             & nsv & ns- & ns+ & ps & qg & gq & gg & hq & hg & qh & gh & hh \\
             \hline
             NLO & \multicolumn{1}{|c}{} &  & \multicolumn{1}{c|}{} & & & & \cellcolor{blue!25}$\mu$ & & \cellcolor{blue!25}$\mu$ & & \cellcolor{blue!25}\checkmark+$\mu$\footnotemark[2] & \cellcolor{blue!25}\checkmark+$\mu$\footnotemark[2] \\
             \cline{2-4}
             NNLO & \multicolumn{3}{|c|}{\cellcolor{green!65!blue!25}\checkmark+$\mu$} & & \cellcolor{green!65!blue!25}\checkmark+$\mu$ & \cellcolor{green!65!blue!25}\checkmark+$\mu$ & \cellcolor{green!65!blue!25}\checkmark+$\mu$ & \cellcolor{green!65!blue!25}\checkmark+$\mu$\footnotemark[1] & \cellcolor{green!65!blue!25}\checkmark+$\mu$ & \cellcolor{red!25}\ding{55}\footnotemark[3] & \cellcolor{red!25}\ding{55}\footnotemark[3] & \cellcolor{red!25}\ding{55}\footnotemark[3] \\
             \cline{2-4}
-            N3LO \\
+            N3LO & \multicolumn{3}{|c|}{\cellcolor{yellow!25}\checkmark+$\mu$} & \cellcolor{yellow!25}\checkmark+$\mu$ & \cellcolor{yellow!25}\checkmark+$\mu$ & \cellcolor{yellow!25}\checkmark+$\mu$ & \cellcolor{yellow!65!red!25}$\sim$ & \cellcolor{yellow!25}\checkmark+$\mu$ & \cellcolor{yellow!65!red!25}$\sim$\\
+            \cline{2-4} \\
         \end{tabular}
     \end{table}
 
