@@ -15,10 +15,6 @@ jobs:
     steps:
       - name: Checkout 🛎️
         uses: actions/checkout@v2
-        with:
-          persist-credentials: false
-          token: ${{ secrets.PUBLISH_SITE }}
-          submodules: "true"
       - name: Collect slides 📦
         run: |
           shopt -s extglob
