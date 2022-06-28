@@ -3,18 +3,21 @@
 \geometry{paperwidth=160mm,paperheight=120mm}
 
 \usetheme[{titleformat plain}=smallcaps,
-          titleformat title=smallcaps,
-          titleformat subtitle=regular,
-          titleformat section=smallcaps,
-          titleformat frame=smallcaps,
-          numbering=fraction
+           titleformat title=smallcaps,
+           titleformat subtitle=regular,
+           titleformat section=smallcaps,
+           titleformat frame=smallcaps,
+           numbering=fraction,
           ]{metropolis}
 \usepackage{appendixnumberbeamer}
+
+\definecolor{mLightGreen}{HTML}{14B03D}
+\providecommand{\iRef}[1]{{\color{mLightGreen}\small $[$#1$]$}}
 
 \usepackage{booktabs}
 \usepackage[scale=2]{ccicons}
 
-
+% \usepackage{style/defs}
 \usepackage{style/defs}
 
 \usepackage{tikz}
@@ -44,93 +47,149 @@
 \usepackage{soul}
 \newcommand{\themename}{\textbf{\textsc{metropolis}}\xspace}
 
-\DeclareMathOperator{\msbar}{\overline{MS}}
-\DeclareMathOperator{\dis}{DIS}
-\DeclareMathOperator{\phys}{PHYS}
-\DeclareMathOperator{\pos}{POS}
-\DeclareMathOperator{\dpos}{DPOS}
-\DeclareMathOperator{\mpos}{MPOS}
+\graphicspath{{pictures/}}
 
-\title{Towards N3LO}
-\subtitle{via NNLO and NLO}
-\date{September, 2021}
-\author{Alessandro Candido
-}
+\title{Theory Predictions}
+\subtitle{for PDF fitting}
+\date{July, 2022}
+\author{\textit{\textbf{Alessandro Candido}}, Felix Hekhorn, Giacomo Magni}
 %\institute{N3PDF}
 \titlegraphic{
-%        \raisebox{5pt}[0pt][0pt]{\includegraphics[height=0.8cm]{../_logos/nnpdf_logo.pdf}}\hspace*{10pt}
-        \hfill
-        \raisebox{5pt}[0pt][0pt]{\includegraphics[height=0.8cm]{../_logos/n3pdf_logo.pdf}}\hspace*{10pt}
-        \includegraphics[height=1.3cm]{../_logos/erc_logo1.png}
+    \raisebox{10pt}[0pt][0pt]{\includegraphics[width=2.5cm]{../_logos/nnpdf_logo.pdf}}\hspace*{10pt}
+    \hfill
+    \raisebox{5pt}[0pt][0pt]{\includegraphics[height=0.8cm]{../_logos/n3pdf_logo.pdf}}\hspace*{10pt}
+    \includegraphics[height=1.3cm]{../_logos/erc_logo1.png}
 
-        \vfill\vspace*{230pt}
-        \includegraphics[height=1cm]{../_logos/unimi_logo.png}\hfill
-        \includegraphics[height=1cm]{../_logos/infn_logo.png}\\
-        \vspace*{5pt}
-        {\fontsize{3pt}{3.5pt}\selectfont
-             \begin{center}
-                 This project has received funding from the European Union's Horizon 2020 research and innovation programme under grant agreement No 740006\quad \includegraphics[height=5pt]{../_logos/eu-flag.jpg}
-         \end{center}}
+    \vfill\vspace*{230pt}
+    \includegraphics[height=1cm]{../_logos/unimi_logo.png}\hfill
+    \includegraphics[height=1cm]{../_logos/infn_logo.png}\\
+    \vspace*{5pt}
+    {
+        \fontsize{3pt}{3.5pt}\selectfont
+        \begin{center}
+            This project has received funding from the European Union's Horizon
+            2020 research and innovation programme under grant agreement No
+            740006\quad \includegraphics[height=5pt]{../_logos/eu-flag.jpg}
+        \end{center}
+    }
 }
 
 \begin{document}
 
 \maketitle
 
-\begin{frame}{DIS coefficients}
+\section{\eko{} \iRef{arXiv: 2202.02338}}
 
+\begin{frame}{EKO}
+    ciao
+\end{frame}
+
+\section{Intrinsic Charm in the Proton \iRef{submitted}}
+
+\begin{frame}{EKO}
+    ciao
+\end{frame}
+
+\section{\yadism{} \iRef{in preparation}}
+
+\begin{frame}{EKO}
+    ciao
+\end{frame}
+
+\begin{frame}{DIS coefficients}
     \vspace*{25pt}
 
     \begin{columns}
         \begin{column}{0.5\textwidth}
             \begin{table}[h!]
+                \large
                 \centering
                 \begin{tabular}{c | c c c } 
                     NLO & light & heavy & intrinsic\\
                     \hline
-                    NC & \cellcolor{green!25}\checkmark & \cellcolor{green!25}\checkmark & \cellcolor{green!25}\checkmark\\
-                    CC & \cellcolor{green!25}\checkmark & \cellcolor{green!25}\checkmark & \cellcolor{blue!25}\checkmark\footnotemark[1]\\
+                    NC & \cellcolor{green!25}\checkmark 
+                       & \cellcolor{green!25}\checkmark 
+                       & \cellcolor{green!25}\checkmark\\
+                    CC & \cellcolor{green!25}\checkmark
+                       & \cellcolor{green!25}\checkmark
+                       & \cellcolor{blue!25}\checkmark\\
                     NNLO & & &\\
                     \hline
-                    NC & \cellcolor{green!25}\checkmark & \cellcolor{blue!25}partially tabulated\footnotemark[2] & \cellcolor{red!25}\ding{55}\footnotemark[4]\\
-                    CC & \cellcolor{green!25}\checkmark & \cellcolor{yellow!25}tabulated\footnotemark[3] & \cellcolor{red!25}\ding{55}\footnotemark[4]\\
+                    NC & \cellcolor{green!25}\checkmark
+                       & \cellcolor{blue!25}partially tabulated
+                       & \cellcolor{red!25}\ding{55}\\
+                    CC & \cellcolor{green!25}\checkmark
+                       & \cellcolor{yellow!25}tabulated
+                       & \cellcolor{red!25}\ding{55}\\
                     N3LO & & &\\
                     \hline
-                    NC & \cellcolor{yellow!25}\checkmark &  & \\
-                    CC & \cellcolor{yellow!25}\checkmark &  & \\
+                    NC & \cellcolor{yellow!25}\checkmark
+                       &  & \\
+                    CC & \cellcolor{yellow!25}\checkmark
+                       &  & \\
                 \end{tabular}
             \end{table}
             + FONLL (cf. \textit{matching conditions})
         \end{column}
         \begin{column}{0.5\textwidth}
-            \begin{enumerate}
-                \item formerly NC coefficients were misused for this (\textbf{Kirill} computed the correct ones)
-                \item coming from \textbf{Felix} thesis with more analytic components and improved interpolation
-                \item formerly external to APFEL and fixed setup, still expected from \textbf{Jun Gao}
-                \item missing, going to be computed by \textbf{Kirill}
-            \end{enumerate}
+            There is even another couple of levels of nesting:
+            
+            \setlist[description]{font=\quad\normalfont\bfseries\scshape\space}
+            \begin{description}
+                \item[Projections] $F_2$, $F_L$, and $F_3$
+                \item[Channels] non-singlet, singlet, gluon
+            \end{description}
+
+            \vspace*{10pt}
+            {
+                \footnotesize
+                But up to NNLO everything is equally available (while at N3LO
+                it is not always true).
+            }
         \end{column}
     \end{columns}
 
     \vspace*{10pt}
-    There is even another couple of levels of nesting: projections and channels.
 
-    \textbf{Projections} consist of $F_2$, $F_L$, and $F_3$, and they are usually
-    computed and published together (even though it is relevant that this is
-    not the case for N3LO light).
+    So NC is currently implemented up to NNLO
+    \iRef{\href{https://doi.org/10.1016/j.nuclphysb.2005.06.020}{VVM05}
+    \href{https://doi.org/10.1016/j.physletb.2004.11.063}{MVV05}
+    \href{https://doi.org/10.1016/S0550-3213(00)00045-6}{MV00}}
+    light and NLO heavy \iRef{\href{https://arxiv.org/abs/1910.01536}{Hek19}}
+    (i.e. both $O(a_s^2)$).
+    Same for CC light
+    \iRef{\href{https://doi.org/10.1016/j.nuclphysb.2007.09.022}{MRV08}
+    \href{https://doi.org/10.1016/j.nuclphysb.2009.01.001}{MVV09}} and heavy
+    (for which implementation is currently in progress).
 
-    \textbf{Channels} result in different expressions (non-singlet, singlet,
-    gluon), but they are almost always published together.
-
+    For both processes \textit{intrinsic} contributions are accounted at NLO.
+    
     \vspace*{15pt}
     {
         \footnotesize
-        \begin{tabular}{c c c c c} 
-            \cellcolor{green!25}available & \cellcolor{blue!25}updated &\cellcolor{yellow!25}yet not implemented &\cellcolor{red!25}missing & not planned\\
-            \hline
-        \end{tabular}
+        \begin{flushright}
+            \begin{tabular}{c c c c c} 
+                \cellcolor{green!25}available & \cellcolor{blue!25}updated
+                                            &\cellcolor{yellow!25}not yet implemented
+                                            &\cellcolor{red!25}missing
+                                            & not planned\\
+                \hline
+            \end{tabular}
+        \end{flushright}
     }
 \end{frame}
+
+\section{Theory Prediction Pipeline}
+
+\begin{frame}{EKO}
+    ciao
+\end{frame}
+
+\begin{frame}[standout]
+    Thank you for listening!
+\end{frame}
+
+\appendix
 
 \begin{frame}{Anomalous Dimensions}
     Most of them were already available and used in APFEL, and they have been implemented in EKO:
@@ -256,11 +315,5 @@ definition\footnote{simplified version, full truth in \alert{\href{https://eko.r
         \item \textbf{Kirill} about to compute
     \end{enumerate}
 \end{frame}
-
-\begin{frame}[standout]
-    Let's discuss...
-\end{frame}
-
-\appendix
 
 \end{document}
