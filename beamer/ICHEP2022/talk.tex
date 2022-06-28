@@ -12,6 +12,8 @@
 \usepackage{appendixnumberbeamer}
 
 \definecolor{mLightGreen}{HTML}{14B03D}
+\definecolor{vpGreen}{HTML}{66c2a5}
+\definecolor{vpOrange}{HTML}{fc8d62}
 \providecommand{\iRef}[1]{{\color{mLightGreen}\small $[$#1$]$}}
 
 \usepackage{booktabs}
@@ -43,9 +45,7 @@
 \usepackage{pgfplots}
 \usepgfplotslibrary{dateplot}
 
-\usepackage{xspace}
 \usepackage{soul}
-\newcommand{\themename}{\textbf{\textsc{metropolis}}\xspace}
 
 \graphicspath{{pictures/}}
 
@@ -78,6 +78,8 @@
 
 \maketitle
 
+\setlist[description]{font=\quad\normalfont\bfseries\scshape\space}
+
 \section{\eko{} \iRef{arXiv: 2202.02338}}
 
 \begin{frame}{\eko{} Definition}
@@ -85,13 +87,13 @@
 		\includegraphics[width=.35\linewidth]{eko}
 	\end{center}
 
-    The main purpose is to solve \textbf{\dglap} equations:
+    The main purpose is to solve \textbf{\dglap}\ equations:
 	\begin{equation*}
 		\muF^2 \dv{\vb f}{\muF^2}{}(\muF^2) = \vb P (a_s(\muR^2),\muF^2) \otimes \vb f(\muF^2)
 	\end{equation*}
 
     These equations define a set of linear operators $\vb E(\muF^2 \leftarrow
-    \mu_{F,0}^2)$ on \textbf{\pdf} sets
+    \mu_{F,0}^2)$ on \textbf{\pdf}\ sets
 	\begin{equation*}
 		\vb f(\muF^2) = \vb E(\muF^2 \leftarrow \mu_{F,0}^2) \otimes \vb f(\mu_{F,0}^2)
 	\end{equation*}
@@ -102,7 +104,7 @@
 	\end{center}
 \end{frame}
 
-\begin{frame}{\eko{} Definition}
+\begin{frame}{Operator Advantage}
     \vspace*{15pt}
     Independent of boundary condition $\to$ \pdf{} fitting
 
@@ -112,16 +114,155 @@
 	\end{center}
 \end{frame}
 
+\begin{frame}{User-friendly Mellin Space}
+    \vspace*{15pt}
+    \textbf{Solved in Mellin} ($N$-) space, but the operator is recasted in
+    \textbf{$x$-space}.
+
+    \vspace*{15pt}
+     Via piecewise Lagrange-interpolation:
+     \begin{description}
+         \item[input] \pdf\ is interpolated with polynomials, and
+             \textit{\textbf{analytically}} Mellin transformed
+         \item[output] \pdf\ is given on grid points, and Mellin inverted
+             \textit{\textbf{numerically}}
+     \end{description}
+
+    \vspace*{25pt}
+	\begin{center}
+		\includegraphics[width=0.9\linewidth]{mellin}
+	\end{center}
+\end{frame}
+
+\begin{frame}{Original Physics}
+
+    \begin{columns}
+        \begin{column}{0.4\textwidth}
+            Consistent evolution of \textbf{intrinsic} heavy quark
+            distributions.
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \begin{center}
+                \includegraphics[width=0.9\linewidth]{intrinsic}
+            \end{center}
+        \end{column}
+    \end{columns}
+
+    \vspace*{10pt}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{center}
+                \includegraphics[width=0.9\linewidth]{back-vfns}
+            \end{center}
+        \end{column}
+        \begin{column}{0.4\textwidth}
+            Full \textbf{backward \vfns{}} evolution (i.e.\ across thresholds
+            and with intrinsic).
+        \end{column}
+    \end{columns}
+
+    \vspace*{35pt}
+    And more to come (\qed{}, \nnnlo{}, \dots).
+\end{frame}
+
 \section{Intrinsic Charm in the Proton \iRef{submitted}}
 
-\begin{frame}{EKO}
-    ciao
+\begin{frame}{Intrinsic Charm: Strategy}
+    Based on NNPDF4.0 \iRef{\href{https://arxiv.org/abs/2109.02653}{arxiv:2109.02653}}.
+
+	\begin{center}
+        \includegraphics[scale=.6]{strategy.png}
+	\end{center}
 \end{frame}
+
+\begin{frame}{Matching Conditions and Backward Evolution}
+	For (forward) evolution across a matching scale $\mu_h^2$:
+	\begin{align*} \tilde{\mathbf{f}}^{(n_f+1)}(\mu_{F,1}^2) &= \tilde{\mathbf{E}}^{(n_f+1)}(\mu_{F,1}^2\leftarrow \mu_{h}^2)
+		{\mathbf{R}^{(n_f)}}
+		\tilde{\mathbf{A}}^{(n_f)}(\mu_{h}^2)
+		\tilde{\mathbf{E}}^{(n_f)}(\mu_{h}^2\leftarrow \mu_{F,0}^2) \\
+		& \hspace{170pt} \times \tilde{\mathbf{f}}^{(n_f)}(\mu_{F,0}^2)
+	\end{align*}
+	with $\vb R^{(n_f)}$ a flavor rotation matrix and $\tilde{\mathbf{A}}^{(n_f)}(\mu_{h}^2)$ the operator
+	matrix elements (partially known up to \nnnlo{})
+
+	for backward evolution:
+	\begin{itemize}
+		\item invert $\tilde{\mathbf E}^{(n_f)}$: simple
+		\item invert $\mathbf{R}^{(n_f)}$: simple
+		\item invert $\tilde{\mathbf{A}}^{(n_f)}$: expanded or exact
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Intrinsic Charm: \pdf{} plot}
+	\begin{center}
+		\includegraphics[width=.7\linewidth]{4fns_3fns_nnlo_n3lo.png}
+	\end{center}
+
+	\begin{itemize}
+		\item in \textbf{3FNS} valence-like peak is still present
+		\item for $x\leq 0.2$ the perturbative uncertainties are quite large
+		\item the carried momentum fraction is within \textbf{1\%}
+	\end{itemize}
+\end{frame}
+
+\begin{frame}{Intrinsic Charm: LHCb and Significance}
+	\begin{center}
+		\includegraphics[width=.47\linewidth]{lhcb-zcharm-pheno.png}%
+		\quad%
+		\includegraphics[width=.47\linewidth]{pull_baseline_EMC_LHCb_Zc.png}
+	\end{center}
+
+	\begin{itemize}
+		\item match better recent \textbf{LHCb} Z+c measurement \iRef{\href{https://doi.org/10.1103/PhysRevLett.128.082001}{PRL128-082001}}
+		\item we find a $\bm{3\sigma}$ evidence of intrinsic charm
+		\item result is \textbf{stable} with mass variation, dataset variation
+	\end{itemize}
+\end{frame}
+
 
 \section{\yadism{} \iRef{in preparation}}
 
-\begin{frame}{EKO}
-    ciao
+\begin{frame}{\yadism{} Physics Features}
+	\begin{center}
+		\includegraphics[width=.4\linewidth]{yadism.pdf}
+	\end{center}
+
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{center}
+                \includegraphics[width=0.6\linewidth]{intrinsic}
+            \end{center}
+        \end{column}
+        \begin{column}{0.4\textwidth}
+            DIS \textbf{coefficient function} database
+        \end{column}
+    \end{columns}
+
+    \begin{columns}
+        \begin{column}{0.4\textwidth}
+            Independent of boundary condition $\to$ \pdf fitting.
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \begin{center}
+                \includegraphics[width=0.6\linewidth]{intrinsic}
+            \end{center}
+        \end{column}
+    \end{columns}
+
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{center}
+                \includegraphics[width=0.6\linewidth]{intrinsic}
+            \end{center}
+        \end{column}
+        \begin{column}{0.4\textwidth}
+            Separate features: TMC, FNS, interpolation, \dots
+        \end{column}
+    \end{columns}
+
+    \vspace*{20pt}
+	Constant benchmark against \apfel.
 \end{frame}
 
 \begin{frame}{DIS coefficients}
@@ -133,7 +274,7 @@
                 \large
                 \centering
                 \begin{tabular}{c | c c c } 
-                    NLO & light & heavy & intrinsic\\
+                    \nlo & light & heavy & intrinsic\\
                     \hline
                     NC & \cellcolor{green!25}\checkmark 
                        & \cellcolor{green!25}\checkmark 
@@ -141,7 +282,7 @@
                     CC & \cellcolor{green!25}\checkmark
                        & \cellcolor{green!25}\checkmark
                        & \cellcolor{blue!25}\checkmark\\
-                    NNLO & & &\\
+                    \nnlo & & &\\
                     \hline
                     NC & \cellcolor{green!25}\checkmark
                        & \cellcolor{blue!25}partially tabulated
@@ -149,7 +290,7 @@
                     CC & \cellcolor{green!25}\checkmark
                        & \cellcolor{yellow!25}tabulated
                        & \cellcolor{red!25}\ding{55}\\
-                    N3LO & & &\\
+                    \nnnlo & & &\\
                     \hline
                     NC & \cellcolor{yellow!25}\checkmark
                        &  & \\
@@ -157,12 +298,11 @@
                        &  & \\
                 \end{tabular}
             \end{table}
-            + FONLL (cf. \textit{matching conditions})
+            + \fonll\ (cf. \textit{matching conditions})
         \end{column}
-        \begin{column}{0.5\textwidth}
+        \begin{column}{0.4\textwidth}
             There is even another couple of levels of nesting:
             
-            \setlist[description]{font=\quad\normalfont\bfseries\scshape\space}
             \begin{description}
                 \item[Projections] $F_2$, $F_L$, and $F_3$
                 \item[Channels] non-singlet, singlet, gluon
@@ -171,8 +311,8 @@
             \vspace*{10pt}
             {
                 \footnotesize
-                But up to NNLO everything is equally available (while at N3LO
-                it is not always true).
+                But up to \nnlo\ everything is equally available (while at
+                \nnnlo\ it is not always true).
             }
         \end{column}
     \end{columns}
@@ -197,151 +337,60 @@
         \footnotesize
         \begin{flushright}
             \begin{tabular}{c c c c c} 
-                \cellcolor{green!25}available & \cellcolor{blue!25}updated
-                                            &\cellcolor{yellow!25}not yet implemented
-                                            &\cellcolor{red!25}missing
-                                            & not planned\\
+                \cellcolor{green!25}available
+                    & \cellcolor{blue!25}updated
+                    &\cellcolor{yellow!25}not yet implemented
+                    &\cellcolor{red!25}missing
+                    & not planned\\
                 \hline
             \end{tabular}
         \end{flushright}
     }
 \end{frame}
 
+\begin{frame}{Comparison \yadism{} against \apfel{}}
+    \begin{center}
+        \includegraphics[width=.47\linewidth]{
+            matched_datasets_from_dataspecs14_dataset_report_Datanorm_plot_fancy_dataspecs_11.pdf
+        }
+        \quad
+        \includegraphics[width=.47\linewidth]{
+            matched_datasets_from_dataspecs14_dataset_report_Datanorm_plot_fancy_dataspecs_23.pdf
+        }
+        \includegraphics[width=.47\linewidth]{
+            matched_datasets_from_dataspecs4_dataset_report_Datanorm_plot_fancy_dataspecs_0.pdf
+        }
+        \quad
+        \includegraphics[width=.47\linewidth]{
+            matched_datasets_from_dataspecs2_dataset_report_Datanorm_plot_fancy_dataspecs_0.pdf
+        }
+
+
+        % {\color{vpGreen} green}, \enquote{pineappl} = \yadism{} vs. {\color{vpOrange} orange}, \enquote{old} = \apfel{}
+    \end{center}
+\end{frame}
+
 \section{Theory Prediction Pipeline}
 
-\begin{frame}{EKO}
-    ciao
+\begin{frame}{New Theory Prediction Pipeline}
+	\begin{center}
+		\includegraphics[width=.8\linewidth]{fk}
+	\end{center}
+
+	\begin{itemize}
+        \item We're about to develop a new pipeline for theory predictions
+            around \pineappl{}
+            \iRef{\href{https://arxiv.org/abs/2008.12789}{arXiv:2008.12789}}
+		\item both, \eko and \yadism, are interfaced with \pineappl
+        \item \pineappl also has interfaces to \madgraph, \appl, \fastnlo
+	\end{itemize}
+
+    \vspace*{10pt}
+    \textbf{\textsc{Goal}}\quad produce \fk tables used in \pdf fitting
 \end{frame}
 
 \begin{frame}[standout]
     Thank you for listening!
-\end{frame}
-
-\appendix
-
-\begin{frame}{Anomalous Dimensions}
-    Most of them were already available and used in APFEL, and they have been implemented in EKO:
-    \begin{table}[h!]
-        \centering
-        \begin{tabular}{c c c c} 
-            LO & NLO & NNLO & N3LO\\
-            \hline
-            \cellcolor{green!25}\checkmark & \cellcolor{green!25}\checkmark & \cellcolor{green!25}\checkmark & \cellcolor{red!25}\ding{55}\\
-        \end{tabular}
-    \end{table}
-    
-    We are just missing the N3LO expressions, required only for N3LO evolution
-    (\textit{expected} to receive an approximation by \textbf{J. Vermaseren}
-    and \textbf{A. Vogt}).
-
-    \vspace*{15pt}
-    There is \textit{no need for any extra modification} of EKO at N3LO, we
-    just deserve to plug in the expressions.
-\end{frame}
-
-\begin{frame}{Scale Variations}
-    Scale variations are implemented in \texttt{yadism} (\textbf{scheme C}) as completely
-    factorized w.r.t. coefficients functions (instead of inlined).
-
-    The actual ingredients needed to combine them are:
-    \begin{itemize}
-        \item splitting functions ($x$-space), one order less (NLO DIS requires LO $P$)
-        \item beta function coefficients, two order less (NNLO DIS requires $\beta_0$)
-        \item combination rules
-    \end{itemize}
-
-    \begin{table}[h!]
-        \centering
-        \begin{tabular}{c c c c c} 
-             & NLO & NNLO & N3LO\\
-            \hline
-            $P^{(n-1)}$ &  \cellcolor{green!25}\checkmark & \cellcolor{green!25}\checkmark & \cellcolor{yellow!25}\checkmark\\
-            $\beta^{n-2}$ &  & \cellcolor{green!25}\checkmark & \cellcolor{green!25}\checkmark\\
-            rules & \cellcolor{green!25}\checkmark & \cellcolor{green!25}\checkmark & \cellcolor{yellow!25}\checkmark\\
-            \hline
-            \texttt{yadism} & \cellcolor{green!25}\checkmark & \cellcolor{green!25}\checkmark & \cellcolor{yellow!25}
-        \end{tabular}
-    \end{table}
-
-    \vspace*{10pt}
-    Actually there is one further step: to save time and precision \textbf{convolution}
-    of splitting functions are \textbf{inlined}.
-
-    This means they have to be computed analytically, and this requires some
-    manual work.
-
-    \metroset{block=fill}
-
-    \begin{block}{\texttt{eko}}
-        \textbf{scheme A} \checkmark is implemented, while \textbf{scheme B} \ding{55} is work-in-progress.
-    \end{block}
-\end{frame}
-
-\begin{frame}{Matching Conditions}
-definition\footnote{simplified version, full truth in \alert{\href{https://eko.readthedocs.io/en/latest/theory/Matching.html}{eko docs}}}:
-    \begin{columns}
-        \begin{column}{0.1\textwidth}\end{column}
-        \begin{column}{0.4\textwidth}
-            \begin{align*}
-                \begin{pmatrix}
-                    g \\ \Sigma \\ h^+            
-                \end{pmatrix}
-                &= 
-                \begin{pmatrix}
-                    gg & gq & gh \\
-                    qg & ns_+ + ps & qh \\
-                    hg & hq & hh
-                \end{pmatrix}
-                \begin{pmatrix}
-                    g \\ \Sigma \\ h^+            
-                \end{pmatrix}
-                \\
-                T_n &= ns_+ T_n \qquad\qquad  
-            \end{align*}
-        \end{column}
-        \begin{column}{0.4\textwidth}
-            \begin{align*}
-                \begin{pmatrix}
-                    V \\ h^-
-                \end{pmatrix}
-                &= 
-                \begin{pmatrix}
-                    ns_v & qh \\
-                    hq & hh 
-                \end{pmatrix}
-                \begin{pmatrix}
-                    V \\ h^-
-                \end{pmatrix}
-                \\
-                V_n &= ns_- V_n
-            \end{align*}
-        \end{column}
-        \begin{column}{0.1\textwidth}\end{column}
-    \end{columns}
-
-    status:
-    \begin{table}[h!]
-        \centering
-        \begin{tabular}{c c c c c c c c c c c c c} 
-             & nsv & ns- & ns+ & ps & qg & gq & gg & hq & hg & qh & gh & hh \\
-            \hline
-            NLO & \multicolumn{1}{|c}{} &  & \multicolumn{1}{c|}{} & & & & \cellcolor{blue!25}$\mu$ & & \cellcolor{blue!25}$\mu$ & & \cellcolor{blue!25}\checkmark+$\mu$\footnotemark[2] & \cellcolor{blue!25}\checkmark+$\mu$\footnotemark[2] \\
-            \cline{2-4}
-            NNLO & \multicolumn{3}{|c|}{\cellcolor{green!65!blue!25}\checkmark+$\mu$} & & \cellcolor{green!65!blue!25}\checkmark+$\mu$ & \cellcolor{green!65!blue!25}\checkmark+$\mu$ & \cellcolor{green!65!blue!25}\checkmark+$\mu$ & \cellcolor{green!65!blue!25}\checkmark+$\mu$\footnotemark[1] & \cellcolor{green!65!blue!25}\checkmark+$\mu$ & \cellcolor{red!25}\ding{55}\footnotemark[3] & \cellcolor{red!25}\ding{55}\footnotemark[3] & \cellcolor{red!25}\ding{55}\footnotemark[3] \\
-            \cline{2-4}
-            N3LO & \multicolumn{3}{|c|}{\cellcolor{yellow!25}\checkmark+$\mu$} & \cellcolor{yellow!25}\checkmark+$\mu$ & \cellcolor{yellow!25}\checkmark+$\mu$ & \cellcolor{yellow!25}\checkmark+$\mu$ & \cellcolor{yellow!65!red!25}$\sim$ & \cellcolor{yellow!25}\checkmark+$\mu$ & \cellcolor{yellow!65!red!25}$\sim$\\
-            \cline{2-4} \\
-        \end{tabular}
-    \end{table}
-
-    $\mu$ stands for the extra contribution given from taking a threshold
-    different from quark mass, and it is proportional to $\log(\mu^2/m^2)$.
-
-    \begin{enumerate}
-        \item actually $\text{hq}_\text{ps}$
-        \item taken from \textbf{NNPDF}, computed from \textbf{Kretzer \& Schienbein}
-        \item \textbf{Kirill} about to compute
-    \end{enumerate}
 \end{frame}
 
 \end{document}
