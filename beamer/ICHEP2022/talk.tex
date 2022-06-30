@@ -176,22 +176,29 @@
 \end{frame}
 
 \begin{frame}{Matching Conditions and Backward Evolution}
-	For (forward) evolution across a matching scale $\mu_h^2$:
-	\begin{align*} \tilde{\mathbf{f}}^{(n_f+1)}(\mu_{F,1}^2) &= \tilde{\mathbf{E}}^{(n_f+1)}(\mu_{F,1}^2\leftarrow \mu_{h}^2)
-		{\mathbf{R}^{(n_f)}}
-		\tilde{\mathbf{A}}^{(n_f)}(\mu_{h}^2)
-		\tilde{\mathbf{E}}^{(n_f)}(\mu_{h}^2\leftarrow \mu_{F,0}^2) \\
-		& \hspace{170pt} \times \tilde{\mathbf{f}}^{(n_f)}(\mu_{F,0}^2)
-	\end{align*}
-	with $\vb R^{(n_f)}$ a flavor rotation matrix and $\tilde{\mathbf{A}}^{(n_f)}(\mu_{h}^2)$ the operator
-	matrix elements (partially known up to \nnnlo{})
+    \vspace*{10pt}
 
-	for backward evolution:
-	\begin{itemize}
-		\item invert $\tilde{\mathbf E}^{(n_f)}$: simple
-		\item invert $\mathbf{R}^{(n_f)}$: simple
-		\item invert $\tilde{\mathbf{A}}^{(n_f)}$: expanded or exact
-	\end{itemize}
+	For (forward) evolution across a matching scale $\mu_h^2$:
+	\begin{equation*} 
+        \mathbf{f}^{(n_f+1)}(\mu_{F,1}^2) =
+        \left[\mathbf{E}^{(n_f+1)}(\mu_{F,1}^2\leftarrow \mu_{h}^2)
+		{\mathbf{R}^{(n_f)}}
+		\mathbf{A}^{(n_f)}(\mu_{h}^2)
+        \mathbf{E}^{(n_f)}(\mu_{h}^2\leftarrow \mu_{F,0}^2) \right]
+		\times \mathbf{f}^{(n_f)}(\mu_{F,0}^2)
+	\end{equation*}
+
+    The Operator Matrix Element (\ome) $\mathbf{A}^{(n_f)}(\mu_{h}^2)$ is partially known up to \nnnlo.
+
+	\begin{center}
+        \includegraphics[scale=.7]{vfns-details}
+	\end{center}
+
+    \textbf{Inverse operator} (the \ome can be inverted either
+    \textit{perturbatively} or \textit{numerically})
+	\begin{center}
+        \includegraphics[scale=.7]{vfns-back-details}
+	\end{center}
 \end{frame}
 
 \begin{frame}{Intrinsic Charm: \pdf{} plot}
@@ -199,10 +206,13 @@
 		\includegraphics[width=.7\linewidth]{4fns_3fns_nnlo_n3lo.png}
 	\end{center}
 
+    \textsc{\textbf{Message}} In \textbf{\alert{3FNS}} \textbf{valence-like
+    peak} is still present.
+
 	\begin{itemize}
-		\item in \textbf{3FNS} valence-like peak is still present
-		\item for $x\leq 0.2$ the perturbative uncertainties are quite large
-		\item the carried momentum fraction is within \textbf{1\%}
+        \item for \textbf{$x\leq 0.2$} the perturbative
+            \textit{\textbf{uncertainties}} are quite \textit{\textbf{large}}
+        \item the carried \textit{\textbf{momentum fraction}} is within \textbf{1\%}
 	\end{itemize}
 \end{frame}
 
@@ -213,9 +223,9 @@
 		\includegraphics[width=.47\linewidth]{pull_baseline_EMC_LHCb_Zc.png}
 	\end{center}
 
+    We found a $\bm{3\sigma}$ evidence of \alert{\textbf{intrinsic charm}}
 	\begin{itemize}
 		\item match better recent \textbf{LHCb} Z+c measurement \iRef{\href{https://doi.org/10.1103/PhysRevLett.128.082001}{PRL128-082001}}
-		\item we find a $\bm{3\sigma}$ evidence of intrinsic charm
 		\item result is \textbf{stable} with mass variation, dataset variation
 	\end{itemize}
 \end{frame}
