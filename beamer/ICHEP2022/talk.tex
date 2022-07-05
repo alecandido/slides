@@ -19,7 +19,7 @@
 \usepackage{booktabs}
 \usepackage[scale=2]{ccicons}
 
-% \usepackage{style/defs}
+\usepackage{style/main}
 \usepackage{style/defs}
 
 \usepackage{tikz}
@@ -170,9 +170,14 @@
 \begin{frame}{Intrinsic Charm: Strategy}
     Based on NNPDF4.0 \iRef{\href{https://arxiv.org/abs/2109.02653}{arxiv:2109.02653}}.
 
-	\begin{center}
+    \begin{center}
         \includegraphics[scale=.6]{strategy}
-	\end{center}
+    \end{center}
+
+    \textsc{\textbf{Intrinsic}}\quad it is the charm PDF in the \textbf{3FNS},
+    where the charm is actually considered \alert{\textbf{massive}}
+    {\footnotesize (and consequently \textit{factorization scale independent}
+    -- collinear divergencies are protected by the mass)}
 \end{frame}
 
 \begin{frame}{Matching Conditions and Backward Evolution}
@@ -206,11 +211,11 @@
 
 \begin{frame}{Intrinsic Charm: \pdf{} plot}
 	\begin{center}
-		\includegraphics[width=.7\linewidth]{4fns_3fns_nnlo_n3lo}
+		\includegraphics[width=.7\linewidth]{3fns_nnlo_n3lo}
 	\end{center}
 
-    \textsc{\textbf{Message}} In \textbf{\alert{3FNS}} \textbf{valence-like
-    peak} is still present.
+    \textsc{\textbf{Message}} In \textbf{\alert{3FNS}} a \textbf{valence-like
+    peak} is present.
 
 	\begin{itemize}
         \item for \textbf{$x\leq 0.2$} the perturbative
@@ -402,6 +407,38 @@
     \textbf{\textsc{Goal}}\quad produce \fk tables used in \pdf fitting
 \end{frame}
 
+\section{Summary}
+
+\begin{frame}{Summary}
+    Why should one use:
+    \begin{description}
+        \item[\eko?] because:
+            \begin{itemize}
+                \item it produces \enquote{out of the box} \textbf{operators}
+                \item the operators can be immediately used \textbf{together with grids}
+                \item it joins advantages of \textbf{$x$ and $N$ space}
+                \item it is getting more and \textbf{more physics
+                    features} (intrinsic, backward \vfns, \qed, \nnnlo)
+            \end{itemize}
+        \item[\yadism?] because:
+            \begin{itemize}
+                \item direct production \textbf{DIS grids}
+                \item extensive (and extended) database of \textbf{coefficient
+                    functions}
+                \item thorough implementation of \textbf{FNS} (and more\dots)
+            \end{itemize}
+        \item[Pipeline?] because:
+            \begin{itemize}
+                \item it makes \textbf{easy, flexible, and reproducible}
+                \item to produce \textbf{performant theory} predictions for PDF fitting
+            \end{itemize}
+                 \end{description}
+
+    \vspace*{15pt}
+    \alert{\textbf{Intrinsic charm}} itself is a \textit{joint} product of \eko
+    and \textbf{NNPDF4.0} efforts.
+\end{frame}
+
 \begin{frame}[standout]
     Thank you for listening!
 \end{frame}
@@ -454,6 +491,11 @@
 	\end{center}
 \end{frame}
 
+\begin{frame}{IC - truncated momentum fraction}
+	\begin{center}
+		\includegraphics[width=\linewidth]{charm_momfrac_xmin_dep_3fns.pdf}
+	\end{center}
+\end{frame}
 \begin{frame}{IC - all uncertainties combined}
 	\begin{center}
 		\includegraphics[width=\linewidth]{3fns_Quad_MHOU.pdf}
