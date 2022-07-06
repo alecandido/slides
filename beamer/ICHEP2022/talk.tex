@@ -165,7 +165,7 @@
     And more to come (\mhou, \qed, \nnnlo, \dots).
 \end{frame}
 
-\section{Intrinsic Charm in the Proton \iRef{submitted}}
+\section{Intrinsic Charm in the Proton \iRef{in press}}
 
 \begin{frame}{Intrinsic Charm: Strategy}
     Based on NNPDF4.0 \iRef{\href{https://arxiv.org/abs/2109.02653}{arxiv:2109.02653}}.
@@ -210,9 +210,14 @@
 \end{frame}
 
 \begin{frame}{Intrinsic Charm: \pdf{} plot}
-	\begin{center}
-		\includegraphics[width=.7\linewidth]{3fns_nnlo_n3lo}
-	\end{center}
+    \begin{center}
+        \includegraphics[width=.7\linewidth]{nf3_to_models.pdf}\\
+        \vspace*{-5pt}
+        \quad\iRef{\href{https://doi.org/10.1016/0370-2693(80)90364-0}{BHPS}}
+        or \iRef{\href{https://doi.org/10.1103/PhysRevD.89.074008}{Meson/Baryon
+        Cloud Model}}
+    \end{center}
+    \vspace*{10pt}
 
     \textsc{\textbf{Message}} In \textbf{\alert{3FNS}} a \textbf{valence-like
     peak} is present.
@@ -445,6 +450,9 @@
 
 \appendix
 
+\section{\eko}
+
+\subsection{Benchmarks}
 \begin{frame}{\eko{} \apfel{} benchmark}
 	\begin{center}
 		\includegraphics[width=\linewidth]{Apfel_bench_pto.pdf}
@@ -475,6 +483,8 @@
 		\includegraphics[width=\linewidth]{lha_bench_T15_T24.pdf}
 	\end{center}
 \end{frame}
+
+\subsection{Features}
 \begin{frame}{\eko{} Interpolation Error}
 	\begin{center}
 		\includegraphics[width=\linewidth]{interpolation-int-ratio.pdf}
@@ -491,6 +501,14 @@
 	\end{center}
 \end{frame}
 
+\section{Intrinsic Charm}
+
+\begin{frame}{IC - matching perturbative order}
+	\begin{center}
+		\includegraphics[width=.9\linewidth]{3fns_nnlo_n3lo}\\
+                \textbf{3FNS} comparison -- \nnlo matching \textsc{vs} \nnnlo
+	\end{center}
+\end{frame}
 \begin{frame}{IC - truncated momentum fraction}
 	\begin{center}
 		\includegraphics[width=\linewidth]{charm_momfrac_xmin_dep_3fns.pdf}
@@ -501,12 +519,7 @@
 		\includegraphics[width=\linewidth]{3fns_Quad_MHOU.pdf}
 	\end{center}
 \end{frame}
-\begin{frame}{IC - model comparison}
-	\begin{center}
-		\includegraphics[width=.9\linewidth]{nf3_to_models.pdf}\\
-		\iRef{\href{https://doi.org/10.1016/0370-2693(80)90364-0}{BHPS}} or \iRef{\href{https://doi.org/10.1103/PhysRevD.89.074008}{Meson/Baryon Cloud Model}}
-	\end{center}
-\end{frame}
+\subsection{Variations}
 \begin{frame}{IC - dataset variation}
 	\begin{center}
 		\includegraphics[width=\linewidth]{pdfplot-abscharm-dataset_dep.pdf}
@@ -519,6 +532,7 @@
 	\end{center}
 \end{frame}
 
+\section{\yadism}
 \begin{frame}{Comparison \yadism{} against \apfel{}}
 	\begin{center}
 		\includegraphics[width=\linewidth]{matched_datasets_from_dataspecs4_dataset_report_plot_fancy_dataspecs_0.pdf}
