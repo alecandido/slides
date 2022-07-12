@@ -45,6 +45,18 @@ Gargnano 2022
 - Georgi talk
   - Physics in a diverse world or A Spherical Cow Model of Physics Talent
   - https://arxiv.org/abs/2203.09485
+  - our mind as physicists sometimes deserve formal abstractions
+    - _by the way_: let's learn to face problems even without
+  - Georgi is giving us a non-trivial model
+    - how can we use it?
+- the role of demographics
+  - statistics helps dealing with collective properties of large groups
+  - inclusive metrics simplify the problem
+    - but in this way the give us a way to deal with an otherwise incredibly
+      difficult issue
+  - the road is clear: let's go as differential as possible
+    - we should be sensitive to more characteristics of the individuals
+    - **people unfolding**
 
 ## ...
 
