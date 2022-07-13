@@ -18,6 +18,21 @@ Gargnano 2022
 
 ## Content
 
+### Introduction
+
+- what is DEI?
+- world population is going to increase
+  - growth prospect from [WPP
+    2022](https://www.un.org/development/desa/pd/content/World-Population-Prospects-2022)
+  - we'll have more manpower -> more people creating amazing ideas and working
+    towards their realization
+  - we need to improve our relationship, in order to positively interfere
+  - most of the growth won't come from Europe (WPP 2022, world map, population
+    growth per country as color)
+  - diversity is a global challenge
+
+### Physics Metaphors
+
 - being passive (not assertive) is not an issue
   - but not assertive people are getting a poorer experience
     - they are delegated to less relevant tasks
@@ -73,3 +88,13 @@ Now we have a problem, and it's not easier than those we are used to: the best
 way to give something back is to exploit your talents (your intelligence in this
 case) in the very same way you are used to.
 **People are not less important then physics.**
+
+## Conclusion
+
+NNPDF has not to become a political platform for fancy ideas (picture of sticky
+man behind a stand at a rally, with NNPDF logo on the T-shirt).
+
+But we **have to** create an inclusive and friendly environment.
+Physics will benefit from this -- but more important we'll all benefit from this
+
+Let's do our ~~part~~ best!
