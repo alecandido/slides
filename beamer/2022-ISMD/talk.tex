@@ -7,7 +7,7 @@
            titleformat subtitle=regular,
            titleformat section=smallcaps,
            titleformat frame=smallcaps,
-           numbering=fraction,
+           % numbering=fraction,
           ]{metropolis}
 % \usepackage{appendixnumberbeamer}
 
@@ -80,24 +80,33 @@
 
 \setlist[description]{font=\quad\normalfont\bfseries\scshape\space}
 
-\section{\nnpdf{} 4.0 \iRef{arXiv: 2109.02653}}
+\section{\nnpdf{4.0} \iRef{arXiv: 2109.02653}}
 
-\begin{frame}{\nnpdf 4.0}
+\begin{frame}{\nnpdf{4.0}}
     \begin{center}
             \includegraphics[width=.49\linewidth]{pdfs_pdg_Qs0_plot_flavours}
             \includegraphics[width=.49\linewidth]{pdfs_pdg_Qs1_plot_flavours}
     \end{center}
 \end{frame}
 
-\begin{frame}{\nnpdf 4.0: Highlights}
+\begin{frame}{\nnpdf{4.0}: Highlights}
     \begin{columns}
         \begin{column}{0.4\textwidth}
             \begin{description}
-                \item[methodology]
-                \item[data]
-                \item[errors]
-                \item[backward compatible]
-                \item[public code]
+                \item[methodology] new Neural Network, based on widely
+                    supported, industry-level library, with further tests and
+                    machine-learning inspired improvements
+                \item[data] more data from \lhc, and a massive increment in the
+                    number of processes (jets, dijets, single top, top pair,
+                    \dots)
+                \item[errors] a consequential great reduction in uncertainty
+                \item[backward compatible] preserving compatibility with
+                    \nnpdf{3.1}
+                \item[public code] code public \iRef{arXiv: 2109.02671} and
+                    documented
+                \begin{itemize}
+                    \item \enquote{make your own \nnpdf{}!}
+                \end{itemize}
             \end{description}
         \end{column}
         \begin{column}{0.5\textwidth}
@@ -108,14 +117,16 @@
     \end{columns}
 \end{frame}
 
-\begin{frame}{\nnpdf 4.0: Theory?}
-    Mostly the same (not true: K-factors recomputed, a lot of new processes).
-    But main providers (DIS, evolution, FTDY) are the exact same of 3.1.
-
-
+\begin{frame}{\nnpdf{4.0}: Theory?}
+    Mostly the same (not really: K-factors recomputed, a lot of new processes).
+    \vspace*{10pt}
     \begin{center}
         \includegraphics[width=0.7\linewidth]{organization}
     \end{center}
+    \vspace*{10pt}
+    But main providers\footnote{
+        In particular it is one: \apfel, and the associated \apfelcomb.
+    } (DIS, evolution, FTDY) are the exact same of \nnpdf{3.1}.
 \end{frame}
 
 \section{\eko{} \iRef{arXiv: 2202.02338}}
@@ -206,7 +217,7 @@
 \section{Intrinsic Charm in the Proton \iRef{in press}}
 
 \begin{frame}{Intrinsic Charm: Strategy}
-    Based on NNPDF4.0 \iRef{\href{https://arxiv.org/abs/2109.02653}{arxiv:2109.02653}}.
+    Based on \nnpdf{4.0} \iRef{\href{https://arxiv.org/abs/2109.02653}{arxiv:2109.02653}}.
 
     \begin{center}
         \includegraphics[scale=.6]{strategy}
@@ -513,7 +524,7 @@
 
     \vspace*{15pt}
     \alert{\textbf{Intrinsic charm}} itself is a \textit{joint} product of \eko
-    and \textbf{NNPDF4.0} efforts.
+    and \textbf{\nnpdf{4.0}} efforts.
 \end{frame}
 
 \begin{frame}[standout]
