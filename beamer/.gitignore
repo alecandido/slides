@@ -1,5 +1,5 @@
 *.pdf
-!**/pictures/*.pdf
+!**/pictures/**/*.pdf
 
 ## Core latex/pdflatex auxiliary files:
 *.aux
