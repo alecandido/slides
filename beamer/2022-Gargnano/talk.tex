@@ -81,13 +81,11 @@
 \setlist[description]{font=\quad\normalfont\bfseries\scshape\space}
 \metroset{block=fill}
 
-\section{Fitting functions 101}
-
 \begin{frame}{Function space}
     \begin{columns}
         \begin{column}{0.5\textwidth}
             A function $f: \mathbb{R} \to \mathbb{R}$ (or suitable intervals)
-            lives in a infinite-dimensional space.
+            lives in an infinite-dimensional space.
             \vspace*{20pt}
 
             This has a simple consequence:
@@ -101,15 +99,57 @@
             \alert{equivalent}?
         \end{column}
         \begin{column}{0.5\textwidth}
-            \includegraphics[width=\textwidth]{intrinsic}
+            \begin{figure}
+                \centering
+                \includegraphics[width=0.6\textwidth]{underdetermined}
+                \caption{Possible $\chi^2$ profile in 2D parameter space.}
+            \end{figure}
         \end{column}
     \end{columns}
 \end{frame}
 
 \begin{frame}{Solutions in the Assumptions}
-    cut
+    \vspace*{10pt}
+    \begin{center}
+        There are two main ways to attack the problem.
+    \end{center}
+    \vspace*{10pt}
 
-    regularize
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            1. One consists in \textit{reducing the number of parameters}, by
+            \textbf{slicing} a suitable \textbf{hyperplane}.
+            \footnote{Not containing zero-directions.}
+            \vspace*{10pt}
+
+            This is what we do in PDFs when choosing a \alert{\textbf{fixed
+            parametrization}}: we decide which parameters to fit, and take a
+            single given value for everything else.
+            \vspace*{10pt}
+
+            \begin{figure}
+                \centering
+                \includegraphics[width=0.8\textwidth]{sliced}
+                \caption{$\chi^2$ profile in sliced parameter space.}
+            \end{figure}
+            \vspace*{10pt}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            2. The second approach removes the zero-direction by adding
+            \textbf{regularization}.
+            \vspace*{10pt}
+
+            This is what the \alert{\textbf{Neural Network}} (and its training
+            algorithm) is doing under the hood.
+            \vspace*{10pt}
+
+            \begin{figure}
+                \centering
+                \includegraphics[width=0.8\textwidth]{regularized}
+                \caption{$\chi^2$ profile plus regularization function.}
+            \end{figure}
+        \end{column}
+    \end{columns}
 \end{frame}
 
 \begin{frame}{So Which?}
@@ -200,6 +240,17 @@
 
 
 \begin{frame}{(Very) Preliminary Results}
+    \vspace*{10pt}
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.75\textwidth]{fit-pdf}
+        \caption{
+            Even with completely random data and theory, we get a valence like
+            structure (\textbf{valence peak}, wrong place, wrong height) by
+            virtue of \textbf{sum rules}. Still, they are too much
+            unconstrained to get correct values.
+        }
+    \end{figure}
 \end{frame}
 
 \begin{frame}[standout]
@@ -217,6 +268,29 @@
 \end{frame}
 
 \begin{frame}{Further results}
+    \vspace*{30pt}
+    \begin{columns}
+        \begin{column}{0.6\textwidth}
+            \begin{figure}
+                \centering
+                \includegraphics[width=\textwidth]{fit-pdf-new}
+                \caption{
+                    New fit candidate, with less random data (still pretty
+                    random).
+                }
+            \end{figure} 
+        \end{column}
+        \begin{column}{0.4\textwidth}
+            \begin{figure}
+                \centering
+                \includegraphics[width=\textwidth]{fit-hyper-new}
+                \caption{
+                    Hyperparameters fit: notice that while exponents are
+                    working, we are still missing the correlation length.
+                }
+            \end{figure} 
+        \end{column}
+    \end{columns}
 \end{frame}
 
 \end{document}
