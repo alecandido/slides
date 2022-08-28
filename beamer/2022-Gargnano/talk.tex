@@ -106,8 +106,101 @@
     \end{columns}
 \end{frame}
 
+\begin{frame}{Solutions in the Assumptions}
+    cut
+
+    regularize
+\end{frame}
+
+\begin{frame}{So Which?}
+    Then which one should we choose?
+
+    There is not an absolute best answer, because both procedures might be arbitrary.
+    According to me, the principle to follow is "choose that convey more
+    physical insight" in such a way to trade physical assumptions for arbitrariness.
+\end{frame}
+
+\begin{frame}{The NN}
+    What is then doing the neural network (NN)? Why is it working so well?
+
+    First: "working" is ambiguous, because we don't know the answer. Closure
+    tests are a clue, but we want something to perform well on the truth, and
+    not knowing it we are extrapolating from something that is working well on
+    a truth candidate.
+
+    Second: interpolation assumption in the training.
+\end{frame}
+
+\begin{frame}{Looking for Insights}
+    NNPDF methodology has many good things:
+    - nice representation of a generic distribution (replicas)
+    - many tests in place
+    - fast theory
+    - lots of data
+
+    We don't want to give up on any of these.
+
+    ---
+
+    On the other hand, a pain point is the insight we have on the
+    representation itself: we trust on it because of tests, but it is sometimes
+    difficult to pin down results to features.
+
+    \begin{exampleblock}{Hopscotch}
+        There are some physical assumptions we can check:
+        - integrability and sum rules
+        - positivity
+        - t0 chi2
+
+        But the result might be more subtle: might be hidden in regularization.
+    \end{exampleblock}
+\end{frame}
+
+\begin{frame}{Restart from Bayes}
+    Typical examples of ML are image and speech recognition, generative tasks,
+    style transfer and so on.
+
+    All these problems have in common very high dimensional objects, with poor
+    analytical insight on its structure. Working out an explicit and effective
+    representation for them is difficult.
+
+    This is not the case of PDF: we already describe them with a math language,
+    and we have clear analytic properties at hand (sum rules, power-like
+    behavior, and so on).
+    
+    ---
+
+    Then, (Bayes).
+
+    \begin{equation*}
+        P(A|B) = \frac{P(B|A) P(A)}{P(B)}
+    \end{equation*}
+    
+    Advantage: an explicit prior will do what the NN is now doing.
+\end{frame}
+
+\begin{frame}{Prior Choice \& Implementation}
+    Gaussian process
+    
+    ---
+
+    \begin{description}
+        \item[sum rules] analitically, zero errors data point on the primitive
+        \item[quadratic points] least square fit
+        \item[PDF positivity] we can fit the log processes
+    \end{description}
+\end{frame}
+
+\begin{frame}{(Very) Preliminary Results}
+\end{frame}
+
 \begin{frame}[standout]
-    Let's discuss!
+    Questions?
+\end{frame}
+
+\appendix
+
+\begin{frame}{Further results}
 \end{frame}
 
 \end{document}
