@@ -132,28 +132,38 @@
 \end{frame}
 
 \begin{frame}{Looking for Insights}
-    NNPDF methodology has many good things:
-    - nice representation of a generic distribution (replicas)
-    - many tests in place
-    - fast theory
-    - lots of data
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            NNPDF methodology has many good things:
+            - nice representation of a generic distribution (replicas)
+            - many tests in place
+            - fast theory
+            - lots of data
 
-    We don't want to give up on any of these.
+            We don't want to give up on any of these.
+        \end{column}
 
-    ---
+        \begin{column}{0.5\textwidth}
+            On the other hand, a pain point is the insight we have on the
+            representation itself: we trust on it because of tests, but it is sometimes
+            difficult to pin down results to features.
 
-    On the other hand, a pain point is the insight we have on the
-    representation itself: we trust on it because of tests, but it is sometimes
-    difficult to pin down results to features.
+            \begin{exampleblock}{Hopscotch}
+                There are some physical assumptions we can check:
+                - integrability and sum rules
+                - positivity
+                - t0 chi2
 
-    \begin{exampleblock}{Hopscotch}
-        There are some physical assumptions we can check:
-        - integrability and sum rules
-        - positivity
-        - t0 chi2
+                But the result might be more subtle: might be hidden in regularization.
+            \end{exampleblock}
 
-        But the result might be more subtle: might be hidden in regularization.
-    \end{exampleblock}
+            Another limitation\footnote{Actually, this is where everything started
+            from.} is that the current methodology need to make a fit to a sample at a
+            time. The distribution is only the result of many fits.
+            What if we could fit the distribution all at once?
+            \vspace*{20pt}
+        \end{column}
+    \end{columns}
 \end{frame}
 
 \begin{frame}{Restart from Bayes}
