@@ -172,6 +172,7 @@
             So, we need a guiding principle to make a good choice, and a good one is:
             \begin{center}
                 \itshape
+                \bfseries
                 Choices should encode physics assumptions
             \end{center}
             and as little arbitrariness as possible\footnote{
@@ -246,36 +247,60 @@
 \begin{frame}{Looking for Insights}
     \begin{columns}
         \begin{column}{0.5\textwidth}
-            NNPDF methodology has many good things:
-            - nice representation of a generic distribution (replicas)
-            - many tests in place
-            - fast theory
-            - lots of data
+            \textit{NNPDF "framework"} is much \textbf{\textit{more}} than a Neural
+            Network only:
+            \begin{itemize}
+                \item nice representation of a generic distribution (\textbf{replicas})
+                \item many \textbf{tests} in place
+                \item \textbf{fast theory} framework
+                \item \textbf{lots of data} implemented
+                \begin{itemize}
+                    \item both theory calculation and
+                    \item commondata implementation with uncertainties
+                        (including correlated systematics)
+                \end{itemize}
+                \item and more\dots
+            \end{itemize}
+            \vspace*{10pt}
 
-            We don't want to give up on any of these.
+            \begin{center}
+                \itshape
+                We do \textbf{not} want to \textbf{loose} \alert{\textbf{any}} of these.
+            \end{center}
         \end{column}
 
         \begin{column}{0.5\textwidth}
-            On the other hand, a pain point is the insight we have on the
-            representation itself: we trust on it because of tests, but it is sometimes
-            difficult to pin down results to features.
+            But sometimes we \textbf{lack insight}: we have tests for this, but
+            they are not always a handy tool to answer all questions.
+            \vspace*{10pt}
 
             \begin{exampleblock}{Hopscotch}
-                There are some physical assumptions we can check:
-                - integrability and sum rules
-                - positivity
-                - t0 chi2
+                \begin{center}
+                    \itshape
+                    What are our criticism to CT replicas?
+                \end{center}
+                Mostly we blame the method, but little criticism on the result.
 
-                But the result might be more subtle: might be hidden in regularization.
+                Some \textbf{physical assumptions} have been checked:
+                \begin{itemize}
+                    \item $\chi^2$ vs $\chi^2_{t_0}$
+                    \item integrability and sum rules
+                    \item positivity
+                \end{itemize}
+
+                But it might be hidden in the NN \textbf{regularization}.
             \end{exampleblock}
 
-            Another limitation\footnote{Actually, this is where everything started
-            from.} is that the current methodology need to make a fit to a sample at a
-            time. The distribution is only the result of many fits.
-            What if we could fit the distribution all at once?
-            \vspace*{20pt}
         \end{column}
     \end{columns}
+
+    \vspace*{10pt}
+    Another limitation\footnote{
+        Actually, this is where everything started from.
+    } is that the current methodology need to make a \textbf{fit to \alert{one
+    sample} at a time}. The distribution is only the result of many fits.
+    \textit{\textbf{What if we could fit the distribution all at once?}}
+    \vspace*{-10pt}
 \end{frame}
 
 \begin{frame}{Restart from Bayes}
