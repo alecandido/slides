@@ -268,7 +268,6 @@
                 We do \textbf{not} want to \textbf{loose} \alert{\textbf{any}} of these.
             \end{center}
         \end{column}
-
         \begin{column}{0.5\textwidth}
             But sometimes we \textbf{lack insight}: we have tests for this, but
             they are not always a handy tool to answer all questions.
@@ -304,35 +303,51 @@
 \end{frame}
 
 \begin{frame}{Restart from Bayes}
-    Typical examples of ML are image and speech recognition, generative tasks,
-    style transfer and so on.
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            Typical examples of ML are image and speech recognition, generative tasks,
+            style transfer and so on.
 
-    All these problems have in common very high dimensional objects, with poor
-    analytical insight on its structure. Working out an explicit and effective
-    representation for them is difficult.
+            All these problems have in common very high dimensional objects, with poor
+            analytical insight on its structure. Working out an explicit and effective
+            representation for them is difficult.
 
-    This is not the case of PDF: we already describe them with a math language,
-    and we have clear analytic properties at hand (sum rules, power-like
-    behavior, and so on).
-    
-    ---
+            This is not the case of PDF: we already describe them with a math language,
+            and we have clear analytic properties at hand (sum rules, power-like
+            behavior, and so on).
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \begin{figure}
+                \centering
+                \includegraphics[width=0.6\textwidth]{pdf}
+                \caption{\pdf analytical features.}
+            \end{figure}
 
-    Then, (Bayes).
+            Then, (Bayes).
 
-    \begin{equation*}
-        P(A|B) = \frac{P(B|A) P(A)}{P(B)}
-    \end{equation*}
-    
-    Advantage: an explicit prior will do what the NN is now doing.
+            \begin{equation*}
+                P(A|B) = \frac{P(B|A) P(A)}{P(B)}
+            \end{equation*}
+            
+            Advantage: an explicit prior will do what the NN is now doing.
+        \end{column}
+    \end{columns}
 \end{frame}
 
 \begin{frame}{Prior Choice \& Implementation}
-    Gaussian process
-    
-    ---
-
-    Fit Basic idea: take a bunch of points out of the function, the rest comes
-    by interpolation. Which ones? LHAPDF's of course :)
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            Gaussian process
+            \begin{figure}
+                \centering
+                \includegraphics[width=0.9\textwidth]{sine6}
+            \end{figure}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            Fit Basic idea: take a bunch of points out of the function, the
+            rest comes by interpolation. Which ones? LHAPDF's of course :)
+        \end{column}
+    \end{columns}
 \end{frame}
 
 
