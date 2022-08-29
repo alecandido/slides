@@ -153,22 +153,94 @@
 \end{frame}
 
 \begin{frame}{So Which?}
-    Then which one should we choose?
+    \vspace*{30pt}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            Then which one should we choose?
+            \vspace*{10pt}
 
-    There is not an absolute best answer, because both procedures might be arbitrary.
-    According to me, the principle to follow is "choose that convey more
-    physical insight" in such a way to trade physical assumptions for arbitrariness.
+            \begin{figure}
+                \centering
+                \includegraphics[width=0.8\textwidth]{choice}
+            \end{figure}
+
+            \vspace*{10pt}
+            There is \textbf{not} an \alert{\textbf{absolute best answer}},
+            because both procedures might be \textit{\textbf{arbitrary}}.
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            So, we need a guiding principle to make a good choice, and a good one is:
+            \begin{center}
+                \itshape
+                Choices should encode physics assumptions
+            \end{center}
+            and as little arbitrariness as possible\footnote{
+                Though nothing is actually bias-free, so better to know and
+                declare your bias, rather than hiding it.
+            }.
+
+            \vspace*{20pt}
+            So what about PDFs?
+            \begin{description}
+                \item[cuts] cutting the space (fixed parametrization) is no
+                    bad, \textbf{if you know how to do it}: you need
+                    \alert{\textbf{precise theoretical insight}} on the
+                    \alert{\textbf{\pdf shape}}
+                \item[regularization] also this need as much motivation as the
+                    former, but it makes \textit{to shift the focus} from the
+                    exact shape to more abstract \alert{\textbf{features}}
+            \end{description}
+            \vspace*{20pt}
+        \end{column}
+    \end{columns}
 \end{frame}
 
 \begin{frame}{The NN}
-    What is then doing the neural network (NN)? Why is it working so well?
+    \begin{center}
+        What is then doing the neural network (NN)? Why is it working so well?
+    \end{center}
+    \vspace*{10pt}
 
-    First: "working" is ambiguous, because we don't know the answer. Closure
-    tests are a clue, but we want something to perform well on the truth, and
-    not knowing it we are extrapolating from something that is working well on
-    a truth candidate.
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{figure}
+                \centering
+                \includegraphics[width=0.6\textwidth]{nn}
+            \end{figure}
+            "working" is a bit ambiguous, but tests are helpful to develop
+            enough trust.
 
-    Second: interpolation assumption in the training.
+            \vspace*{10pt}
+                Essentially, the \textit{NN is encoding} an
+                \alert{\textbf{interpolation hypothesis}} \textit{in the
+                architecture \textbf{and} training algorithm}.
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            While both the approaches are limiting \textit{model complexity},
+            the \textbf{Neural Network} is able to \textbf{follow data trends}.
+
+            \vspace*{10pt}
+            \begin{exampleblock}{Physical Wiggles}
+                A criticism we collected has been about \textit{NN opaque
+                assumptions} might \textbf{prevent} to follow \textbf{small
+                physical fluctuations}, but it is actually the other way
+                round:\footnote{In principle, yet to be proven in practice.}
+
+                \begin{description}
+                    \item[fixed param.] in this case, you can only find
+                        oscillations you are allowing for, so you need to know
+                        in advance \textbf{each and every wiggle} to
+                        discriminate physical ones from noise
+                    \item[NN] all wiggles are deweighted, but physical wiggles
+                        should be resolved more and more by data, so
+                        \textit{"enough precision"} in the
+                        \alert{\textbf{data}} will naturally
+                        \textbf{\alert{overwhelm} the theoretical
+                        \alert{(learning) bias}}
+                \end{description}
+            \end{exampleblock}
+        \end{column}
+    \end{columns}
 \end{frame}
 
 \begin{frame}{Looking for Insights}
@@ -291,6 +363,13 @@
             \end{figure} 
         \end{column}
     \end{columns}
+\end{frame}
+
+\begin{frame}{Tests}
+    First: , because we don't know the answer. Closure
+    tests are a clue, but we want something to perform well on the truth, and
+    not knowing it we are extrapolating from something that is working well on
+    a truth candidate.
 \end{frame}
 
 \end{document}
