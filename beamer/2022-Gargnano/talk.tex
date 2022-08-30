@@ -414,24 +414,27 @@
 
 \appendix
 
-\begin{frame}{PDF features}
-    \begin{description}
-        \item[sum rules] analytically, zero errors data point on the primitive
-        \item[quadratic points] least square fit
-        \item[PDF positivity] we can fit the log processes
-    \end{description}
-\end{frame}
-
 \begin{frame}{Hyper-opt}
     You can get the full distribution, including \textbf{hyper-parameters}:
     \begin{equation*}
         P(A|B;\lambda) = \frac{P(B|A) P(A;\lambda)}{P(B)}
     \end{equation*}
 
-    And, \textit{if you wish}, you can \alert{\textbf{hyper-optimize}}:
+    And, \textit{if you wish}, you can \alert{\textbf{hyper-optimize}} to get a
+    single value:
     \begin{equation*}
-        P(A|B) = \max_{\lambda \in \Lambda} P(A|B;\lambda)
+        \begin{cases}
+            \lambda^* = \max_{\lambda \in \Lambda} P(A|B;\lambda)\\
+            P(A|B) = \max_{\lambda \in \Lambda} P(A|B;\lambda) = P(A|B; \lambda^*)
+        \end{cases}
     \end{equation*}
+    
+    This is just the \textbf{Maximum A Posteriori (MAP)} estimate on
+    hyper-parameters, but the full distribution contains more information.
+
+    But at that point you might want to choose a \textbf{hyper-prior}, that
+    will affect also the MAP estimate of hyper-parameters (you decide where to
+    stop\dots but essentially is all \textit{part of your prior}).
 \end{frame}
 
 \begin{frame}{Further results}
@@ -458,13 +461,6 @@
             \end{figure} 
         \end{column}
     \end{columns}
-\end{frame}
-
-\begin{frame}{Tests}
-    First: , because we don't know the answer. Closure
-    tests are a clue, but we want something to perform well on the truth, and
-    not knowing it we are extrapolating from something that is working well on
-    a truth candidate.
 \end{frame}
 
 \end{document}
