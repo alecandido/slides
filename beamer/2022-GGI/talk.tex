@@ -41,6 +41,18 @@
 \usepackage{colortbl}
 \usepackage{multirow}
 \usepackage{pifont}
+\usepackage[many]{tcolorbox}
+
+\tcbset{ 
+    enhanced, 
+    arc=1pt, 
+    colback=white, 
+    colframe=black!10!white, 
+    leftrule=2mm,
+    boxrule=0mm, 
+    % lifted shadow={0.5mm}{-1mm}{4mm}{0.3mm}{black}, 
+    fuzzy shadow={0.5mm}{-1mm}{0mm}{0.3mm}{black}
+}
 
 \usepackage{pgfplots}
 \usepgfplotslibrary{dateplot}
@@ -52,7 +64,7 @@
 \title{Parton Distribution Functions}
 \subtitle{solving the probabilistic inverse problem}
 \date{August, 2022}
-\author{\textit{\textbf{Alessandro Candido}}, Luigi Del Debbio, Tommaso Giani, Giacomo Petrillo}
+\author{Alessandro Candido}
 %\institute{N3PDF}
 \titlegraphic{
     \raisebox{10pt}[0pt][0pt]{\includegraphics[width=2.5cm]{../_logos/nnpdf_logo.pdf}}\hspace*{10pt}
@@ -89,24 +101,41 @@
             Usual picture with 
         \end{column}
         \begin{column}{0.5\textwidth}
-            \includegraphics[width=\textwidth]{proton-to-detector}
+            \begin{tcolorbox}
+                \includegraphics[width=\textwidth]{proton-to-detector}
+            \end{tcolorbox}
         \end{column}
     \end{columns}
 \end{frame}
 
 \begin{frame}{Soft to Hard Physics}
-    Matrix element picture.
-
-    QCD non perturbative at low energies.
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            Matrix element picture.
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            QCD non perturbative at low energies.
+        \end{column}
+    \end{columns}
 \end{frame}
 
 \begin{frame}{Function space}
-    The PDF object: a set of functions (one per flavor) $f_i: [0, 1] \to \mathbb{R}$
-
-    \nnpdf{4.0} picture.
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            The PDF object: a set of functions (one per flavor) $f_i: [0, 1] \to \mathbb{R}$
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \begin{tcolorbox}
+                \includegraphics[width=\textwidth]{pdfs_pdg_Qs0_plot_flavours}
+            \end{tcolorbox}
+        \end{column}
+    \end{columns}
 \end{frame}
 
 \section{Inverse Problem}
+
+\begin{frame}{Direct problem}
+\end{frame}
 
 \begin{frame}{Function space}
     \begin{columns}
@@ -226,17 +255,18 @@
 \section{Uncertainties = Distribution}
 
 \begin{frame}{Propagating Error}
-    Gaussian Approach
+    Hessian Approach
 \end{frame}
 
-\begin{frame}{Propagating Error}
+\begin{frame}{Replicas}
     \nnpdf{} Approach
-\end{frame}
 
-\begin{frame}{Propagating Error}
-    \nnpdf{} Approach - revisited (Luigi's paper)
+    Na\"ive idea: the error comes from data, let's propagate the data
+    distribution back through the \textit{inverse function}:
+    \begin{equation*}
+        \mathcal{F}(D) = \argmin_\theta\left(\mathcal{L}(D)\right)
+    \end{equation*}
 \end{frame}
-
 
 \begin{frame}{The NN}
     \begin{center}
@@ -250,8 +280,6 @@
                 \centering
                 \includegraphics[width=0.6\textwidth]{nn}
             \end{figure}
-            "working" is a bit ambiguous, but tests are helpful to develop
-            enough trust.
 
             \vspace*{10pt}
                 Essentially, the \textit{NN is encoding} an
@@ -260,7 +288,8 @@
         \end{column}
         \begin{column}{0.5\textwidth}
             While both the approaches are limiting \textit{model complexity},
-            the \textbf{Neural Network} is able to \textbf{follow data trends}.
+            the \textbf{Neural Network} is free enough to follow strong
+            \textbf{data trends}.
 
             \vspace*{10pt}
             \begin{exampleblock}{Physical Wiggles}
@@ -285,6 +314,132 @@
         \end{column}
     \end{columns}
 \end{frame}
+
+\begin{frame}{Propagating Error}
+    \nnpdf{} Approach - reinterpreted\footnote{
+        \href{https://doi.org/10.1140/epjc/s10052-022-10297-x}{\textit{L. Del
+        Debbio, T. Giani, M. Wilson}, Eur.Phys.J.C 82 (2022) 4, 330}
+    }. (Luigi's paper)
+
+    Hints for a better approach (if it's equivalent to something meaningful,
+    maybe it would be worth to try that something).
+
+    
+\end{frame}
+
+\section{Trust the Results}
+
+\begin{frame}{Dataset}
+    Variety of datasets, to cover different features of the underlying object.
+    
+    \begin{center}
+        \begin{tcolorbox}[width=0.7\textwidth]
+            \includegraphics[width=\textwidth]{data}
+        \end{tcolorbox}
+    \end{center}
+\end{frame}
+
+\begin{frame}{Amazing Black Box}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            Common criticism is the NN being a black box
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            Shiny Black box picture
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Closure Tests}
+    Controls data region.
+
+    \begin{itemize}
+        \item Level 0, $\chi^2_{expected} \sim 0$
+        \item Level 1, $\chi^2_{expected} \sim 1$
+        \item Level 2, $\chi^2_{expected} \sim 2$
+    \end{itemize}
+\end{frame}
+
+\begin{frame}{Future Tests}
+    Controls extrapolation region.
+\end{frame}
+
+\section{Results}
+
+\begin{frame}{Large $x$ Behavior}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{tcolorbox}
+                \centering
+                \includegraphics[width=0.49\textwidth]{NNPDF_DY_14TEV_BSM_AFB_COS_3000}
+                \includegraphics[width=0.49\textwidth]{NNPDF_DY_14TEV_BSM_AFB_COS_4000}
+            \end{tcolorbox}
+
+            \vspace*{20pt}
+            Result already partially encoded in the hypothesis.
+            \vspace*{20pt}
+
+            \begin{tcolorbox}
+                \centering
+                \includegraphics[width=0.49\textwidth]{NNPDF_DY_14TEV_BSM_AFB_COS_5000}
+                \includegraphics[width=0.49\textwidth]{NNPDF_DY_14TEV_BSM_AFB_COS_6000}
+            \end{tcolorbox}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \begin{tcolorbox}
+                \includegraphics[width=\textwidth]{asym_coeff_mlldep}
+            \end{tcolorbox}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Intrinsic Charm}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{tcolorbox}
+                \includegraphics[width=\textwidth]{nf3_to_models}
+            \end{tcolorbox}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \begin{tcolorbox}
+                \includegraphics[width=\textwidth]{lhcb-zcharm-pheno}
+            \end{tcolorbox}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\section{Conclusions}
+
+\begin{frame}{Summary}
+\end{frame}
+
+\begin{frame}{Tools and References}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            For all info about the collaboration
+
+            \url{https://nnpdf.mi.infn.it}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \url{Eur.Phys.J.C 81 (2021) 10, 958}
+            \url{https://github.com/NNPDF/nnpdf}
+            \url{https://docs.nnpdf.science}
+
+            \begin{figure}
+                \centering
+                \includegraphics[width=0.3\textwidth]{tensorflow}
+                \hspace*{0.05\textwidth}
+                \includegraphics[width=0.3\textwidth]{python}
+            \end{figure}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}[standout]
+    Questions?
+\end{frame}
+
+\appendix
 
 \begin{frame}{Looking for Insights}
     \begin{columns}
@@ -449,12 +604,6 @@
         }
     \end{figure}
 \end{frame}
-
-\begin{frame}[standout]
-    Questions?
-\end{frame}
-
-\appendix
 
 \begin{frame}{Hyper-opt}
     You can get the full distribution, including \textbf{hyper-parameters}:
