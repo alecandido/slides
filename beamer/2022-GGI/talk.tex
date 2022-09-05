@@ -16,18 +16,11 @@
 \definecolor{vpOrange}{HTML}{fc8d62}
 \providecommand{\iRef}[1]{{\color{mLightGreen}\small $[$#1$]$}}
 
-\usepackage{booktabs}
-\usepackage[scale=2]{ccicons}
-
 \usepackage{../_style/common}
 \usepackage{../_style/defs}
 
-\usepackage{tikz}
-\usetikzlibrary{shapes,arrows}
-\usepackage{amsmath, bm}
-\usepackage{siunitx}
-\usepackage{physics,hepnames}
-\usepackage{mathtools}
+\usepackage{alphalph}
+
 \usepackage{enumitem}
 \setenumerate[1]{%
       label=\protect\usebeamerfont{enumerate item}%
@@ -37,29 +30,10 @@
     \usebeamercolor[fg]{itemize item}
       \usebeamertemplate{itemize item}}
 
-\usepackage{subfig}
-\usepackage{colortbl}
-\usepackage{multirow}
-\usepackage{pifont}
-\usepackage[many]{tcolorbox}
-
-\tcbset{ 
-    enhanced,
-    size=title,
-    sharpish corners, 
-    boxrule=0mm, 
-    colback=white, 
-    % leftrule=2mm,
-    % lifted shadow={0.5mm}{-1mm}{4mm}{0.3mm}{black}
-    fuzzy shadow={0.5mm}{-1mm}{0mm}{0.3mm}{black}
-}
-
-\usepackage{pgfplots}
-\usepgfplotslibrary{dateplot}
-
-\usepackage{ulem}
-
 \graphicspath{{pictures/}{../_pictures/}{../2022-Gargnano/pictures/}}
+
+\usepackage[symbol]{footmisc}
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
 
 \title{Parton Distribution Functions}
 \subtitle{solving the probabilistic inverse problem}
@@ -98,7 +72,21 @@
 \begin{frame}{Theoretical Picture of a Collision}
     \begin{columns}
         \begin{column}{0.5\textwidth}
-            Usual picture with 
+            In order to describe a \textit{\textbf{collision}} a lot of ingredients are
+            involved:
+            \begin{itemize}
+                \item a \textbf{hard scattering} matrix element (partonic level)
+                \item \textbf{parton shower}, on the colored products
+                \item color reconnection and \textbf{hadronization}
+            \end{itemize}
+
+            \vspace*{20pt}
+            This is what is going on in a generic collider, but an
+            \textit{\textbf{hadronic collider}} needs one more ingredient:
+            \begin{itemize}
+                \item \textit{partonic description} of the
+                    \alert{\textbf{hadronic initial state}}
+            \end{itemize}
         \end{column}
         \begin{column}{0.5\textwidth}
             \begin{tcolorbox}[size=tight,sharpish corners,boxrule=0mm]
@@ -111,18 +99,51 @@
 \begin{frame}{Soft to Hard Physics}
     \begin{columns}
         \begin{column}{0.5\textwidth}
-            Matrix element picture.
+            Matrix element picture:
+            \begin{itemize}
+                \item first line, amplitude with proton to hadron $h$, equal to
+                \item second line, insert a couple of complete basis (sum over
+                    partons and momenta), and couple of horizontal braces
+                    below: PDF incoming, FF outgoing
+            \end{itemize}
         \end{column}
         \begin{column}{0.5\textwidth}
-            QCD non perturbative at low energies.
+            Since QCD is non-perturbative at low energies, there is something
+            \textbf{special} about \textbf{hadrons}: \textbf{we are almost
+            \textit{guessing in the wild}}\footnote{
+                Actually, this is a very very poor statement: we have
+                constraints about theory symmetries, and the bound state net
+                content. But what we \textbf{do not know} from theory is the
+                \textbf{\alert{detailed structure}}, and \textbf{we need it} to
+                \textit{\textbf{predict experiments}}.
+            }.
+            \vspace*{15pt}
+
+            Fortunately, there is also something very \textbf{special} about
+            our \textbf{theory}, and the breakdown we described: they
+            \alert{\textbf{factorize}} (up to controlled sub-leading terms).
+            \vspace*{15pt}
+
+            Then we are left with our unknown non-perturbative physics, but
+            nicely packaged in some \textbf{\textit{descriptive functions}},
+            the \textbf{\alert{Parton Distribution Functions} (PDFs)}.
+            \vspace*{25pt}
         \end{column}
     \end{columns}
 \end{frame}
 
-\begin{frame}{Function space}
+\begin{frame}{Target Object}
     \begin{columns}
         \begin{column}{0.5\textwidth}
-            The PDF object: a set of functions (one per flavor) $f_i: [0, 1] \to \mathbb{R}$
+            \pdf{}s then are just a set of \textbf{unknown functions}:
+            \begin{equation*}
+                f_i: [0, 1] \to \mathbb{R}
+            \end{equation*}
+            \vspace*{10pt}
+
+            There is one for each flavor $i$, and they obey some
+            \textit{theoretical constraints} (e.g.\ number and momentum sum
+            rules, constraining the integral).
         \end{column}
         \begin{column}{0.5\textwidth}
             \begin{tcolorbox}
@@ -138,8 +159,18 @@
     Luigi's Tikz diagram, hand drawn.
 \end{frame}
 
+\begin{frame}{Theory Predictions}
+    Which is the map from PDF (the object to be determined) to the experimental
+    data?
+
+    Physics, i.e. pQCD:
+    \begin{itemize}
+        \item DGLAP evolution
+        \item hard cross section (short distance physics)
+    \end{itemize}
+\end{frame}
+
 \begin{frame}{FK tables}
-    Which is the map?
     Just to give the idea of what I'm working on, and that is all but trivial.
 
     Linear and quadratic map, plus composite (few examples).
@@ -325,7 +356,7 @@
 
 \begin{frame}{Propagating Error}
     \nnpdf{} Approach - reinterpreted
-    \let\thefootnote\relax\footnotetext{
+    \footnotetext{
         \paperref{https://doi.org/10.1140/epjc/s10052-022-10297-x}{\textit{L. Del
         Debbio, T. Giani, M. Wilson}, Eur.Phys.J.C 82 (2022) 4, 330}
     }. (Luigi's paper)

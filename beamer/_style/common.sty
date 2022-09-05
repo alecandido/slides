@@ -1,15 +1,39 @@
 \RequirePackage[capitalise]{cleveref}
 
-\RequirePackage{physics}
+\RequirePackage{amsmath, bm}
+\RequirePackage{array}
+\RequirePackage{physics,hepnames}
+\RequirePackage{mathtools}
 \RequirePackage{siunitx}
 \sisetup{
     retain-unity-mantissa = false
 }
+
 \RequirePackage{tabularx}
-\RequirePackage{hepnames}
 \RequirePackage{booktabs}
-\RequirePackage{array}
+\RequirePackage{colortbl}
+
 \RequirePackage{csquotes}
 \RequirePackage{wasysym}
-\RequirePackage{bm}
-\RequirePackage{csquotes}
+\RequirePackage[scale=2]{ccicons}
+\RequirePackage{subfig}
+\RequirePackage{multirow}
+\RequirePackage{pifont}
+\RequirePackage{ulem}
+
+\RequirePackage{tikz}
+\usetikzlibrary{shapes,arrows}
+\RequirePackage{pgfplots}
+\usepgfplotslibrary{dateplot}
+
+\RequirePackage[many]{tcolorbox}
+\tcbset{ 
+    enhanced,
+    size=title,
+    sharpish corners, 
+    boxrule=0mm, 
+    colback=white, 
+    % leftrule=2mm,
+    % lifted shadow={0.5mm}{-1mm}{4mm}{0.3mm}{black}
+    fuzzy shadow={0.5mm}{-1mm}{0mm}{0.3mm}{black}
+}
