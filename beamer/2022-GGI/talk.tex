@@ -44,13 +44,13 @@
 \usepackage[many]{tcolorbox}
 
 \tcbset{ 
-    enhanced, 
-    arc=1pt, 
-    colback=white, 
-    colframe=black!10!white, 
-    leftrule=2mm,
+    enhanced,
+    size=title,
+    sharpish corners, 
     boxrule=0mm, 
-    % lifted shadow={0.5mm}{-1mm}{4mm}{0.3mm}{black}, 
+    colback=white, 
+    % leftrule=2mm,
+    % lifted shadow={0.5mm}{-1mm}{4mm}{0.3mm}{black}
     fuzzy shadow={0.5mm}{-1mm}{0mm}{0.3mm}{black}
 }
 
@@ -59,7 +59,7 @@
 
 \usepackage{ulem}
 
-\graphicspath{{pictures/}{../2022-Gargnano/pictures/}}
+\graphicspath{{pictures/}{../_pictures/}{../2022-Gargnano/pictures/}}
 
 \title{Parton Distribution Functions}
 \subtitle{solving the probabilistic inverse problem}
@@ -95,13 +95,13 @@
 
 \section{The Physics}
 
-\begin{frame}{Experimental Picture}
+\begin{frame}{Theoretical Picture of a Collision}
     \begin{columns}
         \begin{column}{0.5\textwidth}
             Usual picture with 
         \end{column}
         \begin{column}{0.5\textwidth}
-            \begin{tcolorbox}
+            \begin{tcolorbox}[size=tight,sharpish corners,boxrule=0mm]
                 \includegraphics[width=\textwidth]{proton-to-detector}
             \end{tcolorbox}
         \end{column}
@@ -135,6 +135,14 @@
 \section{Inverse Problem}
 
 \begin{frame}{Direct problem}
+    Luigi's Tikz diagram, hand drawn.
+\end{frame}
+
+\begin{frame}{FK tables}
+    Which is the map?
+    Just to give the idea of what I'm working on, and that is all but trivial.
+
+    Linear and quadratic map, plus composite (few examples).
 \end{frame}
 
 \begin{frame}{Function space}
@@ -316,8 +324,9 @@
 \end{frame}
 
 \begin{frame}{Propagating Error}
-    \nnpdf{} Approach - reinterpreted\footnote{
-        \href{https://doi.org/10.1140/epjc/s10052-022-10297-x}{\textit{L. Del
+    \nnpdf{} Approach - reinterpreted
+    \let\thefootnote\relax\footnotetext{
+        \paperref{https://doi.org/10.1140/epjc/s10052-022-10297-x}{\textit{L. Del
         Debbio, T. Giani, M. Wilson}, Eur.Phys.J.C 82 (2022) 4, 330}
     }. (Luigi's paper)
 
@@ -366,10 +375,23 @@
 
 \section{Results}
 
-\begin{frame}{Large $x$ Behavior}
+\begin{frame}{Uncertainties - Data Region}
     \begin{columns}
         \begin{column}{0.5\textwidth}
+            Ciao
+        \end{column}
+        \begin{column}{0.5\textwidth}
             \begin{tcolorbox}
+                \includegraphics[width=\textwidth]{Corr_Z2H14TeV_2sigma}
+            \end{tcolorbox}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Uncertainties - Extrapolation - Large $x$}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{tcolorbox}[size=small,sharpish corners,boxrule=0mm]
                 \centering
                 \includegraphics[width=0.49\textwidth]{NNPDF_DY_14TEV_BSM_AFB_COS_3000}
                 \includegraphics[width=0.49\textwidth]{NNPDF_DY_14TEV_BSM_AFB_COS_4000}
@@ -379,7 +401,7 @@
             Result already partially encoded in the hypothesis.
             \vspace*{20pt}
 
-            \begin{tcolorbox}
+            \begin{tcolorbox}[size=small,sharpish corners,boxrule=0mm]
                 \centering
                 \includegraphics[width=0.49\textwidth]{NNPDF_DY_14TEV_BSM_AFB_COS_5000}
                 \includegraphics[width=0.49\textwidth]{NNPDF_DY_14TEV_BSM_AFB_COS_6000}
@@ -416,27 +438,29 @@
 \begin{frame}{Tools and References}
     \begin{columns}
         \begin{column}{0.5\textwidth}
-            For all info about the collaboration
+            For all info about the collaboration:
 
             \url{https://nnpdf.mi.infn.it}
         \end{column}
         \begin{column}{0.5\textwidth}
-            \url{Eur.Phys.J.C 81 (2021) 10, 958}
-            \url{https://github.com/NNPDF/nnpdf}
+            \paperref{https://doi.org/10.1140/epjc/s10052-021-09747-9}{Eur.Phys.J.C 81 (2021) 10, 958}
+
+            \githuburl{https://github.com/NNPDF/nnpdf}
+
             \url{https://docs.nnpdf.science}
 
             \begin{figure}
                 \centering
-                \includegraphics[width=0.3\textwidth]{tensorflow}
-                \hspace*{0.05\textwidth}
-                \includegraphics[width=0.3\textwidth]{python}
+                \includegraphics[width=0.15\textwidth]{tensorflow}
+                \hspace*{0.25\textwidth}
+                \includegraphics[width=0.15\textwidth]{python}
             \end{figure}
         \end{column}
     \end{columns}
 \end{frame}
 
 \begin{frame}[standout]
-    Questions?
+    Thanks for your attention!
 \end{frame}
 
 \appendix
