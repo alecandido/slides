@@ -40,11 +40,11 @@
     \textit{solving the probabilistic inverse problem} - or
     \textit{\enquote{How to learn a function}}
 }
-\date{August, 2022}
-\author{Alessandro Candido}
+\date{September, 2022}
+\author{Alessandro Candido \& \textsc{NNPDF}}
 %\institute{N3PDF}
 \titlegraphic{
-    \raisebox{10pt}[0pt][0pt]{\includegraphics[width=2.5cm]{../_logos/nnpdf_logo.pdf}}\hspace*{10pt}
+    \raisebox{10pt}[0pt][0pt]{\includegraphics[width=2.5cm]{../_logos/nnpdf_logo.png}}\hspace*{10pt}
     \hfill
     \raisebox{5pt}[0pt][0pt]{\includegraphics[height=0.8cm]{../_logos/n3pdf_logo.pdf}}\hspace*{10pt}
     \includegraphics[height=1.3cm]{../_logos/erc_logo1.png}
@@ -100,8 +100,19 @@
 \end{frame}
 
 \begin{frame}{Soft to Hard Physics}
+    \vspace*{25pt}
     \begin{columns}
         \begin{column}{0.5\textwidth}
+            Since QCD is non-perturbative at low energies, there is something
+            \textbf{special} about \textbf{hadrons}: \textbf{we are almost
+            \textit{guessing in the wild}}\footnote{
+                Actually, this is a very very poor statement: we have
+                constraints about theory symmetries, and the bound state net
+                content. But what we \textbf{do not know} from theory is the
+                \textbf{\alert{detailed structure}}, and \textbf{we need it} to
+                \textit{\textbf{predict experiments}}.
+            }.
+            \vspace*{15pt}
             \begin{figure}
                 \centering
                 \includegraphics[width=0.9\textwidth]{hadronic-obs}
@@ -119,17 +130,6 @@
             \end{figure}
         \end{column}
         \begin{column}{0.5\textwidth}
-            Since QCD is non-perturbative at low energies, there is something
-            \textbf{special} about \textbf{hadrons}: \textbf{we are almost
-            \textit{guessing in the wild}}\footnote{
-                Actually, this is a very very poor statement: we have
-                constraints about theory symmetries, and the bound state net
-                content. But what we \textbf{do not know} from theory is the
-                \textbf{\alert{detailed structure}}, and \textbf{we need it} to
-                \textit{\textbf{predict experiments}}.
-            }.
-            \vspace*{15pt}
-
             Fortunately, there is also something very \textbf{special} about
             our \textbf{theory}, and the breakdown we described: they
             \alert{\textbf{factorize}} (up to controlled sub-leading terms).
@@ -138,7 +138,16 @@
             Then we are left with our unknown non-perturbative physics, but
             nicely packaged in some \textbf{\textit{descriptive functions}},
             the \textbf{\alert{Parton Distribution Functions} (PDFs)}.
-            \vspace*{25pt}
+            \vspace*{10pt}
+
+            \begin{figure}
+                \centering
+                \includegraphics[width=0.5\textwidth]{pdf-ff}
+                \vspace*{10pt}
+                \caption{
+                    Scattering process with initial and final state hadrons.
+                }
+            \end{figure}
         \end{column}
     \end{columns}
 \end{frame}
@@ -200,12 +209,13 @@
 \end{frame}
 
 \begin{frame}{Theory Predictions}
+    \vspace*{15pt}
     \begin{center}
         So, \alert{\textbf{which is the map}} from \textbf{\pdf} (a.k.a.\
         \textit{the object to be determined}) to the \textbf{experimental
         data}?
     \end{center}
-    \vspace*{20pt}
+    \vspace*{15pt}
 
     \begin{columns}
         \begin{column}{0.5\textwidth}
@@ -235,13 +245,11 @@
             \vspace*{5pt}
         \end{column}
         \begin{column}{0.5\textwidth}
-            picture of evolution + hard cross section:
-            \begin{itemize}
-                \item \pdf at the bottom
-                \item evolve upwards (with thresholds)
-                \item collision at the top edge
-            \end{itemize}
-            repeat it for two columns at different heights
+            \begin{figure}
+                \centering
+                \includegraphics[width=0.7\textwidth]{evolution-scattering}
+                \caption*{Evolution and scattering, both computed in pQCD}
+            \end{figure}
         \end{column}
     \end{columns}
 \end{frame}
@@ -255,13 +263,13 @@
                 \includegraphics[width=0.5\textwidth]{eko}
                 \caption*{DGLAP evolution framework}
             \end{figure}
-            \vspace*{10pt}
+            \vspace*{5pt}
 
             \begin{figure}
                 \includegraphics[width=0.7\textwidth]{yadism}
                 \caption*{DIS predictions module}
             \end{figure}
-            \vspace*{10pt}
+            \vspace*{20pt}
 
             \begin{figure}
                 {\Huge \textbf{PineAPPL}}
@@ -419,7 +427,7 @@
     \vspace*{10pt}
 
     \begin{center}
-        \includegraphics[width=2.5cm]{../_logos/nnpdf_logo.pdf} approach $\to$
+        \includegraphics[width=2.5cm]{../_logos/nnpdf_logo.png} approach $\to$
         use a \textbf{Neural Network as the \alert{representation} for the
         unknown function}.
     \end{center}
@@ -452,46 +460,76 @@
         \end{column}
         \begin{column}{0.5\textwidth}
             The Hessian approach is possibly the simplest: essentially, relies
-            on a quadratic approximation of the loss function near the minimum
-            (\textit{best fit}) $\hookrightarrow$ Gaussian distribution in
-            parameter space.
+            on a \textbf{quadratic} approximation of the \textbf{loss} function
+            \textbf{near the minimum} (\textit{best fit}) $\hookrightarrow$
+            \alert{\textbf{Gaussian}} distribution \alert{\textbf{in parameter
+            space}}.
             \vspace*{10pt}
 
             So, given a restricted set of parameters, the determination of the
             multi-Gaussian relies on:
             \begin{description}
                 \item[eigenvectors] as eigenvectors of the loss itself
-                \item[variance] variances, derived from inverse loss curvature
+                \item[variances] derived from inverse loss curvature
             \end{description}
-            \vspace*{10pt}
+            \vspace*{20pt}
 
-            So the distribution resembles:
+            So \textit{\textbf{the distribution}} resembles:
             \begin{equation*}
                 P(\theta | \mathcal{D}) = \exp(-\chi^2(\theta; \mathcal{D}))
             \end{equation*}
         \end{column}
     \end{columns}
-    
 \end{frame}
 
 \begin{frame}{Replicas}
-    \nnpdf{} Approach
+    \begin{center}
+        \nnpdf{} Approach: Monte Carlo sample (empirical distribution)
+    \end{center}
+    \vspace*{20pt}
 
-    Na\"ive idea: the error comes from data, let's propagate the data
-    distribution back through the \textit{inverse function}:
-    \begin{equation*}
-        \mathcal{F}(D) = \argmin_\theta\left(\mathcal{L}(D)\right)
-    \end{equation*}
+    \begin{columns}
+        \begin{column}{0.4\textwidth}
+            \vspace*{10pt}
+            Na\"ive idea: the error comes from data, let's propagate the data
+            distribution back through the \textit{inverse function}:
+            \begin{equation*}
+                f_i(x) =
+                \argmin_\theta\left(\mathcal{L}(D_i)\right) = \mathcal{NN}(x\ | D_i)
+            \end{equation*}
+            \vspace*{10pt}
 
-    Maybe insert one of the usual methodology diagram, to fill space (or hand
-    draw it).
+            Very simple (possibly expensive\footnote{
+                To address this compressed sets are distributed along the main
+                release. There is also a program to obtain specialized minimal
+                sets for dedicated studies:\newline
+                \vspace*{-10pt}
+                \begin{center}\githuburl{https://github.com/scarrazza/smpdf}\end{center}
+            }) usage: in order to obtain the \textbf{distribution of
+            predictions}, apply your theoretical calculation to the element of
+            the sample:
+            \begin{equation*}
+                \mathcal{P}red\mathcal{S} = \left\{
+                    \mathcal{F}(f)~~\forall\ f \in \mathcal{P}ost\mathcal{S}
+                \right\}
+            \end{equation*}
+            \vspace*{2pt}
+        \end{column}
+        \begin{column}{0.6\textwidth}
+            \begin{tcolorbox}
+                \includegraphics[width=\textwidth]{GS-1}
+            \end{tcolorbox}
+        \end{column}
+    \end{columns}
 \end{frame}
 
-\begin{frame}{The NN}
+\begin{frame}{The NN: motivating a choice}
+    \vspace*{10pt}
+
     \begin{center}
         What is then doing the neural network (NN)? Why is it working so well?
     \end{center}
-    \vspace*{10pt}
+    \vspace*{20pt}
 
     \begin{columns}
         \begin{column}{0.5\textwidth}
@@ -501,9 +539,12 @@
             \end{figure}
 
             \vspace*{10pt}
-                Essentially, the \textit{NN is encoding} an
-                \alert{\textbf{interpolation hypothesis}} \textit{in the
-                architecture \textbf{and} training algorithm}.
+            Essentially, the \textit{NN is encoding} an
+            \alert{\textbf{interpolation hypothesis}} \textit{in the
+            architecture \textbf{and} training algorithm\footnote{
+                Training-validation split, even though interpretation is far
+                from clear.
+            }}.
         \end{column}
         \begin{column}{0.5\textwidth}
             While both the approaches are limiting \textit{model complexity},
@@ -534,19 +575,6 @@
     \end{columns}
 \end{frame}
 
-\begin{frame}{Propagating Error}
-    \nnpdf{} Approach - reinterpreted
-    \footnotetext{
-        \paperref{https://doi.org/10.1140/epjc/s10052-022-10297-x}{\textit{L. Del
-        Debbio, T. Giani, M. Wilson}, Eur.Phys.J.C 82 (2022) 4, 330}
-    }. (Luigi's paper)
-
-    Hints for a better approach (if it's equivalent to something meaningful,
-    maybe it would be worth to try that something).
-
-    
-\end{frame}
-
 \section{Trust the Results}
 
 \begin{frame}{Dataset}
@@ -563,10 +591,34 @@
 \end{frame}
 
 \begin{frame}{Amazing Black Box}
-    What happens when you don't trust NN?
+    What happens when you \textbf{do not trust} NN?
+    \vspace*{20pt}
+
     \begin{columns}
+        \begin{column}{0.05\textwidth}
+        \end{column}
         \begin{column}{0.5\textwidth}
-            Common criticism is the NN being a black box
+            Common criticism is:
+            \begin{center}
+                \itshape
+                the NN is a \textbf{black box}
+            \end{center}
+            \vspace*{5pt}
+
+            Well\dots\ \textbf{no}.\newline
+            We know a lot of things about a NN: the \textit{structure}, the
+            \textit{task} is performing, and we can gather insights
+            \textit{inspecting} it and the \textit{training process}.
+            \vspace*{10pt}
+
+            But skeptics are not wrong: what we are \uline{missing} is a
+            \textbf{\uline{full} analytical insight} on the process. A
+            \textbf{proof} of solving the specific task.
+            \vspace*{10pt}
+
+            We can claim the algorithm to \enquote{work} (having a suitable
+            definition for it\dots). But, even when we are right, we are often
+            lacking the specific \textbf{why}.
         \end{column}
         \begin{column}{0.5\textwidth}
             \begin{figure}
@@ -575,9 +627,16 @@
             \end{figure}
         \end{column}
     \end{columns}
+    \vspace*{20pt}
+
+    \begin{center}
+        If \sout{analytically} there is no obvious way, let's go \textbf{empirically}.
+    \end{center}
 \end{frame}
 
 \begin{frame}{Closure Tests}
+    \vspace*{10pt}
+
     Controls data region.
     \begin{columns}
         \begin{column}{0.5\textwidth}
@@ -589,35 +648,40 @@
         \begin{column}{0.5\textwidth}
             \begin{description}
                 \item[Level 0] generate data from \textbf{\enquote{true}
-                    central value} only: $\chi^2_{expected} \sim 0$
+                    central value} only: $\chi^2_{expected} \sim 0$\newline
                     {\footnotesize (essentially: can we find that central
                     value? Is it forbidden?)}
                 \item[Level 1] generate data from the \textbf{\enquote{true}
-                    distribution} $\chi^2_{expected} \sim 1$
+                    distribution} $\chi^2_{expected} \sim 1$\newline
                     {\footnotesize a \enquote{usual} distribution
                     determination}
                 \item[Level 2] Add \textbf{pseudo-data} generation,
-                    $\chi^2_{expected} \sim 2$
+                    $\chi^2_{expected} \sim 2$\newline
+                    {\footnotesize intuitively because it \enquote{fluctuates twice}}
             \end{description}
             \vspace*{20pt}
             
-            Too large errors and too small are both wrong, almost the same as
-            missing the central value.
+            \textbf{Too large errors} and \textbf{too small} are \textbf{both
+            wrong}. The test is not only for the central value (but full
+            posterior).\newline
             {\footnotesize (unless being able to prove to consistently
             over-estimate, without being able to compute it to subtract)}
         \end{column}
     \end{columns}
-    \vspace*{20pt}
+    \vspace*{30pt}
 
-    Experimental data are far from perfect, they might be affected by several
-    inconsinstencies.
+    \textbf{Experimental} data are far from perfect, they might be affected by several
+    \textbf{inconsinstencies}.
     \begin{flushright}
-        $\to$ model inconsinstencies in the data generation process, a.k.a.\
-        \enquote{closure test with inconsistent data}, WIP
+        $\to$ model \textit{inconsinstencies into} the \textit{data generation}
+        process, a.k.a.\ \alert{\textit{\enquote{closure tests with
+        inconsistent data}}}, \textsc{wip}
     \end{flushright}
 \end{frame}
 
 \begin{frame}{Future Tests}
+    \vspace*{10pt}
+
     Controls extrapolation region: what about data you have not seen yet?
     \vspace*{10pt}
 
@@ -626,10 +690,21 @@
         \includegraphics[width=0.8\textwidth]{future-tests}
     \end{figure}
 
-    Well, I can not travel to the future, but I know history, and I can set my
-    fiction in a past scenario :)
-    (not like a full blind analysis, my prior knows about \enquote{the future},
-    but it is a further consistency check)
+    I can not \sout{travel to the future}, but I know \textbf{history}!
+    \vspace*{10pt}
+
+    I can \textbf{divide} my \textbf{dataset \alert{chronologically}} (in a
+    possibly meaningful way), and fit all the incremental sets.
+    Then: 
+
+    \begin{center}
+        \itshape
+        Compare \textbf{older extrapolation} region with \textbf{newer}
+        analogue, where it becomes \textbf{data region}
+    \end{center}
+
+    {\footnotesize It is not like a full blind analysis, realistically my prior
+    knows about \enquote{the future}, but it is a further consistency check.}
 \end{frame}
 
 \section{Results}
@@ -802,7 +877,7 @@
             \vspace*{5pt}
             \begin{figure}
                 \centering
-                \includegraphics[width=2.5cm]{../_logos/nnpdf_logo.pdf}
+                \includegraphics[width=2.5cm]{../_logos/nnpdf_logo.png}
             \end{figure}
             \vspace*{10pt}
 
@@ -1040,6 +1115,17 @@
             \includegraphics[width=0.8\textwidth]{retire-nn.png}
         \end{column}
     \end{columns}
+\end{frame}
+
+\begin{frame}{Equivalence: NN Sampled Posterior}
+    \nnpdf{} Approach - reinterpreted
+    \footnotetext{
+        \paperref{https://doi.org/10.1140/epjc/s10052-022-10297-x}{\textit{L. Del
+        Debbio, T. Giani, M. Wilson}, Eur.Phys.J.C 82 (2022) 4, 330}
+    }. (Luigi's paper)
+
+    Hints for a better approach (if it's equivalent to something meaningful,
+    maybe it would be worth to try that something).
 \end{frame}
 
 \begin{frame}{Hyper-opt}
