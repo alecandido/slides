@@ -36,7 +36,10 @@
 \renewcommand{\thefootnote}{\fnsymbol{footnote}}
 
 \title{Parton Distribution Functions}
-\subtitle{solving the probabilistic inverse problem}
+\subtitle{
+    \textit{solving the probabilistic inverse problem} - or
+    \textit{\enquote{How to learn a function}}
+}
 \date{August, 2022}
 \author{Alessandro Candido}
 %\institute{N3PDF}
@@ -99,13 +102,21 @@
 \begin{frame}{Soft to Hard Physics}
     \begin{columns}
         \begin{column}{0.5\textwidth}
-            Matrix element picture:
-            \begin{itemize}
-                \item first line, amplitude with proton to hadron $h$, equal to
-                \item second line, insert a couple of complete basis (sum over
-                    partons and momenta), and couple of horizontal braces
-                    below: PDF incoming, FF outgoing
-            \end{itemize}
+            \begin{figure}
+                \centering
+                \includegraphics[width=0.9\textwidth]{hadronic-obs}
+                \vspace*{10pt}
+                \caption{
+                    Scattering Matrix element, $\mathcal{S}$.
+                    {
+                        \footnotesize Fragmentation Functions only relevant for
+                        non-outgoing inclusive processes.\newline
+                        The operator $\mathcal{O}_i$ is essentially a number
+                        operator for parton $i$, with a Wilson line (time-like
+                        path) insertion for gauge covariance.
+                    }
+                }
+            \end{figure}
         \end{column}
         \begin{column}{0.5\textwidth}
             Since QCD is non-perturbative at low energies, there is something
@@ -156,24 +167,138 @@
 \section{Inverse Problem}
 
 \begin{frame}{Direct problem}
-    Luigi's Tikz diagram, hand drawn.
+    \begin{columns}
+        \begin{column}{0.7\textwidth}
+            \begin{figure}
+                \centering
+                \includegraphics[width=0.8\textwidth]{inverse-problem}
+                \vspace*{15pt}
+                \caption{
+                    The map $\mathcal{F}$ transform the model into data.
+                    $\mathcal{P}$ is the parametrization space.
+                }
+            \end{figure}
+        \end{column}
+        \begin{column}{0.3\textwidth}
+            \begin{center}
+                \itshape No direct observation of samples of unknown objects.
+            \end{center}
+
+            The observed objects are obtained from the unknown ones through a
+            \textbf{singular transformation} (non-bijective)\footnote{
+                Trivial, because function space is infinite-dimensional, while
+                observed objects are finite (samples, and then even more
+                \textit{\enquote{kinds}}).
+            }.
+            \vspace*{10pt}
+
+            Our \textbf{inference} will then follow the opposite direction,
+            that is why it is called the \alert{\textbf{inverse problem}}.
+            \vspace*{15pt}
+        \end{column}
+    \end{columns}
 \end{frame}
 
 \begin{frame}{Theory Predictions}
-    Which is the map from PDF (the object to be determined) to the experimental
-    data?
+    \begin{center}
+        So, \alert{\textbf{which is the map}} from \textbf{\pdf} (a.k.a.\
+        \textit{the object to be determined}) to the \textbf{experimental
+        data}?
+    \end{center}
+    \vspace*{20pt}
 
-    Physics, i.e. pQCD:
-    \begin{itemize}
-        \item DGLAP evolution
-        \item hard cross section (short distance physics)
-    \end{itemize}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            Physics, i.e. \alert{\textbf{perturbative QCD}}:
+            \begin{equation*}
+                \sigma(x, Q^2) = \hat{\sigma}_{ij} \otimes f_i \otimes f_j =
+                \int \dd z_1 \dd z_2 ~\hat{\sigma}(z_1, z_2, Q^2)~~
+                f_i\left(\frac{x}{z_1}, Q^2\right) f_i\left(\frac{x}{z_2},
+                Q^2\right)
+            \end{equation*}
+
+            \begin{description}
+                \item[DGLAP evolution] integro-differential equation,
+                    determining \pdf{}s at all scales from a border condition
+                    at a given scale $Q_0^2$
+                \item[hard cross section] short distance physics, computed
+                    diagrammatically (possibly supplemented with resummation)
+            \end{description}
+
+            \vspace*{20pt}
+            Since we can compute everything else\footnote{For inclusive final
+            states.}, we are left with the determination of the
+            \alert{\textbf{border condition}} only:
+            \begin{equation*}
+                f_i(x, Q_0^2)
+            \end{equation*}
+            \vspace*{5pt}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            picture of evolution + hard cross section:
+            \begin{itemize}
+                \item \pdf at the bottom
+                \item evolve upwards (with thresholds)
+                \item collision at the top edge
+            \end{itemize}
+            repeat it for two columns at different heights
+        \end{column}
+    \end{columns}
 \end{frame}
 
 \begin{frame}{FK tables}
-    Just to give the idea of what I'm working on, and that is all but trivial.
+    \vspace*{20pt}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{figure}
+                \centering
+                \includegraphics[width=0.5\textwidth]{eko}
+                \caption*{DGLAP evolution framework}
+            \end{figure}
+            \vspace*{10pt}
 
-    Linear and quadratic map, plus composite (few examples).
+            \begin{figure}
+                \includegraphics[width=0.7\textwidth]{yadism}
+                \caption*{DIS predictions module}
+            \end{figure}
+            \vspace*{10pt}
+
+            \begin{figure}
+                {\Huge \textbf{PineAPPL}}
+                \caption*{General process, \pdf-independent, grid storage}
+            \end{figure}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            Since we want to go through minimization, it is crucial to have a
+            \textbf{fast map} from \textit{model space} to \textit{data space}:
+            \begin{equation*}
+                f_0(x) = f(x, Q_0^2) \to \sigma_a(x, Q^2) = \hat{\sigma}_a(Q^2)
+                \otimes f(Q^2) \otimes f(Q^2)
+            \end{equation*}
+            \vspace*{5pt}
+
+            We call such maps \alert{\textbf{Fast Kernel (FK) tables}}:
+            \begin{equation*}
+                \begin{cases}
+                    F_a = FK_{a, i \alpha}~f_{0, i \alpha}\\
+                    \sigma_b = FK_{b, j \beta k \gamma}~f_{0, j \beta}~f_{0, k \gamma}\\
+                \end{cases}
+            \end{equation*}
+            since data are either \textit{linear} (one initial proton) or \textit{quadratic} (two
+            protons collision) in the \pdf.\newline
+            Plus \textit{composite observables} (e.g.\ ratios).
+
+            \vspace*{15pt}
+            \hrule
+            \vspace*{15pt}
+
+            For people that are familiar with perturbation theory and \pdf
+            nomenclature:\newline
+            when a \pdf is told to be \lo, \nlo, \nnlo, or \nnnlo, this
+            is the \textit{\textbf{underlying theory order}} (the
+            \texttt{FkTable}).
+        \end{column}
+    \end{columns}
 \end{frame}
 
 \begin{frame}{Function space}
@@ -248,7 +373,7 @@
 \end{frame}
 
 \begin{frame}{So Which?}
-    \vspace*{30pt}
+    \vspace*{15pt}
     \begin{columns}
         \begin{column}{0.5\textwidth}
             Then which one should we choose?
@@ -264,18 +389,20 @@
             because both procedures might be \textit{\textbf{arbitrary}}.
         \end{column}
         \begin{column}{0.5\textwidth}
-            So, we need a guiding principle to make a good choice, and a good one is:
+            In need for guiding principle to make a good choice, proposal:
+            \vspace*{-2pt}
             \begin{center}
                 \itshape
                 \bfseries
                 Choices should encode physics assumptions
             \end{center}
+            \vspace*{-2pt}
             and as little arbitrariness as possible\footnote{
                 Though nothing is actually bias-free, so better to know and
                 declare your bias, rather than hiding it.
             }.
 
-            \vspace*{20pt}
+            \vspace*{15pt}
             So what about PDFs?
             \begin{description}
                 \item[cuts] cutting the space (fixed parametrization) is no
@@ -286,15 +413,65 @@
                     former, but it makes \textit{to shift the focus} from the
                     exact shape to more abstract \alert{\textbf{features}}
             \end{description}
-            \vspace*{20pt}
+            \vspace*{5pt}
         \end{column}
     \end{columns}
+    \vspace*{10pt}
+
+    \begin{center}
+        \includegraphics[width=2.5cm]{../_logos/nnpdf_logo.pdf} approach $\to$
+        use a \textbf{Neural Network as the \alert{representation} for the
+        unknown function}.
+    \end{center}
+    \vspace*{10pt}
+
+    Notice that usually a NN is used to perform a task. Here the NN is actually
+    representing the unknown object itself.\newline
+    \vspace*{-2pt}
+    {\footnotesize
+        \hspace*{-5pt}
+        I.e., usually, evaluate on your input once, to obtain the candidate
+        output. Here, many evaluation of the same network on an array of inputs
+        needed to perform the same task.
+    }
 \end{frame}
 
 \section{Uncertainties = Distribution}
 
 \begin{frame}{Propagating Error}
-    Hessian Approach
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{figure}
+                \centering
+                \includegraphics[width=0.6\textwidth]{hessian}
+                \caption*{
+                    Usually the Hessian is used together with the $\chi^2$ as
+                    loss.
+                }
+            \end{figure}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            The Hessian approach is possibly the simplest: essentially, relies
+            on a quadratic approximation of the loss function near the minimum
+            (\textit{best fit}) $\hookrightarrow$ Gaussian distribution in
+            parameter space.
+            \vspace*{10pt}
+
+            So, given a restricted set of parameters, the determination of the
+            multi-Gaussian relies on:
+            \begin{description}
+                \item[eigenvectors] as eigenvectors of the loss itself
+                \item[variance] variances, derived from inverse loss curvature
+            \end{description}
+            \vspace*{10pt}
+
+            So the distribution resembles:
+            \begin{equation*}
+                P(\theta | \mathcal{D}) = \exp(-\chi^2(\theta; \mathcal{D}))
+            \end{equation*}
+        \end{column}
+    \end{columns}
+    
 \end{frame}
 
 \begin{frame}{Replicas}
@@ -305,6 +482,9 @@
     \begin{equation*}
         \mathcal{F}(D) = \argmin_\theta\left(\mathcal{L}(D)\right)
     \end{equation*}
+
+    Maybe insert one of the usual methodology diagram, to fill space (or hand
+    draw it).
 \end{frame}
 
 \begin{frame}{The NN}
@@ -370,38 +550,86 @@
 \section{Trust the Results}
 
 \begin{frame}{Dataset}
-    Variety of datasets, to cover different features of the underlying object.
-    
+    \vspace*{5pt}
+    As physicists, we \alert{\textbf{trust in data}} (physics $\sim$
+    experimental science).
     \begin{center}
-        \begin{tcolorbox}[width=0.7\textwidth]
+        \begin{tcolorbox}[width=0.65\textwidth]
             \includegraphics[width=\textwidth]{data}
         \end{tcolorbox}
     \end{center}
+    \textbf{Variety} of datasets, to \textbf{cover different features} of the
+    \textit{underlying object}.
 \end{frame}
 
 \begin{frame}{Amazing Black Box}
+    What happens when you don't trust NN?
     \begin{columns}
         \begin{column}{0.5\textwidth}
             Common criticism is the NN being a black box
         \end{column}
         \begin{column}{0.5\textwidth}
-            Shiny Black box picture
+            \begin{figure}
+                \centering
+                \includegraphics[width=0.7\textwidth]{black-box}
+            \end{figure}
         \end{column}
     \end{columns}
 \end{frame}
 
 \begin{frame}{Closure Tests}
     Controls data region.
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \begin{figure}
+                \hspace*{20pt}
+                \includegraphics[width=0.9\textwidth]{closure-tests}
+            \end{figure}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \begin{description}
+                \item[Level 0] generate data from \textbf{\enquote{true}
+                    central value} only: $\chi^2_{expected} \sim 0$
+                    {\footnotesize (essentially: can we find that central
+                    value? Is it forbidden?)}
+                \item[Level 1] generate data from the \textbf{\enquote{true}
+                    distribution} $\chi^2_{expected} \sim 1$
+                    {\footnotesize a \enquote{usual} distribution
+                    determination}
+                \item[Level 2] Add \textbf{pseudo-data} generation,
+                    $\chi^2_{expected} \sim 2$
+            \end{description}
+            \vspace*{20pt}
+            
+            Too large errors and too small are both wrong, almost the same as
+            missing the central value.
+            {\footnotesize (unless being able to prove to consistently
+            over-estimate, without being able to compute it to subtract)}
+        \end{column}
+    \end{columns}
+    \vspace*{20pt}
 
-    \begin{itemize}
-        \item Level 0, $\chi^2_{expected} \sim 0$
-        \item Level 1, $\chi^2_{expected} \sim 1$
-        \item Level 2, $\chi^2_{expected} \sim 2$
-    \end{itemize}
+    Experimental data are far from perfect, they might be affected by several
+    inconsinstencies.
+    \begin{flushright}
+        $\to$ model inconsinstencies in the data generation process, a.k.a.\
+        \enquote{closure test with inconsistent data}, WIP
+    \end{flushright}
 \end{frame}
 
 \begin{frame}{Future Tests}
-    Controls extrapolation region.
+    Controls extrapolation region: what about data you have not seen yet?
+    \vspace*{10pt}
+
+    \begin{figure}
+        \centering
+        \includegraphics[width=0.8\textwidth]{future-tests}
+    \end{figure}
+
+    Well, I can not travel to the future, but I know history, and I can set my
+    fiction in a past scenario :)
+    (not like a full blind analysis, my prior knows about \enquote{the future},
+    but it is a further consistency check)
 \end{frame}
 
 \section{Results}
@@ -409,7 +637,26 @@
 \begin{frame}{Uncertainties - Data Region}
     \begin{columns}
         \begin{column}{0.5\textwidth}
-            Ciao
+            \vspace*{10pt}
+
+            Here, the result of the \textbf{\textit{\enquote{Physical
+            Wiggles}}} issue is evident: in order to nicely fit result with a
+            rather \textbf{restrictive parametrization}, you need to inflate
+            your errors (\textit{\alert{\textbf{tolerance}} procedure}).
+            \vspace*{15pt}
+
+            However, keep in mind that \nnpdf{4.0} has a \textit{wider
+            datasets} then the other releases.\newline
+            Implementing data has a non-trivial retrieval and interpretation
+            cost (lack of standard language, especially for systematics), plus
+            theory implementation (the \texttt{FkTable}).
+            \vspace*{15pt}
+
+            But \nnpdf{3.1} has already smaller uncertainties than more recent
+            releases, e.g.\ \texttt{CT18} and \texttt{MSHT18}, despite a
+            slightly smaller\footnote{Disputable.} dataset.\newline
+            This is the \alert{\textbf{methodology impact}}.
+            \vspace*{15pt}
         \end{column}
         \begin{column}{0.5\textwidth}
             \begin{tcolorbox}
@@ -427,10 +674,22 @@
                 \includegraphics[width=0.49\textwidth]{NNPDF_DY_14TEV_BSM_AFB_COS_3000}
                 \includegraphics[width=0.49\textwidth]{NNPDF_DY_14TEV_BSM_AFB_COS_4000}
             \end{tcolorbox}
+            \vspace*{20pt}
 
+            Rather biased result \textbf{encoded} in the \textbf{hypothesis}:
+            the large invariant mass extrapolation region maps to the large-$x$
+            behavior of the \pdf{}, that is \textit{\textbf{little constrained
+            by data}}.
+            But a fixed parametrization propagate the behavior of the data
+            region.
+            \vspace*{10pt}
+
+            While \nnpdf{4.0} has very \textbf{\textit{small uncertainties}} in
+            the \textbf{\textit{data region}}, it is still flexible enough to
+            \textbf{inflate in extrapolation}, encoding the \alert{\textbf{lack
+            of experimental knowledge}}.
             \vspace*{20pt}
-            Result already partially encoded in the hypothesis.
-            \vspace*{20pt}
+
 
             \begin{tcolorbox}[size=small,sharpish corners,boxrule=0mm]
                 \centering
@@ -447,6 +706,16 @@
 \end{frame}
 
 \begin{frame}{Intrinsic Charm}
+    \vspace*{-15pt}
+    \begin{center}
+        $3\sigma$ of an \textbf{intrinsic} (non-perturbative)
+        \textbf{\alert{charm} component} of the \textbf{proton}.
+
+        \paperref{https://doi.org/10.1038/s41586-022-04998-2}{Nature 608 (2022)
+        7923, 483-487}
+    \end{center}
+    \vspace*{15pt}
+
     \begin{columns}
         \begin{column}{0.5\textwidth}
             \begin{tcolorbox}
@@ -464,22 +733,104 @@
 \section{Conclusions}
 
 \begin{frame}{Summary}
+    \vspace*{15pt}
+
+    Title question: \textit{\enquote{How to learn a function?}}
+    \vspace*{10pt}
+
+    \begin{columns}
+        \begin{column}{-0.05\textwidth}
+        \end{column}
+        \begin{column}{0.45\textwidth}
+            \begin{enumerate}
+                \item Reduce to a \alert{\textbf{finite} problem} through soft
+                    but \textbf{sensible assumptions} (e.g.\ interpolation)
+                \item \alert{Minimize \textbf{suitable loss}} function in data
+                    space, including \textbf{extra constraints} (usually
+                    theoretical knowledge)
+                \item Apply an \alert{\textit{\enquote{error propagation}}}
+                    technique (\textbf{posterior determination/sampling})
+                \item \alert{\textbf{Test}} over and over your methodology
+                    (empirical robustness proof, i.e.\ consistency check)
+            \end{enumerate}
+        \end{column}
+        \begin{column}{0.45\textwidth}
+            In this way, it is possible to learn a lot!
+            \vspace*{10pt}
+            
+            But we actually have little to poor insight on \textit{\enquote{why
+            is my inference working?}}. And thus \textit{\enquote{Is it
+            actually working?}}
+            \vspace*{10pt}
+
+            Good scientists are \uline{\textbf{skeptic} of their own results},
+            but we still need to \alert{\textit{act to the best of our
+            options}}, while preserving \textbf{caution}.
+        \end{column}
+    \end{columns}
+    \vspace*{-10pt}
+
+    \begin{columns}
+        \begin{column}{0.65\textwidth}
+            But: is a Neural Network really \textbf{the best tool} for this
+            kind of tasks?
+            \vspace*{10pt}
+
+            \hspace*{20pt}\textbf{Next Episode}
+            {\footnotesize (\textit{clue above $\hookuparrow$:
+            \textbf{posterior sampling}})}
+        \end{column}
+        \begin{column}{0.25\textwidth}
+            \hspace*{-10pt}
+            \includegraphics[width=0.5\textwidth]{skeptic}
+        \end{column}
+    \end{columns}
 \end{frame}
 
 \begin{frame}{Tools and References}
     \begin{columns}
         \begin{column}{0.5\textwidth}
-            For all info about the collaboration:
+            \uline{{\LARGE\itshape Collaboration and references}}
+            \vspace*{15pt}
 
-            \url{https://nnpdf.mi.infn.it}
+            For all info about the collaboration, cf.:
+
+            \begin{center}\url{https://nnpdf.mi.infn.it}\end{center}
+
+            including talks, papers and code.
+
+            \vspace*{5pt}
+            \begin{figure}
+                \centering
+                \includegraphics[width=2.5cm]{../_logos/nnpdf_logo.pdf}
+            \end{figure}
+            \vspace*{10pt}
+
+            A few more items at:
+
+            \begin{center}\url{https://n3pdf.mi.infn.it}\end{center}
+
+            \vspace*{5pt}
+            \begin{figure}
+                \centering
+                \includegraphics[width=2.5cm]{../_logos/n3pdf_logo.pdf}
+            \end{figure}
         \end{column}
         \begin{column}{0.5\textwidth}
+            \uline{{\LARGE\itshape Public Code}}
+            \vspace*{15pt}
+
+            Introduction paper:\hspace*{10pt}
             \paperref{https://doi.org/10.1140/epjc/s10052-021-09747-9}{Eur.Phys.J.C 81 (2021) 10, 958}
+            \vspace*{10pt}
 
-            \githuburl{https://github.com/NNPDF/nnpdf}
+            Code and docs:
+            \vspace*{5pt}
 
-            \url{https://docs.nnpdf.science}
+            \hspace*{15pt}\githuburl{https://github.com/NNPDF/nnpdf}\newline
+            \hspace*{15pt}\url{https://docs.nnpdf.science}
 
+            \vspace*{10pt}
             \begin{figure}
                 \centering
                 \includegraphics[width=0.15\textwidth]{tensorflow}
@@ -658,6 +1009,37 @@
             unconstrained to get correct values.
         }
     \end{figure}
+\end{frame}
+
+\begin{frame}{End of NN?}
+    \begin{center}
+        \itshape Can we \alert{\textbf{retire}} the \textbf{Neural Network}?
+    \end{center}
+    \vspace*{10pt}
+
+    \begin{columns}
+        \begin{column}{0.02\textwidth}
+        \end{column}
+        \begin{column}{0.6\textwidth}
+            The basic, and most uninformative, answer is \textbf{\enquote{maybe}}.
+            \vspace*{10pt}
+
+            In practice, the Neural Network is doing \textit{\textbf{quite a
+            good job}} at giving a \textbf{simple} enough \textbf{recipe to
+            \alert{determine our kernel}}.
+            $\to$ At the \textbf{price} of \textbf{insight loss}.
+            \vspace*{10pt}
+
+            It has trade-offs, but it is doing a rather good job, as proven by
+            tests.
+            It would be silly to completely forget about it, since it is
+            providing another access path to, \textit{in principle}, equivalent
+            results.
+        \end{column}
+        \begin{column}{0.3\textwidth}
+            \includegraphics[width=0.8\textwidth]{retire-nn.png}
+        \end{column}
+    \end{columns}
 \end{frame}
 
 \begin{frame}{Hyper-opt}
