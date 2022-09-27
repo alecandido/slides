@@ -38,3 +38,25 @@
     % lifted shadow={0.5mm}{-1mm}{4mm}{0.3mm}{black}
     fuzzy shadow={0.5mm}{-1mm}{0mm}{0.3mm}{black}
 }
+
+\RequirePackage{lipsum}
+\RequirePackage{alphalph}
+\RequirePackage{enumitem}
+\RequirePackage[symbol]{footmisc}
+\renewcommand{\thefootnote}{\fnsymbol{footnote}}
+
+\setenumerate[1]{%
+      label=\protect\usebeamerfont{enumerate item}%
+      \protect\usebeamercolor[fg]{enumerate item}%
+      \insertenumlabel.}
+\setitemize{label=\usebeamerfont*{itemize item}%
+    \usebeamercolor[fg]{itemize item}
+      \usebeamertemplate{itemize item}}
+
+\definecolor{link}{HTML}{0a9188}
+\hypersetup{
+    colorlinks=true,
+    linkcolor=mDarkTeal,
+    filecolor=link,      
+    urlcolor=link,
+}
