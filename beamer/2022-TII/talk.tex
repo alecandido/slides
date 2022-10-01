@@ -194,13 +194,85 @@
 
 \section{Abstraction}
 
-\begin{frame}{Template}
+\begin{frame}{Concepts}
+    \begin{center}
+        \textbf{Abstractions} are useful because they \textbf{encode concepts}.
+    \end{center}
+    \vspace*{30pt}
+
+    \begin{columns}
+        \begin{column}{0.1\textwidth}
+        \end{column}
+        \begin{column}{0.4\textwidth}
+            \vcinclude{numpy}{height=50pt} {\Huge $\qquad\to\qquad$} N-dim array
+            \vspace*{10pt}
+
+            \vcinclude{pandas}{height=50pt} {\Huge $\qquad\to\qquad$} Table
+        \end{column}
+        \begin{column}{0.4\textwidth}
+            \vcinclude{xarray}{height=50pt} {\Huge $\qquad\to\qquad$} Dataset
+            \vspace*{10pt}
+
+            \vcinclude{networkx}{height=50pt} {\Huge $\qquad\to\qquad$} Network
+        \end{column}
+        \begin{column}{0.1\textwidth}
+        \end{column}
+    \end{columns}
+    \vspace*{30pt}
+
+    It is crucial to \textit{hide} implementation \textit{details}
+    ($\sim$ \textbf{encapsulation}).
+
+    Often fundamental for the solution, and understanding them can improve the
+    usage.\newline
+    But they add a huge cost for the user: hard to learn, depend on the
+    internals.
+
+    \begin{flushright}
+        \footnotesize
+        Check more among NumFOCUS
+        \href{https://numfocus.org/sponsored-projects}{sponsored} and
+        \href{https://numfocus.org/sponsored-projects/affiliated-projects}{affiliated}
+        projects.
+    \end{flushright}
+\end{frame}
+
+\begin{frame}{Building Blocks}
     \begin{columns}
         \begin{column}{0.5\textwidth}
-            
+            On one side Python is a terrible language to build abstractions:
+            everything is \textbf{exposed}.
+            \begin{figure}
+                \centering
+                \includegraphics[width=0.2\textwidth]{capsule}
+            \end{figure}
+
+            On the other, it is a perfect one: it relies on \textbf{duck typing}.
+            \begin{figure}
+                \centering
+                \includegraphics[width=0.3\textwidth]{duck}
+            \end{figure}
+
+            \begin{center}
+                \itshape
+                If it looks like a duck, swims like a duck, and quacks like a
+                duck, then it is a duck.
+            \end{center}
         \end{column}
         \begin{column}{0.5\textwidth}
-            
+            Each well-behaving object can be used as an \textbf{effective
+            building block} inside a more complex infrastructure.
+            \vspace*{20pt}
+
+            \begin{figure}
+                \centering
+                \includegraphics[width=0.8\textwidth]{infrastructure}
+            \end{figure}
+            \vspace*{20pt}
+
+            The essential concept to tame complexity is modularity\footnote{
+                Objects are definitely useful, but not mandatory.
+            }.
         \end{column}
     \end{columns}
 \end{frame}
@@ -215,6 +287,11 @@
             dataclasses
 
             properties
+
+            foreign language (Rust, C/C++ if possible, mention Fortran with
+            f2py)
+
+            file based
         \end{column}
         \begin{column}{0.5\textwidth}
             
@@ -360,7 +437,30 @@
 \begin{frame}{Dependencies}
     \begin{columns}
         \begin{column}{0.5\textwidth}
-            Another
+            Another crucial point is \textbf{dependencies picking}.
+            \vspace*{10pt}
+
+            Trade-off:
+            \begin{description}
+                \item[pro] software reuse: deduplication, leverage other people work
+                \item[con] sync versions, rely on external maintenance
+            \end{description}
+            \vspace*{20pt}
+
+            So, what if one wants the \textbf{\textsc{pros}} and not the
+            \textbf{\textsc{cons}}?
+
+            Mitigate the issues with \textit{optimal choices}:
+            \begin{itemize}
+                \item \alert{\textbf{community}} or company projects (not
+                  single maintainer)
+                \item \alert{\textbf{stable}} enough (not early stage)
+                \item still \alert{\textbf{active}} (not abandoned)
+            \end{itemize}
+            \vspace*{10pt}
+
+            The other option is to pick a project, though unstable or inactive,
+            and accept to maintain it yourself, in case you need.
         \end{column}
         \begin{column}{0.5\textwidth}
             \begin{figure}
@@ -373,6 +473,67 @@
                     of trade-off: Pipenv is older, but Poetry has traction.
                 }
             \end{figure}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Bots \& Hooks}
+    \begin{columns}
+        \begin{column}{0.05\textwidth}
+        \end{column}
+        \begin{column}{0.45\textwidth}
+            Bots are useful as a category: checks that run automatically (and
+            often asynchronously, events triggered) on the server.
+            \vspace*{15pt}
+
+            A useful example: scan dependencies and get updates about reported
+            vulnerabilities.
+            \vspace*{5pt}
+
+            \vcinclude{dependabot}{width=50pt}
+            \href{https://github.com/dependabot}{\textbf{Dependabot}}:
+            Automated
+            dependency updates.
+
+            \href{https://probot.github.io/}{\textbf{Probot}}: an entire kit to
+            build GitHub apps.
+            \vcinclude{probot}{width=50pt}
+            \vspace*{5pt}
+
+            {\itshape\small
+                I never used myself, but if you need something like Dependabot,
+                you can use it to make your custom one (workflows can already
+                do a lot).
+            }
+        \end{column}
+        \begin{column}{0.45\textwidth}
+            \begin{figure}
+                \centering
+                \includegraphics[width=0.4\textwidth]{hooks}
+            \end{figure}
+            \href{https://git-scm.com/book/en/v2/Customizing-Git-Git-Hooks}{Git
+            hooks} are another important help to \textbf{automate} and
+            \textbf{ensure} routine \textbf{maintenance} (formatting, checks,
+            \dots).\newline
+
+            They are simple \textbf{executable scripts}\footnote{
+                Not automatically installed at clone time, not to run unknown
+                code.
+            }, triggered by Git events (built-in feature, active as client and
+            server).
+            \vspace*{10pt}
+
+            \href{https://pre-commit.com/}{\texttt{pre-commit}} is a framework
+            to manage them.
+            \vcinclude{pre-commit}{width=50pt}
+            \vspace*{10pt}
+
+            It is absolutely not required, but makes it much simpler to reuse
+            hooks (especially community popular ones).
+            Almost a \enquote{package manager for pre-commit hooks}.
+            \vspace*{15pt}
+        \end{column}
+        \begin{column}{0.05\textwidth}
         \end{column}
     \end{columns}
 \end{frame}
@@ -423,6 +584,33 @@ poetry shell\end{lstlisting}
             \lipsum[1]
         \end{column}
         \begin{column}{0.1\textwidth}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+
+\begin{frame}{Store Knowledge}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            Better than internal wiki $\to$ internal Q\&A.
+
+            Use GitHub discussions for this.
+
+            When a colleague give you an answer: consider to write it down in
+            the discussions (for your future self, and the other colleagues).
+            Even easier: make the question directly in a discussion.
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            When things consolidate:
+
+            \begin{description}
+                \item[\emoji{star} favorite] add to the docs (even developers docs)
+                \item[internal] to keep internal add to a wiki repository
+                  (still on GitHub -> maintain a unique platform).
+            \end{description}
+
+            In case: also Projects might be useful, to have a board for
+            discussing status and priorities.
         \end{column}
     \end{columns}
 \end{frame}

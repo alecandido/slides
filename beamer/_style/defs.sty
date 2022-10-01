@@ -62,3 +62,10 @@
 
 \newcommand{\hookuparrow}{\mathrel{\rotatebox[origin=c]{90}{$\hookrightarrow$}}}
 \newcommand{\partitle}[1]{{\large\bfseries\scshape #1}}
+\newcommand{\vcinclude}[2]{%
+    \begingroup%
+    \setbox0=\hbox{\includegraphics[#2]{#1}}%
+    \parbox{\wd0}{\box0}%
+    \endgroup%
+}
+
