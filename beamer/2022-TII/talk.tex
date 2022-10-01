@@ -154,7 +154,11 @@
                 }
                 \item[libraries] Numpy, Scipy, Pandas, Xarray, \dots
             \end{description}
-            \vspace*{25pt}
+            \vspace*{30pt}
+
+            Of course ML frameworks now play a big a role, but it is almost a
+            consequence\dots
+            \vspace*{5pt}
         \end{column}
         \begin{column}{0.5\textwidth}
             So, in a sense, the advantage of Python is that its
@@ -190,7 +194,7 @@
 
 \section{Abstraction}
 
-\begin{frame}{The Problem}
+\begin{frame}{Template}
     \begin{columns}
         \begin{column}{0.5\textwidth}
             
@@ -203,7 +207,7 @@
 
 \section{Interfaces}
 
-\begin{frame}{The Problem}
+\begin{frame}{Template}
     \begin{columns}
         \begin{column}{0.5\textwidth}
             
@@ -216,7 +220,7 @@
 
 \section{Examples}
 
-\begin{frame}{The Problem}
+\begin{frame}{Template}
     \begin{columns}
         \begin{column}{0.5\textwidth}
             
@@ -386,27 +390,38 @@
     \end{columns}
 \end{frame}
 
-\begin{frame}{Filled Template}
+\begin{frame}[fragile]{Poetry tutorial \& references}
     \begin{columns}
-        \begin{column}{0.5\textwidth}
+        \begin{column}{0.1\textwidth}
+        \end{column}
+        \begin{column}{0.4\textwidth}
+            Tutorial
+            \begin{lstlisting}[language=bash,style=mystyle]
+# install dependencies
+poetry install
+# add dependency
+poetry add mypackage
+# add dependency to given group
+poetry add mypackage -G mygroup
+
+# generate lockfile
+poetry lock
+# update dependencies
+poetry update
+
+# run command in environment
+poetry run mycommand
+# enter shell inside environment
+poetry shell\end{lstlisting}
+        \end{column}
+        \begin{column}{0.4\textwidth}
+            References
             \lipsum[1]
         \end{column}
-        \begin{column}{0.5\textwidth}
-            \lipsum[1][1-2]
-
-            \begin{figure}
-                \centering
-                \begin{tcolorbox}[width=0.5\textwidth,size=tight,sharpish corners,boxrule=0mm]
-                    \includegraphics[width=\textwidth]{balancing}
-                \end{tcolorbox}
-            \end{figure}
-
-            \lipsum[1][3-4]
+        \begin{column}{0.1\textwidth}
         \end{column}
     \end{columns}
 \end{frame}
 
-\begin{frame}{Appendix Slide}
-\end{frame}
 
 \end{document}
