@@ -192,7 +192,7 @@
     \end{columns}
 \end{frame}
 
-\section{Abstraction}
+\section{Abstractions}
 
 \begin{frame}{Concepts}
     \begin{center}
@@ -204,13 +204,13 @@
         \begin{column}{0.1\textwidth}
         \end{column}
         \begin{column}{0.4\textwidth}
-            \vcinclude{numpy}{height=50pt} {\Huge $\qquad\to\qquad$} N-dim array
+            \vcinclude{numpy}{height=50pt} {\Huge $\,\quad\to\qquad$} N-dim array
             \vspace*{10pt}
 
             \vcinclude{pandas}{height=50pt} {\Huge $\qquad\to\qquad$} Table
         \end{column}
         \begin{column}{0.4\textwidth}
-            \vcinclude{xarray}{height=50pt} {\Huge $\qquad\to\qquad$} Dataset
+            \vcinclude{xarray}{height=50pt} {\Huge $\.\quad\to\qquad$} Dataset
             \vspace*{10pt}
 
             \vcinclude{networkx}{height=50pt} {\Huge $\qquad\to\qquad$} Network
@@ -218,7 +218,13 @@
         \begin{column}{0.1\textwidth}
         \end{column}
     \end{columns}
-    \vspace*{30pt}
+    \vspace*{10pt}
+    \begin{flushright}
+        \footnotesize
+        Many useful libraries implement tools to \textbf{perform an action},
+        not only to manage data structures.
+    \end{flushright}
+    \vspace*{10pt}
 
     It is crucial to \textit{hide} implementation \textit{details}
     ($\sim$ \textbf{encapsulation}).
@@ -250,7 +256,7 @@
             On the other, it is a perfect one: it relies on \textbf{duck typing}.
             \begin{figure}
                 \centering
-                \includegraphics[width=0.3\textwidth]{duck}
+                \includegraphics[width=0.3\textwidth]{duck.png}
             \end{figure}
 
             \begin{center}
@@ -279,22 +285,213 @@
 
 \section{Interfaces}
 
+\begin{frame}[fragile]{What is an interface?}
+    \vspace*{30pt}
+    \begin{columns}
+        \begin{column}{0.02\textwidth}
+        \end{column}
+        \begin{column}{0.47\textwidth}
+            Some programming languages define an explicit concept of interface:
+
+            \begin{lstlisting}[language=Go,style=mystyle]
+// Go example, see full at: https://gobyexample.com/interfaces
+type geometry interface {
+    area() float64
+    perim() float64
+}
+
+type rect struct {
+    width, height float64
+}
+// Implement geometry on rects.
+func (r rect) area() float64 {
+    return r.width * r.height
+}
+// [...]
+
+// Call methods that are in the named interface.
+func measure(g geometry) {
+    fmt.Println(g)
+    fmt.Println(g.area())
+    fmt.Println(g.perim())
+}\end{lstlisting}
+
+            In its most basic instance, it is just an object that expose a
+            property (also a specific attribute in Plain Old Data, POD).
+        \end{column}
+        \begin{column}{0.47\textwidth}
+            This is intrinsic in OOP, e.g.\ C++\footnote{
+                where no explicit interface feature is present
+            } gets extremely close through pointers and
+            \href{https://en.wikipedia.org/wiki/Polymorphism_(computer_science)}{polymorphism}.
+
+            \begin{lstlisting}[language=C++,style=mystyle]
+// C++ example, see full at: https://cplusplus.com/doc/tutorial/polymorphism/
+class Polygon {
+  protected:
+    int width, height;
+  public:
+    void set_values (int a, int b)
+      { width=a; height=b; }
+};
+
+class Rectangle: public Polygon {
+  public:
+    int area()
+      { return width*height; }
+};
+
+int main () {
+  Rectangle rect;
+  Polygon * ppoly1 = &rect;
+  ppoly1->set_values (4,5);
+  cout << rect.area() << '\n';
+  return 0;
+}\end{lstlisting}
+        \end{column}
+        \begin{column}{0.02\textwidth}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]{More Abstract}
+    \vspace*{30pt}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            Interfaces exists also \textbf{independently from} any specific
+            \textbf{language} feature.
+
+            \begin{center}
+                \itshape
+                They are \alert{contracts} between two or multiple parties, on
+                a certain behavior.
+            \end{center}
+
+            Consider that the word \enquote{interface} is also in \textit{API
+            (application programming interface)} and \textit{ABI (application
+            binary interface)}.\newline
+
+            \begin{figure}
+                \centering
+                \includegraphics[width=0.5\textwidth]{contract}
+            \end{figure}
+
+            E.g. an API is a contract between developers/source codes, while an
+            ABI is an agreement at the level of the compiled code.
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            Another example of interface is a \textbf{Foreign Function
+            Interface (FFI)}, that is a way to call code from a different
+            language (\alert{fundamental in Python}, more later).
+            \vspace*{10pt}
+
+            \begin{lstlisting}[language=Python,style=mystyle]
+import ctypes
+libc = ctypes.CDLL('/lib/libc.so.6')  # Under Linux/Unix
+t = libc.time(None)  # Equivalent C code: t = time(NULL)
+print(t)\end{lstlisting}
+            \vspace*{20pt}
+
+            Interfaces are a concept (or a
+            \href{https://refactoring.guru/design-patterns}{design pattern})
+            you can also use to build other concepts upon.\newline
+
+            E.g.\ a \href{https://en.wikipedia.org/wiki/Mixin}{mixin}, leverage
+            a specific behavior (an interface), to provide some other features
+            to your object\footnote{
+                Specifically related to OOP and inheritance.
+            }.
+        \end{column}
+    \end{columns}
+\end{frame}
+
 \begin{frame}{Template}
     \begin{columns}
         \begin{column}{0.5\textwidth}
-            POD
+            Another option to interface two different programs is to have them
+            talking through files.\newline
 
-            dataclasses
+            An agreement over a \textbf{file structure} is an interface.
+            \begin{flushright}
+                \footnotesize
+                File structure is more than just the language (e.g.\ a
+                \texttt{YAML} file).
 
-            properties
+                \hspace*{10em} The language specify just the
+                \textbf{\textit{syntax}}, while a proper interface should
+                specify also the \textbf{\textit{semantics}}.
+            \end{flushright}
 
-            foreign language (Rust, C/C++ if possible, mention Fortran with
-            f2py)
+            \begin{figure}
+                \centering
+                \includegraphics[width=0.2\textwidth]{data-file}
+            \end{figure}
 
-            file based
+            In general, you can implement the concept \alert{\textbf{in data}},
+            e.g.\ including memory exchange of \textit{text} or \textit{binary
+            blobs} (think about in memory databases).
+
+            \begin{flushright}
+                \footnotesize
+                In practice, apart from specific needs, it is convenient to use
+                files.
+            \end{flushright}
         \end{column}
         \begin{column}{0.5\textwidth}
-            
+            Actual encapsulation.
+            (Use methods, properties, and functions, not directly attributes.
+            Only when required, otherwise attributes are good enough.)
+
+            Methods are useful, not required. Make clever use of functions that
+            act on specific objects.
+            (Also because Python does not allow for many \texttt{impl} blocks,
+            so required to split over multiple files).
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{In Python}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            Plain Old Data POD.
+            (Best implemented with dataclasses, see after.)
+
+            Actual encapsulation.
+            (Use methods, properties, and functions, not directly attributes.
+            Only when required, otherwise attributes are good enough.)
+
+            Practical use of duck typing.
+
+            Use modules and classes as namespaces.
+            (Consider expose better public API, hiding internals, e.g.
+            \texttt{\_internal}).
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            The static analyzer is your best friend (the best replacement for
+            the compiler).
+
+            Writing explicit code helps the analyses.
+
+            When possible, give hints with types (but do not break duck typing
+            when not required).
+
+            Also, in Python itself you can find the concept of interface
+            (protocol, e.g.\ a
+            \href{https://docs.python.org/3/glossary.html\#term-sequence}{sequence})
+            implemented at many levels:
+
+            \begin{description}
+                \item[C API] at the level of C implementation\footnote{
+                        \texttt{CPython} specific
+                    }, the
+                    \href{https://docs.python.org/3/c-api/sequence.html}{Sequence
+                    Protocol}
+                \item[typing] in the type hinting system,
+                    \href{https://docs.python.org/3/library/typing.html?highlight=sequence\#typing.Sequence}{\texttt{typing.Sequence}}
+                \item[runtime] consumable in code itself,
+                    \href{https://docs.python.org/3/library/collections.abc.html?highlight=sequence\#collections.abc.Sequence}{\texttt{collections.abc.Sequence}} 
+
+            \end{description}
         \end{column}
     \end{columns}
 \end{frame}
@@ -304,10 +501,22 @@
 \begin{frame}{Template}
     \begin{columns}
         \begin{column}{0.5\textwidth}
-            
+            When possible: No dicts, no strings.
+
+            Attributes
+
+            Properties
+
+            Dataclasses
+            (Because Python has no POD, best way to enforce a certain
+            data structure.)
+
+            Enums
+
+            foreign language (Rust, C/C++ if possible, mention Fortran with
+            f2py)
         \end{column}
         \begin{column}{0.5\textwidth}
-            
         \end{column}
     \end{columns}
 \end{frame}
