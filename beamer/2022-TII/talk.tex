@@ -405,7 +405,7 @@ print(t)\end{lstlisting}
     \end{columns}
 \end{frame}
 
-\begin{frame}{Template}
+\begin{frame}[fragile]{More Interfaces}
     \begin{columns}
         \begin{column}{0.5\textwidth}
             Another option to interface two different programs is to have them
@@ -438,42 +438,101 @@ print(t)\end{lstlisting}
             \end{flushright}
         \end{column}
         \begin{column}{0.5\textwidth}
-            Actual encapsulation.
-            (Use methods, properties, and functions, not directly attributes.
-            Only when required, otherwise attributes are good enough.)
+            An interface can be enforced over a generic data structure, by
+            creating suitable methods that \textbf{encapsulate} the underlying
+            data.
 
-            Methods are useful, not required. Make clever use of functions that
-            act on specific objects.
-            (Also because Python does not allow for many \texttt{impl} blocks,
-            so required to split over multiple files).
+\begin{lstlisting}[language=Python,style=mystyle]
+# little Pythonic, don't use this
+class Polygon:
+    def __init__(self, kind):
+        self.__kind = kind
+
+    def get_kind(self):
+        return self.__kind
+ 
+    def set_kind(self, kind):
+        self.__kind = kind\end{lstlisting}
+
+            However, methods are useful, but not \textbf{required}.
+            When not needed, nor specifically useful, avoid - an instance of
+            the
+            \href{https://en.wikipedia.org/wiki/Rule_of_least_power}{\enquote{rule
+            of least power}}.\newline
+
+            Another option is to make clever use of \textbf{plain functions}
+            that act on specific objects.
+            \begin{flushright}
+                \footnotesize
+                \hspace*{15em}Also consider that Python does not allow to split
+                methods in many \enquote{blocks} (\texttt{impl} blocks).
+
+                \hspace*{15em}Thus, it is essential to use external functions to
+                keep your code \textbf{modular} (divide in files by task).
+            \end{flushright}
         \end{column}
     \end{columns}
 \end{frame}
 
-\begin{frame}{In Python}
+\begin{frame}[fragile]{In Python}
+    \vspace*{20pt}
     \begin{columns}
         \begin{column}{0.5\textwidth}
-            Plain Old Data POD.
-            (Best implemented with dataclasses, see after.)
+            While \textbf{Plain Old Data} are the least powerful object, they
+            are \textbf{not available} in Python (since everything is an
+            object).
+            
+            So the best way is to \alert{\textit{limit yourself}}, and do not
+            do everything is allowed, e.g.\
+            \begin{description}
+                \item[attributes] use attributes, not methods
+                \item[types] add types to \texttt{\_\_init\_\_()}
+                \item[dataclasses] use standard library
+                  \href{https://docs.python.org/3/library/dataclasses.html}{\texttt{dataclasses}}
+                  module, for better consistency\footnote{
+                      Eventually, this will provide you more tools, but also
+                      because it enforces a certain layout, so it has more
+                      guarantees.
+                  }
+            \end{description}
+            \vspace*{10pt}
 
-            Actual encapsulation.
-            (Use methods, properties, and functions, not directly attributes.
-            Only when required, otherwise attributes are good enough.)
+            In general, the \textbf{static analyzer} is your best friend
+            (analogue to a \textit{compiler}).
 
-            Practical use of duck typing.
+            \textbf{Type hints} have \textit{no effect at runtime}, but they
+            help a lot in developing and debugging.
+            But do not break duck typing!\footnote{
+                Unless strictly needed.
+                However,
+                \href{https://docs.python.org/3/library/typing.html}{\texttt{typing}}
+                module provides all the resources for it $\to$ modern
+                \textbf{\textit{dynamic typed languages with type hints}} are
+                \alert{\textbf{not}} extremely \alert{\textbf{different}} from
+                modern \textbf{\textit{statically typed with generics}}, there
+                is a convergence.
+            }\newline
 
-            Use modules and classes as namespaces.
-            (Consider expose better public API, hiding internals, e.g.
-            \texttt{\_internal}).
+            Writing \textbf{explicit code} helps the analyses.
         \end{column}
         \begin{column}{0.5\textwidth}
-            The static analyzer is your best friend (the best replacement for
-            the compiler).
+            \href{https://en.wikipedia.org/wiki/Encapsulation_(computer_programming)}{\textbf{Encapsulation}}
+            in Python is better done with
+            \href{https://docs.python.org/3/library/functions.html#property}{properties}:
+            \begin{lstlisting}[language=Python,style=mystyle]
+class Polygon:
+    def __init__(self, kind):
+        self.__kind = kind
 
-            Writing explicit code helps the analyses.
+    @property
+    def kind(self):
+        return self.__kind
 
-            When possible, give hints with types (but do not break duck typing
-            when not required).
+    @kind.setter
+    def kind(self, kind):
+        self.__kind = kind\end{lstlisting}
+            \vspace*{20pt}
+
 
             Also, in Python itself you can find the concept of interface
             (protocol, e.g.\ a
@@ -496,27 +555,137 @@ print(t)\end{lstlisting}
     \end{columns}
 \end{frame}
 
+\begin{frame}[fragile]{Public Interface}
+    \vspace*{20pt}
+    \begin{columns}
+        \begin{column}{0.03\textwidth}
+        \end{column}
+        \begin{column}{0.47\textwidth}
+            The API is a central concept for a library.
+
+            In particular, each library should define a \alert{\textbf{public
+            API}}, and keep it as \textbf{stable as possible}.
+            \vspace*{20pt}
+
+            In Python there is \textit{no absolute way to hide}\footnote{
+                Guido van Rossum:
+                \href{https://therealadam.com/2016/09/26/were-all-adults-here-but-were-not-all-mind-readers/}{\enquote{We're all adults here}}
+            } package and
+            modules content, but there are a few ways to split public and
+            internal elements:
+
+            \begin{description}
+                \item[private] modules and packages, i.e.\ scope all internal
+                  details under something like \texttt{\_internal}
+                \item[export] top-level all the public elements
+                \item[\href{https://docs.python.org/3/tutorial/modules.html\#importing-from-a-package}{\texttt{\_\_all\_\_}}]
+                    but this pairs with \texttt{from mymod import *}, so I
+                    recommend to avoid top level (user facing)
+            \end{description}
+            \vspace*{20pt}
+        \end{column}
+        \begin{column}{0.03\textwidth}
+        \end{column}
+        \begin{column}{0.47\textwidth}
+            E.g.\ Numpy's
+            \href{https://github.com/numpy/numpy/blob/86cd584b81385508f7d939fc66393a6a27f02659/numpy/__init__.py#L140-L155}{\texttt{\_\_init\_\_.py}}
+            looks like:
+
+            \begin{lstlisting}[language=Python,style=mystyle,firstnumber=140]
+from . import core
+from .core import *
+from . import compat
+from . import lib
+# NOTE: to be revisited following future namespace cleanup.
+# See gh-14454 and gh-15672 for discussion.
+from .lib import *
+
+
+from . import linalg
+from . import fft
+from . import polynomial
+from . import random
+from . import ctypeslib
+from . import ma
+from . import matrixlib as _mat
+from .matrixlib import *\end{lstlisting}
+        So, they are using mostly the \textbf{export} style, but also using
+        \texttt{\_\_all\_\_} internally.
+        \begin{flushright}
+            \footnotesize
+            \hspace*{15em}And, in practice, they also make use of
+            \textbf{private} modules and subpackages.
+        \end{flushright}
+        \end{column}
+    \end{columns}
+\end{frame}
+
 \section{Examples}
 
-\begin{frame}{Template}
+\begin{frame}{Bad Examples}
     \begin{columns}
         \begin{column}{0.5\textwidth}
             When possible: No dicts, no strings.
 
             Attributes
 
-            Properties
-
-            Dataclasses
-            (Because Python has no POD, best way to enforce a certain
-            data structure.)
-
-            Enums
-
-            foreign language (Rust, C/C++ if possible, mention Fortran with
-            f2py)
         \end{column}
         \begin{column}{0.5\textwidth}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Properties}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Dataclasses}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            (Because Python has no POD, best way to enforce a certain
+            data structure.)
+        \end{column}
+        \begin{column}{0.5\textwidth}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Enums}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Foreign Function Interface}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            Definition.
+
+            Example with \texttt{ctypes}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            Review of useful options:
+
+            \begin{description}
+                \item[C/C++] Cython favorite option, \texttt{cffi} alternative
+                \item[Rust] \href{https://pyo3.rs/}{PyO3} and
+                  \href{https://maturin.rs}{maturin}
+                \item[Fortran] \texttt{f2py}
+                \item[\href{https://www.swig.org/}{Swig}] automatic\footnote{
+                    It has a
+                    \href{https://www.swig.org/compat.html\#SupportedLanguages}{broader
+                    scope} than Python.
+                  }, but mostly
+                  painful because of manual patching often required
+            \end{description}
         \end{column}
     \end{columns}
 \end{frame}
