@@ -620,26 +620,186 @@ from .matrixlib import *\end{lstlisting}
     \end{columns}
 \end{frame}
 
-\section{Examples}
+\section{Python Examples}
 
-\begin{frame}{Bad Examples}
+
+\begin{frame}[fragile]{Principles}
     \begin{columns}
-        \begin{column}{0.5\textwidth}
-            When possible: No dicts, no strings.
-
-            Attributes
-
+        \begin{column}{0.02\textwidth}
         \end{column}
-        \begin{column}{0.5\textwidth}
+        \begin{column}{0.38\textwidth}
+            Let's start with some guidance:
+            \begin{lstlisting}[language=Python,style=mystyle]
+import this\end{lstlisting}
+        \end{column}
+        \begin{column}{0.6\textwidth}
+            \lstset{moredelim=[is][\bfseries]{[*}{*]}}
+            \begin{lstlisting}[style=mystyle]
+The Zen of Python, by Tim Peters
+
+Beautiful is better than ugly.
+[* -> Explicit is better than implicit.*]
+Simple is better than complex.
+Complex is better than complicated.
+Flat is better than nested.
+Sparse is better than dense.
+[* -> Readability counts.*]
+Special cases aren't special enough to break the rules.
+Although practicality beats purity.
+Errors should never pass silently.
+Unless explicitly silenced.
+In the face of ambiguity, refuse the temptation to guess.
+There should be one-- and preferably only one --obvious way to do it.
+Although that way may not be obvious at first unless you're Dutch.
+Now is better than never.
+Although never is often better than *right* now.
+If the implementation is hard to explain, it's a bad idea.
+If the implementation is easy to explain, it may be a good idea.
+Namespaces are one honking great idea -- let's do more of those!\end{lstlisting}
         \end{column}
     \end{columns}
 \end{frame}
 
-\begin{frame}{Properties}
+\begin{frame}[fragile]{Anti-Patterns}
+    \vspace*{20pt}
     \begin{columns}
         \begin{column}{0.5\textwidth}
+            Base your interfaces on \textbf{strings} is \textbf{not a good
+            idea}.
+
+            Strings are values, so runtime objects: they are unknown for any
+            static analyses.
+
+            \begin{lstlisting}[language=Python,style=mystyle]
+def myfunc(a: str):
+    if a == "ciao":
+        # do something
+
+myfunc("ci" + "ao")\end{lstlisting}
+            \vspace*{10pt}
+
+            Even more dictionaries: you need to \textit{\textbf{duplicate the
+            value}} all over your code, just to access it.
+
+            \begin{lstlisting}[language=Python,style=mystyle]
+def myfunc(d: dict) -> int:
+    return d["come"] + d["va"]\end{lstlisting}
+
+            Here you just see better what is happening:
+
+            \begin{enumerate}
+                \item how can you be sure that \texttt{come} and \texttt{va}
+                    are in \texttt{d}?
+                \item how can you tell that they are integers?
+            \end{enumerate}
+            \vspace*{10pt}
+
+            First simple solution: 
+            \begin{center}
+                \itshape
+                if you are dealing with something that is \textbf{abstractly an
+                object}, use a \textbf{language object}.
+            \end{center}
         \end{column}
         \begin{column}{0.5\textwidth}
+            In practice, this means replace \texttt{dict} with a \texttt{class}
+            and its attributes\footnote{
+                Notice, that in Python objects' attributes are implemented on
+                top of \texttt{dict}, that you can always retrieve with
+                \texttt{obj.\_\_dict\_\_}. But this is part of the language,
+                and Python is aware of it!
+            }:
+
+
+            \begin{lstlisting}[language=Python,style=mystyle]
+class MyClass:
+    def __init__(self, come: int, va: int):
+        self.come = come
+        self.va = va
+
+def myfunc(obj: MyClass) -> int:
+    return obj.come + obj.va\end{lstlisting}
+
+            Better :)
+
+            You can still do a lot at runtime to mess up, e.g.:
+            \begin{description}
+                \item[replace] value, with a \enquote{bad} one
+                    \begin{lstlisting}[language=Python,style=mystyle]
+obj.come = True\end{lstlisting}
+                \item[delete] an attribute
+                    \begin{lstlisting}[language=Python,style=mystyle]
+del obj.come\end{lstlisting}
+            \end{description}
+
+            But these operations \alert{can be detected} by a \textbf{static}
+            analyzer!
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]{Properties}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            Properties can be used with getters and setters to enforce some
+            constraint or extra operation.
+
+            \begin{lstlisting}[language=Python,style=mystyle]
+class Polygon:
+    def __init__(self, kind):
+        self.__kind = kind
+
+    @property
+    def kind(self):
+        # evil self toggling kind
+        oldkind = self.__kind
+        self.__kind = (
+            "triangle" if oldkind != "triangle" else "square"
+        )
+        return oldkind
+
+    @kind.setter
+    def kind(self, kind):
+        # notice again the bad use of strings! see enums after
+        if kind not in ["triangle", "square", "pentagon"]:
+            # use custom errors! another language feature,
+            # improve error handling
+            raise UnknownPolygonError(kind)
+        self.__kind = kind\end{lstlisting}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            But they do not have to mirror attributes: so they can provide some
+            \enquote{virtual} attributes.
+
+            \begin{lstlisting}[language=Python,style=mystyle]
+class MyDate:
+    def __init__(self, date: str):
+        # convention: two leading _ is private, one is protected
+        # only double _ will trigger language feature (mangling)
+        # see PEP-8#descriptive-naming-styles
+        self._date = date
+
+    @property
+    def day(self) -> int:
+        return int(self._date.split("/")[0])
+
+    @property
+    def month(self) -> int:
+        return (self._date.split("/")[1])
+
+    @property
+    def year(self) -> int:
+        return int(self._date.split("/")[2])
+
+MyDate("06/10/2022")\end{lstlisting}
+
+        \begin{flushright}
+            \footnotesize
+            Notice that \textbf{here} \textbf{\alert{type hints}} are
+            \textbf{\alert{not needed}} for properties: that static analyzer
+            will work out on its own that the \textbf{return type} is
+            \textbf{always an integer}!
+        \end{flushright}
         \end{column}
     \end{columns}
 \end{frame}
@@ -686,6 +846,65 @@ from .matrixlib import *\end{lstlisting}
                   }, but mostly
                   painful because of manual patching often required
             \end{description}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]{Rust Example}
+    \vspace*{20pt}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            Project structure:
+            \begin{lstlisting}[style=mystyle]
+Cargo.lock
+Cargo.toml
+mypypkg/
+    __init__.py
+pyproject.toml
+src/
+    lib.rs\end{lstlisting}
+            \vspace*{10pt}
+
+            Python layer available: you can customize from the Python side, it
+            can be easier and results in more Pythonic interface.
+            \begin{lstlisting}[language=Python,style=mystyle]
+# __init__.py
+from . import mypypkg
+
+class MyAdder:
+    def __init__(self, l: list[float]):
+        self.buffer = l
+
+    def add(self) -> float:
+        return mypypkg.add(self.buffer)\end{lstlisting}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            And here instead the Rust side implementation: you can also use
+            whatever other Rust crate (library) in here.
+            \begin{lstlisting}[language=C++,style=mystyle]
+// lib.rs
+use pyo3::prelude::*;
+
+/// Add a sequence of floats.
+#[pyfunction]
+fn add(v: Vec<f64>) -> PyResult<f64> {
+    Ok(v.iter().sum())
+}
+
+/// A Python module implemented in Rust.
+#[pymodule]
+fn mypypkg(_py: Python, m: &PyModule) -> PyResult<()> {
+    m.add_function(wrap_pyfunction!(add, m)?)?;
+    m.add("version", env!("CARGO_PKG_VERSION"))?;
+
+    Ok(())
+}\end{lstlisting}
+
+            For more info (and more clever examples) see
+            \href{https://pyo3.rs/v0.17.1/getting_started.html#running-code}{PyO3}
+            and
+            \href{https://maturin.rs/project_layout.html#mixed-rustpython-project}{maturin
+            guide}.
         \end{column}
     \end{columns}
 \end{frame}
