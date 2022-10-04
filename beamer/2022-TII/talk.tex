@@ -793,52 +793,200 @@ class MyDate:
 
 MyDate("06/10/2022")\end{lstlisting}
 
-        \begin{flushright}
-            \footnotesize
-            Notice that \textbf{here} \textbf{\alert{type hints}} are
-            \textbf{\alert{not needed}} for properties: that static analyzer
-            will work out on its own that the \textbf{return type} is
-            \textbf{always an integer}!
-        \end{flushright}
+            \begin{flushright}
+                \footnotesize
+                Notice that \textbf{here} \textbf{\alert{type hints}} are
+                \textbf{\alert{not needed}} for properties: that static analyzer
+                will work out on its own that the \textbf{return type} is
+                \textbf{always an integer}!
+            \end{flushright}
         \end{column}
     \end{columns}
 \end{frame}
 
-\begin{frame}{Dataclasses}
+\begin{frame}[fragile]{Dataclasses}
     \begin{columns}
-        \begin{column}{0.5\textwidth}
-            (Because Python has no POD, best way to enforce a certain
-            data structure.)
+        \begin{column}{0.03\textwidth}
         \end{column}
-        \begin{column}{0.5\textwidth}
+        \begin{column}{0.47\textwidth}
+            Dictionaries can be replaced by objects, but only partially
+            satisfactory: \code{\_\_init\_\_} is still an entire function. 
+            \begin{flushright}
+                \footnotesize
+                Just to declare a few attributes!
+            \end{flushright}
+            \vspace*{10pt}
+
+            Definitely not the least powerful way to do it, Python standard
+            library offers a ready-made solution:
+            \href{https://docs.python.org/3/library/dataclasses.html}{\code{dataclasses}}
+            module.
+
+            \begin{lstlisting}[language=Python,style=mystyle]
+import dataclasses
+
+@dataclasses.dataclass
+class MyClass:
+    ciao: int
+    come: str
+    va: str = "bene"\end{lstlisting}
+
+            So, we are using the type hints, and a restricted
+            \code{\_\_init\_\_} function, to re-engineer missing POD.
+        \end{column}
+        \begin{column}{0.47\textwidth}
+            Another interesting problem is serialization: it is very simple to
+            serialize from and deserialize to a \code{dict}.
+
+            \begin{lstlisting}[language=Prolog,style=mystyle]
+ciao: 3
+come: bene
+va: grazie\end{lstlisting}
+            
+            But what about the \code{dataclass}?
+
+            Also that one can be converted from and to \code{dict}:
+            \begin{lstlisting}[language=Python,style=mystyle]
+import yaml
+
+with open("myfile.yaml") as fd:
+    cnt = yaml.safe_load(fd)
+
+dc = MyClass(**cnt)
+print(dc.asdict())\end{lstlisting}
+
+            So a \code{dict} is the best option when you want to load \textbf{everything}.
+            But then, if you want to load and validate a specific object (e.g.\
+            a runcard), a \code{dataclass} is ideal.
+        \end{column}
+        \begin{column}{0.03\textwidth}
         \end{column}
     \end{columns}
 \end{frame}
 
-\begin{frame}{Enums}
+\begin{frame}[fragile]{Custom Values \& Enums}
+    \vspace*{10pt}
+    \begin{center}
+        \itshape
+        But what about values?
+    \end{center}
+    \vspace*{20pt}
+
     \begin{columns}
-        \begin{column}{0.5\textwidth}
+        \begin{column}{0.03\textwidth}
         \end{column}
-        \begin{column}{0.5\textwidth}
+        \begin{column}{0.47\textwidth}
+            If the object has to follow a certain rule, the best option is to
+            go programmatically:
+
+            \begin{lstlisting}[language=Python,style=mystyle]
+def condition(val):
+    return # my condition
+
+class ConditionType:
+    def __init__(self, val):
+        if not condition(val):
+            raise ConditionError
+        self.val = val\end{lstlisting}
+
+            Another option would not be flexible enough, or more involved.
+
+            In this case we need the power, so we use it.
+        \end{column}
+        \begin{column}{0.47\textwidth}
+            But a very common case is a set of finite values:
+            \begin{lstlisting}[language=Python,style=mystyle]
+from enum import Enum, auto
+
+class FiniteType(Enum):
+    VAL1 = auto()
+    VAL2 = auto()
+    VAL3 = auto()\end{lstlisting}
+
+            The standard library module \code{enum} provides a custom
+            metaclass, and other utilities to manage enum types:
+            \begin{lstlisting}[language=Python,style=mystyle]
+# Test if value is part of type
+val in FiniteType
+# Values are unique, compare by identity
+val is FiniteType.VAL1
+# iterate values
+list(FiniteType)\end{lstlisting}
+        \end{column}
+        \begin{column}{0.03\textwidth}
         \end{column}
     \end{columns}
 \end{frame}
 
-\begin{frame}{Foreign Function Interface}
+\begin{frame}[fragile]{Foreign Function Interface}
+	\vspace*{20pt}
     \begin{columns}
         \begin{column}{0.5\textwidth}
-            Definition.
+            \begin{center}
+                \itshape
+                A foreign function interface (FFI) is a mechanism by which a
+                \textbf{program} written \textbf{in one} programming
+                \textbf{language} can \alert{\textbf{call routines}} or make
+                use of services written \textbf{in another}.
+            \end{center}
 
-            Example with \texttt{ctypes}
+            I.e.\ it is a way to \textbf{consume a library} from a language in
+            a program \textbf{in a different language}.
+
+            This is the basic, but in a sense is not complete: usually provides
+            extended or complete bindings for the object in the two languages:
+            \begin{itemize}
+                \item functions
+                \item types
+                \item classes
+            \end{itemize}
+			\vspace*{10pt}
+
+            Python standard library provides
+            \href{https://docs.python.org/3/library/ctypes.html}{\code{ctypes}}
+            module for FFI with C:
+            \begin{lstlisting}[language=Python,style=mystyle]
+import ctypes
+libc = ctypes.CDLL('/lib/libc.so.6')
+t = libc.time(None)
+c_s = c_wchar_p("Hello, World")
+print(c_s)  # c_wchar_p(139966785747344)
+print(c_s.value)  # Hello World
+c_s.value = "Hi, there"
+print(c_s.value)  # Hi, there
+libc.printf(b"Hello, %s\n", b"World!")  # Hello, World!\end{lstlisting}
+
         \end{column}
         \begin{column}{0.5\textwidth}
-            Review of useful options:
+            This is possible because Python is
+            \href{https://docs.python.org/3/extending/extending.html}{C
+            interoperable} (both statically\footnote{
+                You can link modules in the interpreter binary, usually for
+                standard library.
+            } and dynamically\footnote{
+                You can load specific dynamic libraries, i.e.\ \code{.so},
+                \code{.dylib}, or \code{.dll} files.
+            }).
+
+            This is extremely useful, especially for \textbf{performance
+            intensive} and \textbf{memory critical} tasks.
+            Or for consuming a useful library without reimplementing for
+            Python (e.g.\ \href{https://libgit2.org/}{\code{libgit2}}).
+            \vspace*{20pt}
+
+            Through C, you can also bind to other languages.
+            Here, a brief review of some useful options:
 
             \begin{description}
-                \item[C/C++] Cython favorite option, \texttt{cffi} alternative
+                \item[C/C++] \href{https://cython.org/}{Cython} favorite
+                    option,
+                    \href{https://cffi.readthedocs.io/en/latest/overview.html}{\code{cffi}}
+                    alternative
                 \item[Rust] \href{https://pyo3.rs/}{PyO3} and
                   \href{https://maturin.rs}{maturin}
-                \item[Fortran] \texttt{f2py}
+                \item[Fortran]
+                    \href{https://numpy.org/doc/stable/f2py/}{\code{f2py}},
+                    part of \code{numpy}
                 \item[\href{https://www.swig.org/}{Swig}] automatic\footnote{
                     It has a
                     \href{https://www.swig.org/compat.html\#SupportedLanguages}{broader
@@ -846,6 +994,7 @@ MyDate("06/10/2022")\end{lstlisting}
                   }, but mostly
                   painful because of manual patching often required
             \end{description}
+            \vspace*{20pt}
         \end{column}
     \end{columns}
 \end{frame}
