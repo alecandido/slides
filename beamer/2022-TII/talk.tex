@@ -1290,23 +1290,27 @@ fn mypypkg(_py: Python, m: &PyModule) -> PyResult<()> {
 
 \appendix
 
-\begin{frame}{Template}
-    \begin{columns}
-        \begin{column}{0.5\textwidth}
-            
-        \end{column}
-        \begin{column}{0.5\textwidth}
-            
-        \end{column}
-    \end{columns}
-\end{frame}
-
 \begin{frame}[fragile]{Poetry tutorial \& references}
     \begin{columns}
+        \begin{column}{0.03\textwidth}
+        \end{column}
+        \begin{column}{0.47\textwidth}
+            There are many ways to install Poetry, but at this point the most
+            convenient is the
+            \href{https://python-poetry.org/docs/#installation}{official
+            installer}.\newline
+
+            You can find this and other basic information on the website
+            \href{https://python-poetry.org/}{home page}.\newline
+
+            Now, there is also an official
+            \href{https://python-poetry.org/docs/plugins/}{plugin system}, look
+            for them on GitHub, with the tag
+            \href{https://github.com/topics/poetry-plugin}{\code{poetry-plugin}}.
+        \end{column}
         \begin{column}{0.1\textwidth}
         \end{column}
         \begin{column}{0.4\textwidth}
-            Tutorial
             \begin{lstlisting}[language=bash,style=mystyle]
 # install dependencies
 poetry install
@@ -1325,40 +1329,72 @@ poetry run mycommand
 # enter shell inside environment
 poetry shell\end{lstlisting}
         \end{column}
-        \begin{column}{0.4\textwidth}
-            References
-            \lipsum[1]
-        \end{column}
-        \begin{column}{0.1\textwidth}
-        \end{column}
     \end{columns}
 \end{frame}
 
 
 \begin{frame}{Store Knowledge}
+    \vspace*{20pt}
     \begin{columns}
         \begin{column}{0.5\textwidth}
-            Better than internal wiki $\to$ internal Q\&A.
+            Storing documents and notes in a project container is definitely
+            useful. Wikis are a quite popular solution.\newline
 
-            Use GitHub discussions for this.
+            But when a bunch of people are working together, you start having
+            the need to manage it. At that point than having internal wiki $\to$
+            internal Q\&A.
+
+            Use \href{https://docs.github.com/en/discussions}{GitHub
+            discussions} for this.
+            \vspace*{10pt}
+
+            \begin{figure}
+                \centering
+                \includegraphics[width=\textwidth]{discussions}
+            \end{figure}
+            \vspace*{10pt}
 
             When a colleague give you an answer: consider to write it down in
             the discussions (for your future self, and the other colleagues).
-            Even easier: make the question directly in a discussion.
+
+            Sometimes might be handy also to just ask the question directly in
+            a discussion.
         \end{column}
         \begin{column}{0.5\textwidth}
             When things consolidate:
 
             \begin{description}
                 \item[\emoji{star} favorite] add to the docs (even developers docs)
-                \item[internal] to keep internal add to a wiki repository
-                  (still on GitHub -> maintain a unique platform).
+                \item[internal] to keep internal add to a
+                    \href{https://docs.github.com/en/communities/documenting-your-project-with-wikis/about-wikis}{wiki
+                    repository} (also on GitHub)
+                \begin{itemize}
+                    \item but better to put stuffs properly in an actual
+                        repository
+                \end{itemize}
             \end{description}
 
-            In case: also Projects might be useful, to have a board for
-            discussing status and priorities.
+            In case: also
+            \href{https://docs.github.com/en/issues/planning-and-tracking-with-projects/learning-about-projects/about-projects}{Projects}
+            might be useful, to have a board for discussing status and
+            priorities.
+            \vspace*{10pt}
+
+            \begin{figure}
+                \centering
+                \includegraphics[width=\textwidth]{board}
+                \vspace*{10pt}
+                \includegraphics[width=0.7\textwidth]{spreadsheet}
+            \end{figure}
         \end{column}
     \end{columns}
+    \vspace*{10pt}
+
+    \begin{center}
+    And in this way, you have the advantage of having everything in a single
+    place.\\
+    Otherwise you fragment and start loosing pieces (or their effectiveness).
+    \end{center}
 \end{frame}
 
 
