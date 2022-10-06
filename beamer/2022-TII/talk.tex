@@ -38,8 +38,11 @@
 
 
 \begin{frame}{Who am I?}
+    \vspace*{30pt}
     \begin{columns}
-        \begin{column}{0.5\textwidth}
+        \begin{column}{0.03\textwidth}
+        \end{column}
+        \begin{column}{0.47\textwidth}
             I am a \textbf{PhD student} in \textbf{HEP theory}, about to
             finish.\newline
 
@@ -195,6 +198,7 @@
 \section{Abstractions}
 
 \begin{frame}{Concepts}
+    \vspace*{10pt}
     \begin{center}
         \textbf{Abstractions} are useful because they \textbf{encode concepts}.
     \end{center}
@@ -244,6 +248,7 @@
 \end{frame}
 
 \begin{frame}{Building Blocks}
+    \vspace*{20pt}
     \begin{columns}
         \begin{column}{0.5\textwidth}
             On one side Python is a terrible language to build abstractions:
@@ -406,6 +411,7 @@ print(t)\end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]{More Interfaces}
+    \vspace*{20pt}
     \begin{columns}
         \begin{column}{0.5\textwidth}
             Another option to interface two different programs is to have them
@@ -443,7 +449,7 @@ print(t)\end{lstlisting}
             data.
 
 \begin{lstlisting}[language=Python,style=mystyle]
-# little Pythonic, don't use this
+# not Pythonic, don't use this
 class Polygon:
     def __init__(self, kind):
         self.__kind = kind
@@ -475,7 +481,7 @@ class Polygon:
 \end{frame}
 
 \begin{frame}[fragile]{In Python}
-    \vspace*{20pt}
+    \vspace*{30pt}
     \begin{columns}
         \begin{column}{0.5\textwidth}
             While \textbf{Plain Old Data} are the least powerful object, they
@@ -556,7 +562,7 @@ class Polygon:
 \end{frame}
 
 \begin{frame}[fragile]{Public Interface}
-    \vspace*{20pt}
+    \vspace*{30pt}
     \begin{columns}
         \begin{column}{0.03\textwidth}
         \end{column}
@@ -624,6 +630,7 @@ from .matrixlib import *\end{lstlisting}
 
 
 \begin{frame}[fragile]{Principles}
+    \vspace*{20pt}
     \begin{columns}
         \begin{column}{0.02\textwidth}
         \end{column}
@@ -661,7 +668,7 @@ Namespaces are one honking great idea -- let's do more of those!\end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]{Anti-Patterns}
-    \vspace*{20pt}
+    \vspace*{30pt}
     \begin{columns}
         \begin{column}{0.5\textwidth}
             Base your interfaces on \textbf{strings} is \textbf{not a good
@@ -739,6 +746,7 @@ del obj.come\end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]{Properties}
+    \vspace*{20pt}
     \begin{columns}
         \begin{column}{0.5\textwidth}
             Properties can be used with getters and setters to enforce some
@@ -805,6 +813,7 @@ MyDate("06/10/2022")\end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]{Dataclasses}
+    \vspace*{20pt}
     \begin{columns}
         \begin{column}{0.03\textwidth}
         \end{column}
@@ -919,7 +928,7 @@ list(FiniteType)\end{lstlisting}
 \end{frame}
 
 \begin{frame}[fragile]{Foreign Function Interface}
-	\vspace*{20pt}
+    \vspace*{30pt}
     \begin{columns}
         \begin{column}{0.5\textwidth}
             \begin{center}
@@ -1061,6 +1070,7 @@ fn mypypkg(_py: Python, m: &PyModule) -> PyResult<()> {
 \section{Project Management}
 
 \begin{frame}{Docs}
+    \vspace*{20pt}
     \begin{center}
         Presenting the code is fundamental: since you \textbf{want to have
         users}, it has to be \textit{useful} and \textit{simple}.
@@ -1181,6 +1191,7 @@ fn mypypkg(_py: Python, m: &PyModule) -> PyResult<()> {
 \end{frame}
 
 \begin{frame}{Dependencies}
+    \vspace*{20pt}
     \begin{columns}
         \begin{column}{0.5\textwidth}
             Another crucial point is \textbf{dependencies picking}.
@@ -1224,6 +1235,7 @@ fn mypypkg(_py: Python, m: &PyModule) -> PyResult<()> {
 \end{frame}
 
 \begin{frame}{Bots \& Hooks}
+    \vspace*{20pt}
     \begin{columns}
         \begin{column}{0.05\textwidth}
         \end{column}
