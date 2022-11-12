@@ -219,15 +219,148 @@
 \begin{frame}{Reporting}
     \begin{columns}
         \begin{column}{0.5\textwidth}
+            To report and make reproducible my work, I stored everything I
+            produced in a repo:
+            \begin{center}
+                \githubref{AleCandido/fluiddynamics\_exam}
+            \end{center}
+
+            Essentially, I started from familiarizing with \phantom itself,
+            following the online
+            \href{https://phantomsph.readthedocs.io/en/latest/getting-started.html}{tutorial}.
+            \vspace*{15pt}
+
+            In particular, I used every step to improve the infrastructure for
+            running, not to rely on manual file management, and to be able to
+            quickly reproduce (launching a \textbf{single script}) the content
+            of a run.
+            \vspace*{5pt}
+
+            \begin{description}
+                \item[\texttt{test}] following the tutorials, I have run \phantom test
+                    suite, and the basic Sedov blast wave examples
+                \item[\texttt{tde-example}] I moved after to the Tidal
+                    Disruption Event (TDE)
+                    \href{https://phantomsph.readthedocs.io/en/latest/star.html}{example}
+                    in the docs
+                \item[\texttt{ds-tau}] finally, I faced the problem described
+                    before, attempting to reproduce paper results
+            \end{description}
         \end{column}
         \begin{column}{0.5\textwidth}
+            \vspace*{15pt}
+
+            Since \phantom relies on its \textit{\textbf{source code}} being
+            \textit{\textbf{available}} (cannot be shipped as a pre-compiled
+            package, e.g.\ like \splash) I included it in my repo as a
+            \textbf{Git submodule}, to be always available together with my
+            code (but \textit{not to duplicate} it).
+            \vspace*{5pt}
+
+            Instead of using most recent development version, I pinned to the
+            commit of the latest release, i.e.\
+            \href{https://github.com/danieljprice/phantom/releases/tag/v2022.0.1}{v2022.0.1}.
+            \vspace*{5pt}
+
+            \begin{figure}
+                \includegraphics[width=0.4\textwidth]{phantom-sunglasses}
+                \caption{
+                    \phantom logo, from the
+                    \href{https://phantomsph.bitbucket.io/}{website}
+                }
+            \end{figure}
+
+            Instead, for \splash I used the provided Ubuntu package,
+            \href{https://packages.ubuntu.com/kinetic/splash}{v3.5.1}.
         \end{column}
     \end{columns}
 \end{frame}
 
-\begin{frame}[fragile]{Something}
+\begin{frame}{Reporting II}
     \begin{columns}
         \begin{column}{0.5\textwidth}
+            \vspace*{10pt}
+
+            The first step towards effective reproducibility was to collect all
+            my instructions in some shell scripts.
+            \vspace*{10pt}
+
+            \textsc{\color{BrickRed} \textbf{Cons}}:
+            \begin{itemize}
+                \item not the best choice in the long run, since shell
+                    (\texttt{bash} in particular) is not really a general
+                    purpose programming language
+                \item I had to modularize through \texttt{source} instructions
+            \end{itemize}
+            
+            \textsc{\color{mLightGreen} \textbf{Pros}}
+            \begin{itemize}
+                \item shell is optimal for managing files, and that was most of
+                    what I had to do
+                \item and commands are natively written for being run by shell
+                    (no \texttt{suprocess.run()} required)
+                \item essentially, there is no \enquote{long run} for this
+                    project
+            \end{itemize}
+            \vspace*{10pt}
+            
+            I factorized the setup of common \textit{environment variables}, as
+            the splitting of \textit{runtime directory}, and \textit{fetching}
+            \phantom \texttt{Makefile}.
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \vspace*{10pt}
+
+            In order to make easily reproducible, I avoided \sout{interactive
+            prompts}, and stored the \texttt{.setup} and \texttt{.in} files, to
+            be copied every time a new run was created \footnote{
+                Indeed runs are made in a subfolder of the \texttt{\_runs}
+                folder, whose content is completely ignored by Git, not to
+                store generated files.
+                But then all the content for a new run had to come from
+                outside.
+            }.
+            \vspace*{10pt}
+
+            When it came to \textbf{the actual project}, there were two new
+            problems:
+            \begin{enumerate}
+                \item dispatch jobs on cluster
+                \item document parameter choices
+            \end{enumerate}
+
+            Concerning the \textbf{cluster}, I created a script that generates
+            and submit a driver script to the queue, with a unique log file, and 
+            \vspace*{5pt}
+
+            An analogous system was required to dispatch \enquote{resume} jobs,
+            to restart from the last \textit{full dump} in case the simulation
+            was interrupted.
+            Thus, I automated the process of resubmission, modifying the
+            starting point in the \texttt{.in} file, and saving apart the old
+            snapshots going to be overwritten.
+
+            \vspace*{10pt}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}[fragile]{Documenting and Versioning}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \vspace*{10pt}
+
+            I started the extraction of parameters from
+            \href{https://arxiv.org/abs/2005.04244}{arXiv:2005.04244} in order
+            to fill
+            \href{https://github.com/AleCandido/fluiddynamics_exam/blob/main/ds-tau/dustydisc.setup}{\texttt{dustydisc.setup}}
+            and
+            \href{https://github.com/AleCandido/fluiddynamics_exam/blob/main/ds-tau/dustydisc.in}{\texttt{dustydisc.in}}
+            files.
+            \vspace*{5pt}
+
+            But I immediately recognized a problem: I wanted to document the
+            process of parameter choice, in an accurate and structured way, but  
         \end{column}
         \begin{column}{0.5\textwidth}
             \begin{lstlisting}[style=mystyle, language=yaml, breaklines=true]
@@ -255,7 +388,7 @@ parameters:
     \end{columns}
 \end{frame}
 
-\begin{frame}[fragile]{Something}
+\begin{frame}[fragile]{Documenting and Versioning II}
     \begin{columns}
         \begin{column}{0.5\textwidth}
             \begin{lstlisting}[language=yaml, style=mystyle, breaklines=true]
@@ -284,9 +417,95 @@ parameters:
 \end{lstlisting}
         \end{column}
         \begin{column}{0.5\textwidth}
+            But this is still the manual solution\dots
         \end{column}
     \end{columns}
 \end{frame}
+
+\begin{frame}{More tools}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \vspace*{10pt}
+            \begin{center}
+                \itshape
+                This problem of managing runs and environment is rather common
+                to many people working in the scientific community.
+            \end{center}
+            \vspace*{5pt}
+
+            Therefore someone else already tried to engineer the solution.
+            \vspace*{15pt}
+
+            \begin{figure}
+                \centering
+                \href{https://juliadynamics.github.io/DrWatson.jl/dev/}{
+                    \includegraphics[width=0.9\hsize]{drwatson}
+                }
+            \end{figure}
+            \begin{center}
+                \githubref{JuliaDynamics/DrWatson.jl}
+            \end{center}
+            \begin{displayquote}
+                A scientific project assistant software. It helps people manage
+                their scientific projects \cite{Datseris2020}.
+            \end{displayquote}
+
+            \begin{columns}
+                \begin{column}{0.1\textwidth}
+                \end{column}
+                \begin{column}{0.6\textwidth}
+                    Developed by people in the nonlinear dynamics community.
+                \end{column}
+                \begin{column}{0.3\textwidth}
+                    \begin{figure}
+                        \centering
+                        \href{https://juliadynamics.github.io/JuliaDynamics/}{
+                            \includegraphics[width=0.9\hsize]{julia-dynamics}
+                        }
+                    \end{figure}
+                \end{column}
+            \end{columns}
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \vspace*{10pt}
+
+            A similar issue, it is to version the data you analyze.
+            \vspace*{5pt}
+
+            This is prominent in the machine learning community, where
+            practitioners obtain data from external sources, they have
+            limited control over.
+            But they are interested in acquiring more data.
+            \begin{figure}
+                \centering
+                \href{https://dvc.org/}{
+                    \includegraphics[width=0.9\hsize]{dvc-round}
+                }
+            \end{figure}
+            \begin{center}
+                \githubref{iterative/dvc}
+            \end{center}
+
+            They all have the fashion of a Git-like systems, with different
+            flavors (e.g.\ closer to Git, or to an actual file system).
+            \begin{figure}
+                \centering
+                \href{https://lakefs.io/}{
+                    \includegraphics[width=0.6\hsize]{lakefs}
+                }
+            \end{figure}
+            \begin{center}
+                \githubref{treeverse/lakeFS}
+            \end{center}
+            These tools also provides guides, to explain people the actual need,
+            and how to solve the problem.
+            E.g.\ see lakeFS's
+            \href{https://lakefs.io/data-versioning/}{introduction to data
+            versioning}.
+        \end{column}
+    \end{columns}
+\end{frame}
+
 
 \section{Simulations Proposals}
 
@@ -298,7 +517,7 @@ parameters:
 
             \vspace*{10pt}
             \begin{center}
-                \githuburl{https://github.com/AleCandido/sphluid}
+                \githubref{AleCandido/sphluid}
             \end{center}
 
 
@@ -637,13 +856,10 @@ rayon = "1.5.1"\end{lstlisting}
     \end{columns}
 \end{frame}
 
-\begin{frame}{Something}
-    \begin{columns}
-        \begin{column}{0.5\textwidth}
-        \end{column}
-        \begin{column}{0.5\textwidth}
-        \end{column}
-    \end{columns}
+
+\begin{frame}[allowframebreaks]{References}
+  \bibliography{talk}
+  \bibliographystyle{alpha}
 \end{frame}
 
 \end{document}
