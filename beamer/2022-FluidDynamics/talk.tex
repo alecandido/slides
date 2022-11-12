@@ -44,8 +44,8 @@
 
 \title{Fluid dynamics Exam}
 \subtitle{
-    DS Tau hidden planet \href{https://arxiv.org/abs/2005.04244}{arXiv:2005.04244} \&\\
-    Proposals for simulations refactoring
+    DS Tau hidden planet \href{https://arxiv.org/abs/2005.04244}{arXiv:2005.04244} \cite{2020MNRAS.495.1913V} \&\\
+   Proposals for simulations refactoring
 }
 \date{November, 2022}
 \author{Alessandro Candido}
@@ -360,10 +360,34 @@
             \vspace*{5pt}
 
             But I immediately recognized a problem: I wanted to document the
-            process of parameter choice, in an accurate and structured way, but  
+            process of parameter choice, in an accurate, systematic, and
+            structured way, but I didn't want to complicate the runcard (nor to
+            limit to \textit{comments}).
+            \vspace*{5pt}
+
+            Thus, I decided to add some companion \texttt{describe-*.yaml}
+            files, in order to document the choices.
+            Since I had to write two similar files
+            (\href{https://github.com/AleCandido/fluiddynamics_exam/blob/main/ds-tau/describe-setup.yaml}{\texttt{describe-setup.yaml}}
+            and
+            \href{https://github.com/AleCandido/fluiddynamics_exam/blob/main/ds-tau/describe-in.yaml}{\texttt{describe-in.yaml}}),
+            I decided a \textbf{\textit{scheme}} for the description file, and
+            specify it in the
+            \href{https://github.com/AleCandido/fluiddynamics_exam/blob/main/ds-tau/describe-schema.yaml}{\texttt{describe-schema.yaml}}
+            file.
+            \vspace*{10pt}
+
+            In this way, I reported where in the paper I extracted the
+            parameter from, and my motivation to use that:
+            \begin{itemize}
+                \item sometimes describe my phyisics understanding
+                \item some other times limited to reproduce paper results
+            \end{itemize}
         \end{column}
         \begin{column}{0.5\textwidth}
-            \begin{lstlisting}[style=mystyle, language=yaml, breaklines=true]
+            \begin{lstlisting}[style=mystyle, language=yaml, breaklines=true, caption={
+                Excerpt from the \texttt{describe-setup.yaml} file
+            }]
 schema: ./describe-schema.yaml
 description: |
   explain parameters in 'dustydisc.setup'
@@ -391,7 +415,9 @@ parameters:
 \begin{frame}[fragile]{Documenting and Versioning II}
     \begin{columns}
         \begin{column}{0.5\textwidth}
-            \begin{lstlisting}[language=yaml, style=mystyle, breaklines=true]
+            \begin{lstlisting}[language=yaml, style=mystyle, breaklines=true, caption={
+                The \texttt{describe-schema.yaml} file
+            }]
 description: |
   file content description
 parameters:
