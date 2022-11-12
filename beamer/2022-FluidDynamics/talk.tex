@@ -443,6 +443,56 @@ parameters:
 \end{lstlisting}
         \end{column}
         \begin{column}{0.5\textwidth}
+            \vspace*{10pt}
+
+            Following this path, A series of improvements are possible: 
+            \vspace*{5pt}
+
+            \begin{description}
+                \item[schema definition] the one I used is constantly changing,
+                    the account for new needs (premature optimization), and not
+                    well-defined
+                    \begin{description}
+                        \item[\textbf{solution}] collect usage experience, and
+                            lay down a reasonably comprehensive and extendable
+                            schema, possibly versioning it
+                    \end{description}
+                \item[language] the schema format itself is sketchy
+                    \begin{description}
+                        \item[\textbf{solution}] there are established schema formats:
+                        \begin{columns}
+                            \begin{column}{0.2\textwidth}
+                            \end{column}
+                            \begin{column}{0.15\textwidth}
+                                \vspace*{5pt}
+
+                                \includegraphics[width=0.8\hsize]{jsonschema}
+                            \end{column}
+                            \begin{column}{0.9\textwidth}
+                                \begin{description}
+                                    \item[$\to$]
+                                        \href{https://asdf-standard.readthedocs.io/en/latest/schemas/yaml_schema.html}{YAML
+                                        schema}
+                                        (\href{https://json-schema-everywhere.github.io/yaml}{multiple},
+                                        non-standard)
+                                    \item[$\to$] \href{https://json-schema.org/}{JSON schema} (standard, established)
+                                    \item[$\to$] XML Schema Definition (XSD)
+                                        (\href{https://www.w3.org/TR/xmlschema11-1/}{W3C
+                                        standard})
+                                \end{description}
+                            \end{column}
+                        \end{columns}
+                        \vspace*{5pt}
+                    \end{description}
+                \item[sync] I need to keep the input file 
+                    \begin{description}
+                        \item[\textbf{solution}] generate the input file from
+                            the description (1h work)
+                    \end{description}
+            \end{description}
+            \vspace*{10pt}
+
+
             But this is still the manual solution\dots
         \end{column}
     \end{columns}
