@@ -38,6 +38,7 @@
 \usepackage[symbol]{footmisc}
 \renewcommand{\thefootnote}{\fnsymbol{footnote}}
 \renewcommand{\phantom}{\textsc{Phantom}\xspace}
+\newcommand{\splash}{\textsc{splash}\xspace}
 \newcommand{\sphluid}{\texttt{sphluid}\xspace}
 \newcommand{\sphlash}{\texttt{sphlash}\xspace}
 
@@ -63,18 +64,163 @@
 
 \section{DS Tau \iRef{\href{https://arxiv.org/abs/2005.04244}{2005.04244}}}
 
-\begin{frame}{Something}
+\begin{frame}{Astrophysical context}
     \begin{columns}
         \begin{column}{0.5\textwidth}
+            \vspace*{15pt}
+
+            Among recent revealed protoplanetary discs with substructures, it
+            is frequent the observation of \textit{\textbf{rings}} and
+            \textit{\textbf{gaps}}.
+            \vspace*{10pt}
+
+            Different scenarios can realize the gap:
+            \begin{description}
+                \item[condensation] dust condensation at the snowlines
+                \item[dead zone]
+                \item[planets*] presence of planets embedded in the disc
+            \end{description}
+            \vspace*{10pt}
+
+            The widest observed gap of the Taurus survey belongs to DS Tau, an
+            M-type star of $0.83~M_\odot$.
+
+            The gap is analyzed in the paper, under the planetary hypothesis,
+            with the minimalistic setting of a \textbf{single planet on a
+            circular, non-inclined orbit}.
+            \vspace*{10pt}
+
+            Other possible alternatives would have been:
+            \begin{itemize}
+                \item \textit{multiple} planet system
+                \item\textit{ planet on an eccentric or inclined} orbit
+                \item lower disc viscosity combined with a sub-Neptune mass planet
+            \end{itemize}
         \end{column}
         \begin{column}{0.5\textwidth}
             \begin{figure}
                 \centering
                 \includegraphics[width=0.7\textwidth]{dstau_alma_13mm}
                 \caption{
-                    ALMA observation at $\SI{1.3}{mm}$ of the system DS Tau.
+                    Atacama Large Millimeter Array (ALMA) observation at
+                    $\SI{1.3}{mm}$ of the system DS Tau.
                 }
             \end{figure}
+            Moreover, the observation is not precise enough to guarantee a
+            unique broad disc.
+
+            A more refined image could split the disc into multiple narrow
+            rings.
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Numerical Simulations}
+    \begin{columns}
+        \begin{column}{0.40\textwidth}
+            \vspace*{10pt}
+            \begin{figure}
+                \centering
+                \includegraphics[width=0.85\textwidth]{dstau_sph}
+            \end{figure}
+        \end{column}
+        \begin{column}{0.6\textwidth}
+            \vspace*{10pt}
+
+            The goal is to \alert{\textit{\textbf{support the planetary
+            hypothesis}}} reproducing the ALMA observation \textbf{with}
+            Smoothed Particle Hydrodynamics \alert{\textbf{(SPH) simulations}}.
+
+            And to determine the \textit{candidate planet mass}, with
+            simulations' best fit.
+            \begin{columns}
+                \begin{column}{0.50\textwidth}
+                    \begin{description}
+                        \item[sinks] star and planet are modeled as sink
+                            particles
+                        \item[disc] the disc is considered mainly constitute of
+                            \textbf{gas}, with a \textbf{small fraction of
+                            dust}, that will generate the gap, \textbf{modeled
+                            with the SPH fluid}
+                        \item[taper] the disc is exponentially tapered, and
+                            normalized to the estimated mass
+                        \item[eos] a locally isothermal condition is assumed
+                        \item[profile] a Gaussian height profile is applied to
+                            the gas and dust distribution
+                        \item[back-reaction] on gas present, due to the
+                            \textit{one-fluid} approach, but limited because of
+                            the small fraction of dust
+                    \end{description}
+                \end{column}
+                \begin{column}{0.50\textwidth}
+                    \footnotesize
+                    \vspace*{20pt}
+                    \begin{table}
+                        \label{tab:setups} 
+                        \centering
+                        \begin{tabular}{lc} 
+                            \hline
+                            \hline
+                            Parameters &  Value \\ 
+                            \hline
+
+                            $M_\star\, [M_\odot]$ & $0.83$ \\ 
+                            $T_{\text{eff}}$ [K] & 3800 \\ 
+                            $d\,[{\text{pc}}]$ & 159 \\
+                            $i\,[^{\circ}]$ & 65 \\
+                            $R_{\text{in}}\, [\text{au}]$  & $10$ \\
+                            $R_{\text{out}}\, [\text{au}]$ & $100$ \\
+                            $R_{\text{c}}\, [\text{au}]$ & $70$ \\
+                            $p$ & $1.$\\ 
+                            $q$ & $0.25$\\
+                            $\alpha_{\text{SS}}$  & $ 0.005$    \\
+                            $H/R_{\text{in}}$ & $0.06$ \\
+                            $M_{\text{dust}}\, [M_\odot]$ & $ 4.8 \cdot 10^{-5}$ \\
+                            $M_{\text{gas}}\, [M_\odot]$ &$4.8 \cdot 10^{-3} $ \\
+                            $ a_{\mathrm{d}}\, [\text{cm}]$  & $ [1.5\cdot 10^{-4}-0.6,N=11]$ \\
+                            $\rho_{\mathrm{d}}\, [\text{g\,cm}^{-3}]$ &$1$ \\
+                            \hline
+                            $M_{\text{P}}\,[M_{\mathrm{j}}]$   & $1,2,2.5,3,5$\\
+                            $R_{\text{P}}\,[\text{au}]$  & $ 34.5 $ \\ 
+                            \hline
+                        \end{tabular}
+                        \end{table}
+                \end{column}
+            \end{columns}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Results}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            To match the observations is essential to model the
+            \textbf{radiation emitted} by the system, as it could be observed
+            by the ALMA telescope.
+
+            The paper continues in this way, discussing the simulated radiation
+            and matching to the observation.
+            Doing so, it fits the planet mass, finding a value of $M_\text{p} =
+            3.5 \pm 1 M_\text{Jup}$, and constraining the dust mass as well.
+            \vspace*{10pt}
+
+            This is \textbf{beyond my goal}, that stops at fluid dynamical
+            simulations.
+
+            Following, some pictures extracted from my own simulations,
+            generated with
+            \href{https://users.monash.edu.au/~dprice/splash/}{\splash}.
+        \end{column}
+        \begin{column}{0.5\textwidth}
+        \end{column}
+    \end{columns}
+\end{frame}
+
+\begin{frame}{Reporting}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+        \end{column}
+        \begin{column}{0.5\textwidth}
         \end{column}
     \end{columns}
 \end{frame}
@@ -461,6 +607,36 @@ rayon = "1.5.1"\end{lstlisting}
     Thanks for your attention!
 \end{frame}
 
+\appendix
+
+\begin{frame}{More simulations details}
+    \begin{columns}
+        \begin{column}{0.5\textwidth}
+            \indent\textsc{\textbf{\Large Planet}}
+            \vspace*{5pt}
+                
+            Possible planets modeled have masses $M_\text{p} = [1, 2, 2.5, 3,
+            5] M_\text{j}$ at a distance of $R_\text{p} = 34.5$ from the
+            central star.
+
+            Even if, in a previous work, a mass of $5.6 M_\text{j}$ was
+            estimated, this is excluded by separate runs, and not discussed any
+            further in the paper.
+        \end{column}
+        \begin{column}{0.5\textwidth}
+            \indent\textsc{\textbf{\Large Radiation}}
+            \vspace*{5pt}
+
+            In order to model the radiation scattered by the dust, to be
+            compared with ALMA observations, the \textsc{mcfost} code is used,
+            where each \enquote{cell} is associated to an SPH particle.
+
+            The source of radiation is assumed to be the central star, and the
+            DIANA dust model is adopted for the dust opacity.
+        \end{column}
+    \end{columns}
+\end{frame}
+
 \begin{frame}{Something}
     \begin{columns}
         \begin{column}{0.5\textwidth}
@@ -469,7 +645,5 @@ rayon = "1.5.1"\end{lstlisting}
         \end{column}
     \end{columns}
 \end{frame}
-
-% \appendix
 
 \end{document}
