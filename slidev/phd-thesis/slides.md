@@ -23,43 +23,35 @@ class: "text-center p-0"
 
 ---
 layout: image-right
-image: https://source.unsplash.com/collection/94734566/1920x1080
+image: public/042917_proton_main.jpg
 ---
 
-# Code
+# Contents
 
-Use code snippets and get the highlighting directly![^1]
+<div style="height: 2rem"/>
 
-```ts {all|2|1-6|9|all}
-interface User {
-  id: number;
-  firstName: string;
-  lastName: string;
-  role: string;
-}
-
-function updateUser(id: number, update: User) {
-  const user = getUser(id);
-  const newUser = { ...user, ...update };
-  saveUser(id, newUser);
-}
-```
-
-<arrow v-click="3" x1="400" y1="420" x2="230" y2="330" color="#564" width="3" arrowSize="1" />
-
-[^1]: [Learn More](https://sli.dev/guide/syntax.html#line-highlighting)
+- theory
+  - DIS
+  - evolution
+  - pipeline
+- methodology
+- applications
 
 <style>
-.footnotes-sep {
-  @apply mt-20 opacity-10;
-}
-.footnotes {
-  @apply text-sm opacity-75;
-}
-.footnote-backref {
-  display: none;
-}
+  li {
+    line-height: 3rem
+  }
+  li li {
+    line-height: 1.8rem
+  }
 </style>
+
+
+---
+layout: section
+---
+
+# Theory predictions
 
 
 ---
