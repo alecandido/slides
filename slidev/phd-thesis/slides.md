@@ -17,35 +17,56 @@ drawings:
 # use UnoCSS
 css: unocss
 src: pages/cover.html
-background: IMG20210709133314-1024x768.jpg
+background: amenities/IMG20210709133314-1024x768.jpg
 class: "text-center p-0"
 ---
 
 ---
 layout: image-right
-image: public/042917_proton_main.jpg
+image: protons/042917_proton_main.jpg
 ---
 
 # Contents
 
 <div style="height: 2rem"/>
 
-- theory
-  - DIS
-  - evolution
-  - pipeline
-- methodology
-- applications
+1. introduction
+2. theory
+    - DIS
+    - evolution
+    - pipeline
+3. methodology
+4. applications
 
 <style>
   li {
-    line-height: 3rem
+    line-height: 3rem !important;
   }
   li li {
-    line-height: 1.8rem
+    line-height: 2rem !important;
   }
 </style>
 
+
+---
+
+# NNPDF 4.0
+<div w="full" flex="~" justify="end">
+  <cite-arxiv aref="2109.02653" right="0" class="relative"/>
+</div>
+
+<div grid="~ cols-2 gap-8" m="8 t-4 y-12">
+  <bkg-img src="pdfs/40-q3.svg" p="x-6"/>
+  <bkg-img src="pdfs/40-q100.svg" p="x-6"/>
+</div>
+
+To get to a full PDF set many ingredients are required...
+
+---
+
+<div w="full" flex="~" justify="center" items="center">
+  <bkg-img src="organization.png" w="150" p="8"/>
+</div>
 
 ---
 layout: section

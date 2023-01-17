@@ -1,0 +1,11 @@
+h1 {
+  font-variant: small-caps;
+}
+
+code:before {
+  content: none !important;
+}
+
+code:after {
+  content: none !important;
+}
