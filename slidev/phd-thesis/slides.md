@@ -16,10 +16,17 @@ drawings:
   persist: false
 # use UnoCSS
 css: unocss
-src: pages/cover.html
+layout: cover
 background: amenities/IMG20210709133314-1024x768.jpg
 class: "text-center p-0"
 ---
+
+<div class="flex justify-end items-center" h="full">
+  <text-baloon class="p-8" :border="true">
+    <h1 class="!text-3xl font-bold" style="font-variant: initial">Theory predictions</h1>
+    <h2 class="!text-xl italic">for PDF fitting</h2>
+  </text-baloon>
+</div>
 
 ---
 layout: image-right
@@ -64,9 +71,16 @@ To get to a full PDF set many ingredients are required...
 
 ---
 
-<div w="full" flex="~" justify="center" items="center">
+The two most relevant novelties of NNPDF 4.0 have been:
+- the Machine Learning improved methodology
+- the great amount of new LHC data sets.
+
+<div w="full" flex="~" justify="center" items="center" m="8">
   <bkg-img src="organization.png" w="150" p="8"/>
 </div>
+
+My main work has not yet been used for a main fit, and it concerns the remaining
+part: *theory predictions*.
 
 ---
 layout: section
@@ -74,194 +88,75 @@ layout: section
 
 # Theory predictions
 
+---
+layout: section
+---
+
+# Alternative Methodology
 
 ---
-class: px-20
+layout: section
 ---
 
-# Themes
+# Applications
 
-Slidev comes with powerful theming support. Themes can provide styles, layouts, components, or even configurations for tools. Switching between themes by just **one edit** in your frontmatter:
-
-<div grid="~ cols-2 gap-2" m="-t-2">
-
-```yaml
 ---
-theme: default
+layout: section
 ---
-```
 
-```yaml
+# Conclusions
+
 ---
-theme: seriph
+
+# Summary
+
 ---
-```
 
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-default/01.png?raw=true">
+# Outlook
 
-<img border="rounded" src="https://github.com/slidevjs/themes/blob/main/screenshots/theme-seriph/01.png?raw=true">
+---
+layout: cover
+background: amenities/Group_Picture_Varenna.jpg
+---
 
+<div class="flex justify-end items-end" h="full">
+  <text-baloon p="4">
+    <p m="!0">
+      Many thanks to the whole <strong c="sky-400">NNPDF collaboration</strong>!
+    </p>
+  </text-baloon>
 </div>
 
-Read more about [How to use a theme](https://sli.dev/themes/use.html) and
-check out the [Awesome Themes Gallery](https://sli.dev/themes/gallery.html).
+---
+layout: cover
+background: amenities/IMG_2297.jpg
+---
+
+<div class="flex justify-begin items-begin">
+  <text-baloon p="4">
+    <p m="!0">
+      Many thanks to the whole !
+      ... and especially to our <strong c="pink-400">Milan group</strong>!!
+    </p>
+  </text-baloon>
+</div>
+
+---
+layout: section
+---
+
+# Backup
 
 ---
 preload: false
+src: pages/animations.md
 ---
 
-# Animations
-
-Animations are powered by [@vueuse/motion](https://motion.vueuse.org/).
-
-```html
-<div v-motion :initial="{ x: -80 }" :enter="{ x: 0 }">Slidev</div>
-```
-
-<div class="w-60 relative mt-6">
-  <div class="relative w-40 h-40">
-    <img
-      v-motion
-      :initial="{ x: 800, y: -100, scale: 1.5, rotate: -50 }"
-      :enter="final"
-      class="absolute top-0 left-0 right-0 bottom-0"
-      src="https://sli.dev/logo-square.png"
-    />
-    <img
-      v-motion
-      :initial="{ y: 500, x: -100, scale: 2 }"
-      :enter="final"
-      class="absolute top-0 left-0 right-0 bottom-0"
-      src="https://sli.dev/logo-circle.png"
-    />
-    <img
-      v-motion
-      :initial="{ x: 600, y: 400, scale: 2, rotate: 100 }"
-      :enter="final"
-      class="absolute top-0 left-0 right-0 bottom-0"
-      src="https://sli.dev/logo-triangle.png"
-    />
-  </div>
-
-  <div
-    class="text-5xl absolute top-14 left-40 text-[#2B90B6] -z-1"
-    v-motion
-    :initial="{ x: -80, opacity: 0}"
-    :enter="{ x: 0, opacity: 1, transition: { delay: 2000, duration: 1000 } }">
-    Slidev
-  </div>
-</div>
-
-<!-- vue script setup scripts can be directly used in markdown, and will only affects current page -->
-<script setup lang="ts">
-const final = {
-  x: 0,
-  y: 0,
-  rotate: 0,
-  scale: 1,
-  transition: {
-    type: 'spring',
-    damping: 10,
-    stiffness: 20,
-    mass: 2
-  }
-}
-</script>
-
-<div
-  v-motion
-  :initial="{ x:35, y: 40, opacity: 0}"
-  :enter="{ y: 0, opacity: 1, transition: { delay: 3500 } }">
-
-[Learn More](https://sli.dev/guide/animations.html#motion)
-
-</div>
-
+---
+src: pages/latex.md
 ---
 
-# LaTeX
-
-LaTeX is supported out-of-box powered by [KaTeX](https://katex.org/).
-
-<br>
-
-Inline $\sqrt{3x-1}+(1+x)^2$
-
-Block
-
-$$
-\begin{array}{c}
-
-\nabla \times \vec{\mathbf{B}} -\, \frac1c\, \frac{\partial\vec{\mathbf{E}}}{\partial t} &
-= \frac{4\pi}{c}\vec{\mathbf{j}}    \nabla \cdot \vec{\mathbf{E}} & = 4 \pi \rho \\
-
-\nabla \times \vec{\mathbf{E}}\, +\, \frac1c\, \frac{\partial\vec{\mathbf{B}}}{\partial t} & = \vec{\mathbf{0}} \\
-
-\nabla \cdot \vec{\mathbf{B}} & = 0
-
-\end{array}
-$$
-
-<br>
-
-[Learn more](https://sli.dev/guide/syntax#latex)
-
+---
+src: pages/diagrams.md
 ---
 
-# Diagrams
-
-You can create diagrams / graphs from textual descriptions, directly in your Markdown.
-
-<div class="grid grid-cols-3 gap-10 pt-4 -mb-6">
-
-```mermaid {scale: 0.5}
-sequenceDiagram
-    Alice->John: Hello John, how are you?
-    Note over Alice,John: A typical interaction
-```
-
-```mermaid {theme: 'neutral', scale: 0.8}
-graph TD
-B[Text] --> C{Decision}
-C -->|One| D[Result 1]
-C -->|Two| E[Result 2]
-```
-
-```plantuml {scale: 0.7}
-@startuml
-
-package "Some Group" {
-  HTTP - [First Component]
-  [Another Component]
-}
-
-node "Other Groups" {
-  FTP - [Second Component]
-  [First Component] --> FTP
-}
-
-cloud {
-  [Example 1]
-}
-
-
-database "MySql" {
-  folder "This is my folder" {
-    [Folder 3]
-  }
-  frame "Foo" {
-    [Frame 4]
-  }
-}
-
-
-[Another Component] --> [Example 1]
-[Example 1] --> [Folder 3]
-[Folder 3] --> [Frame 4]
-
-@enduml
-```
-
-</div>
-
-[Learn More](https://sli.dev/guide/syntax.html#diagrams)
