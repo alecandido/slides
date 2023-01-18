@@ -135,7 +135,6 @@ background: amenities/IMG_2297.jpg
 <div class="flex justify-begin items-begin">
   <text-baloon p="4">
     <p m="!0">
-      Many thanks to the whole !
       ... and especially to our <strong c="pink-400">Milan group</strong>!!
     </p>
   </text-baloon>
