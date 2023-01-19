@@ -75,7 +75,7 @@ The two most relevant novelties of NNPDF 4.0 have been:
 - the Machine Learning improved methodology
 - the great amount of new LHC data sets.
 
-<div w="full" flex="~" justify="center" items="center" m="8">
+<div w="full" flex="~" justify="center" items="center" m="12">
   <bkg-img src="organization.png" w="150" p="8"/>
 </div>
 
@@ -87,6 +87,50 @@ layout: section
 ---
 
 # Theory predictions
+
+---
+
+# Factorization
+
+The QCD property allowing PDFs definition
+
+$$
+\sigma_{dis} = \hat{\sigma} \otimes f + \textit{non-leading powers}\\
+\sigma_h = \hat{\sigma} \otimes f \otimes f + ...
+         \equiv \hat{\sigma} \otimes \mathcal{L} + ...
+$$
+
+where:
+- $\sigma$ is the prediction for the physical observable, to be compared with
+    the experimental measurement
+- $f$ is the PDF
+- $\hat{\sigma}$ is the *coefficient function*
+
+$\otimes$ is a convolution
+$$
+a \otimes b (x) \equiv \int_x^1 \text{d}z ~ a(z) b(x/z)
+$$
+and a sum over flavors is implicit
+
+Factorization ensures **PDFs universality**: the PDF determined from some processes
+is the same for any other involving the same initial-state hadron.
+
+---
+
+# Deep Inelastic Scattering
+
+Lepton-hadron scattering
+
+<div m="y-10" class="flex justify-center">
+  <bkg-img src="theory/dis-diagram.svg" p="6" w="xs"/>
+</div>
+
+The ideal process to probe PDFs: a point-like particle scanning the composite
+one.
+
+---
+src: pages/dis-dimensions.html
+---
 
 ---
 layout: section

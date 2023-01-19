@@ -1,0 +1,147 @@
+<h1> DIS dimensions </h1>
+
+<p>Many options to be supported</p>
+
+<p>
+  Observables:
+  <aside>The physical object to be computed</aside>
+</p>
+
+<div flex="~ row" w="full" justify="around" items="center">
+  <div class="dis-option">
+    <h5>Process</h5>
+    <ul>
+      <li>EM</li>
+      <li>NC</li>
+      <li>CC</li>
+    </ul>
+  </div>
+  <div class="dis-times">×</div>
+  <div class="dis-option">
+    <h5>Kind</h5>
+    <ul>
+      <li>σ</li>
+      <li>F<sub>2</sub></li>
+      <li>F<sub>L</sub></li>
+      <li>F<sub>3</sub></li>
+    </ul>
+  </div> 
+  <div class="dis-times">×</div>
+  <div class="dis-option">
+    <h5>Heavyness</h5>
+    <ul>
+      <li>Light</li>
+      <li>Charm</li>
+      <li>Bottom</li>
+      <li>Top</li>
+    </ul>
+  </div> 
+  <div class="dis-times">×</div>
+  <div class="dis-option">
+    <h5>Flavor Number Scheme</h5>
+    <ul>
+      <li>FFNS</li>
+      <li>ZM-VFNS</li>
+      <li>GM-VFNS</li>
+    </ul>
+  </div> 
+</div>
+
+<p>
+  Coefficients:
+  <aside>The encoded expression</aside>
+</p>
+
+<div flex="~ row" w="full" justify="around" items="center">
+  <div class="dis-option">
+    <h5>Perturbative Order</h5>
+    <ul>
+      <li>LO</li>
+      <li>NLO</li>
+      <li>NNLO</li>
+      <li>N<sup>3</sup>LO</li>
+    </ul>
+  </div> 
+  <div class="dis-times">×</div>
+  <div class="dis-option">
+    <h5>Process</h5>
+    <ul>
+      <li>EM</li>
+      <li>NC</li>
+      <li>CC</li>
+    </ul>
+  </div> 
+  <div class="dis-times">×</div>
+  <div class="dis-option">
+    <h5>Kind</h5>
+    <ul>
+      <li>F<sub>2</sub></li>
+      <li>F<sub>L</sub></li>
+      <li>F<sub>3</sub></li>
+    </ul>
+  </div> 
+  <div class="dis-times">×</div>
+  <div class="dis-option">
+    <h5>Heavyness</h5>
+    <ul>
+      <li>Light</li>
+      <li>Heavy</li>
+      <li>Asymptotic</li>
+      <li>Intrinsic</li>
+    </ul>
+  </div> 
+  <div class="dis-times">×</div>
+  <div class="dis-option">
+    <h5>Channel</h5>
+    <ul>
+      <li>Non-singlet*</li>
+      <li>Gluon</li>
+      <li>Singlet</li>
+    </ul>
+  </div> 
+</div>
+
+
+<style>
+  .dis-option {
+    @apply p-t-1 p-b-3 p-x-3
+    @apply rounded
+    @apply b-1 b-slate-500 
+    @apply bg-zinc-200 dark-bg-zinc-800
+  }
+
+  .dis-times {
+    @apply c-slate-500
+  }
+
+  .dis-option h5 {
+    font-variant: small-caps;
+    @apply b-b-1 b-slate-500
+    @apply m-b-3
+    @apply italic;
+  }
+
+  .dis-option ul {
+    padding-left: 0.2rem;
+
+    li {
+      @apply m-l-0 m-r-2
+    }
+
+    li::marker {
+      content: none;
+    }
+
+    li::before {
+      content: "➤";
+      font-size: 0.5em;
+      vertical-align: middle;
+      padding: 0 0.5rem 0 0;
+    }
+  }
+
+  aside {
+    @apply float-right p-t-1 p-b-2
+    @apply italic c-neutral-500
+  }
+</style>
