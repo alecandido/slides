@@ -1,1 +1,132 @@
 <h1>Coefficients Availability</h1>
+
+<table>
+    <thead>
+        <tr class="sechead">
+            <th>NLO</th>
+            <th>light</th>
+            <th>heavy</th>
+            <th>asymptotic</th>
+            <th>intrinsic</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th>NC</th>
+            <td class="ok"></td>
+            <td class="ok"></td>
+            <td class="ok"></td>
+            <td class="ok"></td>
+        </tr>
+        <tr>
+            <th>CC</th>
+            <td class="ok"></td>
+            <td class="ok"></td>
+            <td class="ok"></td>
+            <td class="ok"></td>
+        </tr>
+        <tr class="sechead">
+            <th>NNLO</th>
+        </tr>
+        <tr>
+            <th>NC</th>
+            <td class="ok"></td>
+            <td class="tab"><sup>*</sup></td>
+            <td class="ok"></td>
+            <td class="miss"></td>
+        </tr>
+        <tr>
+            <th>CC</th>
+            <td class="ok"></td>
+            <td class="tab"><sup>**</sup></td>
+            <td class="ok"></td>
+            <td class="miss"></td>
+        </tr>
+        <tr class="sechead">
+            <th>N<sup>3</sup>LO</th>
+        </tr>
+        <tr>
+            <th>NC</th>
+            <td class="ok"></td>
+            <td class="miss"><sup>†</sup></td>
+            <td class="miss"><sup>‡</sup></td>
+            <td class="miss"></td>
+        </tr>
+        <tr>
+            <th>CC</th>
+            <td class="ok"></td>
+            <td class="miss"><sup>†</sup></td>
+            <td class="miss"><sup>‡</sup></td>
+            <td class="miss"></td>
+        </tr>
+    </tbody>
+</table>
+
+
+<style>
+  table {
+    @apply rounded-4 overflow-hidden
+    @apply table-fixed
+  }
+
+  /* background */
+
+  .sechead th {
+    @apply bg-zinc-300 dark-bg-zinc-700
+  }
+
+  th {
+    @apply bg-zinc-200 dark-bg-zinc-800
+  }
+
+  /* border */
+
+  tr, td {
+    @apply b-none
+  }
+
+  tbody tr:last-child td, tbody tr {
+    @apply b-zinc-200 dark-b-zinc-800
+  }
+
+  tbody tr {
+    @apply b-r-solid b-r-1
+  }
+
+  tbody tr:last-child td {
+    @apply b-b-solid b-b-1
+  }
+
+  /* align */
+
+  th, td {
+    @apply text-center
+  }
+
+  .sechead th:first-child {
+    @apply text-left
+  }
+
+  /* types */
+
+  :is(.ok,.miss,.tab)::before {
+    @apply rounded-full
+    @apply p-x-4
+    @apply c-black
+  }
+
+  .ok::before {
+    content: "✓";
+    @apply bg-green-400
+  }
+
+  .miss::before {
+    content: "✗";
+    @apply bg-red-400
+  }
+
+  .tab::before {
+    content: "田";
+    @apply bg-amber-300
+  }
+</style>

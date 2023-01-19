@@ -1,5 +1,9 @@
 ---
 theme: default
+title: 'Alessandro Candido'
+titleTemplate: '%s - PhD Defense'
+download: true
+exportFilename: 'defense'
 # apply any windi css classes to the current slide
 highlighter: shiki
 lineNumbers: false
