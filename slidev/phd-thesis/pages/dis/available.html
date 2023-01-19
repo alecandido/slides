@@ -67,7 +67,12 @@
   table {
     @apply rounded-4 overflow-hidden
     @apply table-fixed
+    @apply scale-85 hover-scale-95 transition-all transition-500
+
   }
+  /*table:hover {
+    transform: perspective(200rem) rotateX(0.05turn);
+  }*/
 
   /* background */
 
@@ -81,7 +86,7 @@
 
   /* border */
 
-  tr, td {
+  table :is(tr,td) {
     @apply b-none
   }
 

@@ -6,7 +6,9 @@ factorization formula with explicit EKO
 
 ---
 
-# EKO
+# [EKO](https://github.com/NNPDF/eko)
+
+Evolutionary Kernel Operator
 
 Operators
 
