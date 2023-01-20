@@ -6,7 +6,8 @@ download: true
 exportFilename: 'defense'
 # apply any windi css classes to the current slide
 highlighter: shiki
-lineNumbers: false
+monaco: true
+selectable: true
 info: |
   ## PhD Thesis
   Slides for the PhD Thesis Defense of Alessandro Candido.

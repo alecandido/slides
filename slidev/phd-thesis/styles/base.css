@@ -20,11 +20,22 @@
   }
 
   strong {
-    @apply c-fuchsia-500 dark-c-fuchsia-300
+    @apply c-fuchsia-700
   }
 
   b {
-    @apply c-lime-500 dark-c-lime-200
+    @apply c-lime-600
+  }
+
+}
+
+.dark .slidev-layout {
+  strong {
+    @apply c-fuchsia-300
+  }
+
+  b {
+    @apply c-lime-200
   }
 }
 

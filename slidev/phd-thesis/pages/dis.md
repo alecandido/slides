@@ -24,7 +24,7 @@ src: ./dis/available.html
 Yet another DIS module 
 
 <div w="full" flex="~" justify="center" items="center" m="t--4 b-2">
-  <bkg-img src="yadism.png" w="80" p="1"/>
+  <bkg-img src="theory/yadism.png" w="80" p="1"/>
 </div>
 
 There were already mainly two available DIS providers:
@@ -34,12 +34,12 @@ There were already mainly two available DIS providers:
 But we needed:
 <div float="right" w="3/7">
 <ul>
- <li>integration in the <b><Link to="15">pineline</Link></b></li>
+ <li>integration in the <b><Link to="17">pineline</Link></b></li>
  <ul>
     <li>produce PineAPPL grids</li>
     <li>registered PineFarm provider</li>
  </ul>
- <li>curated <a>docs</a></li>
+ <li>curated <a href="https://yadism.readthedocs.io/">docs</a></li>
  <li>improved maintainability (more modular, organic design, CI/CD, packaging
  and distribution)</li>
 </ul>
@@ -78,10 +78,15 @@ To use PDFs in a single scheme, $f^{(n+1)}$, matching conditions (and an
 entire <Link to="13">EKO</Link>) are encoded in the coeffs, $B^{(n)}$.
 
 For consistency, Yadism at the moment implements **FONLL with one mass** at a time:
+
+<div flex="~" justify="center" scale="160" m="6">
+
 ```mermaid
 flowchart LR
-  3(3c + 3b) -- μc --> 4(FONLL-c + 4b) -- μb --> 5(FONLL-b) -- μt --> 6(ZM6)
+  3("3 ➵ 3c + 3b") -- μc --> 4("4 ➵ FONLL-c + 4b") -- μb --> 5("5 ➵ FONLL-b") -- μt --> 6("6 ➵ ZM6")
 ```
+
+</div>
 
 Lifting the limitation of using PDFs in a single scheme, FONLL can be
 directly [implemented at the observable

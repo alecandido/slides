@@ -1,5 +1,5 @@
 # NNPDF 4.0
-<div w="full" flex="~" justify="end">
+<div w="full" flex="~" justify="end" m="t--4 b-12">
   <cite-arxiv aref="2109.02653" right="0" class="relative"/>
 </div>
 
