@@ -1,4 +1,4 @@
-lockfileVersion: 5.3
+lockfileVersion: 5.4
 
 specifiers:
   '@slidev/cli': ^0.38.3
@@ -7,7 +7,7 @@ specifiers:
   playwright-chromium: ^1.29.2
 
 dependencies:
-  '@slidev/cli': 0.38.3_fb8dfad992fcd1d9bd965500a2945d31
+  '@slidev/cli': 0.38.3_7og7vwms7ti5tpmwkuakffc5ge
   '@slidev/theme-default': 0.21.2
   '@slidev/theme-seriph': 0.21.3
 
@@ -674,7 +674,7 @@ packages:
       picomatch: 2.3.1
     dev: false
 
-  /@slidev/cli/0.38.3_fb8dfad992fcd1d9bd965500a2945d31:
+  /@slidev/cli/0.38.3_7og7vwms7ti5tpmwkuakffc5ge:
     resolution: {integrity: sha512-yc6IpNnMOUvRfQeZEHaNegi7OPBfOD4ykLTXfKyyDmLb+w6rrGdshcm3Q+qER+3p9Bubr0PlzYgAZzGN/Vzvag==}
     engines: {node: '>=14.0.0'}
     hasBin: true

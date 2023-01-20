@@ -20,7 +20,11 @@
   }
 
   strong {
-    text-decoration: underline;
+    @apply c-fuchsia-500 dark-c-fuchsia-300
+  }
+
+  b {
+    @apply c-lime-500 dark-c-lime-200
   }
 }
 

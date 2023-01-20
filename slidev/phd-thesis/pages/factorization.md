@@ -9,10 +9,10 @@ $$
 $$
 
 where:
-- $\sigma$ is the prediction for the physical observable, to be compared with
-    the experimental measurement
-- $f$ is the PDF
-- $\hat{\sigma}$ is the *coefficient function*
+- $\sigma$ is the prediction for the <b>physical observable</b>, to be compared
+  with the experimental measurement
+- $f$ is the <b>PDF</b>
+- $\hat{\sigma}$ is the *<b>coefficient function</b>*
 
 $\otimes$ is a convolution
 $$

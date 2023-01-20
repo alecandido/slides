@@ -8,7 +8,7 @@
 
 <template>
   <a class="arxiv-ref" :href="'https://arxiv.org/abs/' + aref">
-    <code class="c-green">
+    <code>
       [arXiv: {{ aref }}]
     </code>
   </a>
@@ -19,9 +19,15 @@
     border-style: none !important;
   }
 
-  a.arxiv-ref:hover code {
-    @apply c-green-700
+  a.arxiv-ref code {
+    @apply bg-zinc-200 dark-bg-zinc-800
+    @apply c-green-600 dark-c-green-500
+
   }
+
+  a.arxiv-ref code:hover {
+    @apply c-green-700 dark-c-green-300
+  } 
 </style>
 
 
