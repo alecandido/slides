@@ -79,7 +79,9 @@ entire <Link to="13">EKO</Link>) are encoded in the coeffs, $B^{(n)}$.
 
 For consistency, Yadism at the moment implements **FONLL with one mass** at a time:
 
-<div flex="~" justify="center" scale="160" m="6">
+<div flex="~" justify="center" scale="160" m="6" 
+  hover="scale-300"
+  transition="700">
 
 ```mermaid
 flowchart LR

@@ -35,7 +35,9 @@ Evolutionary Kernel Operator
 
 The main goal of EKO is to compute **reusable evolution operators** (i.e. EKOs).
 
-<div flex="~" justify="center">
+<div flex="~" justify="center"
+  hover="scale-180"
+  transition="800">
 
 ```mermaid
 flowchart LR
