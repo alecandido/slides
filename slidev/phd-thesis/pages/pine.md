@@ -35,7 +35,8 @@ Industrialized theory predictions
   <cite-arxiv aref="2211.10447" right="0" class="relative"/>
 </div>
 
-<div flex="~" justify="center" scale="250" m="y-30">
+<div flex="~" justify="center" scale="250" m="y-30"
+  hover="scale-300 bg-zinc-200 dark-bg-zinc-900 p-x--18 p-y-1" transition="all 1000">
 
 ```mermaid
 flowchart LR

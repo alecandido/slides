@@ -1,5 +1,5 @@
 
-<div flex="~" justify="center" items="center" h="3/4">
+<div flex="~" justify="center" items="center" h="3/4" w="7/8">
   <div class="w-60 relative mt-6">
     <div class="relative w-40 h-40">
       <img
@@ -56,5 +56,9 @@ const final = {
   :enter="{ y: 0, opacity: 1, transition: { delay: 3500 } }">
 </div>
 
+<div flex="~" justify="center">
+
 Thanks [Anthony Fu](https://github.com/antfu), and the other contributors, for the
 wonderful [Slidev](https://sli.dev) framework.
+
+</div>
