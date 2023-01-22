@@ -1,0 +1,38 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://slides.annibale.dev/meta.schema.json",
+  "title": "Slides Metadata",
+  "description": "Presentation data",
+  "type": "object",
+  "properties": {
+    "title": {
+      "description": "The presentation title",
+      "oneOf": [{
+          "type": "string"
+        },
+        {
+          "type": "array",
+          "description": "Title (first item) and subtitles (following ones)",
+          "items": {
+            "type": "string"
+          }
+        }
+      ]
+    },
+    "descriptions": {
+      "description": "Various descriptions of the presentation",
+      "type": "object",
+      "properties": {
+        "short": "string",
+        "long": "string"
+      },
+      "additionalProperties": false
+    },
+    "date": {
+      "description": "The date when the talk is first presented",
+      "type": "string"
+    }
+  },
+  "required": ["title", "date"],
+  "additionalProperties": false
+}
