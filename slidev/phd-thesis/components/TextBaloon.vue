@@ -11,7 +11,10 @@
 </script>
 
 <template>
-  <div class="bg-zinc-900 c-coolgray-200 rounded-2 justify-center" flex="~ col" shadow="black lg" :class="border && 'b-coolgray-100 border-2'">
+  <div class="bg-coolgray-200 c-zinc-800 rounded-2"
+    dark="bg-zinc-900 c-coolgray-200"
+    justify="center" flex="~ col" shadow="black lg" 
+    :class="border && 'b-zinc-800 dark-b-coolgray-100 border-2'">
       <slot/>
   </div>
 </template>

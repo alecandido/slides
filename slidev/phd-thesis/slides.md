@@ -3,7 +3,7 @@ theme: default
 title: 'Alessandro Candido'
 titleTemplate: '%s - PhD Defense'
 download: true
-exportFilename: 'defense'
+exportFilename: 'talk'
 # apply any windi css classes to the current slide
 highlighter: shiki
 monaco: true

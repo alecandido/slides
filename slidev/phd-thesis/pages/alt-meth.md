@@ -90,7 +90,7 @@ ciao
 
 # Prototype
 
-slide 8
+Just a POC on completely fake data.
 
 <div m="y-10" flex="~" justify="center">
   <bkg-img src="meth/fit-pdf-new.png" p="6" w="xl" 

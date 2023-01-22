@@ -53,6 +53,16 @@ export default defineShortcutsSetup((nav: NavOperations, base: ShortcutOptions[]
       fn: () => nav.go(27),
       autoRepeat: true,
     },
+    {
+      key: 'u',
+      fn: () => history.back(),
+      autoRepeat: true,
+    },
+    {
+      key: 'r',
+      fn: () => history.forward(),
+      autoRepeat: true,
+    },
   ]
 })
 
