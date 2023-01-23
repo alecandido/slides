@@ -62,7 +62,7 @@ jobs:
             pnpm install --frozen-lockfile
             pnpm build
             DEST=${{ env.BUNDLE }}/$talk
-            mkidr $DEST
+            mkdir $DEST
             mv dist/* $DEST
             mv meta.yaml $DEST
             popd
