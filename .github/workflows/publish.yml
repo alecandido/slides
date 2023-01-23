@@ -43,12 +43,45 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: noop
-        run: echo
+      - name: Build
+        run: |
+          mkdir -p pages/build/
+          cp reveal/archive/README.md pages/build/
+      - name: Collect schema
+        run: |
+          cp meta.schema.json pages/build/
+      - name: Upload website pages
+        uses: actions/upload-artifact@v3
+        with:
+          name: pages
+          path: pages/build/
+
+  collect:
+    runs-on: ubuntu-latest
+
+    needs: [reveal, beamer, slidev, pages]
+
+    steps:
+      - name: Download built documents
+        uses: actions/download-artifact@v3
+      - name: Extract
+        run: |
+          mv pages/* .
+      - name: Upload Pages artifact
+        uses: actions/upload-pages-artifact@v1
+        with:
+          path: ./
 
   deploy:
     runs-on: ubuntu-latest
 
+    needs: collect
+
+    environment:
+      name: github-pages
+      url: ${{ steps.deployment.outputs.page_url }}
+
     steps:
-      - name: noop
-        run: echo
+      - name: Deploy to GitHub Pages
+        id: deployment
+        uses: actions/deploy-pages@v1
