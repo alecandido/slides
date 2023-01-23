@@ -1,5 +1,0 @@
---pre gql[all]
-rich
-
-# utils
-ipython
