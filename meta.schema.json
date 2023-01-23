@@ -31,6 +31,10 @@
     "date": {
       "description": "The date when the talk is first presented",
       "type": "string"
+    },
+    "skip": {
+      "description": "Skip the presentation while publishing",
+      "type": "boolean"
     }
   },
   "required": ["title", "date"],

@@ -1,5 +1,7 @@
 {
   "yaml.schemas": {
     "./meta.schema.json": "/*/meta.yaml"
-  }
+  },
+  "yaml.completion": true,
+  "yaml.validate": true
 }
