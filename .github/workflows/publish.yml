@@ -1,0 +1,38 @@
+name: publish slides
+
+on:
+  push:
+    branches:
+      - main
+      - "phd-thesis"
+
+jobs:
+  reveal:
+    runs-on: ubuntu-latest
+
+  beamer:
+    runs-on: ubuntu-latest
+
+  slidev:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+      - name: Install yq
+        run: |
+          wget https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64 -O /usr/bin/yq &&\
+            chmod +x /usr/bin/yq
+          yq --version
+      - name: List beamer
+        working-directory: beamer
+        run: |
+          for talk in $(command ls -1 -d */ | grep -v '^_'); do
+            echo $talk
+          done
+
+  pages:
+    runs-on: ubuntu-latest
+
+  deploy:
+    runs-on: ubuntu-latest
