@@ -4,7 +4,6 @@ on:
   push:
     branches:
       - main
-      - "phd-thesis"
 
 permissions:
   contents: read
