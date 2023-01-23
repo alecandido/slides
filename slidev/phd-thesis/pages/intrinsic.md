@@ -82,19 +82,25 @@ matching
 
 # Evidence
 
+PDF plot
+
+In <b>3FNS</b> a <b>valence-like peak</b> is present.
+- for $x \leq 0.2$ the **perturbative uncertainties** are quite large
+- the carried **momentum fraction** is within **1%**
+
 ---
 layout: cols
 ---
 
-# Predictions
+# Predictions and stability
 
 <template #col-1>
 
-strategy diagram
+LHCb predictions
 
 </template>
 <template #col-2>
 
-matching
+Dataset variations
 
 </template>
