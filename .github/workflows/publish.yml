@@ -18,7 +18,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Upload website pages
+      - name: Upload slides
         uses: actions/upload-artifact@v3
         with:
           name: reveal
@@ -30,12 +30,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v3
-      - name: Install yq
-        run: |
-          wget https://github.com/mikefarah/yq/releases/latest/download/yq_linux_amd64 -O /usr/bin/yq &&\
-            chmod +x /usr/bin/yq
-          yq --version
-      - name: List beamer
+      - name: Iterate beamer
         working-directory: beamer
         run: |
           for talk in $(command ls -1 -d */ | grep -v '^_'); do
@@ -46,8 +41,35 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: noop
-        run: echo
+      - name: Checkout
+        uses: actions/checkout@v3
+      - uses: actions/setup-node@v3
+        with:
+          node-version: 18
+          cache: "pnpm"
+      - name: Prepare bundle
+        run: |
+          BUNDLE=~/slidev-built
+          echo "BUNDLE=${BUNDLE}" >> $GITHUB_ENV
+          mkdir $BUNDLE
+      - name: Iterate slidev
+        working-directory: slidev
+        run: |
+          for talk in $(command ls -1 -d */ | grep -v '^_'); do
+            pushd $talk
+            pnpm install --frozen-lockfile
+            pnpm build
+            DEST=${{ env.BUNDLE }}/$talk
+            mkidr $DEST
+            mv dist/* $DEST
+            mv meta.yaml $DEST
+            popd
+          done
+      - name: Upload slides
+        uses: actions/upload-artifact@v3
+        with:
+          name: slidev
+          path: ${{ env.BUNDLE }}
 
   pages:
     runs-on: ubuntu-latest
