@@ -16,17 +16,15 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-      - name: noop
-        run: echo
+      - name: Checkout
+        uses: actions/checkout@v3
+      - name: Upload website pages
+        uses: actions/upload-artifact@v3
+        with:
+          name: reveal
+          path: reveal/archive/
 
   beamer:
-    runs-on: ubuntu-latest
-
-    steps:
-      - name: noop
-        run: echo
-
-  slidev:
     runs-on: ubuntu-latest
 
     steps:
@@ -43,6 +41,13 @@ jobs:
           for talk in $(command ls -1 -d */ | grep -v '^_'); do
             echo $talk
           done
+
+  slidev:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: noop
+        run: echo
 
   pages:
     runs-on: ubuntu-latest
@@ -73,6 +78,7 @@ jobs:
         uses: actions/download-artifact@v3
       - name: Extract
         run: |
+          mv reveal/* .
           mv pages/* .
       - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v1
