@@ -30,7 +30,7 @@
     },
     "date": {
       "description": "The date when the talk is first presented",
-      "type": "string"
+      "type": ["null", "string"]
     },
     "skip": {
       "description": "Skip the presentation while publishing",
