@@ -50,7 +50,7 @@ export default defineShortcutsSetup((nav: NavOperations, base: ShortcutOptions[]
     },
     {
       key: 'e',
-      fn: () => nav.go(27),
+      fn: () => nav.go(31),
       autoRepeat: true,
     },
     {

@@ -5,9 +5,9 @@ layout: section
 # Applications
 
 ---
-
-# Intrinsic Charm
-
+src: ./intrinsic.md
 ---
 
-# AFB
+---
+src: ./afb.md
+---

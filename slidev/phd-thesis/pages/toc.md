@@ -1,6 +1,6 @@
 ---
 layout: image-right
-image: protons/042917_proton_main.jpg
+image: protons/clouds.jpg
 ---
 
 # Contents

@@ -14,7 +14,7 @@ layout: section
 
 ---
 layout: cover
-background: amenities/Group_Picture_Varenna.jpg
+background: amenities/nnpdf.jpg
 ---
 
 <div class="flex justify-end items-end" h="full">
@@ -27,7 +27,7 @@ background: amenities/Group_Picture_Varenna.jpg
 
 ---
 layout: cover
-background: amenities/IMG_2297.jpg
+background: amenities/n3pdf.jpg
 ---
 
 <div class="flex justify-begin items-begin">
