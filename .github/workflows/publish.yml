@@ -60,7 +60,7 @@ jobs:
           for talk in $(command ls -1 -d */ | grep -v '^_'); do
             pushd $talk
             pnpm install --frozen-lockfile
-            pnpm build
+            pnpm build --base /slidev/$talk/
             DEST=${{ env.BUNDLE }}/$talk
             mkdir $DEST
             mv dist/* $DEST
