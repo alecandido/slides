@@ -49,10 +49,28 @@ layout: cols
 
 # Unveiling the intrinsic component
 
+<div m="16"/>
+
 <template #col-1>
+<div flex="~" justify="center" items="center">
 
-strategy diagram
+```mermaid
+flowchart TD
+  data <-..-> fit
+  fit -- "Matching: 4FNS ➤ 3FNS\n @ NNLO or N3LO" --> intrinsic
 
+  data("Experimental data and predictions")
+  fit("NNPDF4.0 parametrization in 4FNS")
+  style fit stroke:#65a30d
+  intrinsic("3FNS PDFs: including <strong><em>scale-independent</em> intrinsic
+  charm component</strong>
+  <em style='font-size: 0.8em'>PDF and MHO uncertainties</em>")
+  style intrinsic stroke:#e11d48
+  classDef hl stroke-width:2px
+  class intrinsic,fit hl
+```
+
+</div>
 </template>
 <template #col-2>
 
