@@ -16,8 +16,8 @@
   <div class="slidev-layout w-full h-full">
     <slot/>
     <div grid="~ gap-8" :style="style">
-      <section v-for="name in names">
-        <slot :name="name"/>
+      <section v-for="name in names" flex="~ col" justify="center">
+          <slot :name="name"/>
       </section>
     </div>
   </div>
