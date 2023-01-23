@@ -10,8 +10,16 @@ jobs:
   reveal:
     runs-on: ubuntu-latest
 
+    steps:
+      - name: noop
+        run: echo
+
   beamer:
     runs-on: ubuntu-latest
+
+    steps:
+      - name: noop
+        run: echo
 
   slidev:
     runs-on: ubuntu-latest
@@ -34,5 +42,13 @@ jobs:
   pages:
     runs-on: ubuntu-latest
 
+    steps:
+      - name: noop
+        run: echo
+
   deploy:
     runs-on: ubuntu-latest
+
+    steps:
+      - name: noop
+        run: echo
