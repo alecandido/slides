@@ -14,6 +14,10 @@ layout: cols
 
 Heavier but there
 
+<div w="full" flex="~" justify="end" m="t--8">
+  <cite-arxiv aref="2208.08372" right="0" class="relative"/>
+</div>
+
 <template #col-1>
 
 A **charm component** in the proton is not a novelty, since it is generated
