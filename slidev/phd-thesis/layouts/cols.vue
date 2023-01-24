@@ -20,5 +20,6 @@
           <slot :name="name"/>
       </section>
     </div>
+    <slot name="after"/>
   </div>
 </template>

@@ -49,7 +49,7 @@ layout: cols
 
 # Unveiling the intrinsic component
 
-<div m="16"/>
+<div m="y--2"/>
 
 <template #col-1>
 <div flex="~" justify="center" items="center">
@@ -74,15 +74,52 @@ flowchart TD
 </template>
 <template #col-2>
 
-matching
+The **Operator Matrix Element (OME)** $\mathbf{A}^{(n_f)}(\mu_{h}^2)$ is
+partially known up to N$^3$LO.
+
+<div m="0" class="flex justify-center">
+  <bkg-img src="intrinsic/vfns-details.svg" p="6" w="xs"/>
+</div>
+
+**Inverse operator** (the OME can be inverted either *perturbatively* or *numerically*)
+
+
+<div m="0" class="flex justify-center">
+  <bkg-img src="intrinsic/vfns-back-details.svg" p="6" w="xs"/>
+</div>
 
 </template>
+
+<template #after>
+
+<div m="y-8"/>
+
+$$
+\mathbf{f}^{(n_f+1)}(\mu_{F,1}^2) =
+  \left[\mathbf{E}^{(n_f+1)}(\mu_{F,1}^2\leftarrow \mu_{h}^2)
+        {\mathbf{R}^{(n_f)}}
+        \mathbf{A}^{(n_f)}(\mu_{h}^2)
+\mathbf{E}^{(n_f)}(\mu_{h}^2\leftarrow \mu_{F,0}^2) \right]\\
+        \times \mathbf{f}^{(n_f)}(\mu_{F,0}^2)
+$$
+
+</template>
+
+
+<style>
+  p {
+    @apply !text-sm !m-y-2
+  }
+</style>
 
 ---
 
 # Evidence
 
-PDF plot
+<div m="y-8" class="flex justify-center">
+  <bkg-img src="intrinsic/3fns_Quad_MHOU.svg" p="2" w="sm" 
+    hover="scale-150" transition="all 1000"/>
+</div>
 
 In <b>3FNS</b> a <b>valence-like peak</b> is present.
 - for $x \leq 0.2$ the **perturbative uncertainties** are quite large
@@ -96,11 +133,21 @@ layout: cols
 
 <template #col-1>
 
-LHCb predictions
+<div m="y-10" class="flex justify-center">
+  <bkg-img src="intrinsic/lhcb-zcharm-pheno.svg" p="6" w="xs"/>
+</div>
+
+The intrinsic charm fit produces <b>better predictions</b> for some
+charm-sensitive datasets, *not included in the fit*.
 
 </template>
 <template #col-2>
 
-Dataset variations
+The <b>evidence is stable</b> under dataset variations, *including*
+charm-sensitive datasets.
+
+<div m="y-10" class="flex justify-center">
+  <bkg-img src="intrinsic/pull_baseline_EMC_LHCb_Zc.svg" p="6" w="xs"/>
+</div>
 
 </template>
