@@ -42,7 +42,7 @@ layout: cols
 
 ---
 
-# EKO closure
+# EKO backward closure
 
 <div m="y-22" class="flex justify-center">
   <bkg-img src="theory/backup/eko-closure.svg" p="2" w="4/5"
@@ -61,3 +61,12 @@ layout: cols
 ---
 
 # EKO matching: $\alpha_S$ and PDFs
+
+<div m="y-4" class="flex justify-center">
+  <bkg-img src="theory/backup/eko-matching-as.svg" p="2" w="1/2"
+    hover="scale-170 translate-y-25" transition="700"/>
+</div>
+<div m="y-4" class="flex justify-center">
+  <bkg-img src="theory/backup/eko-matching-g.svg" p="2" w="1/2"
+    hover="scale-170 translate-y--25" transition="700"/>
+</div>
