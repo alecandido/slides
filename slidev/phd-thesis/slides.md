@@ -17,6 +17,11 @@ info: |
 # persist drawings in exports and build
 drawings:
   persist: false
+
+exportOptions:
+  dark: true
+  timeout: 100000
+
 # use UnoCSS
 css: unocss
 src: pages/cover.html
