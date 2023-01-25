@@ -43,3 +43,21 @@ layout: cols
 ---
 
 # EKO closure
+
+<div m="y-22" class="flex justify-center">
+  <bkg-img src="theory/backup/eko-closure.svg" p="2" w="4/5"
+    hover="scale-130" transition="700"/>
+</div>
+
+---
+
+# EKO interpolation
+
+<div m="y-22" class="flex justify-center">
+  <bkg-img src="theory/backup/eko-interpolation.svg" p="2" w="4/5"
+    hover="scale-130" transition="700"/>
+</div>
+
+---
+
+# EKO matching: $\alpha_S$ and PDFs

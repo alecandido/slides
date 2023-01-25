@@ -10,9 +10,9 @@ layout: section
 
 - <Link to="38">DIS</Link>
 - <Link to="40">evolution</Link>
-- <Link to="40">Pineline</Link>
-- <Link to="41">Bayes</Link>
-- <Link to="42">intrinsic charm</Link>
+- <Link to="45">Pineline</Link>
+- <Link to="46">Bayes</Link>
+- <Link to="47">intrinsic charm</Link>
 
 <style>
   li {
