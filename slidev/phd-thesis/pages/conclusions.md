@@ -16,11 +16,14 @@ a member of the NNPDF collaboration.
 My main research topic has been the development of a new generation of fast and
 reproducible theory predictions for HEP processes, especially focused on the PDF
 fitting tasks, including:
-- a <b>Deep Inelastic Scattering library</b>, `yadism`
-- a <b>DGLAP evolution library</b>, `eko`
-- the development of the integrated <b>Pineline</b>, involving:
-  - contributions to **PineAPPL**
-  - the development of two further **integrations**, `pineko` and `pinefarm`
+- a <b>Deep Inelastic Scattering library</b>, [`yadism`](https://github.com/NNPDF/yadism)
+- a <b>DGLAP evolution library</b>, [`eko`](https://github.com/NNPDF/eko)
+  - and keep benchmarking the two of them ([`banana`](https://github.com/N3PDF/banana))
+- the development of the integrated [<b>Pineline</b>](https://github.com/NNPDF/pineline), involving:
+  - contributions to [**PineAPPL**](https://github.com/NNPDF/pineappl)
+  - the development of two further **integrations**,
+      [`pineko`](https://github.com/NNPDF/pineko) and
+      [`pinefarm`](https://github.com/NNPDF/pinefarm)
 
 <div m="y-8"/>
 
@@ -31,7 +34,13 @@ Moreover, I worked on a series of applications:
 <div m="y-8"/>
 
 And other more methodology-related topics, like investigation of <b>PDF
-postivity</b> beyond LO.
+positivity</b> beyond LO.
+
+<style>
+  code {
+    @apply !p-y-0
+  }
+</style>
 
 ---
 
@@ -41,7 +50,9 @@ From now on...
 
 The major ongoing efforts are focused on:
 
-- putting into <b>production</b> the whole <b>[Pineline](https://nnpdf.github.io/pineline/)</b>, replacing the old theory predictions providers
+- putting into [<b>production</b> the whole
+  <b>Pineline</b>](https://nnpdf.github.io/pineline/), replacing the old theory
+  predictions providers
 - adding new* features to the baseline fit:
   - <b>MHOU</b> @ NNLO, with *theory covariance matrix* formalism <cite-arxiv aref="1906.10698" right="0" class="relative"/>
   - <b>QED</b> evolution & luxQED
