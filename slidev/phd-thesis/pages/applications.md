@@ -7,7 +7,3 @@ layout: section
 ---
 src: ./intrinsic.md
 ---
-
----
-src: ./afb.md
----

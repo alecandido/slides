@@ -59,7 +59,7 @@ output for compatibility with existing PDF sets.
 
 <div float="right" w="1/4" m="t--4">
   <span p="2" b="1 black op-10" dark="b-white b-op-10" rounded="0.7">
-    <Link to="15">Pineline</Link> integration
+    <Link to="17">Pineline</Link> integration
   </span>
 </div>
 

@@ -10,7 +10,7 @@ image: protons/clouds.jpg
 1. <Link to="3">introduction</Link>
 2. <Link to="5">theory</Link>
 
-    - <Link to="6">DIS</Link>
+    - <Link to="7">DIS</Link>
     - <Link to="12">evolution</Link>
     - <Link to="16">pipeline</Link>
 
