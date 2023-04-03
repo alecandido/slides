@@ -1,0 +1,47 @@
+.slidev-layout {
+  h1 {
+    font-variant: small-caps;
+    font-size: 1.5rem;
+    line-height: 1.5rem;
+  }
+
+  h2 {
+    font-variant: small-caps;
+    font-size: 1.3rem;
+  }
+
+  p, li {
+    font-size: 1.05rem;
+    line-height: 1.4rem;
+  }
+
+  ul, ol {
+    padding-left: 2rem;
+  }
+
+  strong {
+    @apply c-fuchsia-700
+  }
+
+  b {
+    @apply c-lime-600
+  }
+}
+
+.dark .slidev-layout {
+  strong {
+    @apply c-fuchsia-300
+  }
+
+  b {
+    @apply c-lime-200
+  }
+}
+
+code:before {
+  content: none !important;
+}
+
+code:after {
+  content: none !important;
+}
