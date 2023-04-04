@@ -1,7 +1,7 @@
 ---
 theme: default
-title: 'Alessandro Candido'
-titleTemplate: '%s - PhD Defense'
+title: 'IFAE 2023'
+titleTemplate: '%s - Alessandro Candido'
 download: true
 exportFilename: 'talk'
 # apply any windi css classes to the current slide
@@ -9,14 +9,7 @@ highlighter: shiki
 monaco: true
 selectable: true
 info: |
-  ## PhD Thesis
-  Slides for the [PhD Thesis](https://phd.annibale.dev/thesis.pdf) Defense of
-  Alessandro Candido.
-
-  More at [phd.annibale.dev](https://phd.annibale.dev)
-# persist drawings in exports and build
-drawings:
-  persist: false
+  Invited talk at <a href="https://agenda.infn.it/event/34702/">IFAE 2023</a>
 
 exportOptions:
   dark: true
@@ -25,6 +18,10 @@ exportOptions:
 # use UnoCSS
 css: unocss
 src: pages/cover.html
+---
+
+---
+src: pages/intro.md
 ---
 
 ---

@@ -43,7 +43,7 @@ dato che viene scelto di eseguirlo in uno schema a 4 flavor (4FNS).
 layout: cols
 ---
 
-# Unveiling the intrinsic component
+# Alla scoperta della componente **intrinseca**
 
 <div m="y--2"/>
 
@@ -53,14 +53,14 @@ layout: cols
 ```mermaid
 flowchart TD
   data <-..-> fit
-  fit -- "Matching: 4FNS ➤ 3FNS\n @ NNLO or N3LO" --> intrinsic
+  fit -- "Matching: 4FNS ➤ 3FNS\n @ NNLO o N3LO" --> intrinsic
 
-  data("Experimental data and predictions")
-  fit("NNPDF4.0 parametrization in 4FNS")
+  data("Dati sperimentali e predizioni")
+  fit("NNPDF4.0: parametrizzazione in 4FNS")
   style fit stroke:#65a30d
-  intrinsic("3FNS PDFs: including <strong><em>scale-independent</em> intrinsic
-  charm component</strong>
-  <em style='font-size: 0.8em'>PDF and MHO uncertainties</em>")
+  intrinsic("3FNS PDFs: incluse le <strong>componenti intrinsiche del charm,
+  <em>indipendenti dalla scala</em></strong>
+  <em style='font-size: 0.8em'>PDF e incertezze MHO</em>")
   style intrinsic stroke:#e11d48
   classDef hl stroke-width:2px
   class intrinsic,fit hl
@@ -70,14 +70,15 @@ flowchart TD
 </template>
 <template #col-2>
 
-The **Operator Matrix Element (OME)** $\mathbf{A}^{(n_f)}(\mu_{h}^2)$ is
-partially known up to N$^3$LO.
+Gli **elementi di matrice dell'operatore (OME)** $\mathbf{A}^{(n_f)}(\mu_{h}^2)$
+sono parzialmente noti fino a N$^3$LO.
 
 <div m="0" class="flex justify-center">
   <bkg-img src="vfns-details.svg" p="6" w="xs"/>
 </div>
 
-**Inverse operator** (the OME can be inverted either *perturbatively* or *numerically*)
+L'**operatore inverso** (l'OME può essere invertito sia  *perturbativamente* che
+*numericamente*):
 
 
 <div m="0" class="flex justify-center">
@@ -110,22 +111,23 @@ $$
 
 ---
 
-# Evidence
+# Evidenza
 
 <div m="y-8" class="flex justify-center">
   <bkg-img src="3fns_Quad_MHOU.svg" p="2" w="sm" 
     hover="scale-150" transition="all 1000"/>
 </div>
 
-In <b>3FNS</b> a <b>valence-like peak</b> is present.
-- for $x \leq 0.2$ the **perturbative uncertainties** are quite large
-- the carried **momentum fraction** is within **1%**
+In uno schema <b>a 3 flavor (3FNS)</b> è possibile osserva un <b>picco</b>
+simile a quello dei <b>quark in valenza</b>.
+- per $x \leq 0.2$ le **incertezze perturbative** sono piuttosto ampie
+- la **frazione di impulso** associata è complessivamente entro l'**1%**
 
 ---
 layout: cols
 ---
 
-# Predictions and stability
+# Predizioni e stabilità
 
 <template #col-1>
 
@@ -133,14 +135,16 @@ layout: cols
   <bkg-img src="lhcb-zcharm-pheno.svg" p="6" w="xs"/>
 </div>
 
-The intrinsic charm fit produces <b>better predictions</b> for some
-charm-sensitive datasets, *not included in the fit*.
+
+Il fit con charm intrinseco produce <b>migliori predizioni</b> per alcuni
+particolari dati, particolarmente sensibili alla presenza del charm, e *non
+inclusi nel fit*.
 
 </template>
 <template #col-2>
 
-The <b>evidence is stable</b> under dataset variations, *including*
-charm-sensitive datasets.
+L'<b>evidenza è stabile</b> sotto variazioni dei dati considerati, *inclusi*
+quelli più sensibili al charm.
 
 <div m="y-10" class="flex justify-center">
   <bkg-img src="pull_baseline_EMC_LHCb_Zc.svg" p="6" w="xs"/>
