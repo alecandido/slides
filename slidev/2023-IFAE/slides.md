@@ -27,3 +27,13 @@ src: pages/intro.md
 ---
 src: pages/intrinsic.md
 ---
+
+---
+layout: section
+---
+
+# ⚛ Grazie per l'attenzione! 🎊
+
+---
+src: pages/backup.md
+---
