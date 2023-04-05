@@ -24,11 +24,13 @@ Per ottenere un intero **PDF set** sono necessari molti ingredienti...
 
 ---
 
+<div m="y--2"/>
+
 Le due maggiori novità introdotte da NNPDF 4.0 sono state:
 - una **migliore metodologia**, basata su tecniche note di Machine Learning 
 - una crescita consistente nel numero di **nuovi pacchetti di dati da LHC**.
 
-<div w="full" flex="~" justify="center" items="center" m="y-12">
+<div w="full" flex="~" justify="center" items="center" m="y-8">
   <bkg-img src="organization.png" w="150" p="8"/>
 </div>
 
@@ -44,14 +46,31 @@ layout: cols
 
 <div/>
 
-Definisce la dipendenza delle PDF dalla scala non fisica $\mu_F$
-
-
-<div flex="~ gap-8" justify="evenly" w="full" m="8">
+<div grid="~ cols-3 gap-8" justify="left" w="10/11" m="y--3 l-30">
   <section flex="~ col" justify="center">
+
+Definiscono la dipendenza delle PDF dalla scala non fisica $\mu_F$
+
+
+  </section>
+  <section flex="~ col" justify="center" m="r-8">
 
 $$
   \mu^2 \frac{\text{d}{\textbf{f}}}{\text{d}\mu^2}(\mu^2) = \textbf{P} (a_s(\mu^2),\mu^2) \otimes \textbf{f}(\mu^2)
+$$
+
+  </section>
+</div>
+
+
+Queste equazioni definoscono un insieme di **operatori lineari** $\textbf{E}(\mu^2 \leftarrow
+\mu_0^2)$ **sulle PDF**:
+
+<div flex="~ gap-8" justify="evenly" w="full" m="4">
+  <section flex="~ col" justify="center">
+
+$$
+  \textbf{f}(\mu^2) = \textbf{E}(\mu^2 \leftarrow \mu_0^2) \otimes \textbf{f}(\mu_0^2)
 $$
 
   </section>
@@ -61,22 +80,15 @@ $$
 </div>
 
 
-Queste equazioni definoscono un insieme di **operatori lineari** $\textbf{E}(\mu^2 \leftarrow
-\mu_0^2)$ **sulle PDF**:
+<div m="t-12">
+Per generarli, abbiamo scritto una libreria dedicata: <b><a
+href="https://github.com/NNPDF/eko">Evolutionary Kernel Operator (EKO)</a></b>
 
-$$
-  \textbf{f}(\mu^2) = \textbf{E}(\mu^2 \leftarrow \mu_0^2) \otimes \textbf{f}(\mu_0^2)
-$$
-
-<div m="t-12 b-12">
-Per generarli, abbiamo scritto una libreria dedicata: <b>Evolutionary Kernel Operator
-(EKO)</b>
-
-<div w="full" flex="~" justify="end" m="t--12">
+<div w="full" flex="~" justify="end" m="t-2">
   <cite-arxiv aref="2202.02338" right="0" class="relative"/>
 </div>
 </div>
 
-<div m="t-6 b-6" flex="~" justify="center">
+<div flex="~" justify="center" m="t--4">
   <bkg-img src="eko.png" p="2" w="1/5"/>
 </div>
