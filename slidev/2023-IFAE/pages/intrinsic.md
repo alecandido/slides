@@ -16,7 +16,7 @@ Una componente di  **charm** nel protone non è una novità, dato che viene
 generato dall'evoluzione perturbativa secondo le equazioni DGLAP, in uno schema
 con 4 o più flavor (per produzione di coppie dal gluone).
 
-Ma è anche possibile ottenere un quark charm da una sorgente differente:
+Ma è anche possibile ottenere un quark charm differentemente:
 
 - **perturbativa**: generata dall'evoluzione DGLAP
 - **intrinseca**: generata dalla dinamica non perturbativa
