@@ -49,7 +49,7 @@ layout: cols
 <div grid="~ cols-3 gap-8" justify="left" w="10/11" m="y--3 l-30">
   <section flex="~ col" justify="center">
 
-Definiscono la dipendenza delle PDF dalla scala non fisica $\mu_F$
+Definiscono la dipendenza delle PDF dalla scala non fisica $\mu$
 
 
   </section>
