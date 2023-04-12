@@ -28,7 +28,7 @@ Ma è anche possibile ottenere un quark charm differentemente:
 <div m="6" w="full" flex="~" justify="center">
   <video autoplay loop muted w="4/5" h="2/3" p="2" rounded="4"
     bg="black" shadow="~ dark">
-    <source src="split.mp4" type="video/mp4">
+    <source src="/split.mp4" type="video/mp4">
   </video>
 </div>
 
