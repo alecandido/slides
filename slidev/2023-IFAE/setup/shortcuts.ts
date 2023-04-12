@@ -6,7 +6,7 @@ export default defineShortcutsSetup((nav: NavOperations, base: ShortcutOptions[]
   console.log(base)
   return [
     ...base.filter(
-      map => !["goto", "prev_left", "next_right"].includes(map.name)
+      map => !["goto"].includes(map.name)
     ),
     {
       key: 'h',
