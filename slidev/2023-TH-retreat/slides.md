@@ -16,7 +16,7 @@ TH retreat 2023
 
 <div class="pt-12">
   <span @click="$slidev.nav.next" class="px-2 py-1 rounded cursor-pointer" hover="bg-white bg-opacity-10">
-    <carbon:arrow-right class="inline"/>
+    <iconamoon-arrow-right-6-circle-fill class="inline" scale="150"/>
   </span>
 </div>
 
@@ -48,23 +48,99 @@ transition: slide-up
 level: 2
 ---
 
-# NNPDF
+# <eos-icons-neural-network/> PDF
+Theory and methods 
 
+<div m="x-20" flex="~ row" justify="center">
 
 |  |  |
 | --- | --- |
-| <kbd>DIS</kbd> | next animation or slide |
-| <kbd>Evolution</kbd> | previous animation or slide |
-| <kbd>Grids</kbd> / <kbd>FK tables</kbd> | previous slide |
-| <kbd>Methodology</kbd> | next slide |
+| <kbd>DIS</kbd> | [yadism](https://github.com/NNPDF/yadism): Yet Another DIS Module |
+| <kbd>Evolution</kbd> | [EKO](https://github.com/NNPDF/eko): Evolution Kernel Operator |
+| <kbd>Grids</kbd> / <kbd>FK tables</kbd> | [PineAPPL](https://github.com/NNPDF/pineappl): PineAPPL is not APPLgrid |
+| <kbd>GPPDF</kbd> | <mdi-pickaxe m="r-3"/> Work in progress <mdi-pickaxe m="l-2" scale="x--100"/>|
+
+</div>
+
+<div flex="~ row" justify="center" items="center" h="30" m="5">
+  <img src="/assets/n3pdf.png" h="15" m="5"/>
+  <img src="/assets/nnpdf.png" h="10" m="5"/>
+</div>
+
+---
+transition: slide-right
+layout: default
+---
+
+<div class="absolute top-10 left-0 w-full h-full" flex="~" justify="center">
+  <img src="/assets/pineline.svg" scale="115">
+</div>
+
+<p c="fuchsia" absolute="~" top="20" right="20" italic="~">
+  <a href="https://nnpdf.github.io/pineline">https://nnpdf.github.io/pineline</a>
+</p>
 
 
 ---
+transition: slide-down
+layout: items
+---
+
+# The 4.0 family
+
+<div grid="~ rows-2 cols-2" w="full" h="full">
+<div>
+
+## Baseline
+
+Including IC and ICA
+
+</div>
+<div>
+
+## QED
+
+</div>
+<div>
+
+## N3LO
+
+</div>
+<div>
+
+## MHOU
+</div>
+</div>
+
+---
+transition: fade-out
+layout: section
+---
+
+# <mdi-cosine-wave scale="y--100"/> GPPDF
+
+Gaussian Processes extraction
+
+<div flex="~ row" justify="center">
+
+[`lsqfitgp`](https://gattocrucco.github.io/lsqfitgp/docs/)
+
+</div>
+
+::right::
+
+<div m="t--20 l-5">
+  <img src="/assets/gpfit.png" h="70" m="-5">
+  <img src="/assets/gphyper.png" h="70" m="-5">
+</div>
+
+---
+transition: slide-down
 layout: image-right
 image: '/assets/cryo.jpg'
 ---
 
-# Quantum
+# Quantum <clarity-atom-solid inline="~"/>
 
 <div class="absolute top-12 left-25 w-150 h-full" flex="~" justify="center">
   <img src="/assets/qibo-ecosystem.svg">
@@ -75,7 +151,7 @@ layout: image-right
 image: '/assets/qrc-lab.svg'
 ---
 
-# Quantum
+# Quantum <clarity-atom-solid inline="~"/>
 <br>
 
 - sotware framework and user interface
@@ -90,6 +166,14 @@ image: '/assets/qrc-lab.svg'
 </div>
 
 ---
+transition: slide-up
+layout: image-left
+image: '/assets/zcu.png'
+---
+
+# <carbon-chip /> FPGA
+
+<!--
 
 # LaTeX
 
@@ -107,6 +191,7 @@ function updateUser(id: number, update: User) {
   saveUser(id, newUser)
 }
 ```
+-->
 
 <!-- <arrow v-click="[3, 4]" x1="400" y1="420" x2="230" y2="330" color="#564" width="3" arrowSize="1" /> -->
 
@@ -126,7 +211,7 @@ function updateUser(id: number, update: User) {
 </style>
 -->
 
----
+<!--
 
 # LaTeX
 
@@ -135,6 +220,7 @@ LaTeX is supported out-of-box powered by [KaTeX](https://katex.org/).
 <br>
 
 Inline $\sqrt{3x-1}+(1+x)^2$
+
 
 Block
 $$ {1|3|all}
@@ -153,89 +239,10 @@ $$
 <br>
 
 [Learn more](https://sli.dev/guide/syntax#latex)
+-->
 
 ---
-
-# Diagrams
-
-You can create diagrams / graphs from textual descriptions, directly in your Markdown.
-
-<div class="grid grid-cols-4 gap-5 pt-4 -mb-6">
-
-```mermaid {scale: 0.5, alt: 'A simple sequence diagram'}
-sequenceDiagram
-    Alice->John: Hello John, how are you?
-    Note over Alice,John: A typical interaction
-```
-
-```mermaid {theme: 'neutral', scale: 0.8}
-graph TD
-B[Text] --> C{Decision}
-C -->|One| D[Result 1]
-C -->|Two| E[Result 2]
-```
-
-```mermaid
-mindmap
-  root((mindmap))
-    Origins
-      Long history
-      ::icon(fa fa-book)
-      Popularisation
-        British popular psychology author Tony Buzan
-    Research
-      On effectivness<br/>and features
-      On Automatic creation
-        Uses
-            Creative techniques
-            Strategic planning
-            Argument mapping
-    Tools
-      Pen and paper
-      Mermaid
-```
-
-```plantuml {scale: 0.7}
-@startuml
-
-package "Some Group" {
-  HTTP - [First Component]
-  [Another Component]
-}
-
-node "Other Groups" {
-  FTP - [Second Component]
-  [First Component] --> FTP
-}
-
-cloud {
-  [Example 1]
-}
-
-
-database "MySql" {
-  folder "This is my folder" {
-    [Folder 3]
-  }
-  frame "Foo" {
-    [Frame 4]
-  }
-}
-
-
-[Another Component] --> [Example 1]
-[Example 1] --> [Folder 3]
-[Folder 3] --> [Frame 4]
-
-@enduml
-```
-
-</div>
-
-[Learn More](https://sli.dev/guide/syntax.html#diagrams)
-
----
-layout: center
+layout: statement
 class: text-center
 ---
 
