@@ -86,29 +86,46 @@ transition: slide-down
 layout: items
 ---
 
-# The 4.0 family
+<h1 m="t--10">
+  The 4.0 family
+</h1>
 
 <div grid="~ rows-2 cols-2" w="full" h="full">
 <div>
 
-## Baseline
+### Baseline
 
-Including IC and ICA
+<div flex="~" justify="center">
+  <img src="/assets/ic.png" w="60">
+</div>
 
 </div>
 <div>
 
-## QED
+### QED
+
+<div flex="~" justify="center">
+  <img src="/assets/photon.png" w="60">
+</div>
 
 </div>
 <div>
 
-## N3LO
+### N3LO
+
+<div flex="~" justify="center">
+  <img src="/assets/n3lo.png" w="60">
+</div>
 
 </div>
 <div>
 
-## MHOU
+### MHOU
+
+<div flex="~" justify="center">
+  <img src="/assets/thcovmat.png" w="60">
+</div>
+
 </div>
 </div>
 
@@ -154,9 +171,13 @@ image: '/assets/qrc-lab.svg'
 # Quantum <clarity-atom-solid inline="~"/>
 <br>
 
-- sotware framework and user interface
-- applications
-- hardware execution & algorithms acceleration
+
+- software framework <mdi-desktop-classic inline="~" /> and language: [Qibo](https://qibo.science)
+- applications <carbon-application inline="~"/> *(including HEP)*
+
+<div class="absolute bottom-10 left-15 w-150 h-65" flex="~" justify="center">
+  <img src="/assets/qworkflow.png">
+</div>
 
 
 <div absolute="~" bottom="10">
