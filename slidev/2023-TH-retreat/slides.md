@@ -171,7 +171,22 @@ layout: image-left
 image: '/assets/zcu.png'
 ---
 
-# <carbon-chip /> FPGA
+# <carbon-chip /> Control electronics
+
+FPGA development
+
+To operate a Quantum Computer <clarity-atom-solid inline="~"/> an algorithm has to be translated into a series of
+pulses <solar-pulse-bold inline="~"/>
+
+- Commercial products available
+- QICK: [openquantumhardware/qick <carbon-logo-github inline="~"/>](https://github.com/openquantumhardware/qick)
+- ... we are looking to contribute to the open hardware effort!
+
+<div absolute="~" bottom="10" right="20">
+  <a href="https://github.com/qiboteam/qibosoq" italic="~" c="gray" font="size-3">
+    Qibosoq
+  </a>
+</div>
 
 <!--
 
@@ -248,4 +263,4 @@ class: text-center
 
 # Get in touch!
 
-[Documentations](https://sli.dev) · [GitHub](https://github.com/slidevjs/slidev) · [Showcases](https://sli.dev/showcases.html)
+[Qibo](https://qibo.science/) <mdi-web inline="~"/> · [NNPDF](https://nnpdf.mi.infn.it/) <mdi-web inline="~"/> · [AleCandido](https://github.com/AleCandido) <carbon-logo-github inline="~"/>
