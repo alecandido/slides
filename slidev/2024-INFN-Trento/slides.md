@@ -34,27 +34,73 @@ Execution
 
 # State vector
 
-challenges:
+Preserve whole information.
+
+<div grid="~ cols-2" h="full" gap="lg" p="sm t-10 b-20" class="children:(flex-(~ col) p-sm)">
+<div bg="red-950">
+
+<div flex="~ row justify-center" m="t-5 b-20">
+
+### Challenges
+
+</div>
 
 - linear algebra
+    - *i.e. array library*
 - performances
 - memory management
+
+</div>
+<div bg="blue-950">
+
+<div flex="~ row justify-center" m="t-5 b-20">
+
+### Approach
+
+</div>
+
+Adopt **widespread** and **optimized frameworks**, to benefit from their expertise
+(*software reuse*).
+
+**Chisel the last layer** on top of each framework, to mold it on our use case.
+
+</div>
+</div>
 
 ---
 
 # Backends mechanism
 
-- NumPy
-- TensorFlow / PyTorch / JAX / ...
-- Numba
-- CuPy
-- CuQuantum
+Plug the framework.
+
+<br m="2">
+
+Structure the integration of the various libraries.
+
+<img src="assets/state-vector.svg"/>
+
+Common operations are implemented once and reused (when possible).
+
+---
+
+# Results
+
+<div h="full" grid="~ cols-2" gap="sm" class="children:(flex-(~ col) gap-sm children:(rounded-md p-sm bg-white))">
+  <div>
+    <img src="assets/qj_multigpu.svg"/>
+    <img src="assets/qj_evol.svg"/>
+  </div>
+  <div>
+    <img src="assets/qj_qft.svg"/>
+    <img src="assets/qj_dry_vs_sim.svg"/>
+  </div>
+</div>
 
 ---
 
 # Automatic differentiation
 
-Portability: implement in one, export derivatives.
+Framework portability: implement in one, export derivatives.
 
 Applications: QML
 
