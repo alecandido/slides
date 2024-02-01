@@ -28,9 +28,7 @@ Quantum middleware
 
 Execution
 
-<img src="assets/backends.svg" m="t--5"/>
-
-<!-- TODO: add Clifford and TN -->
+<img src="assets/backends.svg" m="t--10"/>
 
 ---
 
