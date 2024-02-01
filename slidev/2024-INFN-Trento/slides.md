@@ -1,7 +1,5 @@
 ---
 theme: default
-background: https://source.unsplash.com/collection/94734566/1920x1080
-class: text-center
 highlighter: shikiji
 lineNumbers: false
 info: |
@@ -13,17 +11,24 @@ drawings:
 transition: slide-left
 title: Simulation and control software
 mdc: true
+background: assets/qibo_ecosystem_webpage.svg
+innerColor: '#304'
+class: text-center
+layout: mycover
 ---
 
 # Simulation and Control
 
 Quantum middleware
 
+
 ---
 
 # Qibo
 
-<img src="assets/backends.svg"/>
+Execution
+
+<img src="assets/backends.svg" m="t--5"/>
 
 <!-- TODO: add Clifford and TN -->
 
@@ -143,6 +148,8 @@ layout: none
 
 <iframe src="http://login.qrccluster.com:9000/" h="200%" w="200%" scale="50" translate="x--120 y--70"/>
 
+---
+layout: center
 ---
 
 # Thanks
