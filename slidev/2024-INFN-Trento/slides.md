@@ -170,7 +170,7 @@ Quantum control
 layout: none
 ---
 
-<div z="-2" absolute="~" h="full" w="full" flex="~ justify-center items-center">
+<div z--2 absolute="~" h="full" w="full" flex="~ justify-center items-center">
 
 # [Platform dashboard](http://login.qrccluster.com:10000/)
 
@@ -193,7 +193,7 @@ An owed mention
 layout: none
 ---
 
-<div z="-2" absolute="~" h="full" w="full" flex="~ justify-center items-center">
+<div z--2 absolute="~" h="full" w="full" flex="~ justify-center items-center">
 
 # [Qibocal reports](http://login.qrccluster.com:9000)
 
