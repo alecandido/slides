@@ -129,8 +129,17 @@ pro:
 - general purpose
 
 ---
+layout: image-left
+image: assets/qrc-lab.svg
+---
 
-# Control - Qibolab
+<div flex="~ col justify-center" h-full p-10>
+
+# Qibolab
+
+Quantum control
+
+</div>
 
 ---
 
