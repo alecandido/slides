@@ -109,8 +109,16 @@ pro:
   - wrapped by drivers
 
 ---
+layout: none
+---
 
-<iframe src="http://login.qrccluster.com:10000/" h="full" w="full"/>
+<div z="-2" absolute="~" h="full" w="full" flex="~ justify-center items-center">
+
+# [Platform dashboard](http://login.qrccluster.com:10000/)
+
+</div>
+
+<iframe src="http://login.qrccluster.com:10000/" h="200%" w="200%" scale="50" translate="x--120 y--70"/>
 
 ---
 
@@ -124,11 +132,16 @@ An owed mention
 
 
 ---
-layout: cover
+layout: none
 ---
 
+<div z="-2" absolute="~" h="full" w="full" flex="~ justify-center items-center">
 
-<iframe src="http://login.qrccluster.com:9000/" h="full" w="full"/>
+# [Qibocal reports](http://login.qrccluster.com:9000)
+
+</div>
+
+<iframe src="http://login.qrccluster.com:9000/" h="200%" w="200%" scale="50" translate="x--120 y--70"/>
 
 ---
 
