@@ -211,10 +211,10 @@ Quantum control
 </div>
 
 ---
-transition: fade
+transition: abrupt
 ---
 
-# Interface
+# Qibolab - Interface
 
 <div w="full children:90%" flex="~ justify-center row" >
 
@@ -241,7 +241,7 @@ flowchart LR
 
 </div>
 <div col-start-1>
-    Pulse sequence
+    Pulse sequence plot (from notebook?)
 </div>
 <div row-span-3 row-start-1 col-start-2>
 
@@ -269,7 +269,7 @@ def create():
 
 ---
 
-# Drivers
+# Qibolab - Drivers
 
 <div w="full children:90%" flex="~ justify-center row" >
 
@@ -290,12 +290,14 @@ flowchart LR
 
 <div grid="~ cols-5" gap-sm p="sm" m-t-5>
 <div flex="~ col justify-center items-center" m-t--10>
+<div p="sm x-2xl" rounded bg="slate-200 dark:slate-800">
 
-- Qblox
-- Zurich
-- QM
-- QICK
+- [Qblox](https://www.qblox.com/)
+- [Zurich](https://www.zhinst.com/)
+- [QM](https://www.quantum-machines.co/)
+- [QICK](https://github.com/openquantumhardware/qick)
 
+</div>
 </div>
 <div col-span-4>
 
@@ -314,19 +316,21 @@ loop: set_mrk   R0          # Set marker output channels to R0
       stop                  # Stop sequencer.
 ```
 
+<div m-t--10 z-2 relative>
 <p text-right italic m-r-20>
 
 by
 [Qblox](https://qblox-qblox-instruments.readthedocs-hosted.com/en/master/cluster/q1_sequence_processor.html#example)
 
 </p>
+</div>
 
 </div>
 </div>
 
 ---
 
-# Qibosoq
+# Qibosoq - Server on QICK
 
 ---
 
