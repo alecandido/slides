@@ -145,7 +145,7 @@ flowchart LR
     jx ~~~ fw
   end
   tf[Tensorflow] --> qibo --> ifw["<em>e.g.</em> TensorFlow"]
-  pt[PyTorch] --> qibo
+  pt[PyTorch] --> qibo(((qibo)))
   jx[JAX] --> qibo
   fw[...] --> qibo
   qibo -.-> hw[Parameter shift rule]
@@ -211,15 +211,118 @@ Quantum control
 </div>
 
 ---
+transition: fade
+---
 
 # Interface
+
+<div w="full children:90%" flex="~ justify-center row" >
+
+```mermaid
+flowchart LR
+  subgraph input
+    circ[Circuit] --> pulse[Pulse sequence]
+  end
+  pulse --> platform[Platform]
+  platform --> driver[Driver] --> board[Electronics]
+  subgraph physical
+    board --> QPU
+  end
+  style input stroke:#e78,stroke-width:2px
+```
+
+</div>
+
+<div grid="~ cols-2 rows-3" h="65%" gap-sm p="sm t-0">
+<div row-span-2>
 
 - platform
 - pulses
 
+</div>
+<div col-start-1>
+    Pulse sequence
+</div>
+<div row-span-3 row-start-1 col-start-2>
+
+```python
+def create():
+    instrument = DummyInstrument("myinstr", "0.0.0.0:0")
+
+    channels = ChannelMap()
+    channels |= Channel(
+        "readout", 
+        port=instrument.ports("o1")
+    )
+    ...
+
+    return Platform(
+        "myplatform", 
+        qubits={qubit.name: qubit}, 
+        instruments={instrument.name: instrument},
+        ...
+    )
+```
+
+</div>
+</div>
+
 ---
 
 # Drivers
+
+<div w="full children:90%" flex="~ justify-center row" >
+
+```mermaid
+flowchart LR
+  subgraph input
+    circ[Circuit] --> pulse[Pulse sequence]
+  end
+  pulse --> platform[Platform]
+  platform --> driver[Driver] --> board[Electronics]
+  subgraph physical
+    board --> QPU
+  end
+  style physical stroke:#e78,stroke-width:2px
+```
+
+</div>
+
+<div grid="~ cols-5" gap-sm p="sm" m-t-5>
+<div flex="~ col justify-center items-center" m-t--10>
+
+- Qblox
+- Zurich
+- QM
+- QICK
+
+</div>
+<div col-span-4>
+
+```sh
+      move      1,R0        # Start at marker output channel 0 (move 1 into R0)
+      nop                   # Wait a cycle for R0 to be available.
+
+loop: set_mrk   R0          # Set marker output channels to R0
+      upd_param 1000        # Update marker output channels and wait 1μs.
+      asl       R0,1,R0     # Move to next marker output channel (left-shift R0).
+      nop                   # Wait a cycle for R0 to be available.
+      jlt       R0,16,@loop # Loop until all 4 marker output channels have been set once.
+
+      set_mrk   0           # Reset marker output channels.
+      upd_param 4           # Update marker output channels.
+      stop                  # Stop sequencer.
+```
+
+<p text-right italic m-r-20>
+
+by
+[Qblox](https://qblox-qblox-instruments.readthedocs-hosted.com/en/master/cluster/q1_sequence_processor.html#example)
+
+</p>
+
+</div>
+</div>
 
 ---
 

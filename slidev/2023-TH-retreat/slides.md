@@ -24,7 +24,7 @@ TH retreat 2023
   <a href="mailto:a.candido@cern.ch" class="text-xl slidev-icon-btn opacity-50 !border-none !hover:text-white">
     <carbon:email />
   </a>
-  <a href="https://github.com/slidevjs/slidev" target="_blank" alt="GitHub" title="Open in GitHub"
+  <a href="https://github.com/alecandido" target="_blank" alt="GitHub" title="Open in GitHub"
     class="text-xl slidev-icon-btn opacity-50 !border-none !hover:text-white">
     <carbon-logo-github />
   </a>
