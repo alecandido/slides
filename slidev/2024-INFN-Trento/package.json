@@ -4,13 +4,13 @@
   "private": true,
   "scripts": {
     "build": "slidev build",
-    "dev": "slidev --open",
+    "dev": "slidev",
     "export": "slidev export"
   },
   "dependencies": {
-    "@slidev/cli": "^0.46.3",
+    "@slidev/cli": "^0.47.4",
     "@slidev/theme-default": "latest",
-    "@slidev/theme-seriph": "latest"
+    "vue": "^3.4.15"
   },
   "devDependencies": {
     "playwright-chromium": "^1.41.1"
