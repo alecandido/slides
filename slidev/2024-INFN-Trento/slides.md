@@ -11,7 +11,7 @@ drawings:
 transition: slide-left
 title: Simulation and control software
 mdc: true
-background: assets/qibo_ecosystem_webpage.svg
+background: /assets/qibo_ecosystem_webpage.svg
 innerColor: '#304'
 class: text-center
 layout: mycover
@@ -28,7 +28,7 @@ layout: mycover
 
 Execution
 
-<img src="assets/backends.svg" m="t--10"/>
+<img src="/assets/backends.svg" m="t--10"/>
 
 ---
 
@@ -77,7 +77,7 @@ Plug the framework.
 
 Structure the integration of the various libraries.
 
-<img src="assets/state-vector.svg"/>
+<img src="/assets/state-vector.svg"/>
 
 Common operations are implemented once and reused (when possible).
 
@@ -89,12 +89,12 @@ transition: slide-up
 
 <div h="full" grid="~ cols-2" gap="sm" class="children:(flex-(~ col) gap-sm children:(rounded-md p-sm bg-white))">
   <div>
-    <img src="assets/qj_qft.svg"/>
-    <img src="assets/qj_dry_vs_sim.svg"/>
+    <img src="/assets/qj_qft.svg"/>
+    <img src="/assets/qj_dry_vs_sim.svg"/>
   </div>
   <div>
-    <img src="assets/qj_multigpu.svg"/>
-    <img src="assets/qj_evol.svg"/>
+    <img src="/assets/qj_multigpu.svg"/>
+    <img src="/assets/qj_evol.svg"/>
   </div>
 </div>
 
@@ -102,12 +102,12 @@ transition: slide-up
 
 <div h="full" m="t--35 b-30" grid="~ cols-2" gap="sm" class="children:(flex-(~ col justify-end) gap-sm children:(rounded-md p-sm bg-white))">
   <div>
-    <img src="assets/qj_dry_vs_sim.svg"/>
-    <img src="assets/qj-grace-managed.png"/>
+    <img src="/assets/qj_dry_vs_sim.svg"/>
+    <img src="/assets/qj-grace-managed.png"/>
   </div>
   <div>
-    <img src="assets/qj-grace-cpu.png"/>
-    <img src="assets/qj-grace-cupy.png"/>
+    <img src="/assets/qj-grace-cpu.png"/>
+    <img src="/assets/qj-grace-cupy.png"/>
   </div>
 </div>
 
@@ -230,7 +230,7 @@ Benchmarks
 
 <div m-t--10 h-full w-full flex="~ justify-center items-center">
   <div bg-white rounded-xl p-2>
-    <img w-130 src="assets/clifford.jpg"/>
+    <img w-130 src="/assets/clifford.jpg"/>
   </div>
   <div absolute w-130 h-90 bg="white op-50" rounded-xl p-2 v-click="1"/>
 </div>
@@ -247,7 +247,7 @@ Optimized for observables.
 <div grid="~ cols-5" gap="lg">
 
 <div col-span-3>
-<img src="assets/quimb-circuit.svg"/>
+<img src="/assets/quimb-circuit.svg"/>
 </div>
 
 <div col-span-2>
@@ -256,10 +256,10 @@ Optimized for observables.
 
 <div m-t-15 w-full flex="~ row justify-center">
 <div w-50 h-50 bg-white rounded-3xl flex="~ justify-center items-center" p="l-5 t-2" class="children:(absolute w-50 h-50)">
-<img src="assets/contraction.svg" v-click="[0,1]"/>
-<img src="assets/contraction-toobad.svg" v-click="[1,2]"/>
-<img src="assets/contraction-bad.svg" v-click="[2,3]"/>
-<img src="assets/contraction-good.svg" v-click="[3,4]"/>
+<img src="/assets/contraction.svg" v-click="[0,1]"/>
+<img src="/assets/contraction-toobad.svg" v-click="[1,2]"/>
+<img src="/assets/contraction-bad.svg" v-click="[2,3]"/>
+<img src="/assets/contraction-good.svg" v-click="[3,4]"/>
 </div>
 </div>
 
@@ -293,8 +293,8 @@ preserving part of
 
 <div m-y-3 w-full flex="~ row justify-center">
 <div w-90 h-40 bg-white rounded-3xl flex="~ justify-center items-center" class="children:(absolute w-70 h-50)">
-<img src="assets/tn-distribute.svg" v-click="[0,1]"/>
-<img src="assets/tn-distributed.svg" v-click="[1,2]"/>
+<img src="/assets/tn-distribute.svg" v-click="[0,1]"/>
+<img src="/assets/tn-distributed.svg" v-click="[1,2]"/>
 </div>
 </div>
 
@@ -323,12 +323,12 @@ c.apply_gate('CNOT', 4, 0)
 # QiboTN
 
 <div w="full" flex="~ row justify-center">
-<img w="80%" bg="white" p="5 t-2" rounded="lg" src="assets/qibotn.png"/>
+<img w="80%" bg="white" p="5 t-2" rounded="lg" src="/assets/qibotn.png"/>
 </div>
 
 ---
 layout: image-left
-image: assets/qrc-lab.webp
+image: /assets/qrc-lab.webp
 ---
 
 <div flex="~ col justify-center" h-full p-10>
@@ -500,7 +500,7 @@ effort to define a suitable server, to optimize the communication with the board
 
 </div>
 <div flex="~ col items-center">
-  <img src="assets/qs-comm.svg" w="80%" p-sm rounded bg-white/>
+  <img src="/assets/qs-comm.svg" w="80%" p-sm rounded bg-white/>
 </div>
 </div>
 
@@ -509,8 +509,8 @@ effort to define a suitable server, to optimize the communication with the board
 # [Platform dashboard](http://login.qrccluster.com:10000/)
 
 <div h-full p-lg flex="~ col justify-center" gap="lg" class="children:(w-full p-lg rounded-lg bg-#111217)">
-  <img src="assets/dashboard.png"/>
-  <img src="assets/dashboard-slurm.png"/>
+  <img src="/assets/dashboard.png"/>
+  <img src="/assets/dashboard-slurm.png"/>
 </div>
 
 ---
@@ -520,7 +520,7 @@ effort to define a suitable server, to optimize the communication with the board
 An owed mention
 
 <div flex="~ justify-center" h="full">
-  <img src="assets/qq_qibocal.svg" h="80%"/>
+  <img src="/assets/qq_qibocal.svg" h="80%"/>
 </div>
 
 
@@ -550,7 +550,7 @@ layout: center
 <div h="80%" w-full m-b--10 flex="~ justify-center items-center">
   <div bg-white rounded-lg p-2>
     <a href="https://docs.pennylane.ai/projects/catalyst/">
-      <img src="assets/catalyst.png"/>
+      <img src="/assets/catalyst.png"/>
     </a>
   </div>
 </div>
@@ -572,7 +572,7 @@ Simulation
   </div>
   <div flex="~ justify-center items-center">
     <div w="80%" p-2 bg-white rounded-lg>
-      <img src="assets/sf-cv.png"/>
+      <img src="/assets/sf-cv.png"/>
     </div>
   </div>
 </div>
