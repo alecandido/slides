@@ -25,6 +25,7 @@ layout: mycover
 <p c-white italic>Alessandro Candido</p>
 
 <div m-1 flex="~ row" p-2 gap-sm bg-gray-200 rounded>
+<img src="/assets/qibo.svg" h-10>
 <img src="/assets/cern.svg" h-10>
 <img src="/assets/unimi.png" h-10>
 <img src="/assets/infn.png" h-10>
@@ -234,7 +235,9 @@ a similar fashion to the general state vector approach.
 </div>
 </div>
 
-----
+---
+clicks: 1
+---
 
 # Clifford
 
@@ -337,6 +340,8 @@ c.apply_gate('CNOT', 4, 0)
 </div>
 </div>
 
+---
+clicks: 1
 ---
 
 # QiboTN
