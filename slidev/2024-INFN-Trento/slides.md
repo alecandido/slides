@@ -24,7 +24,7 @@ layout: mycover
 <div absolute bottom--52 left--5 w-full m-x-5 flex="~ justify-between">
 <p c-white italic>Alessandro Candido</p>
 
-<div m-1 flex="~ row" p-2 gap-sm bg-slate-300 rounded>
+<div m-1 flex="~ row" p-2 gap-sm bg-gray-200 rounded>
 <img src="/assets/cern.svg" h-10>
 <img src="/assets/unimi.png" h-10>
 <img src="/assets/infn.png" h-10>
@@ -188,7 +188,7 @@ $$
     \ket{\psi} = U \ket{\psi}
 $$
 
-<br m--7>
+<div p="x-5 y-1" bg="gray-200 dark:gray-800">
 
 **Theorem 1** *Given an n-qubit state $\ket{\psi}$, the following are
 equivalent:*
@@ -203,6 +203,8 @@ Hadamard, phase, and measurement gates only.*<br>
 (iv) <span underline>***$\ket{\psi}$ is uniquely determined by $S (\ket{\psi}) = Stab
 (\ket{\psi})\cap P_{n}$ or the group of Pauli operators that stabilize
 $\ket{\psi}$***</span>
+
+</div>
 
 </div>
 
@@ -289,12 +291,19 @@ beyond `opt_einsum`
 
 ### Approximation
 
-In general, the name of the game is SVD.
+<div text-sm>
 
-Ansatz: MPS, ...
+Based on singular value decomposition (SVD).
 
-They provide a way to break the complexity of the full state vector, still
-preserving part of 
+<div w-full flex="~ row justify-center">
+<img src="/assets/mps.svg" h="50"/>
+</div>
+
+A very frequent matrix product state (MPS).
+
+But also other ansatzes are used.
+
+</div>
 
 </div>
 <div>
