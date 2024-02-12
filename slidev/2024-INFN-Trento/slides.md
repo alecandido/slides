@@ -11,7 +11,7 @@ drawings:
 transition: slide-left
 title: Simulation and control software
 mdc: true
-background: /assets/qibo_ecosystem_webpage.svg
+background: /assets/qibo_ecosystem_webpage.webp
 innerColor: '#304'
 class: text-center
 layout: mycover
