@@ -93,36 +93,31 @@ Structure the integration of the various libraries.
 Common operations are implemented once and reused (when possible).
 
 ---
-transition: slide-up
+clicks: 3
 ---
 
 # Results <cite-arxiv aref="2203.08826 " text-sm/>
+
+<div m--60 v-if="$slidev.nav.clicks === 1"/>
+<div m--120 v-if="$slidev.nav.clicks === 2"/>
+<div m--180 v-if="$slidev.nav.clicks === 3" />
 
 <div h="full" grid="~ cols-2" gap="sm" class="children:(flex-(~ col) gap-sm children:(rounded-md p-sm bg-white))">
   <div>
     <img src="/assets/qj_qft.svg"/>
     <img src="/assets/qj_dry_vs_sim.svg"/>
+    <img src="/assets/qj_qft_gpus.svg"/>
+    <img src="/assets/qj-grace-managed.png"/>
   </div>
   <div>
     <img src="/assets/qj_multigpu.svg"/>
     <img src="/assets/qj_evol.svg"/>
-  </div>
-</div>
-
----
-
-<div h="full" m="t--35 b-30" grid="~ cols-2" gap="sm" class="children:(flex-(~ col justify-end) gap-sm children:(rounded-md p-sm bg-white))">
-  <div>
-    <img src="/assets/qj_dry_vs_sim.svg"/>
-    <img src="/assets/qj-grace-managed.png"/>
-  </div>
-  <div>
     <img src="/assets/qj-grace-cpu.png"/>
     <img src="/assets/qj-grace-cupy.png"/>
   </div>
 </div>
 
-<h3 text-right>
+<h3 absolute bottom-10 left-0 z--1 p-x-20 w-full text-right>
 
 [*on advanced hardware*](https://gist.github.com/migueldiascosta/0a0dbe061982bc4cc2bc7171785a4b86)
 
@@ -522,8 +517,9 @@ Qibolab handles the whole connection, and takes care of fetching the single or m
 <div m-lg grid="~ cols-2" gap-sm>
 <div flex="~ col justify-center">
 
-For the single open source platform currently in Qibolab, there has been a dedicate
-effort to define a suitable server, to optimize the communication with the board.
+For the single open source platform <span v="top" text-xs italic style="font-variant: small-caps">FPGA
+firmware</span> currently in Qibolab, there has been a dedicate effort to define a
+suitable server, to optimize the communication with the board.
 
 <p text-right>
 &xrarr; Qibosoq
