@@ -230,7 +230,7 @@ Benchmarks
 
 <div m-t--10 h-full w-full flex="~ justify-center items-center">
   <div bg-white rounded-xl p-2>
-    <img w-130 src="/assets/clifford.jpg"/>
+    <img w-130 src="/assets/clifford.svg"/>
   </div>
   <div absolute w-130 h-90 bg="white op-50" rounded-xl p-2 v-click="1"/>
 </div>
@@ -324,12 +324,18 @@ c.apply_gate('CNOT', 4, 0)
 
 <div w="full" flex="~ row justify-center">
 <img w="80%" bg="white" p="5 t-2" rounded="lg" src="/assets/qibotn.png"/>
+<div absolute w-170 h-103 bg="white op-50" rounded-xl p-2 v-click="1"/>
 </div>
+<p absolute top="55%" left="25%" text-15 font-600 rotate--30 c-red-700 v-click="1">Work in progress</p>
 
 ---
 layout: image-left
 image: /assets/qrc-lab.webp
 ---
+
+<div fixed bottom-12 left-15 text-xs italic c-gray-800>
+<a href="https://files-prod.tii.ae/360/TII-QRC-Computing-Lab.html">TII lab</a>
+</div>
 
 <div flex="~ col justify-center" h-full p-10>
 
