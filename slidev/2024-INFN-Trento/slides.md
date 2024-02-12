@@ -24,7 +24,7 @@ layout: mycover
 
 ---
 
-# Qibo
+# Qibo <cite-arxiv aref="2009.01845" text-sm/>
 
 Execution
 
@@ -333,7 +333,7 @@ image: /assets/qrc-lab.webp
 
 <div flex="~ col justify-center" h-full p-10>
 
-# Qibolab
+# Qibolab <cite-arxiv aref="2308.06313" text-sm/>
 
 Quantum control
 
@@ -465,7 +465,8 @@ by
 
 ---
 
-# Qibosoq - Server on QICK
+# Qibosoq - Server on QICK <cite-arxiv aref="2310.05851" text-sm/>
+
 
 <div w="full children:90%" flex="~ justify-center row" >
 <div flex="~ col">
@@ -503,6 +504,12 @@ effort to define a suitable server, to optimize the communication with the board
   <img src="/assets/qs-comm.svg" w="80%" p-sm rounded bg-white/>
 </div>
 </div>
+
+<p absolute bottom--3 left-10 text-sm italic>
+
+in collaboration with **INFN-UNIMIB-BIQUTE**
+
+</p>
 
 ---
 
