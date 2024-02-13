@@ -557,17 +557,29 @@ An owed mention
 </div>
 
 
+<!-- --- -->
+<!-- layout: none -->
+<!-- --- -->
+<!---->
+<!-- <div z--2 absolute="~" h="full" w="full" flex="~ justify-center items-center"> -->
+<!---->
+<!-- # [Qibocal reports](http://login.qrccluster.com:9000) -->
+<!---->
+<!-- </div> -->
+<!---->
+<!-- <iframe src="http://login.qrccluster.com:9000/" h="200%" w="200%" scale="50" translate="x--120 y--70"/> -->
+
 ---
 layout: none
 ---
 
-<div z--2 absolute="~" h="full" w="full" flex="~ justify-center items-center">
+<img src="/assets/reports.png" h-full w-full/>
 
-# [Qibocal reports](http://login.qrccluster.com:9000)
+---
+layout: none
+---
 
-</div>
-
-<iframe src="http://login.qrccluster.com:9000/" h="200%" w="200%" scale="50" translate="x--120 y--70"/>
+<img src="/assets/reports-qutrit.png" h-full w-full/>
 
 ---
 layout: center
