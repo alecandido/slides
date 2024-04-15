@@ -7,7 +7,7 @@ settings:
 dependencies:
   '@slidev/cli':
     specifier: ^0.47.5
-    version: 0.47.5(@types/markdown-it@14.0.1)(playwright-chromium@1.43.1)(postcss@8.4.38)
+    version: 0.47.5(@types/markdown-it@14.0.1)(playwright-chromium@1.40.0)(postcss@8.4.38)
   '@slidev/theme-default':
     specifier: latest
     version: 0.25.0
@@ -17,8 +17,8 @@ dependencies:
 
 devDependencies:
   playwright-chromium:
-    specifier: ^1.43.1
-    version: 1.43.1
+    specifier: '==1.40.0'
+    version: 1.40.0
 
 packages:
 
@@ -999,7 +999,7 @@ packages:
     dev: false
     optional: true
 
-  /@slidev/cli@0.47.5(@types/markdown-it@14.0.1)(playwright-chromium@1.43.1)(postcss@8.4.38):
+  /@slidev/cli@0.47.5(@types/markdown-it@14.0.1)(playwright-chromium@1.40.0)(postcss@8.4.38):
     resolution: {integrity: sha512-wXvL7WypihKaJxd7eGWKKHvcWNwd7YwKacPwHSAYY6ifUY+6FuBJR112BXbcu2tZrXcQ7ZrdniFzOiKu6WDVSg==}
     engines: {node: '>=18.0.0'}
     hasBin: true
@@ -1051,7 +1051,7 @@ packages:
       open: 10.1.0
       pdf-lib: 1.17.1
       plantuml-encoder: 1.4.0
-      playwright-chromium: 1.43.1
+      playwright-chromium: 1.40.0
       postcss-nested: 6.0.1(postcss@8.4.38)
       prismjs: 1.29.0
       prompts: 2.4.2
@@ -4270,16 +4270,16 @@ packages:
     resolution: {integrity: sha512-sxMwpDw/ySY1WB2CE3+IdMuEcWibJ72DDOsXLkSmEaSzwEUaYBT6DWgOfBiHGCux4q433X6+OEFWjlVqp7gL6g==}
     dev: false
 
-  /playwright-chromium@1.43.1:
-    resolution: {integrity: sha512-HL/11hcpIYVt/Rw7wTf5xwm+W0R76JGDDjRxGtBkgMuUqi0Q4UYmx+F/QxW/Z+aApSbDtHd3naRFcL/Jt7Aidg==}
+  /playwright-chromium@1.40.0:
+    resolution: {integrity: sha512-LEObqtviC8ik5QM9dHcx3YYGxTl2bBrUnePHibHX/a7KVbkvt1P13b9oYHylytKBh8C84pg+D3yfs/t5MgGDpg==}
     engines: {node: '>=16'}
     hasBin: true
     requiresBuild: true
     dependencies:
-      playwright-core: 1.43.1
+      playwright-core: 1.40.0
 
-  /playwright-core@1.43.1:
-    resolution: {integrity: sha512-EI36Mto2Vrx6VF7rm708qSnesVQKbxEWvPrfA1IPY6HgczBplDx7ENtx+K2n4kJ41sLLkuGfmb0ZLSSXlDhqPg==}
+  /playwright-core@1.40.0:
+    resolution: {integrity: sha512-fvKewVJpGeca8t0ipM56jkVSU6Eo0RmFvQ/MaCQNDYm+sdvKkMBBWTE1FdeMqIdumRaXXjZChWHvIzCGM/tA/Q==}
     engines: {node: '>=16'}
     hasBin: true
 

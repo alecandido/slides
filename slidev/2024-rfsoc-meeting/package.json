@@ -13,6 +13,6 @@
     "vue": "^3.4.22"
   },
   "devDependencies": {
-    "playwright-chromium": "^1.43.1"
+    "playwright-chromium": "==1.40.0"
   }
 }
