@@ -1,0 +1,9 @@
+.abrupt-enter-active,
+.abrupt-leave-active {
+  transition: opacity 0.001s ease;
+}
+
+.abrupt-enter-from,
+.abrupt-leave-to {
+  opacity: 0;
+}
