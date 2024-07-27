@@ -1,6 +1,6 @@
 ---
 theme: default
-background: assets/qibo-core-1.jpg
+background: /assets/qibo-core-1.jpg
 # some information about your slides, markdown enabled
 title: Qibo-core bootstrap
 # apply any unocss classes to the current slide
@@ -186,7 +186,7 @@ As independent processes
 
 <div flex="~ row justify-around">
 
-<img src="assets/backend.svg" w="60%"/>
+<img src="/assets/backend.svg" w="60%"/>
 
 </div>
 
