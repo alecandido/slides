@@ -17,9 +17,9 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Upload slides
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: reveal
           path: reveal/archive/
@@ -29,7 +29,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Iterate beamer
         working-directory: beamer
         run: |
@@ -42,11 +42,11 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
-      - uses: pnpm/action-setup@v2
+        uses: actions/checkout@v4
+      - uses: pnpm/action-setup@v4
         with:
           version: 8
-      - uses: actions/setup-node@v3
+      - uses: actions/setup-node@v4
         with:
           node-version: 18
       - name: Prepare bundle
@@ -68,7 +68,7 @@ jobs:
             popd
           done
       - name: Upload slides
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: slidev
           path: ${{ env.BUNDLE }}
@@ -78,7 +78,7 @@ jobs:
 
     steps:
       - name: Checkout
-        uses: actions/checkout@v3
+        uses: actions/checkout@v4
       - name: Build
         run: |
           mkdir -p pages/build/
@@ -87,7 +87,7 @@ jobs:
         run: |
           cp meta.schema.json pages/build/
       - name: Upload website pages
-        uses: actions/upload-artifact@v3
+        uses: actions/upload-artifact@v4
         with:
           name: pages
           path: pages/build/
@@ -99,13 +99,13 @@ jobs:
 
     steps:
       - name: Download built documents
-        uses: actions/download-artifact@v3
+        uses: actions/download-artifact@v4
       - name: Extract
         run: |
           mv reveal/* .
           mv pages/* .
       - name: Upload Pages artifact
-        uses: actions/upload-pages-artifact@v1
+        uses: actions/upload-pages-artifact@v3
         with:
           path: ./
 
