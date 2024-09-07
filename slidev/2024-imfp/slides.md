@@ -8,18 +8,18 @@ transition: slide-left
 mdc: true
 ---
 
-::block-component{grid="~ cols-9 rows-5" w-full}
-  :::block-component{grid-col="start-7 end-9" grid-row="start-2"}
+::block-component{flex="~ justify-end" w="full"}
 
-    <div text-size-5xl bg-purple w-25 transform-skew-x-30>
-      <p transform-skew-x--30>Qibo</p>
-    </div>
+<div m-t--30 m-r-10>
+  <div text-size-5xl bg-purple w-25 transform-skew-x-30>
+    <p transform-skew-x--30>Qibo</p>
+  </div>
 
-    <div bg-purple transform-skew-x-30>
-      <p transform-skew-x--40>A quantum computing framework</p>
-    </div>
+  <div bg-purple transform-skew-x-30 w-50>
+    <p transform-skew-x--40>A quantum computing framework</p>
+  </div>
+</div>
 
-  :::
 ::
 
 ---
@@ -605,7 +605,7 @@ in collaboration with **INFN-UNIMIB-BIQUTE**
 An owed mention
 
 <div flex="~ justify-center" h="full">
-  <img src="/assets/qq_qibocal.png" h="80%"/>
+  <img src="/assets/qq_qibocal.svg" h="80%"/>
 </div>
 
 
