@@ -100,21 +100,57 @@ layout: fact
   <white-image src="quantum-computing.png" w="80%" p-sm/>
 </div>
 
+<div grid="~ cols-2" m-10>
+  <div>
+    <div text-size-3xl bg-red-700 w-35 transform-skew-x-30>
+      <p skew-x--30>Simulation</p>
+    </div>
+<p>
+
+- required to develop algorithms
+- complete introspection
+- require noise modeling
+
+</p>
+  </div>
+  <div>
+    <div text-size-3xl bg-orange-500 w-32 transform-skew-x-30>
+      <p skew-x--30 translate-x--1>Hardware</p>
+    </div>
+<p>
+
+- limited (in many senses)
+- requires calibration
+- final validation
+
+</p>
+  </div>
+</div>
+
+---
+
+# Discrete quantum computing primer
+
+https://indico.cern.ch/event/1395656/ s. 17-25
+
 ---
 clicks: 2
 ---
 
-# Quantum machine learning
-
-
-<div w-full h-full m-t--10 m-b--3 flex="~ justify-center items-center"  class="children:(absolute)">
-  <white-image src="opt-1.png" w="60%" p-sm v-click="[0,1]"/>
-  <white-image src="opt-2.png" w="60%" p-sm v-click="[1,2]"/>
-  <white-image src="opt-3.png" w="60%" p-sm v-click="[2,3]"/>
-</div>
-
-<div text-right c-gray italic>
-  credits M. Robbiati
+<div w-full h-full m-t--2 flex="~ justify-center items-center">
+  <div>
+    <div text-size-5xl bg-indigo-800 w-112 top--46 left--30 transform-skew-x--30 z-1 relative>
+      <h1 skew-x-30 translate-x--3>Quantum machine learning</h1>
+    </div>
+    <div flex="~ justify-center items-center"  class="children:(absolute)">
+      <white-image src="opt-1.png" w="65%" p-sm v-click="[0,1]"/>
+      <white-image src="opt-2.png" w="65%" p-sm v-click="[1,2]"/>
+      <white-image src="opt-3.png" w="65%" p-sm v-click="[2,3]"/>
+    </div>
+    <div text-right c-gray italic top-55 left-30 relative>
+      credits M. Robbiati
+    </div>
+  </div>
 </div>
 
 ---
@@ -128,16 +164,40 @@ generated through digital control electronics with noisy calibrated pulses.
 
 ---
 
-# qPDF
+# qPDF <cite-arxiv aref="2011.13934" inline-block text-sm/>
 
-<cite-arxiv aref="2011.13934" inline-block text-sm/>
+<div/>
 
+The parametrized <span v-mark.underline.orange>**Parton Distribution Functions**</span>
+with multi-qubit variational quantum circuits:
+
+<div grid="~ cols-5" w-full>
+  <div col-span-3>
+
+1. Define a quantum circuit: $\mathcal{U}(\theta, x)\ket{0}^{\otimes n} =
+   \ket{\psi(\theta,x)}$
+2. $\mathcal{U}_w(\alpha, x) = R_z(\alpha_3\log(x)+\alpha_4) R_z(\alpha_1\log(x)+\alpha_2)$
+3. Using $z_i(\theta, x) = \bra{\psi(\theta, x)}Z_i\ket{\psi(\theta, x)}$
+
+$$
+\textrm{qPDF}_i(x, Q_0, \theta) = \frac{1-z_i(\theta, x)}{1+z_i(\theta, x)}
+$$
+
+  </div>
+  <div col-span-2>
+    <white-image src="quantum-pdf-circuit.png" w="70%" p-sm/>
+  </div>
+</div>
+
+<div flex="~ justify-center items-center" w-full m-t-3>
+  <white-image src="quantum-pdf.svg" w="80%" p-xs/>
+</div>
 
 ---
 layout: fact
 ---
 
-*Where we are*
+*Quantum hardware*
 
 ---
 
@@ -167,18 +227,14 @@ They are particularly related to the hardware realizing them...
 Many technologies simultaneously investigated <cite-arxiv aref="2304.14360"
 inline-block text-sm/>
 
-- superconducting
-- ion traps
-- neutral atoms
-- photons
-- spins in semiconductors
-- NV centers in diamonds
-- ...
+<div flex="~ justify-center items-center" w-full>
+  <white-image src="techs.png" w="65%" p-sm/>
+</div>
 
-Each with its own challenges and advantages, and investigated by different research
-groups, including by private companies.
+Pros and cons for each, investigated by different groups, including diverse private
+companies.
 
-Some supports may be optimal for specific applications, and others even for further
+Some optimal for specific applications, others for further
 usage, e.g. quantum memories <cite-arxiv aref="1511.04018"
 inline-block text-sm/>.
 
@@ -212,13 +268,6 @@ qubits, couplers, cross-resonance schemes), so it is a macro-category.
 </div>
 
 Atom computing have been the first to claim >1000 qubits <cite-arxiv aref="2401.16177" inline-block text-sm/>
-
-
----
-layout: fact
----
-
-*Quantum hardware*
 
 ---
 
@@ -258,11 +307,11 @@ layout: full
 ---
 
 <div flex="~ justify-center items-center" w-full h-full m-t--5 m-b-5>
-  <img src="/assets/contributors.png" rounded-xl/>
+  <white-image src="contributors.png" p-lg/>
 </div>
 
 <div text-right italic>
-  Contributors (September 2023)
+  Contributors (March 2024)
 </div>
 
 ---
@@ -359,7 +408,7 @@ clicks: 3
 
 # Automatic differentiation
 
-for quantum machine learning (QML)
+for quantum machine learning <em m-l-7>&rarr; Qiboml</em>
 
 
 <div grid="~ cols-3" m-t-15>
@@ -790,8 +839,16 @@ A due mention
 </div>
 
 ---
+layout: full
+---
 
-# Available routines
+<div flex="~ justify-center" m-t--5 h="110%">
+  <img src="/assets/protocols.png"/>
+</div>
+
+---
+
+# Protocols report
 
 QPU control implementation
 
@@ -833,7 +890,7 @@ layout: none
 layout: none
 ---
 
-<img src="/assets/reports-qutrit.png" h-full w-full/>
+<img src="/assets/reports-fano.png" h-full w-full/>
 
 ---
 layout: end
