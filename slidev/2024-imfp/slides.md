@@ -28,6 +28,64 @@ layout: fact
 
 *A bit of context...*
 
+---
+
+# R&D and adoption of new technologies in HEP
+
+HEP is moving towards new technologies, in particular hardware accelerators
+
+<div flex="~ justify-center items-center" w-full>
+  <white-image src="chips.png" w="70%"/>
+</div>
+
+<div m-y-5 m-l-10>
+  Moving from <span v-mark.underline.red>general purpose devices</span>
+  &rArr;
+  <span v-mark.circle.blue>application specific</span>
+</div>
+
+<div v-click>
+  Examples of initiatives and institutions involved:
+
+  <div flex="~ justify-center items-center gap-sm" w-full>
+    <white-image src="qti.png" h-25 p-sm/>
+    <white-image src="infn.png" h-25 p-sm/>
+    <white-image src="biqute.png" h-25 p-sm/>
+  </div>
+</div>
+
+
+---
+
+::block-component{m="t-20"}
+E.g.
+::
+
+<div flex="~ justify-center items-center" w-full m-t-3 m-b-8>
+  <white-image src="event.png" p-sm w="70%"/>
+</div>
+
+Monte Carlo simulation and data analysis are intensive and requires lots of computing
+power.
+
+----
+
+# Quantum computing for HEP experiments
+
+QC4HEP WG <cite-arxiv aref="2307.03236" inline-block text-sm/>
+
+
+<div grid="~ cols-2" m-y-8 class="children:(flex-(~ justify-center) gap-sm children:(rounded-xl w-80%))">
+  <div>
+    <img src="/assets/qc4hep-ex.png"/>
+  </div>
+  <div>
+    <img src="/assets/qc4hep-th.png"/>
+  </div>
+</div>
+
+Many experimental and theoretical HEP applications are deemed to benefit from quantum
+computation.
 
 ---
 layout: fact
@@ -35,11 +93,45 @@ layout: fact
 
 *Applications*
 
+
 ---
 
 <div flex="~ justify-center items-center" w-full>
-  <WhiteImage src="quantum-computing.png" w="80%"/>
+  <white-image src="quantum-computing.png" w="80%" p-sm/>
 </div>
+
+---
+clicks: 2
+---
+
+# Quantum machine learning
+
+
+<div w-full h-full m-t--10 m-b--3 flex="~ justify-center items-center"  class="children:(absolute)">
+  <white-image src="opt-1.png" w="60%" p-sm v-click="[0,1]"/>
+  <white-image src="opt-2.png" w="60%" p-sm v-click="[1,2]"/>
+  <white-image src="opt-3.png" w="60%" p-sm v-click="[2,3]"/>
+</div>
+
+<div text-right c-gray italic>
+  credits M. Robbiati
+</div>
+
+---
+
+# Remarks
+
+The advantage is mainly in the inference time, and possibly ansatz expressivity.
+
+Quantum computation is naturally based on continuous variables. But in practice they are
+generated through digital control electronics with noisy calibrated pulses.
+
+---
+
+# qPDF
+
+<cite-arxiv aref="2011.13934" inline-block text-sm/>
+
 
 ---
 layout: fact
@@ -159,6 +251,18 @@ layout: full
 
 <div flex="~ justify-center items-center" w-full h-full m-t--5>
   <img src="/assets/qibo_ecosystem_webpage.png" h="90%"/>
+</div>
+
+---
+layout: full
+---
+
+<div flex="~ justify-center items-center" w-full h-full m-t--5 m-b-5>
+  <img src="/assets/contributors.png" rounded-xl/>
+</div>
+
+<div text-right italic>
+  Contributors (September 2023)
 </div>
 
 ---
@@ -677,14 +781,35 @@ in collaboration with **INFN-UNIMIB-BIQUTE**
 
 ---
 
-# Qibocal
+# Qibocal <cite-arxiv aref="2303.10397" inline-block text-sm/>
 
-An owed mention
+A due mention
 
 <div flex="~ justify-center" h="full">
   <img src="/assets/qq_qibocal.svg" h="80%"/>
 </div>
 
+---
+
+# Available routines
+
+QPU control implementation
+
+<div flex="~ justify-around" h="48%" m-t--10 m-b-5>
+  <div m-t-10>
+    <p>CHSH &rarr;</p>
+    <p>Randomized benchmarking &darr;</p>
+    <p w-100>
+      They are two of the routines available in Qibocal, allowing to characterize the
+      QPU performances.
+    </p>
+  </div>
+  <white-image src="chsh.png" w="40%" p-sm/>
+</div>
+
+<div flex="~ justify-center" h="50">
+  <white-image src="rb.png" w-120 p-xs/>
+</div>
 
 <!-- --- -->
 <!-- layout: none -->
@@ -716,40 +841,3 @@ class: text-center
 ---
 
 Thanks
-
----
-
-# Clicks Animations
-
-You can add `v-click` to elements to add a click animation.
-
-<div v-click>
-
-This shows up when you click the slide:
-
-```html
-<div v-click>This shows up when you click the slide.</div>
-```
-
-</div>
-
-<br>
-
-<v-click>
-
-The <span v-mark.red="3"><code>v-mark</code> directive</span>
-also allows you to add
-<span v-mark.circle.orange="4">inline marks</span>
-, powered by [Rough Notation](https://roughnotation.com/):
-
-```html
-<span v-mark.underline.orange>inline markers</span>
-```
-
-</v-click>
-
-<div mt-20 v-click>
-
-[Learn more](https://sli.dev/guide/animations#click-animation)
-
-</div>
