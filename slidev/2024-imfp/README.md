@@ -1,6 +1,18 @@
+# Export
+
+Export with:
+
+```sh
+pnpm export --dark -c
+```
+
+### Broken
+
+The results gallery is apparently broken, since it doesn't show the two full columns,
+and "scrolls" too little.
+
 # Plan
 
-- Personal intro?
 - Quantum platforms
   - gate-based
   - continuous variables

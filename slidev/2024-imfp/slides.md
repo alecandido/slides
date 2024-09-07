@@ -37,8 +37,6 @@ layout: fact
 
 ---
 
-# Quantum computing
-
 <div flex="~ justify-center items-center" w-full>
   <WhiteImage src="quantum-computing.png" w="80%"/>
 </div>
@@ -51,7 +49,52 @@ layout: fact
 
 ---
 
-# Roadmaps
+# Quantum computation
+
+Various models are proposed and explored
+
+<br m-t-5/>
+
+1. discrete gate-based
+2. continuous variable (a.k.a. bosonic)
+3. quantum annealing
+
+<br m-t-5/>
+
+The potential use cases partially overlap, and it is possible to emulate each other (at
+least approximately).
+
+<div text-right m-t-25>
+They are particularly related to the hardware realizing them...
+</div>
+
+---
+
+# Technologies
+
+Many technologies simultaneously investigated <cite-arxiv aref="2304.14360"
+inline-block text-sm/>
+
+- superconducting
+- ion traps
+- neutral atoms
+- photons
+- spins in semiconductors
+- NV centers in diamonds
+- ...
+
+Each with its own challenges and advantages, and investigated by different research
+groups, including by private companies.
+
+Some supports may be optimal for specific applications, and others even for further
+usage, e.g. quantum memories <cite-arxiv aref="1511.04018"
+inline-block text-sm/>.
+
+---
+
+# Superconducting
+
+One of the platforms with most resonance
 
 ::block-component{grid="~ cols-2" w="full" gap="sm"}
   :::block-component{grid-col="start-1 end-2" bg="blue"}
@@ -62,11 +105,45 @@ layout: fact
   :::
 ::
 
+IBM and Google are definitely two prominent players, but superconducting hardware is
+being investigated by a plethora of labs.
+
+Within the scope of this technology, many variations are also possible (flux-tunable
+qubits, couplers, cross-resonance schemes), so it is a macro-category.
+
+---
+
+# Neutral atoms
+
+<div flex="~ justify-center items-center" w-full>
+  <img src="/assets/atom-computing.png" w="60%" rounded-lg/>
+</div>
+
+Atom computing have been the first to claim >1000 qubits <cite-arxiv aref="2401.16177" inline-block text-sm/>
+
+
 ---
 layout: fact
 ---
 
 *Quantum hardware*
+
+---
+
+# Control
+
+Quantum hardware is first of all an exercise in precise control
+
+<div grid="~ cols-2" m-y-8 class="children:(flex-(~ justify-center) gap-sm children:(rounded-xl w-80%))">
+  <div>
+    <img src="/assets/bit-ops.png"/>
+  </div>
+  <div>
+    <img src="/assets/bloch-sphere-rotation.png"/>
+  </div>
+</div>
+
+The quantum operation is supposed to be exact, not within a certain range.
 
 ---
 layout: fact
