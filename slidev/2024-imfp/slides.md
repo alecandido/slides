@@ -91,7 +91,7 @@ computation.
 layout: fact
 ---
 
-*Applications*
+*Recap*
 
 
 ---
@@ -129,9 +129,95 @@ layout: fact
 
 ---
 
-# Discrete quantum computing primer
+# Discrete gates primer
 
-https://indico.cern.ch/event/1395656/ s. 17-25
+***Goal:*** Construct a generic $U(2^n)$ operation based on building blocks
+
+The Hilbert space on which the unitaries act is a strutured as a $\bigotimes$ tensor
+product of $n$ qubits
+
+$$
+\ket{0} = \begin{pmatrix} 1 \\ 0 \end{pmatrix}
+\qquad \qquad \qquad
+\ket{1} = \begin{pmatrix} 0 \\ 1 \end{pmatrix}
+$$
+
+
+<div grid="~ cols-7" m-10>
+  <div col-span-4 flex="~ col justify-center">
+the generic qubit state is:
+
+$$
+\ket{\psi} = \alpha \ket{0} + \beta \ket{1}
+\qquad
+\mathrm{with}~~ |\alpha|^2 + |\beta|^2 = 1
+$$
+
+and it can be visualized as a point on the Bloch sphere
+
+$$
+\alpha = \cos{\theta/2}
+\qquad
+\beta = e^{-i\phi}\sin{\theta/2}
+$$
+  </div>
+  <div col-span-3 flex="~ justify-center">
+      <white-image src="bloch-sphere.svg" w="65%" p-sm/>
+  </div>
+</div>
+
+---
+
+# Multiple qubit state
+
+Graphical representation
+
+---
+
+# Gate
+
+Stefano's slide
+
+Mention universal sets (multiple ones exist, minimal: if one is missing is not universal
+any longer - number og gates present may vary).
+
+---
+
+# Circuit
+
+Unitary - but measurements.
+
+---
+
+# Parametrized gates
+
+RX example, mention GPI/GPI2 for later
+
+Relevant for QML
+
+---
+
+# Two-qubit gates
+
+CNOT/CZ
+
+This is an interaction!
+
+---
+
+# Measurement
+
+The non-unitarity of the measurement operation is very relevant.
+
+---
+
+# Noise and channels
+
+---
+layout: fact
+---
+
+*Applications*
 
 ---
 clicks: 2
@@ -155,12 +241,20 @@ clicks: 2
 
 ---
 
-# Remarks
+# QML - remarks
 
-The advantage is mainly in the inference time, and possibly ansatz expressivity.
+A classical function being clasically optimized.
+
+$$
+f(\bar{\theta}) = \bra{0} U(\bar{\theta}) \ket{0} \quad: \quad \mathbb{R} \to \mathbb{R}
+$$
+
+If a first-order method used, gradient calculation may be "quantum-aware" (PSR).
+
+The advantage is mainly in the inference time, and possibly ansatz expressivity <ph-clock/>.
 
 Quantum computation is naturally based on continuous variables. But in practice they are
-generated through digital control electronics with noisy calibrated pulses.
+generated through digital control electronics with noisy calibrated pulses <ph-pulse/>.
 
 ---
 
@@ -280,7 +374,9 @@ Quantum hardware is first of all an exercise in precise control
     <img src="/assets/bit-ops.png"/>
   </div>
   <div>
-    <img src="/assets/bloch-sphere-rotation.png"/>
+    <div bg-white flex="~ col justify-center">
+      <img src="/assets/bloch-sphere-rotation.png" h="90%"/>
+    </div>
   </div>
 </div>
 
@@ -291,6 +387,8 @@ layout: fact
 ---
 
 *Qibo*
+
+*- Your quantum workhorse -*
 
 ---
 layout: full
@@ -324,43 +422,6 @@ Execution
 
 ---
 
-# State vector
-
-Preserve whole information.
-
-<div grid="~ cols-2" h="full" gap="lg" p="sm t-10 b-20" class="children:(flex-(~ col) p-sm)">
-<div bg="dark:red-950 red-200">
-
-<div flex="~ row justify-center" m="t-5 b-20">
-
-### Challenges
-
-</div>
-
-- linear algebra
-    - *i.e. array library*
-- performances
-- memory management
-
-</div>
-<div bg="dark:blue-950 blue-200">
-
-<div flex="~ row justify-center" m="t-5 b-20">
-
-### Approach
-
-</div>
-
-Adopt **widespread** and **optimized frameworks**, to benefit from their expertise
-(*software reuse*).
-
-**Chisel the last layer** on top of each framework, to mold it on our use case.
-
-</div>
-</div>
-
----
-
 # Backends mechanism
 
 Plug the framework.
@@ -374,27 +435,17 @@ Structure the integration of the various libraries.
 Common operations are implemented once and reused (when possible).
 
 ---
-clicks: 3
----
 
 # Results <cite-arxiv aref="2203.08826 " text-sm/>
-
-<div m--60 v-if="$slidev.nav.clicks === 1"/>
-<div m--120 v-if="$slidev.nav.clicks === 2"/>
-<div m--180 v-if="$slidev.nav.clicks === 3" />
 
 <div h="full" grid="~ cols-2" gap="sm" class="children:(flex-(~ col) gap-sm children:(rounded-md p-sm bg-white))">
   <div>
     <img src="/assets/qj_qft.svg"/>
     <img src="/assets/qj_dry_vs_sim.svg"/>
-    <img src="/assets/qj_qft_gpus.svg"/>
-    <img src="/assets/qj-grace-managed.png"/>
   </div>
   <div>
     <img src="/assets/qj_multigpu.svg"/>
     <img src="/assets/qj_evol.svg"/>
-    <img src="/assets/qj-grace-cpu.png"/>
-    <img src="/assets/qj-grace-cupy.png"/>
   </div>
 </div>
 
@@ -629,6 +680,19 @@ clicks: 1
 <p absolute top="55%" left="25%" text-15 font-600 rotate--30 c-red-700 v-click="1">Work in progress</p>
 
 ---
+
+# Transpilation
+
+A bridge to hardware
+
+It involves:
+- optimization
+- routing
+- reduction to native set
+
+&rarr; then a compiler to pulses is needed
+
+---
 layout: image-left
 image: /assets/qrc-lab.png
 ---
@@ -645,6 +709,18 @@ image: /assets/qrc-lab.png
 Quantum control
 
 </div>
+
+---
+
+# Execution flow
+
+- circuit definition
+- transpilation + compilation
+- device upload
+- pulse synthetization
+- possible modulation (DC vs IQ channels)
+- outer amplification
+- inner attenuation (refrigerator diagram with attenuators and circulators)
 
 ---
 transition: abrupt
@@ -848,6 +924,15 @@ layout: full
 
 ---
 
+# Basic examples
+
+Finding frequencies: spectroscopies | Calibrate the pi-pulse: Rabi
+
+(possibly with pictures: a scan/sweep pictorial representation for the first, the bloch
+sphere for the second)
+
+---
+
 # Protocols report
 
 QPU control implementation
@@ -857,8 +942,9 @@ QPU control implementation
     <p>CHSH &rarr;</p>
     <p>Randomized benchmarking &darr;</p>
     <p w-100>
-      They are two of the routines available in Qibocal, allowing to characterize the
-      QPU performances.
+      They are two of the routines available in Qibocal, allowing to <span
+        v-mark.highlight.red="1">validate</span> the QPU <span
+        v-mark.highlight.red="1">performances</span>.
     </p>
   </div>
   <white-image src="chsh.png" w="40%" p-sm/>
