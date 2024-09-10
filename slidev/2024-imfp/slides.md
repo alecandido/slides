@@ -168,24 +168,136 @@ $$
 
 ---
 
-# Multiple qubit state
+# Example gates: Pauli
 
-Graphical representation
+<div grid="~ cols-2 gap-sm" w-full m-t-10 class="
+  children:first:children:children:(m-0! p-2)
+  children:children:children:c-black
+  first:children:children:(b-(dashed 4) m-b-5)
+  not-first:children:children:(w-full p-3 rounded)
+  children:(flex-(~ col items-center) w-full)">
+  <div>
+<div b="emerald600" class="first:children:bg-emerald200">
+
+$X$ gate
+
+</div>
+<div bg-emerald100>
+
+The $X$ gate acts like the classical $NOT$ gate, it is represented by the $\sigma_x$
+matrix,
+
+$$
+\sigma_x = \begin{pmatrix}0 & 1 \\ 1 & 0\end{pmatrix}
+$$
+
+therefore
+
+$$
+\ket{0} \longrightarrow \ket{1} \\
+\ket{1} \longrightarrow \ket{0}
+$$
+
+</div>
+  </div>
+  <div>
+<div b="fuchsia" w-fit class="first:children:bg-fuchsia200">
+
+$Z$ gate
+
+</div>
+<div bg-fuchsia100>
+
+The $Z$ gate flips the sign of $\ket{1}$, it is represented by the $\sigma_z$
+matrix,
+
+$$
+\sigma_z = \begin{pmatrix}1 & 0 \\ 0 & -1\end{pmatrix}
+$$
+
+therefore
+
+$$
+\ket{0} \longrightarrow \ket{0} \\
+\ket{1} \longrightarrow -\ket{1}
+$$
+
+</div>
+  </div>
+</div>
 
 ---
+layout: image-right
+image: /assets/gates.png
+---
 
-# Gate
 
-Stefano's slide
+<div w-full flex="~ col items-center" class="
+  children:children:children:(c-teal-600 dark:c-teal-400)
+  not-first:children:children:children:(italic text-sm)
+  ">
+  <div>
+    <div>
+      <ph-dice-one/> Single-qubit gates
+<p>
 
-Mention universal sets (multiple ones exist, minimal: if one is missing is not universal
-any longer - number og gates present may vary).
+These are operations on the Bloch sphere
+
+</p>
+    </div>
+    <div>
+      <ph-dice-two/> Two-qubit gates
+<p>
+
+The building-block interactions
+
+</p>
+    </div>
+    <div>
+      <ph-dice-six/> Multi-qubit gates
+<p>
+
+Higher-level instructions for algorithms
+
+</p>
+    </div>
+  </div>
+</div>
+
+<p p-t-5 p-b-3>
+<aim/>
+  Define a <span v-mark.highlight.green>universal</span> gate set
+</p>
+
+<p text-sm>
+
+- <span c-green-700 dark:c-green-300 font-bold>universality</span> means it can generate all unitarities
+- possibly <span c-green-600 font-bold>redundant</span>, since it may be efficient to execute
+- <span c-green-600 font-bold>multiple</span> implementations, related to diverse hardware
+
+Gates could be variously parametrized, so there exists universal sets made beyond
+
+</p>
 
 ---
 
 # Circuit
 
 Unitary - but measurements.
+
+<div m-10/>
+
+Circuit are a way to compose gates to build unitaries, sequentially
+
+<div w-full flex="~ justify-center">
+  <white-image src="circuit-composition.png" p-sm/>
+</div>
+
+or in parallel
+
+<div w-full flex="~ justify-center">
+  <white-image src="circuit-parallel.png" p-sm/>
+</div>
 
 ---
 
@@ -211,7 +323,54 @@ The non-unitarity of the measurement operation is very relevant.
 
 ---
 
+<div grid="~ cols-2 gap-xl" w-full h-full>
+<div>
+
 # Noise and channels
+Non-unitary operations model
+
+<br/>
+
+Instead of acting over a <span v-mark.cross.blue>state vector</span>, the state will be
+tracked by a <span v-mark.highlight.red>density matrix</span>
+
+$$
+\ket{\psi} \quad\longrightarrow\quad \rho \quad\left(~\sim \ket{\psi}\bra{\psi}~\right)
+$$
+
+This makes possible to track phenomena like <span
+v-mark.underline.red="2">decoherence</span>, which has not a unitary action on the state.
+
+<br>
+
+Another option is to exploit measurement non-unitarity, and represent the noise through
+<span v-mark="{'type': 'underline', 'color': '#f87171', 'multiline': 'true', 'at': 2}">*repeated execution*</span>.
+
+</div>
+<div flex="~ col justify-center" h-full m-l-5>
+
+- Kraus
+
+$$
+\Phi(\rho) = \sum_i B_i \rho B_i^*
+$$
+
+- Stinespring
+
+$$
+U_{0} = \sum_{\alpha} K_{\alpha} \otimes \ket{\alpha}\bra{v_{0}}
+$$
+
+- Choi
+
+$$
+\Lambda = | U \rangle\rangle \langle\langle U |
+$$
+
+- Liouville, Quantum networks, ...
+
+</div>
+</div>
 
 ---
 layout: fact
@@ -225,7 +384,7 @@ clicks: 2
 
 <div w-full h-full m-t--2 flex="~ justify-center items-center">
   <div>
-    <div text-size-5xl bg-indigo-800 w-112 top--46 left--30 transform-skew-x--30 z-1 relative>
+    <div text-size-5xl bg-indigo-200 dark:bg-indigo-800 w-112 top--46 left--30 transform-skew-x--30 z-1 relative>
       <h1 skew-x-30 translate-x--3>Quantum machine learning</h1>
     </div>
     <div flex="~ justify-center items-center"  class="children:(absolute)">
@@ -241,32 +400,87 @@ clicks: 2
 
 ---
 
-# QML - remarks
+<h1>
+QML -
+<div inline-block text-size-5xl bg-fuchsia-300 dark:bg-fuchsia-800 w-40 transform-skew-x-40 m-l-4>
+  <div inline-block skew-x--40 translate-x--3>remarks</div>
+</div>
+</h1>
 
 A classical function being clasically optimized.
 
+<div flex="~ justify-around gap-xl" m-x-5>
+<div flex="~ col justify-around" m-l-10>
+
 $$
-f(\bar{\theta}) = \bra{0} U(\bar{\theta}) \ket{0} \quad: \quad \mathbb{R} \to \mathbb{R}
+\bar{y}_{est}(\bar{\theta}) = \bra{0} U(\bar{\theta}) \ket{0} \quad: \quad \mathbb{R}^n \to \mathbb{R}^m
 $$
 
-If a first-order method used, gradient calculation may be "quantum-aware" (PSR).
+<div flex="~ justify-around">
+<div>
+If a first-order optimization <ph-rocket-launch/> method used, gradient calculation may be 
+"quantum-aware" (PSR).
+</div>
+<div flex="~ col justify-around" text-2xl>
+&rarr;
+</div>
+</div>
 
-The advantage is mainly in the inference time, and possibly ansatz expressivity <ph-clock/>.
+</div>
+<div m-l-10>
+  <white-image src="psr.png" p-3 h-55 aspect-2/>
+</div>
+</div>
 
-Quantum computation is naturally based on continuous variables. But in practice they are
-generated through digital control electronics with noisy calibrated pulses <ph-pulse/>.
+<div grid="~ cols-2" class="
+  first:children:children:(flex-(~ row justify-center) text-10)"
+  m-t-5
+>
+  <div>
+    <div>
+      <ph-clock/>
+    </div>
+<div>
+
+The advantage is mainly in the <span v-mark.highlight.blue="1">inference time</span>, and
+possibly ansatz expressivity.
+
+</div>
+  </div>
+
+  <div>
+    <div>
+      <ph-pulse/>
+    </div>
+<div>
+
+Quantum computation is naturally based on 
+<span v-mark.underline.blue="1">continuous variables</span>.
+But in practice they are generated through digital control electronics with
+<span v-mark.highlight.red="1">noisy calibrated pulses</span>
+
+</div>
+  </div>
+</div>
 
 ---
 
 # qPDF <cite-arxiv aref="2011.13934" inline-block text-sm/>
 
-<div/>
+<p>
+  <aim/> Parametrize 
+  <span v-mark.underline.orange font-bold italic>Parton Distribution Functions (PDF)</span>
+  with multi-qubit variational quantum circuits
+</p>
 
-The parametrized <span v-mark.underline.orange>**Parton Distribution Functions**</span>
-with multi-qubit variational quantum circuits:
+<div flex="~ justify-around" w-full m-t--1>
+  <div>
 
-<div grid="~ cols-5" w-full>
-  <div col-span-3>
+<p m-1>
+  <ph-lightning c-yellow/>
+  <span v-mark.highlight.yellow c-gray900>Algorithm’s summary</span>:
+</p>
+<div text-sm>
 
 1. Define a quantum circuit: $\mathcal{U}(\theta, x)\ket{0}^{\otimes n} =
    \ket{\psi(\theta,x)}$
@@ -277,14 +491,57 @@ $$
 \textrm{qPDF}_i(x, Q_0, \theta) = \frac{1-z_i(\theta, x)}{1+z_i(\theta, x)}
 $$
 
+</div>
   </div>
-  <div col-span-2>
-    <white-image src="quantum-pdf-circuit.png" w="70%" p-sm/>
+  <div w="40%" m-t--3>
+    <white-image src="quantum-pdf-circuit.png" w="80%" m-5 p-sm/>
   </div>
 </div>
 
-<div flex="~ justify-center items-center" w-full m-t-3>
-  <white-image src="quantum-pdf.svg" w="80%" p-xs/>
+<div flex="~ justify-center items-center" w-full m-t-2>
+  <white-image src="quantum-pdf.svg" w="75%" p-3/>
+</div>
+
+---
+
+# Density estimation with adiabatic QML <cite-arxiv aref="2303.11346" inline-block text-sm/>
+
+<p>
+  <aim/> Determining
+  <span v-mark.underline.orange font-bold italic>Probability Density Functions (PDF)</span>
+</p>
+
+<div grid="~ cols-5" m-t--2>
+  <div col-span-3>
+
+by fitting the corresponding Cumulative Density Function
+(CDF) using an adiabatic QML ansatz.
+
+<div m-y-14/>
+
+<p>
+  <ph-lightning c-yellow/>
+  <span v-mark.highlight.yellow c-gray900>Algorithm’s summary</span>:
+</p>
+
+<div m-5 text-sm>
+
+1. Optimize the parameters $\bar{\theta}$ using adiabatic evolution:
+    $H_{ad}(\tau ; \bar{\theta}) = [1 − s(\tau ; \bar{\theta})] \hat{X} + s(\tau ; \bar{\theta}) \hat{Z}$
+    in order to approximate some target CDF values
+2. Derivate from $H_{ad}$ a circuit $\mathcal{C}(\tau ; \bar{\theta})$ whose action on
+    the ground state of $\hat{X}$ returns $\ket{\psi(\tau)}$
+3. The circuit at step 2 can be used to calculate the CDF
+4. Compute the PDF by derivating $\mathcal{C}$ with respect to $\tau$ using the Parameter Shift Rule
+
+</div>
+
+  </div>
+  <div col-span-2 m-t--5 p-x-8>
+
+<white-image src="adiabatic.png" p-2 h-110/>
+
+  </div>
 </div>
 
 ---
@@ -322,8 +579,10 @@ Many technologies simultaneously investigated <cite-arxiv aref="2304.14360"
 inline-block text-sm/>
 
 <div flex="~ justify-center items-center" w-full>
-  <white-image src="techs.png" w="65%" p-sm/>
+  <white-image src="techs.png" w="65%" p-2/>
 </div>
+
+<div m-t-5 m-l-10 class="children:(text-sm m-y-1!)">
 
 Pros and cons for each, investigated by different groups, including diverse private
 companies.
@@ -331,6 +590,8 @@ companies.
 Some optimal for specific applications, others for further
 usage, e.g. quantum memories <cite-arxiv aref="1511.04018"
 inline-block text-sm/>.
+
+</div>
 
 ---
 
@@ -440,12 +701,12 @@ Common operations are implemented once and reused (when possible).
 
 <div h="full" grid="~ cols-2" gap="sm" class="children:(flex-(~ col) gap-sm children:(rounded-md p-sm bg-white))">
   <div>
-    <img src="/assets/qj_qft.svg"/>
-    <img src="/assets/qj_dry_vs_sim.svg"/>
+<img src="/assets/qj_qft.svg"/>
+<img src="/assets/qj_dry_vs_sim.svg"/>
   </div>
   <div>
-    <img src="/assets/qj_multigpu.svg"/>
-    <img src="/assets/qj_evol.svg"/>
+<img src="/assets/qj_multigpu.svg"/>
+<img src="/assets/qj_evol.svg"/>
   </div>
 </div>
 
@@ -918,8 +1179,19 @@ A due mention
 layout: full
 ---
 
-<div flex="~ justify-center" m-t--5 h="110%">
-  <img src="/assets/protocols.png"/>
+<div grid="~ cols-7">
+  <div flex="~ justify-center" m-t--5 h-full col-span-5>
+    <img src="/assets/protocols.png"/>
+  </div>
+<div col-span-2 flex="~ col justify-around items-center">
+
+- <span v-mark.highlight.blue="1">characterize</span> the hardware
+
+- <span v-mark.highlight.green="1">calibrate</span> control
+
+- <span v-mark.highlight.red="1">validate</span> performances
+
+</div>
 </div>
 
 ---
@@ -977,6 +1249,38 @@ layout: none
 ---
 
 <img src="/assets/reports-fano.png" h-full w-full/>
+
+---
+
+# *-- Made by people*
+
+<div flex="~ wrap gap-10 gap-y-5" m-t-10 m-l-5 class="children:(w-32 h-32 rounded-full)">
+<div flex="~ justify-center items-center">
+  <img src="/assets/stefano.png" w-40 h-40 absolute/>
+</div>
+<img src="/assets/stavros.png"/>
+<img src="/assets/sergi.png"/>
+<img src="/assets/andrea.png"/>
+<img src="/assets/edoardo.png"/>
+<img src="/assets/paul.png"/>
+<img src="/assets/alvaro.png"/>
+<img src="/assets/david.png"/>
+<img src="/assets/juan.png"/>
+<img src="/assets/rodolfo.jpg"/>
+<img src="/assets/renato.png"/>
+<div flex="~ justify-center items-center">
+  <img src="/assets/andrea-pap.png" w-28 h-28 rounded-full/>
+</div>
+<div flex="~ justify-center items-center">
+  <img src="/assets/matteo.jpg" w-24 h-24 rounded-full/>
+</div>
+<div flex="~ justify-center items-center">
+  <img src="/assets/simone.png" w-20 h-20/>
+</div>
+<div flex="~ justify-center items-center">
+  <img src="/assets/gabriele.png" w-17 h-17/>
+</div>
+</div>
 
 ---
 layout: end
