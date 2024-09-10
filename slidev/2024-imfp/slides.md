@@ -229,8 +229,10 @@ $$
 ---
 layout: image-right
 image: /assets/gates.png
+class: z-1
 ---
 
+<div absolute z--1 top-0 left-0 w-full h-full backdrop="blur-1.5 brightness-80"/>
 
 <div w-full flex="~ col items-center" class="
   children:children:children:(c-teal-600 dark:c-teal-400)
@@ -287,39 +289,171 @@ Unitary - but measurements.
 
 <div m-10/>
 
-Circuit are a way to compose gates to build unitaries, sequentially
+Circuit are a way to compose gates to build unitaries, ***sequentially***
 
-<div w-full flex="~ justify-center">
+<div w-full flex="~ justify-center" m-5>
   <white-image src="circuit-composition.png" p-sm/>
 </div>
 
-or in parallel
+or in ***parallel***
 
-<div w-full flex="~ justify-center">
+<div w-full flex="~ justify-center" m-5>
   <white-image src="circuit-parallel.png" p-sm/>
 </div>
 
 ---
 
-# Parametrized gates
+<div text-size-5xl bg-rose-200 dark:bg-rose-800 transform-skew-x-30 w-50>
+  <h1 skew-x--30 w-100>Parametrized gate</h1>
+</div>
 
-RX example, mention GPI/GPI2 for later
+<div m-x-30 m-y-10 rounded shadow-xl shadow-gray-300 dark:shadow-gray-700>
+  <h4 
+    rounded-t p-1 p-x-5 z-1 relative
+    c-black italic font-bold bg-gradient="to-rb from-rose-300 to-rose-400">
+  Rotations gates (Bloch sphere)
+  </h4>
+  <div 
+    flex="~ justify-between"
+    b="1 rose-400" m-t--1 p-0 rounded-b>
+<div p-3 flex="~ col justify-center" text-sm>
 
-Relevant for QML
+$$
+R_y(\theta) \equiv e^{-i \theta \frac{\sigma_y}{2}}
+= \begin{pmatrix}
+\cos(\theta/2) & -\sin(\theta/2) \\
+\sin(\theta/2) & \cos(\theta/2) 
+\end{pmatrix}
+$$
+
+Note that $R_y(\pi) \equiv Y$.
+
+Every unitary transformation as decomposed in rotations (*Euler's angles*)
+</div>
+    <img src="/assets/bloch-sphere-rotation.png" max-w-65 p-y-2 bg-white rounded-br/>
+  </div>
+</div>
+
+Other parameters are possible: $GPI$ and $GPI2$ parametrize the position of the axis,
+multi-qubit gates can paramterize complex interactions, ...
+
+<div m-7/>
+
+Having parameters, it opens the door to
+<span v-mark.underline.red>optimization <ph-rocket-launch c-rose/></span>
+&rarr; i.e. quantum machine learning (QML)
 
 ---
 
-# Two-qubit gates
+<div text-size-5xl bg-purple-200 dark:bg-purple-800 transform-skew-x--30 w-40>
+  <h1 skew-x-30 w-100>Two-qubit gate</h1>
+</div>
+<h1/>
 
-CNOT/CZ
+The atoms of interaction
 
-This is an interaction!
+
+<div m-x-30 m-b-10 rounded shadow-xl shadow-gray-300 dark:shadow-gray-700>
+  <h4 
+    rounded-t p-1 p-x-5 z-1 relative
+    c-black italic font-bold bg-gradient="to-rb from-purple-300 to-purple-400">
+  Controlled gates (conditionals)
+  </h4>
+  <div 
+    flex="~ justify-between"
+    b="1 purple-400" m-t--1 p-0 rounded-b>
+  <div p-t-5 p-l-5 text-sm flex="~ justify-between">
+<div w="60%">
+The controlled-$NOT$ ($CNOT$) gate is a conditional gate defined as
+
+$$
+CNOT \equiv \begin{pmatrix}
+1 & 0 \\
+0 & \sigma_x
+\end{pmatrix}
+$$
+
+We define a control qubit which, if at $\ket{1}$, applies $X$ to a target qubit.
+</div>
+<div p-5>
+    <div m-l-3 m-t--5>
+      <span c="#98c">control</span>
+      <br/>
+      <span c="#c49">target</span>
+    </div>
+
+$$
+\ket{\textcolor{#98c}{0}\textcolor{#c49}{0}} \to \ket{\textcolor{#98c}{0}\textcolor{#c49}{0}}
+\qquad 
+\ket{\textcolor{#98c}{0}\textcolor{#c49}{1}} \to \ket{\textcolor{#98c}{0}\textcolor{#c49}{1}}
+$$
+$$
+\ket{\textcolor{#98c}{1}\textcolor{#c49}{0}} \to \ket{\textcolor{#98c}{1}\textcolor{#c49}{1}}
+\qquad 
+\ket{\textcolor{#98c}{1}\textcolor{#c49}{1}} \to \ket{\textcolor{#98c}{1}\textcolor{#c49}{0}}
+$$
+
+</div>
+    </div>
+  </div>
+</div>
+
+<div flex="~ justify-around" h-30 m-10>
+<div flex="~ col justify-center items-center" h-full w-full>
+
+Multi-qubit gates allow entangling states
+
+</div>
+<div>
+  <white-image src="bell-state.png" w-80 p-2 m-t--5 z--1 class="dark:z-1" relative/>
+</div>
+</div>
 
 ---
 
-# Measurement
+<div text-size-5xl bg-indigo-200 dark:bg-indigo-800 transform-skew-x-30 w-50>
+  <h1 skew-x--30 w-100>Measurement</h1>
+</div>
+<h1/>
 
-The non-unitarity of the measurement operation is very relevant.
+The non-unitary gate *that you have*
+
+<div m-l-10>
+Measurements are special gates, in two ways:
+
+<div m-l-10 m-y-3>
+
+1. it is the only operation that allows to extract information
+2. it is the only non-unitary gate
+
+</div>
+</div>
+<div m-x-30 m-y-5 rounded shadow-xl shadow-gray-300 dark:shadow-gray-700>
+  <h4 
+    rounded-t p-1 p-x-5 z-1 relative
+    c-black italic font-bold bg-gradient="to-rb from-indigo-300 to-indigo-400">
+  Shots
+  </h4>
+  <div 
+    flex="~ justify-between"
+    b="1 indigo-400" m-t--1 p-0 rounded-b>
+  <div p-l-5 text-sm flex="~ justify-between">
+<div w="60%">
+
+(Module of) amplitudes of the final states are derived by repeating the experiment many
+times identically, performing many *shots*.
+
+<div flex="~ justify-center" w-full m-t--2>
+  <white-image src="measurement.png" w="45%" p-1/>
+</div>
+
+</div>
+<div>
+  <white-image src="frequencies.png" p-0 h-50 rounded="0! br!"/>
+</div>
+    </div>
+  </div>
+</div>
 
 ---
 
@@ -608,8 +742,10 @@ One of the platforms with most resonance
   :::
 ::
 
-IBM and Google are definitely two prominent players, but superconducting hardware is
-being investigated by a plethora of labs.
+<p>
+<brand>IBM</brand> and <brand>Google</brand> are definitely two prominent players, but
+superconducting hardware is being investigated by a plethora of labs.
+</p>
 
 Within the scope of this technology, many variations are also possible (flux-tunable
 qubits, couplers, cross-resonance schemes), so it is a macro-category.
@@ -618,11 +754,13 @@ qubits, couplers, cross-resonance schemes), so it is a macro-category.
 
 # Neutral atoms
 
-<div flex="~ justify-center items-center" w-full>
+<div flex="~ justify-center items-center" w-full m-y-5>
   <img src="/assets/atom-computing.png" w="60%" rounded-lg/>
 </div>
 
-Atom computing have been the first to claim >1000 qubits <cite-arxiv aref="2401.16177" inline-block text-sm/>
+<p>
+<brand>Atom computing</brand> have been the first to claim >1000 qubits <cite-arxiv aref="2401.16177" inline-block text-sm/>
+</p>
 
 ---
 
@@ -1007,7 +1145,7 @@ flowchart LR
 </div>
 
 <div grid="~ cols-2 rows-3" h="65%" gap-sm p="sm t-0">
-<div row-span-2>
+<div row-span-2 m-t--2>
 
 The **<span underline>input</span>** for a computation could be very standard, at the
 level of a **circuit**.
@@ -1018,7 +1156,7 @@ hardware, and these are defined by <span underline>Qibolab</span>.
 
 </div>
 <div col-start-1>
-    Pulse sequence plot (from notebook?)
+    <white-image src="sequence.png" p-y-0 p-x-10 m-t--6 h-40 w-fit/>
 </div>
 <div row-span-3 row-start-1 col-start-2>
 
@@ -1252,7 +1390,7 @@ layout: none
 
 ---
 
-# *-- Made by people*
+# *--- Not a one-man show...*
 
 <div flex="~ wrap gap-10 gap-y-5" m-t-10 m-l-5 class="children:(w-32 h-32 rounded-full)">
 <div flex="~ justify-center items-center">
@@ -1280,6 +1418,9 @@ layout: none
 <div flex="~ justify-center items-center">
   <img src="/assets/gabriele.png" w-17 h-17/>
 </div>
+<!-- <div flex="~ justify-center items-center"> -->
+<!--   <img src="/assets/alejandro.jpg" w-14 h-14 rounded-full/> -->
+<!-- </div> -->
 </div>
 
 ---
