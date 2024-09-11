@@ -232,7 +232,8 @@ image: /assets/gates.png
 class: z-1
 ---
 
-<div absolute z--1 top-0 left-0 w-full h-full backdrop="blur-1.5 brightness-80"/>
+<div absolute z--1 top-0 left-0 w-full h-full
+  backdrop="blur-1.5 hover:blur-0 brightness-80 hover:brightness-90"/>
 
 <div w-full flex="~ col items-center" class="
   children:children:children:(c-teal-600 dark:c-teal-400)
@@ -633,7 +634,7 @@ $$
 </div>
 
 <div flex="~ justify-center items-center" w-full m-t-2>
-  <white-image src="quantum-pdf.svg" w="75%" p-3/>
+  <white-image src="quantum-pdf.svg" w="75%" p-3 rounded-sm/>
 </div>
 
 ---
@@ -1082,14 +1083,76 @@ clicks: 1
 
 # Transpilation
 
-A bridge to hardware
+\-- the bridge to hardware
 
-It involves:
-- optimization
-- routing
-- reduction to native set
+<div grid="~ rows-2 cols-2 gap-xs" w-full h-95
+  class="children:(p-2 bg-opacity-30 rounded-lg)
+  ">
+<div bg-red>
+<h2 bg-red>Optimization</h2>
 
-&rarr; then a compiler to pulses is needed
+<div m-t-10 w="100%" flex="~ justify-center items-center">
+
+````js
+   ┌───┐┌───┐┌───┐     ┌───┐
+q: ┤ H ├┤ H ├┤ H ├  =  ┤ H ├
+   └───┘└───┘└───┘     └───┘
+````
+
+</div>
+  </div>
+  <div bg-orange>
+    <h2 bg-orange>Routing</h2>
+<div m-t-3 w="100%" flex="~ justify-center items-center">
+
+````js
+                          q0: ──■──     ─X──────
+ ┌────┐┌────┐┌────┐             │        │      
+ ┤ q0 ├┤ q1 ├┤ q2 ├  ···  q1: ──┼──  =  ─X───■──
+ └────┘└────┘└────┘           ┌─┴─┐        ┌─┴─┐
+                          q2: ┤ X ├     ───┤ X ├
+                              └───┘        └───┘
+````
+
+  </div>
+</div>
+<div bg-yellow>
+<h2 bg-yellow>Decomposition (to natives)</h2>
+
+Final assembly *lowering*.
+
+<div m-t-4 w="100%" flex="~ justify-center items-center">
+
+````js
+   ┌───┐     ┌───┐┌───────────┐
+q: ┤ H ├  =  ┤ Z ├┤ GPI2(π/2) ├
+   └───┘     └───┘└───────────┘
+````
+
+</div>
+
+</div>
+<div flex="~ justify-center items-center" left-20 relative>
+&rarr; <h2>compilation</h2>
+<span text-sm m-x-8/>
+<ph-pulse c-indigo text-3/>
+<ph-pulse c-fuchsia text-4/><ph-pulse c-rose text-5/><ph-pulse c-fuchsia text-3/>
+<ph-pulse c-violet/> <ph-pulse c-indigo text-6/><ph-pulse c-fuchsia/>
+<ph-pulse c-rose text-3/>
+</div>
+</div>
+
+<p absolute left-30 bottom-2 w-120 text-xs opacity-50 italic m="0!" line-height="4!">
+*simplicity is not well-defined, as in Mathematica and <code>gcc</code>
+<span m-l-4 m-r-2>&rarr;</span> heuristics involved!
+</p>
+
+<style>
+.grid h2 {
+  font-variant: small-caps;
+  @apply text-lg p-x-4 bg-opacity-50 rounded
+}
+</style>
 
 ---
 layout: image-left
@@ -1113,13 +1176,21 @@ Quantum control
 
 # Execution flow
 
-- circuit definition
-- transpilation + compilation
-- device upload
-- pulse synthetization
-- possible modulation (DC vs IQ channels)
-- outer amplification
-- inner attenuation (refrigerator diagram with attenuators and circulators)
+
+<div flex="~ justify-center" w-full h="90%">
+  <img src="/assets/qc-exec-flow.jpg" rounded/>
+</div>
+
+
+<!--
+circuit definition
+transpilation + compilation
+device upload
+pulse synthetization
+possible modulation (DC vs IQ channels)
+outer amplification
+inner attenuation (refrigerator diagram with attenuators and circulators)
+-->
 
 ---
 transition: abrupt
