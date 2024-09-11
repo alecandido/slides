@@ -1,6 +1,6 @@
 ---
 theme: default
-background: /assets/cover.png
+background: /cover.png
 title: Qibo
 class: text-center
 transition: slide-left
@@ -77,10 +77,10 @@ QC4HEP WG <cite-arxiv aref="2307.03236" inline-block text-sm/>
 
 <div grid="~ cols-2" m-y-8 class="children:(flex-(~ justify-center) gap-sm children:(rounded-xl w-80%))">
   <div>
-    <img src="/assets/qc4hep-ex.png"/>
+    <img src="/qc4hep-ex.png"/>
   </div>
   <div>
-    <img src="/assets/qc4hep-th.png"/>
+    <img src="/qc4hep-th.png"/>
   </div>
 </div>
 
@@ -228,7 +228,7 @@ $$
 
 ---
 layout: image-right
-image: /assets/gates.png
+image: /gates.png
 class: z-1
 ---
 
@@ -331,7 +331,7 @@ Note that $R_y(\pi) \equiv Y$.
 
 Every unitary transformation as decomposed in rotations (*Euler's angles*)
 </div>
-    <img src="/assets/bloch-sphere-rotation.png" max-w-65 p-y-2 bg-white rounded-br/>
+    <img src="/bloch-sphere-rotation.png" max-w-65 p-y-2 bg-white rounded-br/>
   </div>
 </div>
 
@@ -739,10 +739,10 @@ One of the platforms with most resonance
 
 ::block-component{grid="~ cols-2" w="full" gap="sm"}
   :::block-component{grid-col="start-1 end-2" bg="blue"}
-    <img src="/assets/roadmap-ibm.png"/>
+    <img src="/roadmap-ibm.png"/>
   :::
   :::block-component{grid-col="start-2" bg="purple"}
-    <img src="/assets/roadmap-google.png"/>
+    <img src="/roadmap-google.png"/>
   :::
 ::
 
@@ -759,7 +759,7 @@ qubits, couplers, cross-resonance schemes), so it is a macro-category.
 # Neutral atoms
 
 <div flex="~ justify-center items-center" w-full m-y-5>
-  <img src="/assets/atom-computing.png" w="60%" rounded-lg/>
+  <img src="/atom-computing.png" w="60%" rounded-lg/>
 </div>
 
 <p>
@@ -774,11 +774,11 @@ Quantum hardware is first of all an exercise in precise control
 
 <div grid="~ cols-2" m-y-8 class="children:(flex-(~ justify-center) gap-sm children:(rounded-xl w-80%))">
   <div>
-    <img src="/assets/bit-ops.png"/>
+    <img src="/bit-ops.png"/>
   </div>
   <div>
     <div bg-white flex="~ col justify-center">
-      <img src="/assets/bloch-sphere-rotation.png" h="90%"/>
+      <img src="/bloch-sphere-rotation.png" h="90%"/>
     </div>
   </div>
 </div>
@@ -800,7 +800,7 @@ layout: full
 # The ecosystem
 
 <div flex="~ justify-center items-center" w-full h-full m-t--5>
-  <img src="/assets/qibo_ecosystem_webpage.png" h="90%"/>
+  <img src="/qibo_ecosystem_webpage.png" h="90%"/>
 </div>
 
 ---
@@ -821,7 +821,7 @@ layout: full
 
 Execution
 
-<img src="/assets/backends.svg" m="t--10"/>
+<img src="/backends.svg" m="t--10"/>
 
 ---
 
@@ -833,7 +833,7 @@ Plug the framework.
 
 Structure the integration of the various libraries.
 
-<img src="/assets/state-vector.svg"/>
+<img src="/state-vector.svg"/>
 
 Common operations are implemented once and reused (when possible).
 
@@ -843,12 +843,12 @@ Common operations are implemented once and reused (when possible).
 
 <div h="full" grid="~ cols-2" gap="sm" class="children:(flex-(~ col) gap-sm children:(rounded-md p-sm bg-white))">
   <div>
-<img src="/assets/qj_qft.svg"/>
-<img src="/assets/qj_dry_vs_sim.svg"/>
+<img src="/qj_qft.svg"/>
+<img src="/qj_dry_vs_sim.svg"/>
   </div>
   <div>
-<img src="/assets/qj_multigpu.svg"/>
-<img src="/assets/qj_evol.svg"/>
+<img src="/qj_multigpu.svg"/>
+<img src="/qj_evol.svg"/>
   </div>
 </div>
 
@@ -975,7 +975,7 @@ Benchmarks
 
 <div m-t--10 h-full w-full flex="~ justify-center items-center">
   <div bg-white rounded-xl p-2>
-    <img w-130 src="/assets/clifford.svg"/>
+    <img w-130 src="/clifford.svg"/>
   </div>
   <div absolute w-130 h-90 bg="white op-50" rounded-xl p-2 v-click="1"/>
 </div>
@@ -992,7 +992,7 @@ Optimized for observables.
 <div grid="~ cols-5" gap="lg">
 
 <div col-span-3>
-<img src="/assets/quimb-circuit.svg"/>
+<img src="/quimb-circuit.svg"/>
 </div>
 
 <div col-span-2>
@@ -1001,10 +1001,10 @@ Optimized for observables.
 
 <div m-t-15 w-full flex="~ row justify-center">
 <div w-50 h-50 bg-white rounded-3xl flex="~ justify-center items-center" p="l-5 t-2" class="children:(absolute w-50 h-50)">
-<img src="/assets/contraction.svg" v-click="[0,1]"/>
-<img src="/assets/contraction-toobad.svg" v-click="[1,2]"/>
-<img src="/assets/contraction-bad.svg" v-click="[2,3]"/>
-<img src="/assets/contraction-good.svg" v-click="[3,4]"/>
+<img src="/contraction.svg" v-click="[0,1]"/>
+<img src="/contraction-toobad.svg" v-click="[1,2]"/>
+<img src="/contraction-bad.svg" v-click="[2,3]"/>
+<img src="/contraction-good.svg" v-click="[3,4]"/>
 </div>
 </div>
 
@@ -1029,7 +1029,7 @@ beyond `opt_einsum`
 Based on singular value decomposition (SVD).
 
 <div w-full flex="~ row justify-center">
-<img src="/assets/mps.svg" h="50"/>
+<img src="/mps.svg" h="50"/>
 </div>
 
 A very frequent matrix product state (MPS).
@@ -1045,8 +1045,8 @@ But also other ansatzes are used.
 
 <div m-y-3 w-full flex="~ row justify-center">
 <div w-90 h-40 bg-white rounded-3xl flex="~ justify-center items-center" class="children:(absolute w-70 h-50)">
-<img src="/assets/tn-distribute.svg" v-click="[0,1]"/>
-<img src="/assets/tn-distributed.svg" v-click="[1,2]"/>
+<img src="/tn-distribute.svg" v-click="[0,1]"/>
+<img src="/tn-distributed.svg" v-click="[1,2]"/>
 </div>
 </div>
 
@@ -1077,7 +1077,7 @@ clicks: 1
 # QiboTN
 
 <div w="full" flex="~ row justify-center">
-<img w="80%" bg="white" p="5 t-2" rounded="lg" src="/assets/qibotn.png"/>
+<img w="80%" bg="white" p="5 t-2" rounded="lg" src="/qibotn.png"/>
 <div absolute w-170 h-103 bg="white op-50" rounded-xl p-2 v-click="1"/>
 </div>
 <p absolute top="55%" left="25%" text-15 font-600 rotate--30 c-red-700 v-click="1">Work in progress</p>
@@ -1165,7 +1165,7 @@ pre {
 
 ---
 layout: image-left
-image: /assets/qrc-lab.png
+image: /qrc-lab.png
 ---
 
 
@@ -1187,7 +1187,7 @@ Quantum control
 
 
 <div flex="~ justify-center" w-full h="90%">
-  <img src="/assets/qc-exec-flow.jpg" rounded/>
+  <img src="/qc-exec-flow.jpg" rounded/>
 </div>
 
 
@@ -1364,7 +1364,7 @@ suitable server, to optimize the communication with the board.
 
 </div>
 <div flex="~ col items-center">
-  <img src="/assets/qs-comm.svg" w="80%" p-sm rounded bg-white/>
+  <img src="/qs-comm.svg" w="80%" p-sm rounded bg-white/>
 </div>
 </div>
 
@@ -1379,8 +1379,8 @@ in collaboration with **INFN-UNIMIB-BIQUTE**
 # [Platform dashboard](http://login.qrccluster.com:10000/)
 
 <div h-full p-lg flex="~ col justify-center" gap="lg" class="children:(w-full p-lg rounded-lg bg-#111217)">
-  <img src="/assets/dashboard.png"/>
-  <img src="/assets/dashboard-slurm.png"/>
+  <img src="/dashboard.png"/>
+  <img src="/dashboard-slurm.png"/>
 </div>
 
 ---
@@ -1390,7 +1390,7 @@ in collaboration with **INFN-UNIMIB-BIQUTE**
 A due mention
 
 <div flex="~ justify-center" h="full">
-  <img src="/assets/qq_qibocal.svg" h="80%"/>
+  <img src="/qq_qibocal.svg" h="80%"/>
 </div>
 
 ---
@@ -1399,7 +1399,7 @@ layout: full
 
 <div grid="~ cols-7">
   <div flex="~ justify-center" m-t--5 h-full col-span-5>
-    <img src="/assets/protocols.png"/>
+    <img src="/protocols.png"/>
   </div>
 <div col-span-2 flex="~ col justify-around items-center">
 
@@ -1534,13 +1534,13 @@ QPU control implementation
 layout: none
 ---
 
-<img src="/assets/reports.png" h-full w-full/>
+<img src="/reports.png" h-full w-full/>
 
 ---
 layout: none
 ---
 
-<img src="/assets/reports-fano.png" h-full w-full/>
+<img src="/reports-fano.png" h-full w-full/>
 
 ---
 
@@ -1548,32 +1548,32 @@ layout: none
 
 <div flex="~ wrap gap-10 gap-y-5" m-t-10 m-l-5 class="children:(w-32 h-32 rounded-full)">
 <div flex="~ justify-center items-center">
-  <img src="/assets/stefano.png" w-40 h-40 absolute/>
+  <img src="/stefano.png" w-40 h-40 absolute/>
 </div>
-<img src="/assets/stavros.png"/>
-<img src="/assets/sergi.png"/>
-<img src="/assets/andrea.png"/>
-<img src="/assets/edoardo.png"/>
-<img src="/assets/paul.png"/>
-<img src="/assets/alvaro.png"/>
-<img src="/assets/david.png"/>
-<img src="/assets/juan.png"/>
-<img src="/assets/rodolfo.jpg"/>
-<img src="/assets/renato.png"/>
+<img src="/stavros.png"/>
+<img src="/sergi.png"/>
+<img src="/andrea.png"/>
+<img src="/edoardo.png"/>
+<img src="/paul.png"/>
+<img src="/alvaro.png"/>
+<img src="/david.png"/>
+<img src="/juan.png"/>
+<img src="/rodolfo.jpg"/>
+<img src="/renato.png"/>
 <div flex="~ justify-center items-center">
-  <img src="/assets/andrea-pap.png" w-28 h-28 rounded-full/>
-</div>
-<div flex="~ justify-center items-center">
-  <img src="/assets/matteo.jpg" w-24 h-24 rounded-full/>
+  <img src="/andrea-pap.png" w-28 h-28 rounded-full/>
 </div>
 <div flex="~ justify-center items-center">
-  <img src="/assets/simone.png" w-20 h-20/>
+  <img src="/matteo.jpg" w-24 h-24 rounded-full/>
 </div>
 <div flex="~ justify-center items-center">
-  <img src="/assets/gabriele.png" w-17 h-17/>
+  <img src="/simone.png" w-20 h-20/>
+</div>
+<div flex="~ justify-center items-center">
+  <img src="/gabriele.png" w-17 h-17/>
 </div>
 <!-- <div flex="~ justify-center items-center"> -->
-<!--   <img src="/assets/alejandro.jpg" w-14 h-14 rounded-full/> -->
+<!--   <img src="/alejandro.jpg" w-14 h-14 rounded-full/> -->
 <!-- </div> -->
 </div>
 

@@ -1,7 +1,7 @@
 <script setup>
 const props = defineProps(["src"]);
 
-let path = "/assets/" + props.src;
+let path = "/" + props.src;
 </script>
 
 <template>
