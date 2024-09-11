@@ -415,9 +415,10 @@ Multi-qubit gates allow entangling states
 <div text-size-5xl bg-indigo-200 dark:bg-indigo-800 transform-skew-x-30 w-50>
   <h1 skew-x--30 w-100>Measurement</h1>
 </div>
-<h1/>
 
-The non-unitary gate *that you have*
+<p opacity-50>
+  The non-unitary gate <span italic>that you have</span>
+</p>
 
 <div m-l-10>
 Measurements are special gates, in two ways:
@@ -429,6 +430,8 @@ Measurements are special gates, in two ways:
 
 </div>
 </div>
+
+
 <div m-x-30 m-y-5 rounded shadow-xl shadow-gray-300 dark:shadow-gray-700>
   <h4 
     rounded-t p-1 p-x-5 z-1 relative
@@ -449,9 +452,9 @@ times identically, performing many *shots*.
 </div>
 
 </div>
-<div>
-  <white-image src="frequencies.png" p-0 h-50 rounded="0! br!"/>
-</div>
+      <div>
+        <white-image src="frequencies.png" p-0 h-50 rounded="0! br!"/>
+      </div>
     </div>
   </div>
 </div>
@@ -1086,8 +1089,7 @@ clicks: 1
 \-- the bridge to hardware
 
 <div grid="~ rows-2 cols-2 gap-xs" w-full h-95
-  class="children:(p-2 bg-opacity-30 rounded-lg)
-  ">
+  class="children:(p-2 bg-opacity-30 rounded-lg)">
 <div bg-red>
 <h2 bg-red>Optimization</h2>
 
@@ -1103,7 +1105,7 @@ q: ┤ H ├┤ H ├┤ H ├  =  ┤ H ├
   </div>
   <div bg-orange>
     <h2 bg-orange>Routing</h2>
-<div m-t-3 w="100%" flex="~ justify-center items-center">
+<div m-t-6 w="100%" flex="~ justify-center items-center">
 
 ````js
                           q0: ──■──     ─X──────
@@ -1121,7 +1123,7 @@ q: ┤ H ├┤ H ├┤ H ├  =  ┤ H ├
 
 Final assembly *lowering*.
 
-<div m-t-4 w="100%" flex="~ justify-center items-center">
+<div m-t-5 w="100%" flex="~ justify-center items-center">
 
 ````js
    ┌───┐     ┌───┐┌───────────┐
@@ -1151,6 +1153,13 @@ q: ┤ H ├  =  ┤ Z ├┤ GPI2(π/2) ├
 .grid h2 {
   font-variant: small-caps;
   @apply text-lg p-x-4 bg-opacity-50 rounded
+}
+code {
+  line-height: 1.25;
+}
+pre {
+  line-height: 0 !important;
+  box-shadow: 3px 3px 7px #8884
 }
 </style>
 
@@ -1227,7 +1236,7 @@ hardware, and these are defined by <span underline>Qibolab</span>.
 
 </div>
 <div col-start-1>
-    <white-image src="sequence.png" p-y-0 p-x-10 m-t--6 h-40 w-fit/>
+    <white-image src="sequence.png" p-y-0 p-x-5 m-l-5 m-t--4 h-36 w-fit/>
 </div>
 <div row-span-3 row-start-1 col-start-2>
 
@@ -1405,12 +1414,86 @@ layout: full
 
 ---
 
-# Basic examples
+# Pulses' calibration
 
-Finding frequencies: spectroscopies | Calibrate the pi-pulse: Rabi
+<div grid="~ cols-2 gap-sm" h-110
+  class="children:(w-full h-full p-2 rounded-sm bg-opacity-30
+  flex-(~ col justify-between)
+  )">
+  <div bg-indigo>
+    <h2 bg-indigo>Resonator spectroscopy</h2>
 
-(possibly with pictures: a scan/sweep pictorial representation for the first, the bloch
-sphere for the second)
+<div w-full flex="~ justify-center">
+<div w-fit>
+
+````js
+               ┌───────┐                       
+probe       : ─┤ Pulse ├───────────   
+               └───────┘                          ┌───┐
+                                      =  readout: ┤ M ├
+                 ┌───────────────┐                └───┘
+acquisition : ───┤  Acquisition  ├─
+                 └───────────────┘
+````
+
+</div>
+</div>
+
+<div p-x-4 text-sm>
+
+Scan spectrum to identify the coupled resonator frequency.
+
+</div>
+
+<div p-2 w-full>
+<white-image class="report" src="resonator_spectroscopy.png" w-full p-2 rounded="lg!"/>
+</div>
+
+</div>
+  <div bg-violet>
+    <h2 bg-violet>Rabi</h2>
+<div w-full flex="~ justify-center">
+<div w-fit>
+
+````js
+            ┌───────┐                       
+ drive   : ─┤ Pulse ├────────────────────────
+            └───────┘              
+                    ┌──────────────────────┐    
+ readout : ─────────┤           M          ├─
+                    └──────────────────────┘
+````
+
+</div>
+</div>
+
+<div p-x-5 text-sm>
+
+Tune the amplitude (duration) of the drive pulse, in order to excite the qubit from the
+ground state up to state $\ket{1}$.
+
+</div>
+
+<div p-2 w-full>
+<white-image class="report" src="rabi_length.png" w-full p-2 rounded="lg!"/>
+</div>
+
+</div>
+</div>
+
+<style>
+.grid h2 {
+  font-variant: small-caps;
+  @apply text-lg p-x-4 m-b-3 bg-opacity-50 rounded;
+}
+code {
+  line-height: 1.25;
+}
+pre, .report {
+  line-height: 0 !important;
+  box-shadow: 3px 5px 7px #8884;
+}
+</style>
 
 ---
 
