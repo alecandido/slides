@@ -1544,7 +1544,7 @@ layout: none
 
 ---
 
-# *--- Not a one-man show...*
+<h1 text="2xl!" italic p-l-15>&#9886; Not a one-man show...</h1>
 
 <div flex="~ wrap gap-10 gap-y-5" m-t-10 m-l-5 class="children:(w-32 h-32 rounded-full)">
 <div flex="~ justify-center items-center">
