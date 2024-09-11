@@ -1,7 +1,7 @@
 <script setup>
 const props = defineProps(["src"]);
 
-let path = "/" + props.src;
+let path = import.meta.env.BASE_URL + props.src;
 </script>
 
 <template>
